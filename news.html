@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arcadia - News</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function addNews() {
+            let title = prompt("Enter news title:");
+            let date = new Date().toLocaleDateString();
+            let content = prompt("Enter news content:");
+            
+            if (title && content) {
+                let newsSection = document.getElementById("news-section");
+                let article = document.createElement("article");
+                article.innerHTML = `
+                    <h2>${title}</h2>
+                    <p><strong>Date:</strong> ${date}</p>
+                    <p>${content}</p>
+                    <hr>
+                `;
+                newsSection.prepend(article);
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -22,19 +41,20 @@
     </header>
     
     <main>
-        <section class="news">
+        <button onclick="addNews()">Add News</button>
+        <section id="news-section" class="news">
             <article>
                 <h2>News Headline 1</h2>
                 <p><strong>Date:</strong> February 28, 2025</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut orci a justo cursus fringilla.</p>
-                <a href="#">Read more</a>
+                <hr>
             </article>
             
             <article>
                 <h2>News Headline 2</h2>
                 <p><strong>Date:</strong> February 20, 2025</p>
                 <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
-                <a href="#">Read more</a>
+                <hr>
             </article>
         </section>
     </main>
