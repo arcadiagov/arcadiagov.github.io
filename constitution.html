@@ -9,42 +9,72 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
-            text-align: center;
-            padding: 20px;
+            color: #333;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
+
+        header {
+            background-color: #2C3E50;
+            color: #fff;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: left;
-            display: none;
-        }
-        h1 {
-            color: #2c3e50;
             text-align: center;
         }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
         nav {
-            margin-bottom: 20px;
+            background-color: #34495E;
+            padding: 10px;
             text-align: center;
         }
+
         nav a {
-            margin: 0 15px;
+            color: white;
             text-decoration: none;
-            color: #2980b9;
-            font-weight: bold;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 4px;
         }
-        pre {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            text-align: left;
+
+        nav a:hover {
+            background-color: #1ABC9C;
         }
-        .password-container {
+
+        .container {
+            padding: 20px;
+        }
+
+        .intro, .governance, .news {
+            margin-bottom: 40px;
+        }
+
+        .intro img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .intro h2, .governance h2, .news h2 {
+            color: #2C3E50;
+        }
+
+        .footer {
+            background-color: #34495E;
+            color: white;
+            padding: 10px;
             text-align: center;
-            margin-top: 50px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
     </style>
     <script>
