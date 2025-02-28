@@ -3,42 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Micronation Index Card</title>
+    <title>Arcadia Constitution</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             text-align: center;
-            padding: 50px;
+            padding: 20px;
         }
-        .card {
+        .container {
+            max-width: 800px;
+            margin: auto;
             background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            margin: auto;
-        }
-        .flag {
-            width: 100%;
-            border-radius: 5px;
+            text-align: left;
+            display: none;
         }
         h1 {
-            font-size: 24px;
+            color: #2c3e50;
+            text-align: center;
         }
-        p {
-            font-size: 16px;
+        nav {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            text-align: left;
+        }
+        .password-container {
+            text-align: center;
+            margin-top: 50px;
         }
     </style>
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            var correctPassword = "arcadia.power"; // Change this to your desired password
+            if (password === correctPassword) {
+                document.getElementById("password-container").style.display = "none";
+                document.getElementById("constitution-container").style.display = "block";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+    </script>
 </head>
 <body>
-    <div class="card">
-        <img src="https://via.placeholder.com/350x150" alt="Micronation Flag" class="flag">
-        <h1>Republic of Example</h1>
-        <p><strong>Founded:</strong> 2025</p>
-        <p><strong>Capital:</strong> Example City</p>
-        <p><strong>Motto:</strong> "Unity and Strength"</p>
-        <p><strong>Population:</strong> 100 Citizens</p>
+    <div class="password-container" id="password-container">
+        <h2>Enter Password to View the Constitution</h2>
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+    <div class="container" id="constitution-container">
+        <h1>Constitution of Arcadia</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="government.html">Government</a>
+            <a href="laws.html">Laws</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="citizenship.html">Citizenship</a>
+            <a href="diplomacy.html">Diplomacy</a>
+            <a href="news.html">News</a>
+        </nav>
+        <pre>
+Constitution of Arcadia
+Article 1: Government
+Section 1: Executive and Legislative Power
+Clause 1: Executive and legislative power shall be vested in the High King, the Head of State, and the High Council
+Clause 2: The High King may grant individuals legislative or executive power.
+
+Section 2: The High King
+Clause 1: The High King must be appointed by a predecessor.
+Clause 2: If the High King dies before appointing a successor, the noble in the position of Head of State will inherit that position.
+Sub-clause 1: The High King may choose to appoint a candidate that will act as the Regent for thirteen months before the Head of State assumes power.
+Clause 3: The High King cannot be unseated.
+Clause 4: The term of a High King is for life.
+Clause 5: The duties of the High King are to run the country to the best of his/her abilities.
+Clause 6: Individuals shall not be barred from any positions due to their race, religion, or age.
+Clause 7: The High King will have the power to: Coin money, control the military, control disaster relief, control intercolonial law, regulate international travel, control civilian ownership of armed vehicles and weapons, regulate intercolonial travel, regulate affairs of law, and set or abolish taxes, and declare war on any individuals, nations, or micronations.
+Clause 8: The High King does not have the power to make amendments to the Constitution without the written permission of the Head of State.
+Sub-clause 1: If there is no Head of State in office, the High King will then require the signature of two members of the High Council.
+Clause 9: The High King shall assume new powers if the situation requires them.
+Clause 10: The High King may abdicate.
+
+[... Full Constitution Continues ...]
+        </pre>
     </div>
 </body>
 </html>
+
