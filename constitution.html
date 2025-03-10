@@ -108,6 +108,12 @@
             <a href="news.html">News</a>
             <a href="index.html">home</a>
         </nav>
+        <div class="main-content">
+        <label for="password">Enter the password to access The Royal Ledger:</label>
+        <input type="password" id="password" class="password-input" placeholder="Enter password">
+        <p class="error">Incorrect password. Please try again.</p>
+        <button onclick="checkPassword()">Submit</button>
+    </div>
         <pre>
 Constitution of Arcadia
 Article 1: Government
@@ -132,6 +138,21 @@ Clause 10: The High King may abdicate.
 [... Full Constitution Continues ...]
         </pre>
     </div>
+    <script>
+    function checkPassword() {
+        var enteredPassword = document.getElementById("password").value;
+        var correctPassword = "arcadia.power"; // Modify this to your desired password
+        var errorMessage = document.querySelector(".error");
+        var ledgerContent = document.getElementById("ledgerContent");
+ 
+        if (enteredPassword === correctPassword) {
+            errorMessage.style.display = "none";
+            ledgerContent.style.display = "block";
+        } else {
+            errorMessage.style.display = "block";
+        }
+    }
+</script>
 </body>
 </html>
 
