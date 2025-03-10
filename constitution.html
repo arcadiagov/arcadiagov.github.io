@@ -6,77 +6,54 @@
     <title>Arcadia Constitution</title>
      <title>Password Input</title>
     <link rel="stylesheet" href="style.css">
-    <style>
+   <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
         }
-
-        header {
-            background-color: #2C3E50;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
-
-        nav {
-            background-color: #34495E;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
+        .header {
+            background-color: #4C4C9B;
             color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 4px;
+            padding: 15px 0;
+            text-align: center;
         }
-
-        nav a:hover {
-            background-color: #1ABC9C;
-        }
-
-        .container {
+        .main-content {
             padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-
-        .intro, .governance, .news {
-            margin-bottom: 40px;
+        .password-input {
+            margin: 30px 0;
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
-
-        .intro img {
-            max-width: 100%;
-            height: auto;
+        .error {
+            color: red;
+            font-weight: bold;
+            display: none;
         }
-
-        .intro p {
-            font-size: 18px;
+        .content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .content h1 {
+            text-align: center;
+            color: #4C4C9B;
+        }
+        .content p {
             line-height: 1.6;
         }
-
-        .intro h2, .governance h2, .news h2 {
-            color: #2C3E50;
-        }
-
-        .footer {
-            background-color: #34495E;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
     </style>
+has context menu
     <script>
         function checkPassword() {
             var password = document.getElementById("password").value;
