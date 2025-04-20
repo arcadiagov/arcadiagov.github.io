@@ -5,25 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arcadia - News</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        function addNews() {
-            let title = prompt("Enter news title:");
-            let date = new Date().toLocaleDateString();
-            let content = prompt("Enter news content:");
-            
-            if (title && content) {
-                let newsSection = document.getElementById("news-section");
-                let article = document.createElement("article");
-                article.innerHTML = `
-                    <h2>${title}</h2>
-                    <p><strong>Date:</strong> ${date}</p>
-                    <p>${content}</p>
-                    <hr>
-                `;
-                newsSection.prepend(article);
-            }
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -36,30 +17,45 @@
                 <li><a href="laws.html">Laws</a></li>
                 <li><a href="constitution.html">Constitution</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="contact.html">Acts and Government Legislation</a></li>
+                <li><a href="acts.html">Acts and Government Legislation</a></li>
             </ul>
         </nav>
     </header>
-    
+
     <main>
-        <button onclick="addNews()">Add News</button>
         <section id="news-section" class="news">
             <article>
-                <h2>News Headline 1</h2>
-                <p><strong>Date:</strong> February 28, 2025</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut orci a justo cursus fringilla.</p>
+                <h2>Arcadia Joins the Great Gheetan Empire</h2>
+                <p><strong>Date:</strong> April 20, 2025</p>
+                <p>In a historic move, the Kingdom of Arcadia has officially joined the Great Gheetan Empire under the Treaty of Eternal Union. The treaty, which was ratified by both parties earlier this month, ensures mutual cooperation, cultural exchange, and a unified stance on defense and economic development.</p>
+                <p>High King Alaric declared this moment "a new dawn for Arcadia," emphasizing the benefits of a strong alliance with the Empire. Citizens can expect changes in intercolonial governance, streamlined trade agreements, and increased infrastructural investment throughout the realm.</p>
                 <hr>
             </article>
-            
+
             <article>
-                <h2>News Headline 2</h2>
-                <p><strong>Date:</strong> February 20, 2025</p>
-                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+                <h2>New Acts Proposed by the Government</h2>
+                <p><strong>Date:</strong> April 18, 2025</p>
+                <p>Following Arcadia’s accession to the Gheetan Empire, the High Council has begun drafting a series of legislative acts aimed at aligning Arcadian policy with imperial standards. These acts will address trade regulation, intercolonial transportation, and civil rights protections under the new union.</p>
+                <p>The legislative process is expected to include a public commentary period, ensuring transparency and civic participation in shaping the new legal framework.</p>
+                <hr>
+            </article>
+
+            <article>
+                <h2>Arcadian Cultural Festival Announced</h2>
+                <p><strong>Date:</strong> March 30, 2025</p>
+                <p>The Ministry of Culture has announced a week-long cultural festival to celebrate Arcadian heritage and its new relationship with the Great Gheetan Empire. Events will include traditional music, cuisine, art exhibitions, and forums on the future of Arcadian identity in a broader imperial context.</p>
+                <hr>
+            </article>
+
+            <article>
+                <h2>Royal Archives Digitization Project Underway</h2>
+                <p><strong>Date:</strong> March 10, 2025</p>
+                <p>The Royal Archivist’s office has launched an ambitious digitization initiative to preserve Arcadia’s historical records. The project will ensure that key documents—including the Constitution and foundational charters—are accessible to all citizens through the government website.</p>
                 <hr>
             </article>
         </section>
     </main>
-    
+
     <footer>
         <p>&copy; 2025 Arcadia. All rights reserved.</p>
     </footer>
