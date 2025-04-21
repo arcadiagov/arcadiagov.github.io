@@ -2465,5 +2465,69 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
         clearTimeout(sessionTimeout);
     };
 </script>
+     <!-- High Security Clearance Request Section -->
+    <div id="highSecurityRequest">
+        <h3>Request High Security Clearance</h3>
+        <p>If you require High Security Clearance to access more sensitive information, please fill out the form below.</p>
+
+        <form action="https://formsubmit.co/governementofarcadia@gmail.com" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Official Email Address:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="reason">Reason for High Security Clearance Request:</label><br>
+            <textarea id="reason" name="reason" rows="4" cols="50" required></textarea><br><br>
+
+            <input type="hidden" name="_subject" value="High Security Clearance Request">
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+
+            <button type="submit">Submit Request</button>
+        </form>
+    </div>
+
+    <!-- Styling for the form -->
+    <style>
+        #highSecurityRequest {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #highSecurityRequest h3 {
+            font-size: 1.5rem;
+            color: #2C3E50;
+        }
+        #highSecurityRequest label {
+            font-weight: bold;
+        }
+        #highSecurityRequest input, #highSecurityRequest textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #highSecurityRequest button {
+            background-color: #2C3E50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #highSecurityRequest button:hover {
+            background-color: #34495E;
+        }
+    </style>
+
+    <script>
+        // Your existing scripts here
+    </script>
 </body>
 </html>
+
+
