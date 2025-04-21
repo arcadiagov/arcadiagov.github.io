@@ -40,16 +40,114 @@
        
       <section id="continuity">
   <h2>Government Continuity Protocols</h2>
-  <p>
-    <strong>Activation codes and contingencies for government continuity during crisis scenarios include the following:</strong>
-  </p>
-  <ul>
-    <li><strong>Protocol Aegis:</strong> Initiated upon confirmed incapacitation of central leadership. Empowers regional governors to assume executive functions under oath-bound guidance of the Constitution of Arcadia.</li>
-    <li><strong>Activation Code Omega-9:</strong> Triggers secure communication networks and encrypted satellite channels for uninterrupted inter-governmental coordination.</li>
-    <li><strong>Directive Nightglass:</strong> Automatically mobilizes loyalist forces to protect key infrastructure and preserve national archives in fortified vaults.</li>
-    <li><strong>Shadow Protocol:</strong> Engages the Arcadian Emergency Council, allowing rapid deployment of classified assets and invoking temporary suspension of non-critical operations for national focus.</li>
-    <li><strong>Continuity Beacon System:</strong> Broadcasts encrypted fail-safe codes to all provincial leadership centers to synchronize emergency authority structures and ensure lawful succession.</li>
-  </ul>
+
+  <!-- Section 1 -->
+  <div>
+    <h3 onclick="toggleSection('section1')">🔐 Protocol Aegis</h3>
+    <div id="section1-password" style="display:block;">
+      <input type="password" id="password1" placeholder="Enter password for Protocol Aegis" />
+      <button onclick="checkSectionPassword('1', 'AegisSecure2025')">Submit</button>
+    </div>
+    <div id="section1-content" style="display:none;">
+      <p>Initiated upon confirmed incapacitation of central leadership. Empowers regional governors to assume executive functions under oath-bound guidance of the Constitution of Arcadia.</p>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div>
+    <h3 onclick="toggleSection('section2')">🔐 Activation Code Omega-9</h3>
+    <div id="section2-password" style="display:block;">
+      <input type="password" id="password2" placeholder="Enter password for Omega-9" />
+      <button onclick="checkSectionPassword('2', 'OmegaSecure2025')">Submit</button>
+    </div>
+    <div id="section2-content" style="display:none;">
+      <p>Triggers secure communication networks and encrypted satellite channels for uninterrupted inter-governmental coordination.</p>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div>
+    <h3 onclick="toggleSection('section3')">🔐 Directive Nightglass</h3>
+    <div id="section3-password" style="display:block;">
+      <input type="password" id="password3" placeholder="Enter password for Nightglass" />
+      <button onclick="checkSectionPassword('3', 'Nightglass2025')">Submit</button>
+    </div>
+    <div id="section3-content" style="display:none;">
+      <p>Automatically mobilizes loyalist forces to protect key infrastructure and preserve national archives in fortified vaults.</p>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div>
+    <h3 onclick="toggleSection('section4')">🔐 Shadow Protocol</h3>
+    <div id="section4-password" style="display:block;">
+      <input type="password" id="password4" placeholder="Enter password for Shadow Protocol" />
+      <button onclick="checkSectionPassword('4', 'ShadowKey2025')">Submit</button>
+    </div>
+    <div id="section4-content" style="display:none;">
+      <p>Engages the Arcadian Emergency Council, allowing rapid deployment of classified assets and invoking temporary suspension of non-critical operations for national focus.</p>
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <div>
+    <h3 onclick="toggleSection('section5')">🔐 Continuity Beacon System</h3>
+    <div id="section5-password" style="display:block;">
+      <input type="password" id="password5" placeholder="Enter password for Beacon System" />
+      <button onclick="checkSectionPassword('5', 'BeaconAccess2025')">Submit</button>
+    </div>
+    <div id="section5-content" style="display:none;">
+      <p>Broadcasts encrypted fail-safe codes to all provincial leadership centers to synchronize emergency authority structures and ensure lawful succession.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function checkSectionPassword(sectionNumber, correctPassword) {
+    const input = document.getElementById(`password${sectionNumber}`).value;
+    if (input === correctPassword) {
+      document.getElementById(`section${sectionNumber}-password`).style.display = "none";
+      document.getElementById(`section${sectionNumber}-content`).style.display = "block";
+    } else {
+      alert("Incorrect password for this section.");
+    }
+  }
+
+  function toggleSection(sectionId) {
+    const content = document.getElementById(`${sectionId}-content`);
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  }
+</script>
+
+</body>
+</html>
+<!-- ultra-clearance.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultra Security Clearance - Arcadia</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 2rem;
+        }
+        #secureContent {
+            background-color: #333;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+    </style>
+
   <p>
     These protocols are reviewed bi-annually by the High Council and are designed to preserve the sovereignty, leadership integrity, and operational continuity of the Kingdom of Arcadia under extreme duress.
   </p>
