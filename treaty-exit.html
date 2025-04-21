@@ -29,22 +29,13 @@
             cursor: pointer;
         }
     </style>
-    <!-- Include the crypto-js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1-crypto-js.js"></script>
 </head>
 <body>
     <div id="passwordPrompt">
         <h2>🔐 Restricted Access</h2>
         <p>Enter password to access Treaty Exit Protocols:</p>
         <input type="password" id="pagePassword" placeholder="Enter password">
-        <button onclick="checkFirstPassword()">Submit</button>
-    </div>
-
-    <div id="passwordPrompt2" style="display:none;">
-        <h2>🔐 Second Password Required</h2>
-        <p>Enter the second password to decrypt content:</p>
-        <input type="password" id="pagePassword2" placeholder="Enter second password">
-        <button onclick="checkSecondPassword()">Submit</button>
+        <button onclick="checkPassword()">Submit</button>
     </div>
 
     <div id="protectedContent">
@@ -97,40 +88,23 @@
     </div>
 
     <script>
-        // AES encryption key and initialization vector (IV)
-        const encryptionKey = "supersecretkey123"; // The encryption key used for AES
-        const iv = CryptoJS.enc.Utf8.parse('1234567890123456'); // 16 bytes IV
-
-        // The encrypted content (replace the content in this string with your actual encrypted content)
-        const encryptedContent = "U2FsdGVkX1+h3V7Xvf79yG4mLUc0rZIsS8g2gs+8IuM="; // Encrypted version of your content (example)
-
-        function checkFirstPassword() {
+        function checkPassword() {
             const password = document.getElementById("pagePassword").value;
-            if (password === "IndependanceFreedom25") {
+            if (password === "FreedomLiberty2025!") {
                 document.getElementById("passwordPrompt").style.display = "none";
-                document.getElementById("passwordPrompt2").style.display = "block";
-            } else {
-                alert("Incorrect password. Access denied.");
-                window.location.href = "index.html";
-            }
-        }
-
-        function checkSecondPassword() {
-            const password = document.getElementById("pagePassword2").value;
-            if (password === "HighKing25") {
-                // Decrypt content with AES
-                const decryptedData = CryptoJS.AES.decrypt(encryptedContent, encryptionKey, { iv: iv });
-                const decryptedText = decryptedData.toString(CryptoJS.enc.Utf8);
-
-                // Display the decrypted content
-                document.getElementById("passwordPrompt2").style.display = "none";
-                document.getElementById("protectedContent").innerHTML = decryptedText;
                 document.getElementById("protectedContent").style.display = "block";
+
+                // Set a timeout to redirect after 30 seconds
+                setTimeout(function() {
+                    alert("Session expired. You will be redirected.");
+                    window.location.href = "index.html"; // Redirect to home
+                }, 30000); // 30,000 ms = 30 seconds
             } else {
                 alert("Incorrect password. Access denied.");
-                window.location.href = "index.html";
+                window.location.href = "index.html"; // Redirect to home if wrong password
             }
         }
     </script>
 </body>
 </html>
+
