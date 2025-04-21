@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treaty Exit Protocols - Arcadia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 2rem;
+        }
+        #protectedContent {
+            display: none;
+            background-color: #333;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        input[type="password"] {
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+        }
+    </style>
+    <!-- Include the crypto-js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1-crypto-js.js"></script>
+</head>
+<body>
+    <div id="passwordPrompt">
+        <h2>🔐 Restricted Access</h2>
+        <p>Enter password to access Treaty Exit Protocols:</p>
+        <input type="password" id="pagePassword" placeholder="Enter password">
+        <button onclick="checkFirstPassword()">Submit</button>
+    </div>
+
+    <div id="passwordPrompt2" style="display:none;">
+        <h2>🔐 Second Password Required</h2>
+        <p>Enter the second password to decrypt content:</p>
+        <input type="password" id="pagePassword2" placeholder="Enter second password">
+        <button onclick="checkSecondPassword()">Submit</button>
+    </div>
+
+    <div id="protectedContent">
+        <h1>🛡️ Treaty Exit Strategy and Sovereignty Assertion</h1>
+
+        <h2>📜 Declaration of Sovereignty</h2>
+        <p>
+            We, the representatives of the Kingdom of Arcadia, declare the unilateral and irrevocable withdrawal from the Treaty of Eternal Union. 
+            The Kingdom of Arcadia henceforth exercises full sovereign authority, political independence, and strategic autonomy in all realms of governance.
+        </p>
+
+        <h2>🚫 Non-Recognition of Gheetan Authority</h2>
+        <p>
+            All organs, officials, and institutions of the Great Gheetan Empire are henceforth considered foreign entities without authority over Arcadian affairs. 
+            Any imposition of will by Gheetan agents will be treated as hostile interference.
+        </p>
+
+        <h2>📣 Address to the High Council</h2>
+        <p>
+            Esteemed Councilors,
+            <br>
+            In defense of Arcadia’s founding principles and sacred sovereignty, I inform you that the Kingdom has severed all ties with the Great Gheetan Empire.
+            All council members are to affirm loyalty to Arcadia’s independence and uphold this new path of freedom and unity.
+        </p>
+
+        <h2>🤝 Communication to Allied Nations</h2>
+        <p>
+            Allies and Friends of Arcadia,
+            <br>
+            With solemn resolve, we announce our independence from the Gheetan Empire. We remain committed to peaceful cooperation, regional stability, and shared prosperity.
+            We call upon your support in defending our liberty and recognizing our sovereign status.
+        </p>
+
+        <h2>⚔️ Formal Declaration of War Against Gheetan</h2>
+        <p>
+            Let it be known: the Kingdom of Arcadia declares a state of war against the Great Gheetan Empire in response to its violations of our sovereignty and encroachments upon our autonomy.
+            This declaration shall stand until the full restoration of Arcadian independence and territorial integrity.
+        </p>
+
+        <h2>🪖 Loyalist Mobilization Instructions</h2>
+        <ul>
+            <li>Activate all regional command centers and place forces on highest alert.</li>
+            <li>Deploy the Royal Guard to strategic chokepoints and national archives.</li>
+            <li>Secure all communication and transportation hubs.</li>
+            <li>Neutralize foreign agents and protect civilian infrastructure.</li>
+            <li>Initiate Operation Iron Resolve: coordinated defense maneuvers across all loyal provinces.</li>
+        </ul>
+
+        <p><strong>Note:</strong> This document is classified. Unauthorized disclosure is punishable under the Arcadian Treason Act of 2025.</p>
+    </div>
+
+    <script>
+        // AES encryption key and initialization vector (IV)
+        const encryptionKey = "supersecretkey123"; // The encryption key used for AES
+        const iv = CryptoJS.enc.Utf8.parse('1234567890123456'); // 16 bytes IV
+
+        // The encrypted content (replace the content in this string with your actual encrypted content)
+        const encryptedContent = "U2FsdGVkX1+h3V7Xvf79yG4mLUc0rZIsS8g2gs+8IuM="; // Encrypted version of your content (example)
+
+        function checkFirstPassword() {
+            const password = document.getElementById("pagePassword").value;
+            if (password === "IndependanceFreedom25") {
+                document.getElementById("passwordPrompt").style.display = "none";
+                document.getElementById("passwordPrompt2").style.display = "block";
+            } else {
+                alert("Incorrect password. Access denied.");
+                window.location.href = "index.html";
+            }
+        }
+
+        function checkSecondPassword() {
+            const password = document.getElementById("pagePassword2").value;
+            if (password === "HighKing25") {
+                // Decrypt content with AES
+                const decryptedData = CryptoJS.AES.decrypt(encryptedContent, encryptionKey, { iv: iv });
+                const decryptedText = decryptedData.toString(CryptoJS.enc.Utf8);
+
+                // Display the decrypted content
+                document.getElementById("passwordPrompt2").style.display = "none";
+                document.getElementById("protectedContent").innerHTML = decryptedText;
+                document.getElementById("protectedContent").style.display = "block";
+            } else {
+                alert("Incorrect password. Access denied.");
+                window.location.href = "index.html";
+            }
+        }
+    </script>
+</body>
+</html>
