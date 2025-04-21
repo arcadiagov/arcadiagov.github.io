@@ -5,12 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kingdom of Arcadia</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .symbols {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin: 20px 0;
+    }
+    .symbols img {
+      max-width: 200px;
+      height: auto;
+      border: 2px solid #2C3E50;
+      border-radius: 8px;
+      background-color: white;
+      padding: 5px;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Welcome to the Kingdom of Arcadia</h1>
-   <nav>
-    <ul>
+    <div class="symbols">
+      <img src="flag.png" alt="Flag of Arcadia">
+      <img src="crest.png" alt="Crest of Arcadia">
+    </div>
+    <nav>
+      <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="governance.html">Governance</a></li>
@@ -18,8 +39,8 @@
         <li><a href="contact.html">Contact</a></li>
         <li><a href="constitution.html">Constitution</a></li>
         <li><a href="acts.html">Acts of Arcadia</a></li>
-    </ul>
-</nav>
+      </ul>
+    </nav>
   </header>
 
   <main>
