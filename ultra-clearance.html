@@ -1,4 +1,3 @@
-<!-- ultra-clearance.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,13 +102,29 @@
 </section>
 
 <script>
+  let failedAttempt = false;
+
   function checkSectionPassword(sectionNumber, correctPassword) {
     const input = document.getElementById(`password${sectionNumber}`).value;
+
+    // HighKing25 skeleton password to unlock all sections
+    if (input === "HighKing25") {
+      document.getElementById(`section${sectionNumber}-password`).style.display = "none";
+      document.getElementById(`section${sectionNumber}-content`).style.display = "block";
+      return;
+    }
+
     if (input === correctPassword) {
       document.getElementById(`section${sectionNumber}-password`).style.display = "none";
       document.getElementById(`section${sectionNumber}-content`).style.display = "block";
     } else {
       alert("Incorrect password for this section.");
+      failedAttempt = true;
+    }
+
+    // Redirect if there's a failed attempt
+    if (failedAttempt) {
+      window.location.href = "index.html";
     }
   }
 
@@ -122,31 +137,6 @@
     }
   }
 </script>
-
-</body>
-</html>
-<!-- ultra-clearance.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultra Security Clearance - Arcadia</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 2rem;
-        }
-        #secureContent {
-            background-color: #333;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        }
-    </style>
 
  <p style="font-weight: bold; font-size: 1.5rem;">
     These protocols are reviewed bi-annually by the High Council and are designed to preserve the sovereignty, leadership integrity, and operational continuity of the Kingdom of Arcadia under extreme duress.
