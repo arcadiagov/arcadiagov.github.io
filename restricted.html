@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restricted Access - Arcadia</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 2rem;
+        }
+        #content {
+            display: none;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #passwordPrompt {
+            text-align: center;
+        }
+        input[type="password"] {
+            padding: 10px;
+            font-size: 1rem;
+            width: 200px;
+            margin-bottom: 1rem;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #2C3E50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="passwordPrompt">
+        <h2>Restricted Access</h2>
+        <p>This page contains confidential Arcadian information. Authorized personnel only.</p>
+        <input type="password" id="passwordInput" placeholder="Enter Password">
+        <br>
+        <button onclick="checkPassword()">Access</button>
+    </div>
+
+    <div id="content">
+        <h1>Confidential Arcadian Documents</h1>
+        <h2>Constitution of Arcadia</h2>
+        <p>[Insert full Constitution of Arcadia here]</p>
+
+        <h2>Constitution of the Great Gheetan Empire</h2>
+        <p>[Insert full Constitution of the Great Gheetan Empire here]</p>
+
+        <h2>Treaty of Eternal Union</h2>
+        <p>[Insert all relevant sections of the Treaty of Eternal Union between Arcadia and the Great Gheetan Empire]</p>
+
+        <h2>Analysis and Loopholes</h2>
+        <p>[Insert legal analysis and identified loopholes here]</p>
+
+        <h2>Internal Notes</h2>
+        <p>These are high-level internal reflections and strategies regarding the union and legal structure of Arcadia.</p>
+
+        <p><strong>Note:</strong> This information is for internal governance purposes only and must not be shared without authorization of the Lord High King.</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const input = document.getElementById("passwordInput").value;
+            if (input === "arcadia2025") {
+                document.getElementById("passwordPrompt").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                alert("Incorrect password. Access denied.");
+            }
+        }
+    </script>
+</body>
+</html>
