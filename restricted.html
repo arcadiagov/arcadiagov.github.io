@@ -2368,18 +2368,37 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
         <p><strong>Note:</strong> This information is for internal governance purposes only and must not be shared without authorization of the Lord High King.</p>
     </div>
 
-   <script>
-        function checkPassword() {
-            const input = document.getElementById("passwordInput").value;
-            if (input === "arcadia2025") {
-                document.getElementById("passwordPrompt").style.display = "none";
-                document.getElementById("content").style.display = "block";
-            } else if (input === "security101") {
-                window.location.href = "secret-news.html";
-            } else {
-                alert("Incorrect password. Access denied.");
-            }
+<script>
+    let sessionTimeout;
+
+    function checkPassword() {
+        const input = document.getElementById("passwordInput").value;
+        if (input === "arcadia2025") {
+            document.getElementById("passwordPrompt").style.display = "none";
+            document.getElementById("content").style.display = "block";
+
+            // Set a timeout to prompt the user for password again after 5 minutes (300,000 ms)
+            sessionTimeout = setTimeout(function() {
+                alert("Session expired. Please log in again.");
+                resetAccess();
+            }, 300000); // 300,000 ms = 5 minutes
+        } else if (input === "security101") {
+            window.location.href = "secret-news.html";
+        } else {
+            alert("Incorrect password. Access denied.");
         }
-    </script>
+    }
+
+    function resetAccess() {
+        // Reset content visibility and show password prompt again
+        document.getElementById("content").style.display = "none";
+        document.getElementById("passwordPrompt").style.display = "block";
+    }
+
+    // Optionally, you can clear the session timeout if the user logs out or navigates away
+    window.onbeforeunload = function() {
+        clearTimeout(sessionTimeout);
+    };
+</script>
 </body>
 </html>
