@@ -2406,7 +2406,7 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
         <button type="submit">Submit Request</button>
     </form>
 </div>
-<!-- Styling (unchanged) -->
+
 <style>
     #highSecurityRequest {
         margin-top: 2rem;
@@ -2444,55 +2444,44 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
 </style>
 
 <script>
-    // Optional: You can add custom behavior for form submission, e.g., confirmation message
-    document.getElementById("securityClearanceForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        alert("Your request for High Security Clearance has been submitted. We will review it shortly.");
-        this.reset();  // Reset form after submission
-    });
-</script>
-
-<script>
-    let sessionTimeout;
-
     function checkPassword() {
         const input = document.getElementById("passwordInput").value;
 
-// Check passwords and redirect accordingly
-if (input === "security101") {
-    window.location.href = "secret-news.html";
-} else if (input === "ArcadiaMonarchy2025") {
-    window.location.href = "ultra-clearance.html";
-} else if (input === "EmergencyTreaty2025!") {
-    window.location.href = "treaty-exit.html";
-} else if (input === "EmperorLord25") {
-    window.location.href = "imperial.html";
-} else if (input === "Democracy!!!") {
-    window.location.href = "democracy.html";
-} else if (input === "arcadia2025") {
-    document.getElementById("passwordPrompt").style.display = "none";
-    document.getElementById("content").style.display = "block";
+        if (input === "security101") {
+            window.location.href = "secret-news.html";
+        } else if (input === "ArcadiaMonarchy2025") {
+            window.location.href = "ultra-clearance.html";
+        } else if (input === "EmergencyTreaty2025!") {
+            window.location.href = "treaty-exit.html";
+        } else if (input === "EmperorLord25") {
+            window.location.href = "imperial.html";
+        } else if (input === "Democracy!!!") {
+            window.location.href = "democracy.html";
+        } else if (input === "arcadia2025") {
+            document.getElementById("passwordPrompt").style.display = "none";
+            document.getElementById("content").style.display = "block";
 
-    // Set session timeout for auto-logout (optional)
-    sessionTimeout = setTimeout(function () {
-        alert("Session expired. Please log in again.");
-        resetAccess();
-    }, 300000); // 5 minutes
-} else {
-    alert("Incorrect password. Access denied.");
-}
+            sessionTimeout = setTimeout(function () {
+                alert("Session expired. Please log in again.");
+                resetAccess();
+            }, 300000); // 5 minutes
+        } else {
+            alert("Incorrect password. Access denied.");
+        }
+    }
 
     function resetAccess() {
         document.getElementById("content").style.display = "none";
         document.getElementById("passwordPrompt").style.display = "block";
     }
 
+    let sessionTimeout;
+
     window.onbeforeunload = function () {
         clearTimeout(sessionTimeout);
     };
 </script>
 
+<!-- REMOVE the JS listener that was preventing the email submission -->
 </body>
 </html>
-
-
