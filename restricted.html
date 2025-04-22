@@ -2460,11 +2460,12 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
                 window.location.href = "ultra-clearance.html";
             } else if (input === "EmergencyTreaty2025!") {
                 window.location.href = "treaty-exit.html";
-            } else {
-                alert("Incorrect password. Access denied.");
-            }
+             } else if (input === "EmperorLord25") {
+            window.location.href = "imperial.html"; // ✅ New Imperial Access
+        } else {
+            alert("Incorrect password. Access denied.");
         }
-
+    }
         function resetAccess() {
             document.getElementById("content").style.display = "none";
             document.getElementById("passwordPrompt").style.display = "block";
