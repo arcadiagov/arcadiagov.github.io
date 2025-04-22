@@ -2405,7 +2405,6 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
         <button type="submit">Submit Request</button>
     </form>
 </div>
-
 <!-- Styling (unchanged) -->
 <style>
     #highSecurityRequest {
@@ -2459,16 +2458,17 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
         const input = document.getElementById("passwordInput").value;
 
         // Check passwords and redirect accordingly
-        if (input === "security101") {
-            window.location.href = "secret-news.html";
-        } else if (input === "ArcadiaMonarchy2025") {
-            window.location.href = "ultra-clearance.html";
-        } else if (input === "EmergencyTreaty2025!") {
-            window.location.href = "treaty-exit.html";
-        } else if (input === "EmperorLord25") {
-            window.location.href = "imperial.html"; // ✅ New Imperial Access
-        } else if (input === "Democracy!!!") {
-            window.location.href = "democracy.html"; // ✅ New Democracy Access
+      if (input === "security101") {
+    window.location.href = "secret-news.html";
+} else if (input === "ArcadiaMonarchy2025") {
+    window.location.href = "ultra-clearance.html";
+} else if (input === "EmergencyTreaty2025!") {
+    window.location.href = "treaty-exit.html";
+} else if (input === "EmperorLord25") {
+    window.location.href = "imperial.html";
+} else if (input === "Democracy!!!") {
+    window.location.href = "democracy.html";
+} else if (input === "arcadia2025") {
         } else {
             alert("Incorrect password. Access denied.");
         }
