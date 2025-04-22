@@ -341,7 +341,7 @@ checkSelfDestructLock();
 </script>
 
 
-         <!-- Section 4 -->
+       <!-- Section 4 -->
 <div>
     <h3 onclick="toggleSection('section4')">🔐 Shadow Protocol</h3>
 
@@ -376,28 +376,24 @@ function checkSectionPassword(sectionId, correctPassword) {
         alert("Incorrect password for this section.");
         triggerLoginAttemptNotification();
         initiateSelfDestruct(sectionId);
+        // Redirect to home page after incorrect password
+        window.location.href = '/';
     }
 }
 
 // Function to trigger login attempt notification (simulated email alert)
 function triggerLoginAttemptNotification() {
-    // Simulate email notification (replace with actual email functionality if needed)
     console.log("Login attempt failed. Email notification sent to government officials.");
 }
 
 // Self-Destruct feature (locks page for 70 hours)
 function initiateSelfDestruct(sectionId) {
-    // Set a 70-hour lock (in milliseconds)
     const lockDuration = 70 * 60 * 60 * 1000; // 70 hours in milliseconds
-
-    // Store lock expiry time in localStorage (persistent across page reloads)
     const lockExpiry = new Date().getTime() + lockDuration;
     localStorage.setItem(`selfDestructExpirySection${sectionId}`, lockExpiry);
 
     // Display unlock box for 20 seconds
     document.getElementById(`unlock-box-${sectionId}`).style.display = "block";
-
-    // Hide the unlock box after 20 seconds
     setTimeout(() => {
         document.getElementById(`unlock-box-${sectionId}`).style.display = "none";
     }, 20000);
@@ -411,9 +407,7 @@ function unlockSelfDestruct4() {
     const input = document.getElementById("selfDestructPassword4").value;
     if (input === "HighKing25") {
         alert("Self-destruct feature unlocked.");
-        // Reset the lock time
         localStorage.removeItem("selfDestructExpirySection4");
-        // Update the section without reloading
         document.getElementById("unlock-box-4").style.display = "none";
     } else {
         alert("Incorrect password to unlock self-destruct.");
@@ -422,23 +416,11 @@ function unlockSelfDestruct4() {
 
 // Check if the page is locked when the user reloads
 function checkSelfDestructLock() {
-    const lockExpirySection1 = localStorage.getItem("selfDestructExpirySection1");
-    const lockExpirySection2 = localStorage.getItem("selfDestructExpirySection2");
-    const lockExpirySection3 = localStorage.getItem("selfDestructExpirySection3");
     const lockExpirySection4 = localStorage.getItem("selfDestructExpirySection4");
-
-    // Check if any section has an active lock
-    if ((lockExpirySection1 && new Date().getTime() < lockExpirySection1) || 
-        (lockExpirySection2 && new Date().getTime() < lockExpirySection2) || 
-        (lockExpirySection3 && new Date().getTime() < lockExpirySection3) || 
-        (lockExpirySection4 && new Date().getTime() < lockExpirySection4)) {
+    if (lockExpirySection4 && new Date().getTime() < lockExpirySection4) {
         alert("The page is locked. Please wait until the lock expires.");
         document.body.innerHTML = "<h1>The page is locked due to security measures. Please wait until the lock expires.</h1>";
     } else {
-        // Remove expired locks
-        localStorage.removeItem("selfDestructExpirySection1");
-        localStorage.removeItem("selfDestructExpirySection2");
-        localStorage.removeItem("selfDestructExpirySection3");
         localStorage.removeItem("selfDestructExpirySection4");
     }
 }
@@ -448,7 +430,7 @@ checkSelfDestructLock();
 </script>
 
 
-       <!-- Section 5 -->
+      <!-- Section 5 -->
 <div>
     <h3 onclick="toggleSection('section5')">🔐 Continuity Beacon System</h3>
 
@@ -483,28 +465,24 @@ function checkSectionPassword(sectionId, correctPassword) {
         alert("Incorrect password for this section.");
         triggerLoginAttemptNotification();
         initiateSelfDestruct(sectionId);
+        // Redirect to home page after incorrect password
+        window.location.href = '/';
     }
 }
 
 // Function to trigger login attempt notification (simulated email alert)
 function triggerLoginAttemptNotification() {
-    // Simulate email notification (replace with actual email functionality if needed)
     console.log("Login attempt failed. Email notification sent to government officials.");
 }
 
 // Self-Destruct feature (locks page for 70 hours)
 function initiateSelfDestruct(sectionId) {
-    // Set a 70-hour lock (in milliseconds)
     const lockDuration = 70 * 60 * 60 * 1000; // 70 hours in milliseconds
-
-    // Store lock expiry time in localStorage (persistent across page reloads)
     const lockExpiry = new Date().getTime() + lockDuration;
     localStorage.setItem(`selfDestructExpirySection${sectionId}`, lockExpiry);
 
     // Display unlock box for 20 seconds
     document.getElementById(`unlock-box-${sectionId}`).style.display = "block";
-
-    // Hide the unlock box after 20 seconds
     setTimeout(() => {
         document.getElementById(`unlock-box-${sectionId}`).style.display = "none";
     }, 20000);
@@ -518,9 +496,7 @@ function unlockSelfDestruct5() {
     const input = document.getElementById("selfDestructPassword5").value;
     if (input === "HighKing25") {
         alert("Self-destruct feature unlocked.");
-        // Reset the lock time
         localStorage.removeItem("selfDestructExpirySection5");
-        // Update the section without reloading
         document.getElementById("unlock-box-5").style.display = "none";
     } else {
         alert("Incorrect password to unlock self-destruct.");
@@ -529,26 +505,11 @@ function unlockSelfDestruct5() {
 
 // Check if the page is locked when the user reloads
 function checkSelfDestructLock() {
-    const lockExpirySection1 = localStorage.getItem("selfDestructExpirySection1");
-    const lockExpirySection2 = localStorage.getItem("selfDestructExpirySection2");
-    const lockExpirySection3 = localStorage.getItem("selfDestructExpirySection3");
-    const lockExpirySection4 = localStorage.getItem("selfDestructExpirySection4");
     const lockExpirySection5 = localStorage.getItem("selfDestructExpirySection5");
-
-    // Check if any section has an active lock
-    if ((lockExpirySection1 && new Date().getTime() < lockExpirySection1) || 
-        (lockExpirySection2 && new Date().getTime() < lockExpirySection2) || 
-        (lockExpirySection3 && new Date().getTime() < lockExpirySection3) || 
-        (lockExpirySection4 && new Date().getTime() < lockExpirySection4) || 
-        (lockExpirySection5 && new Date().getTime() < lockExpirySection5)) {
+    if (lockExpirySection5 && new Date().getTime() < lockExpirySection5) {
         alert("The page is locked. Please wait until the lock expires.");
         document.body.innerHTML = "<h1>The page is locked due to security measures. Please wait until the lock expires.</h1>";
     } else {
-        // Remove expired locks
-        localStorage.removeItem("selfDestructExpirySection1");
-        localStorage.removeItem("selfDestructExpirySection2");
-        localStorage.removeItem("selfDestructExpirySection3");
-        localStorage.removeItem("selfDestructExpirySection4");
         localStorage.removeItem("selfDestructExpirySection5");
     }
 }
@@ -1184,47 +1145,62 @@ checkSelfDestructLock();
                     <p><strong>Keycard/Access Log Information:</strong> Lists of individuals with access to restricted areas, along with detailed logs.</p>
                     <p><strong>Biometric Security:</strong> Protocols for securing high-security facilities using biometric scanning technology.</p>
                 </div>
-            </div>
-        </section>
+        </div>
+</section>
+</div>
 
-    </div>
+<script>
+    let failedAttempt = false;
 
-    <script>
-        let failedAttempt = false;
+    function checkSectionPassword(sectionNumber, correctPassword) {
+        const input = document.getElementById(`password${sectionNumber}`).value;
 
-        function checkSectionPassword(sectionNumber, correctPassword) {
-            const input = document.getElementById(`password${sectionNumber}`).value;
-
-            // HighKing25 skeleton password to unlock all sections
-            if (input === "HighKing25") {
-                document.getElementById(`section${sectionNumber}-password`).style.display = "none";
-                document.getElementById(`section${sectionNumber}-content`).style.display = "block";
-                return;
-            }
-
-            if (input === correctPassword) {
-                document.getElementById(`section${sectionNumber}-password`).style.display = "none";
-                document.getElementById(`section${sectionNumber}-content`).style.display = "block";
-            } else {
-                alert("Incorrect password for this section.");
-                failedAttempt = true;
-            }
-
-            // Redirect if there's a failed attempt
-            if (failedAttempt) {
-                window.location.href = "index.html";
-            }
+        // HighKing25 skeleton password to unlock all sections
+        if (input === "HighKing25") {
+            document.getElementById(`section${sectionNumber}-password`).style.display = "none";
+            document.getElementById(`section${sectionNumber}-content`).style.display = "block";
+            return;
         }
 
-        function toggleSection(sectionId) {
-            const content = document.getElementById(`${sectionId}-content`);
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
+        // Check if input matches the correct section password
+        if (input === correctPassword) {
+            document.getElementById(`section${sectionNumber}-password`).style.display = "none";
+            document.getElementById(`section${sectionNumber}-content`).style.display = "block";
+        } else {
+            alert("Incorrect password for this section.");
+            if (!failedAttempt) {
+                failedAttempt = true; // Ensure only one failed attempt triggers self-destruct
+                triggerSelfDestruct(sectionNumber); // Call the self-destruct function
             }
         }
-    </script>
+    }
+
+    function toggleSection(sectionId) {
+        const content = document.getElementById(`${sectionId}-content`);
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    }
+
+    // Self-Destruct function: Locks the page or triggers actions after failed attempts
+    function triggerSelfDestruct(sectionNumber) {
+        // Set a 70-hour lock (in milliseconds)
+        const lockDuration = 70 * 60 * 60 * 1000; // 70 hours in milliseconds
+
+        // Store lock expiry time in localStorage (this is persistent even after page reloads)
+        const lockExpiry = new Date().getTime() + lockDuration;
+        localStorage.setItem(`selfDestructExpirySection${sectionNumber}`, lockExpiry);
+
+        // Disable interaction after failed login attempt
+        alert("The system has entered a self-destruct lock for 70 hours.");
+
+        // Replace the page content to indicate the system is locked
+        document.body.innerHTML = "<h1>The system has entered a self-destruct lock for 70 hours. Access is restricted.</h1>";
+    }
+</script>
 </body>
 </html>
+
 
