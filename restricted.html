@@ -2443,7 +2443,57 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
     }
 </style>
 
+<!-- Self-Destruct Section -->
+<div id="selfDestructSection">
+    <h3>Activate Self-Destruct</h3>
+    <p>This section will allow you to trigger a self-destruct mechanism that will delete sensitive data and render the page inaccessible. Only authorized personnel can trigger this action.</p>
+
+    <input type="password" id="selfDestructPassword" placeholder="Enter self-destruct password">
+    <button type="button" onclick="activateSelfDestruct()">Activate Self-Destruct</button>
+    <p id="errorMessage" style="color: red; display: none;">Incorrect password. You are locked out for 70 hours.</p>
+</div>
+
 <script>
+    let lockoutEndTime = null;
+    let lockoutTimeout = null;
+
+    // Function to handle self-destruct activation
+    function activateSelfDestruct() {
+        const passwordInput = document.getElementById("selfDestructPassword").value;
+        const errorMessage = document.getElementById("errorMessage");
+
+        // Check if the user is locked out
+        if (lockoutEndTime && Date.now() < lockoutEndTime) {
+            const remainingTime = lockoutEndTime - Date.now();
+            const hoursLeft = Math.ceil(remainingTime / (1000 * 60 * 60));
+            alert(`You are locked out for ${hoursLeft} hours due to incorrect attempts.`);
+            return;
+        }
+
+        // Correct password
+        if (passwordInput === "SelfDestruct2025") {
+            // Hide the sensitive content
+            document.getElementById("highSecurityRequest").style.display = "none";
+            
+            // Optional: Redirect to a warning page
+            window.location.href = "self-destruct-warning.html";
+            
+            // Display success message
+            alert("Self-Destruct has been activated. Sensitive data is being removed.");
+        } else {
+            // Incorrect password handling
+            errorMessage.style.display = "block";
+            lockoutEndTime = Date.now() + (70 * 60 * 60 * 1000); // Lockout for 70 hours
+            setTimeout(() => {
+                errorMessage.style.display = "none";
+                document.getElementById("selfDestructPassword").value = ""; // Clear input
+            }, 20000); // Hide error after 20 seconds
+        }
+    }
+</script>
+
+<script>
+    // Password handling function for redirecting based on input
     function checkPassword() {
         const input = document.getElementById("passwordInput").value;
 
@@ -2461,6 +2511,7 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
             document.getElementById("passwordPrompt").style.display = "none";
             document.getElementById("content").style.display = "block";
 
+            // Start session timeout after successful login
             sessionTimeout = setTimeout(function () {
                 alert("Session expired. Please log in again.");
                 resetAccess();
@@ -2470,6 +2521,7 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
         }
     }
 
+    // Reset access to password prompt after session expiry
     function resetAccess() {
         document.getElementById("content").style.display = "none";
         document.getElementById("passwordPrompt").style.display = "block";
@@ -2477,11 +2529,13 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
 
     let sessionTimeout;
 
+    // Clear session timeout if user leaves page before timeout occurs
     window.onbeforeunload = function () {
         clearTimeout(sessionTimeout);
     };
 </script>
 
-<!-- REMOVE the JS listener that was preventing the email submission -->
+<!-- END of restricted access section -->
 </body>
 </html>
+
