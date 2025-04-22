@@ -72,6 +72,32 @@
     <script>
         let messagesContainer = document.getElementById("messages");
 
+        // Load saved messages from localStorage if available
+        function loadMessages() {
+            let savedMessages = JSON.parse(localStorage.getItem("messages")) || [];
+            savedMessages.forEach(message => {
+                let messageElement = document.createElement("p");
+                messageElement.textContent = message;
+                messagesContainer.appendChild(messageElement);
+            });
+            // Scroll to the bottom to show the latest message
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Call loadMessages on page load
+        window.onload = loadMessages;
+
+        // Save messages to localStorage
+        function saveMessages() {
+            let allMessages = [];
+            let messageElements = messagesContainer.getElementsByTagName("p");
+            for (let message of messageElements) {
+                allMessages.push(message.textContent);
+            }
+            localStorage.setItem("messages", JSON.stringify(allMessages));
+        }
+
+        // Send a message and display it
         function sendMessage() {
             let messageText = document.getElementById("chatInput").value;
             if (messageText.trim() === "") {
@@ -83,13 +109,17 @@
             let messageElement = document.createElement("p");
             messageElement.textContent = "High King / Allies: " + messageText;
             messagesContainer.appendChild(messageElement);
-            
+
             // Scroll to the bottom to show the latest message
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            
+
             // Clear input field
             document.getElementById("chatInput").value = "";
+
+            // Save the updated messages to localStorage
+            saveMessages();
         }
     </script>
 </body>
 </html>
+
