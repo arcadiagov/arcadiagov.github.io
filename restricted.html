@@ -2448,22 +2448,21 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
         document.getElementById("content").style.display = "block";
 
         // Set a timeout to prompt the user for password again after 5 minutes (300,000 ms)
-         sessionTimeout = setTimeout(function() {
-                    alert("Session expired. Please log in again.");
-                    resetAccess();
-                }, 20000); // 20 seconds
-            } else if (input === "security101") {
-                window.location.href = "secret-news.html";
-            } else if (input === "ArcadiaMonarchy2025") {
-                window.location.href = "ultra-clearance.html";
-            } else if (input === "EmergencyTreaty2025!") {
-                window.location.href = "treaty-exit.html";
-            } else if (input === "EmperorLord25") {
-                window.location.href = "imperial.html";
-            } else {
-                alert("Incorrect password. Access denied.");
-            }
-        }
+        sessionTimeout = setTimeout(function() {
+            alert("Session expired. Please log in again.");
+            resetAccess();
+        }, 300000); // 300,000 ms = 5 minutes
+
+    } else if (input === "security101") {
+        window.location.href = "secret-news.html";
+    } else if (input === "ArcadiaMonarchy2025") {
+        window.location.href = "ultra-clearance.html";
+    } else if (input === "EmergencyTreaty2025!") {
+        window.location.href = "treaty-exit.html"; // 👈 Add this block
+    } else {
+        alert("Incorrect password. Access denied.");
+    }
+}
 
     function resetAccess() {
         // Reset content visibility and show password prompt again
@@ -2479,3 +2478,6 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
     
 </body>
 </html>
+
+
+
