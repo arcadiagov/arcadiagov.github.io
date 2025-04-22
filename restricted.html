@@ -2454,7 +2454,8 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
 </div>
 
 <script>
-    let lockoutEndTime = null;
+    let lockoutEndTime = null;  // To store the lockout time
+    let lockoutAttempted = false;  // Flag for a single incorrect attempt
 
     // Function to handle self-destruct activation
     function activateSelfDestruct() {
@@ -2482,11 +2483,20 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
         } else {
             // Incorrect password handling
             errorMessage.style.display = "block";
+            
+            // Lock out for 70 hours
             lockoutEndTime = Date.now() + (70 * 60 * 60 * 1000); // Lockout for 70 hours
+            
+            // Disable input and show the lockout message
+            document.getElementById("selfDestructPassword").disabled = true;
             setTimeout(() => {
                 errorMessage.style.display = "none";
-                document.getElementById("selfDestructPassword").value = ""; // Clear input
+                document.getElementById("selfDestructPassword").disabled = false;
+                document.getElementById("selfDestructPassword").value = "";  // Clear input
             }, 20000); // Hide error after 20 seconds
+
+            // Lockout flag is set to prevent further attempts
+            lockoutAttempted = true;
         }
     }
 </script>
@@ -2537,5 +2547,6 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
 <!-- END of restricted access section -->
 </body>
 </html>
+
 
 
