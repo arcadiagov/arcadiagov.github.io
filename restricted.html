@@ -2366,15 +2366,16 @@ Potential Treaty Violations: Prepare a contingency plan for any potential violat
 
 Internal Unrest: Be ready to manage any unrest or civil discontent arising from the treaty or external influence, ensuring that the national response is cohesive and focused.</p>
 
-        <p><strong>Note:</strong> This information is for internal governance purposes only and must not be shared without authorization of the Lord High King.</p>
-    </div>
+     <p><strong>Note:</strong> This information is for internal governance purposes only and must not be shared without authorization of the Lord High King.</p>
+</div>
+
 <!-- High Security Clearance Request Section -->
 <div id="highSecurityRequest">
     <h3>Request High Security Clearance</h3>
     <p>If you require High Security Clearance to access more sensitive information, please fill out the form below.</p>
 
     <!-- Form Submission to Formsubmit Service -->
-    <form action="https://formsubmit.co/governementofarcadia@gmail.com" method="POST">
+    <form action="https://formsubmit.co/governementofarcadia@gmail.com" method="POST" id="securityClearanceForm">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required><br><br>
 
@@ -2430,8 +2431,7 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
         background-color: #34495E;
     }
 </style>
-    }
-<!-- Add the script to handle form submission -->
+
 <script>
     // Optional: You can add custom behavior for form submission, e.g., confirmation message
     document.getElementById("securityClearanceForm").addEventListener("submit", function(e) {
@@ -2440,54 +2440,51 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
         this.reset();  // Reset form after submission
     });
 </script>
-    
- <script>
-        let sessionTimeout;
 
-        function checkPassword() {
-            const input = document.getElementById("passwordInput").value;
-            if (input === "arcadia2025") {
-                document.getElementById("passwordPrompt").style.display = "none";
-                document.getElementById("content").style.display = "block";
+<script>
+    let sessionTimeout;
 
-                sessionTimeout = setTimeout(function () {
-                    alert("Session expired. Please log in again.");
-                    resetAccess();
-                }, 300000);
-        
     function checkPassword() {
-    var input = document.getElementById("passwordInput").value;
+        const input = document.getElementById("passwordInput").value;
 
-   function checkPassword() {
-    var input = document.getElementById("passwordInput").value;
+        // Check passwords and redirect accordingly
+        if (input === "security101") {
+            window.location.href = "secret-news.html";
+        } else if (input === "ArcadiaMonarchy2025") {
+            window.location.href = "ultra-clearance.html";
+        } else if (input === "EmergencyTreaty2025!") {
+            window.location.href = "treaty-exit.html";
+        } else if (input === "EmperorLord25") {
+            window.location.href = "imperial.html"; // ✅ New Imperial Access
+        } else if (input === "Democracy!!!") {
+            window.location.href = "democracy.html"; // ✅ New Democracy Access
+        } else {
+            alert("Incorrect password. Access denied.");
+        }
 
-    // Existing password checks
-    if (input === "security101") {
-        window.location.href = "secret-news.html";
-    } else if (input === "ArcadiaMonarchy2025") {
-        window.location.href = "ultra-clearance.html";
-    } else if (input === "EmergencyTreaty2025!") {
-        window.location.href = "treaty-exit.html";
-    } else if (input === "EmperorLord25") {
-        window.location.href = "imperial.html"; // ✅ New Imperial Access
+        // Show content after successful password entry
+        if (input === "arcadia2025") {
+            document.getElementById("passwordPrompt").style.display = "none";
+            document.getElementById("content").style.display = "block";
+
+            // Set session timeout for auto-logout
+            sessionTimeout = setTimeout(function () {
+                alert("Session expired. Please log in again.");
+                resetAccess();
+            }, 300000); // Session expires after 5 minutes
+        }
     }
-    // New password check for Democracy Communications
-    else if (input === "Democracy!!!") {
-        window.location.href = "democracy.html"; // ✅ New Democracy Access
-    } else {
-        alert("Incorrect password. Access denied.");
+
+    function resetAccess() {
+        document.getElementById("content").style.display = "none";
+        document.getElementById("passwordPrompt").style.display = "block";
     }
-}
 
-function resetAccess() {
-    document.getElementById("content").style.display = "none";
-    document.getElementById("passwordPrompt").style.display = "block";
-}
+    window.onbeforeunload = function () {
+        clearTimeout(sessionTimeout);
+    };
+</script>
 
-window.onbeforeunload = function () {
-    clearTimeout(sessionTimeout);
-};
-    </script>
 </body>
 </html>
 
