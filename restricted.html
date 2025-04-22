@@ -2386,7 +2386,6 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
     <h3>Request High Security Clearance</h3>
     <p>If you require High Security Clearance to access more sensitive information, please fill out the form below.</p>
 
-    <!-- Form Submission to Formsubmit Service -->
     <form action="https://formsubmit.co/governementofarcadia@gmail.com" method="POST" id="securityClearanceForm">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required><br><br>
@@ -2400,14 +2399,14 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
         <!-- Hidden Input for Security -->
         <input type="hidden" name="_subject" value="High Security Clearance Request">
 
-        <!-- Redirect on Success (Optional) -->
+        <!-- Redirect on Success -->
         <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
 
         <button type="submit">Submit Request</button>
     </form>
 </div>
 
-<!-- Styling for the form -->
+<!-- Styling (unchanged) -->
 <style>
     #highSecurityRequest {
         margin-top: 2rem;
