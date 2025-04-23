@@ -86,7 +86,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: #000000; /* Solid black background */
       color: white;
       display: flex;
       justify-content: center;
@@ -237,6 +237,16 @@
       msg.innerText = `Page locked until ${lockedUntil.toLocaleString()}`;
       msg.style.display = "block";
     }
+
+    // Check if self-destruct is active on page load
+    window.onload = function() {
+      if (isSelfDestructLocked()) {
+        document.getElementById("selfDestructLock").style.display = "flex"; // Show self-destruct lock message
+        document.getElementById("pageContent").style.display = "none"; // Hide content
+        document.getElementById("purgeButton").style.display = "none"; // Hide purge button
+        document.getElementById("decoyRedirect").style.display = "none"; // Hide decoy button
+      }
+    }
   </script>
 
   <div class="section" id="selfDestructSection">
@@ -247,6 +257,4 @@
 
 </body>
 </html>
-
-
 
