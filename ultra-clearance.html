@@ -1180,23 +1180,83 @@ checkSelfDestructLock();
         } else {
             content.style.display = "block";
         }
+<!-- Self-Destruct Button -->
+<button id="selfDestructButton" onclick="engageSelfDestruct()" style="
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #c0392b;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  z-index: 9999;
+  cursor: pointer;
+">
+  💣 Self-Destruct
+</button>
+
+<script>
+  let failedAttempt = false;
+
+  function checkSectionPassword(sectionNumber, correctPassword) {
+    const input = document.getElementById(`password${sectionNumber}`).value;
+
+    // Master override
+    if (input === "HighKing25") {
+      document.getElementById(`section${sectionNumber}-password`).style.display = "none";
+      document.getElementById(`section${sectionNumber}-content`).style.display = "block";
+      return;
     }
 
-    // Self-Destruct function: Locks the page or triggers actions after failed attempts
-    function triggerSelfDestruct(sectionNumber) {
-        // Set a 70-hour lock (in milliseconds)
-        const lockDuration = 70 * 60 * 60 * 1000; // 70 hours in milliseconds
-
-        // Store lock expiry time in localStorage (this is persistent even after page reloads)
-        const lockExpiry = new Date().getTime() + lockDuration;
-        localStorage.setItem(`selfDestructExpirySection${sectionNumber}`, lockExpiry);
-
-        // Disable interaction after failed login attempt
-        alert("The system has entered a self-destruct lock for 70 hours.");
-
-        // Replace the page content to indicate the system is locked
-        document.body.innerHTML = "<h1>The system has entered a self-destruct lock for 70 hours. Access is restricted.</h1>";
+    if (input === correctPassword) {
+      document.getElementById(`section${sectionNumber}-password`).style.display = "none";
+      document.getElementById(`section${sectionNumber}-content`).style.display = "block";
+    } else {
+      alert("Incorrect password for this section.");
+      if (!failedAttempt) {
+        failedAttempt = true;
+        triggerSelfDestruct(sectionNumber); // You still need to define this function
+      }
     }
+  }
+
+  function engageSelfDestruct() {
+    const lockUntil = new Date().getTime() + 70 * 60 * 60 * 1000; // 70 hours
+    localStorage.setItem("selfDestructTimestamp", lockUntil.toString());
+    alert("⚠️ Self-Destruct Protocol Activated. Locked for 70 hours.");
+    location.reload();
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const timestamp = localStorage.getItem("selfDestructTimestamp");
+    if (timestamp && new Date() < new Date(parseInt(timestamp))) {
+      document.body.innerHTML = "";
+      const lockScreen = document.createElement("div");
+      lockScreen.innerHTML = `
+        <div style="
+          background-color: black;
+          color: white;
+          font-size: 1.5rem;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: 9998;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          padding: 2rem;
+        ">
+          🚫 System Locked by Self-Destruct Protocol<br/>
+          Access denied for 70 hours.
+        </div>`;
+      document.body.appendChild(lockScreen);
+    }
+  });
 </script>
 </body>
 </html>
