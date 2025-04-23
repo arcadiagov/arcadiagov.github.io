@@ -150,78 +150,6 @@
     </div>
 </div>
 
-<!-- Section 5 -->
-<div>
-    <h3>🔐 Section 5: Cybersecurity and Data Integrity</h3>
-    <div id="section5-password" class="password-box">
-        <input type="password" id="password5" placeholder="Enter Section 5 password" />
-        <button onclick="checkSectionPassword(5, 'Section5Key2025')">Submit</button>
-    </div>
-    <div id="section5-content" class="section-content">
-        <p><strong>Overview:</strong> This section discusses the procedures and technologies used to ensure cybersecurity and maintain the integrity of sensitive data across all systems.</p>
-        <p><strong>Key Measures:</strong> 
-            <ul>
-                <li>Use of multi-layered encryption for data storage and transfer.</li>
-                <li>Routine security audits of all digital systems.</li>
-                <li>Real-time intrusion detection systems to monitor potential cyberattacks.</li>
-            </ul>
-        </p>
-        <p><strong>Incident Response:</strong>
-            - In the event of a breach, isolate affected systems immediately.
-            - Investigate the cause of the breach and remediate vulnerabilities.
-            - Report the incident to national cybersecurity authorities as required.
-        </p>
-    </div>
-</div>
-
-<!-- Section 6 -->
-<div>
-    <h3>🔐 Section 6: Military Mobilization Plan</h3>
-    <div id="section6-password" class="password-box">
-        <input type="password" id="password6" placeholder="Enter Section 6 password" />
-        <button onclick="checkSectionPassword(6, 'Section6Key2025')">Submit</button>
-    </div>
-    <div id="section6-content" class="section-content">
-        <p><strong>Overview:</strong> This section outlines the steps and protocols for military mobilization in the event of an imminent threat to national security. It includes deployment readiness, coordination with allied forces, and logistical support systems.</p>
-        <p><strong>Key Actions:</strong> 
-            <ul>
-                <li>Alerting all military branches of the mobilization order.</li>
-                <li>Initiating rapid deployment protocols for strategic assets.</li>
-                <li>Coordinating with international allies for support and coordination of resources.</li>
-            </ul>
-        </p>
-        <p><strong>Response Plan:</strong>
-            - Immediate strategic deployment of air, land, and naval forces.
-            - Activation of national defense and cyber defense systems.
-            - Continuous assessment of battle readiness and resupply needs.
-        </p>
-    </div>
-</div>
-
-<!-- Section 7 -->
-<div>
-    <h3>🔐 Section 7: Civil Defense and Resilience</h3>
-    <div id="section7-password" class="password-box">
-        <input type="password" id="password7" placeholder="Enter Section 7 password" />
-        <button onclick="checkSectionPassword(7, 'Section7Key2025')">Submit</button>
-    </div>
-    <div id="section7-content" class="section-content">
-        <p><strong>Overview:</strong> This section focuses on civil defense strategies, emergency preparedness, and resilience efforts during times of military conflict or other national crises.</p>
-        <p><strong>Key Measures:</strong> 
-            <ul>
-                <li>Training of civilian populations in emergency evacuation and first-aid procedures.</li>
-                <li>Establishing secure zones and evacuation routes for civilians.</li>
-                <li>Stockpiling of essential resources such as food, water, and medical supplies.</li>
-            </ul>
-        </p>
-        <p><strong>Action Plan:</strong>
-            - Immediate activation of civilian emergency networks.
-            - Coordination with military forces for evacuation and protection of non-combatants.
-            - Establishment of emergency shelters and communications systems.
-        </p>
-    </div>
-</div>
-
 <!-- Emergency Lockdown Button -->
 <button id="lockdownButton" class="lockdown-button" onclick="triggerEmergencyLockdown()" style="display: none;">
     🔒 Trigger Emergency Lockdown
@@ -250,7 +178,7 @@ function checkSectionPassword(sectionId, correctPassword) {
     const input = document.getElementById(`password${sectionId}`).value;
 
     // Check if the input matches the correct password
-    if (input === correctPassword || input === "HighKing25") {
+    if (input === correctPassword) {
         document.getElementById(`section${sectionId}-password`).style.display = "none";
         document.getElementById(`section${sectionId}-content`).style.display = "block";
     } else {
@@ -296,7 +224,8 @@ window.onload = function () {
         }
     }
 };
-
 </script>
+
 </body>
 </html>
+
