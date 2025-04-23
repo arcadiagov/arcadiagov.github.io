@@ -76,13 +76,38 @@
     #decoyRedirect {
       left: 10px;
     }
+    #selfDestructSection {
+      display: none;
+    }
+    #selfDestructLock {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      text-align: center;
+      z-index: 1001;
+    }
   </style>
 </head>
 <body>
   <button id="purgeButton" onclick="purgeEverything()">⚠ Emergency Purge</button>
   <button id="decoyRedirect" onclick="redirectToDecoy()">🪤 Decoy</button>
 
-  <div class="section">
+  <div id="selfDestructLock" style="display: none;">
+    <div>
+      <h2>💥 Self-Destruct Activated</h2>
+      <p>This page is now locked for 1 hour. Access has been temporarily revoked for security purposes.</p>
+    </div>
+  </div>
+
+  <div class="section" id="pageContent">
     <h1>🔍 Bradectoria Intelligence Briefing</h1>
     <p>Compiled for the High King and trusted leadership. This file contains essential intelligence on Gheetan operations, doctrine, and potential vulnerabilities, along with Arcadia’s confidential contingency plans.</p>
   </div>
@@ -195,21 +220,14 @@
       return new Date() < lockedUntil;
     }
 
-    if (isSelfDestructLocked()) {
-      document.write(`
-        <div style="padding:2rem;color:white;background:#111;">
-          <h2>🚫 Self-Destruct Lock Active</h2>
-          <p>This page is locked for 1 hour due to emergency protocol.</p>
-        </div>
-      `);
-      throw new Error("Self-destruct lock active, halting script execution.");
-    }
-
     function engageSelfDestruct() {
       const lockUntil = new Date().getTime() + 60 * 60 * 1000; // 1 hour
       localStorage.setItem(SELF_DESTRUCT_KEY, lockUntil.toString());
+      document.getElementById("selfDestructLock").style.display = "flex"; // Show self-destruct lock message
+      document.getElementById("pageContent").style.display = "none"; // Hide content
+      document.getElementById("purgeButton").style.display = "none"; // Hide purge button
+      document.getElementById("decoyRedirect").style.display = "none"; // Hide decoy button
       alert("Self-Destruct Lock engaged. Access will be blocked for 1 hour.");
-      location.reload();
     }
 
     function showSelfDestructMessage() {
@@ -224,10 +242,10 @@
     <h2>🕛 Self-Destruct Lock</h2>
     <p>This emergency button locks access to this page for 1 hour.</p>
     <button onclick="engageSelfDestruct()">🔒 Self-Destruct Lock (1 Hour)</button>
-    <p id="selfDestructMessage" class="lockout-message" style="display:none;"></p>
   </div>
 
 </body>
 </html>
+
 
 
