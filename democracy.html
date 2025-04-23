@@ -62,7 +62,7 @@
     #accessSection {
       display: none;
     }
-    #purgeButton, #decoyRedirect {
+    #purgeButton, #decoyRedirect, #selfDestructButton {
       background-color: #e67e22;
       position: fixed;
       top: 10px;
@@ -75,6 +75,10 @@
     }
     #decoyRedirect {
       left: 10px;
+    }
+    #selfDestructButton {
+      top: 50px;
+      right: 10px;
     }
     #selfDestructLock {
       display: none;
@@ -101,6 +105,7 @@
 <div id="pageContent">
   <button id="purgeButton" onclick="engageSelfDestruct()">⚠ Emergency Purge</button>
   <button id="decoyRedirect" onclick="redirectToDecoy()">🪤 Decoy</button>
+  <button id="selfDestructButton" onclick="engageSelfDestruct()">💥 Self-Destruct</button>
 
   <div class="section">
     <h1>🔍 Bradectoria Intelligence Briefing</h1>
@@ -161,31 +166,13 @@
   const VALID_PASSWORDS = ["LeaveGheetanNow", "HighKing25", "DemocracyFreedom!"];
   const DECOY_PASSWORD = "ArcadiaForever";
 
-  function setCookie(name, value, days) {
-    let date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
-  }
-
-  function getCookie(name) {
-    let nameEQ = name + "=";
-    let ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  }
-
   function isLockedOut() {
-    const timestamp = getCookie(LOCKOUT_KEY);
+    const timestamp = localStorage.getItem(LOCKOUT_KEY);
     return timestamp && new Date() < new Date(parseInt(timestamp));
   }
 
   function isSelfDestructLocked() {
-    const timestamp = getCookie(SELF_DESTRUCT_KEY);
+    const timestamp = localStorage.getItem(SELF_DESTRUCT_KEY);
     return timestamp && new Date() < new Date(parseInt(timestamp));
   }
 
@@ -195,7 +182,7 @@
     const decoyBox = document.getElementById("decoyPlan");
 
     if (isLockedOut()) {
-      const lockedUntil = new Date(parseInt(getCookie(LOCKOUT_KEY)));
+      const lockedUntil = new Date(parseInt(localStorage.getItem(LOCKOUT_KEY)));
       lockoutMessage.innerText = `Access denied. Protocol locked until ${lockedUntil.toLocaleString()}`;
       lockoutMessage.style.display = "block";
       return;
@@ -215,7 +202,7 @@
       alert("Protocol unlocked. Proceed with unity initiative.");
     } else {
       const lockUntil = new Date().getTime() + LOCKOUT_DURATION;
-      setCookie(LOCKOUT_KEY, lockUntil.toString(), 1);
+      localStorage.setItem(LOCKOUT_KEY, lockUntil.toString());
       lockoutMessage.innerText = `Access denied. You are now locked out until ${new Date(lockUntil).toLocaleString()}`;
       lockoutMessage.style.display = "block";
       alert("Incorrect code. You are now locked out for 48 hours.");
@@ -224,7 +211,7 @@
 
   function engageSelfDestruct() {
     const lockUntil = new Date().getTime() + SELF_DESTRUCT_DURATION;
-    setCookie(SELF_DESTRUCT_KEY, lockUntil.toString(), 1);
+    localStorage.setItem(SELF_DESTRUCT_KEY, lockUntil.toString());
     location.reload();
   }
 
@@ -246,11 +233,11 @@
     if (isSelfDestructLocked()) {
       document.getElementById("selfDestructLock").style.display = "flex";
       document.getElementById("pageContent").style.display = "none";
+      document.getElementById("selfDestructButton").style.display = "none"; // Hide self-destruct button when locked
     } else {
       document.getElementById("accessSection").style.display = "none";
       document.getElementById("pageContent").style.display = "block";
-      document.getElementById("purgeButton").style.display = "inline-block";
-      document.getElementById("decoyRedirect").style.display = "inline-block";
+      document.getElementById("selfDestructButton").style.display = "inline-block"; // Show self-destruct button when not locked
     }
   };
 </script>
