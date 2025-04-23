@@ -231,15 +231,19 @@
     }
   });
 
-  window.onload = function () {
-    if (isSelfDestructLocked()) {
-      document.getElementById("selfDestructLock").style.display = "flex";
-      document.getElementById("pageContent").style.display = "none";
-      document.getElementById("purgeButton").style.display = "none";
-      document.getElementById("decoyRedirect").style.display = "none";
-    }
+ window.onload = function () {
+  const isLocked = isSelfDestructLocked();
+  if (isLocked) {
+    document.getElementById("selfDestructLock").style.display = "flex";
+    document.getElementById("pageContent").style.display = "none";
+    document.getElementById("purgeButton").style.display = "none";
+    document.getElementById("decoyRedirect").style.display = "none";
+  } else {
     document.getElementById("accessSection").style.display = "none";
-  };
+    document.getElementById("purgeButton").style.display = "inline-block";
+    document.getElementById("decoyRedirect").style.display = "inline-block";
+  }
+};
 </script>
 </body>
 </html>
