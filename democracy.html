@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bradectoria Intelligence Briefing - Gheetan Exit Protocol</title>
-  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -69,6 +68,7 @@
       top: 10px;
       z-index: 1000;
       padding: 0.5rem 1rem;
+      display: inline-block;
     }
     #purgeButton {
       right: 10px;
@@ -99,7 +99,7 @@
   <p>This page is locked for 1 hour due to emergency protocol.</p>
 </div>
 <div id="pageContent">
-  <button id="purgeButton" onclick="purgeEverything()">⚠ Emergency Purge</button>
+  <button id="purgeButton" onclick="engageSelfDestruct()">⚠ Emergency Purge</button>
   <button id="decoyRedirect" onclick="redirectToDecoy()">🪤 Decoy</button>
 
   <div class="section">
@@ -161,16 +161,32 @@
   const VALID_PASSWORDS = ["LeaveGheetanNow", "HighKing25", "DemocracyFreedom!"];
   const DECOY_PASSWORD = "ArcadiaForever";
 
+  function setCookie(name, value, days) {
+    let date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
+
+  function getCookie(name) {
+    let nameEQ = name + "=";
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+
   function isLockedOut() {
-    const timestamp = localStorage.getItem(LOCKOUT_KEY);
-    if (!timestamp) return false;
-    return new Date() < new Date(parseInt(timestamp));
+    const timestamp = getCookie(LOCKOUT_KEY);
+    return timestamp && new Date() < new Date(parseInt(timestamp));
   }
 
   function isSelfDestructLocked() {
-    const timestamp = localStorage.getItem(SELF_DESTRUCT_KEY);
-    if (!timestamp) return false;
-    return new Date() < new Date(parseInt(timestamp));
+    const timestamp = getCookie(SELF_DESTRUCT_KEY);
+    return timestamp && new Date() < new Date(parseInt(timestamp));
   }
 
   function revealPlan() {
@@ -179,7 +195,7 @@
     const decoyBox = document.getElementById("decoyPlan");
 
     if (isLockedOut()) {
-      const lockedUntil = new Date(parseInt(localStorage.getItem(LOCKOUT_KEY)));
+      const lockedUntil = new Date(parseInt(getCookie(LOCKOUT_KEY)));
       lockoutMessage.innerText = `Access denied. Protocol locked until ${lockedUntil.toLocaleString()}`;
       lockoutMessage.style.display = "block";
       return;
@@ -199,26 +215,21 @@
       alert("Protocol unlocked. Proceed with unity initiative.");
     } else {
       const lockUntil = new Date().getTime() + LOCKOUT_DURATION;
-      localStorage.setItem(LOCKOUT_KEY, lockUntil.toString());
+      setCookie(LOCKOUT_KEY, lockUntil.toString(), 1);
       lockoutMessage.innerText = `Access denied. You are now locked out until ${new Date(lockUntil).toLocaleString()}`;
       lockoutMessage.style.display = "block";
       alert("Incorrect code. You are now locked out for 48 hours.");
     }
   }
 
-  function purgeEverything() {
-    localStorage.clear();
-    document.body.innerHTML = '<div style="padding:2rem;color:white;background:#111;"><h2>🔥 Emergency Protocol Engaged</h2><p>All session data has been purged.</p></div>';
+  function engageSelfDestruct() {
+    const lockUntil = new Date().getTime() + SELF_DESTRUCT_DURATION;
+    setCookie(SELF_DESTRUCT_KEY, lockUntil.toString(), 1);
+    location.reload();
   }
 
   function redirectToDecoy() {
     window.location.href = "decoy.html";
-  }
-
-  function engageSelfDestruct() {
-    const lockUntil = new Date().getTime() + SELF_DESTRUCT_DURATION;
-    localStorage.setItem(SELF_DESTRUCT_KEY, lockUntil.toString());
-    location.reload();
   }
 
   document.addEventListener('keydown', function (event) {
@@ -231,21 +242,18 @@
     }
   });
 
- window.onload = function () {
-  const isLocked = isSelfDestructLocked();
-  if (isLocked) {
-    document.getElementById("selfDestructLock").style.display = "flex";
-    document.getElementById("pageContent").style.display = "none";
-    document.getElementById("purgeButton").style.display = "none";
-    document.getElementById("decoyRedirect").style.display = "none";
-  } else {
-    document.getElementById("accessSection").style.display = "none";
-    document.getElementById("purgeButton").style.display = "inline-block";
-    document.getElementById("decoyRedirect").style.display = "inline-block";
-  }
-};
+  window.onload = function () {
+    if (isSelfDestructLocked()) {
+      document.getElementById("selfDestructLock").style.display = "flex";
+      document.getElementById("pageContent").style.display = "none";
+    } else {
+      document.getElementById("accessSection").style.display = "none";
+      document.getElementById("pageContent").style.display = "block";
+      document.getElementById("purgeButton").style.display = "inline-block";
+      document.getElementById("decoyRedirect").style.display = "inline-block";
+    }
+  };
 </script>
 </body>
 </html>
-
 
