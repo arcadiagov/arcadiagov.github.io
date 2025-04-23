@@ -1,125 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Democracy Communications - High King & Allies</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 2rem;
-        }
-        #chatBox {
-            background-color: #333;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        #chatInput {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
-            border-radius: 4px;
-            margin-top: 20px;
-            border: 1px solid #ccc;
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            background-color: #c0392b;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #e74c3c;
-        }
-        #messages {
-            margin-top: 20px;
-            max-height: 300px;
-            overflow-y: scroll;
-            padding: 1rem;
-            background-color: #222;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        #messages p {
-            padding: 5px;
-            border-bottom: 1px solid #444;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bradectoria Intelligence Briefing - Gheetan Exit Protocol</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0f0f0f;
+      color: #f5f5f5;
+      padding: 2rem;
+    }
+    .section {
+      background-color: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+    }
+    h1, h2 {
+      color: #e74c3c;
+    }
+    .classified {
+      background-color: #2c2c2c;
+      border-left: 5px solid #f39c12;
+      padding: 1rem;
+      margin-top: 1rem;
+      display: none;
+    }
+    .decoy {
+      background-color: #2c2c2c;
+      border-left: 5px solid #3498db;
+      padding: 1rem;
+      margin-top: 1rem;
+      display: none;
+    }
+    input[type="password"], button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+      margin-top: 1rem;
+      margin-right: 1rem;
+    }
+    input[type="password"] {
+      width: 250px;
+    }
+    button {
+      background-color: #c0392b;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e74c3c;
+    }
+    .lockout-message {
+      color: #f39c12;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    #accessSection {
+      display: none;
+    }
+    #purgeButton, #decoyRedirect {
+      background-color: #e67e22;
+      position: fixed;
+      top: 10px;
+      z-index: 1000;
+      padding: 0.5rem 1rem;
+    }
+    #purgeButton {
+      right: 10px;
+    }
+    #decoyRedirect {
+      left: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div id="chatBox">
-        <h1>💬 Democracy Communications Hub</h1>
-        <p>Welcome to the secure communication channel for the High King and Allies. You are authorized to exchange messages and make important decisions here. Keep the discussions confidential.</p>
-        
-        <div id="messages">
-            <!-- Chat messages will appear here -->
-        </div>
-        
-        <textarea id="chatInput" placeholder="Type your message..." rows="4"></textarea>
-        <button onclick="sendMessage()">Send Message</button>
+  <button id="purgeButton" onclick="purgeEverything()">⚠ Emergency Purge</button>
+  <button id="decoyRedirect" onclick="redirectToDecoy()">🪤 Decoy</button>
+
+  <div class="section">
+    <h1>🔍 Bradectoria Intelligence Briefing</h1>
+    <p>Compiled for the High King and trusted leadership. This file contains essential intelligence on Gheetan operations, doctrine, and potential vulnerabilities, along with Arcadia’s confidential contingency plans.</p>
+  </div>
+
+  <div class="section">
+    <h2>🧠 Gheetan Overview</h2>
+    <ul>
+      <li><strong>Structure:</strong> Centralized autocracy led by Emperor <strong>Holden Porter</strong>.</li>
+      <li><strong>Key Figures:</strong> Emperor Holden Porter, Grand Executor Malveth, Minister of Concord.</li>
+      <li><strong>Strengths:</strong> Logistics, enforcement, assimilation strategies.</li>
+      <li><strong>Weaknesses:</strong> Internal unrest, Arcadian grain dependency.</li>
+      <li><strong>Doctrine:</strong> Legal manipulation to maintain imperial control under Porter.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🛡️ Arcadian Position</h2>
+    <ul>
+      <li><strong>Status:</strong> Bound under the Treaty of Eternal Union.</li>
+      <li><strong>Risks:</strong> Military override clauses, cultural suppression.</li>
+      <li><strong>Bradectoria:</strong> Secure fallback for loyalists, counterintelligence HQ.</li>
+    </ul>
+  </div>
+
+  <div class="section" id="accessSection">
+    <h2>⚠️ Contingency Protocol: Exit from Gheetan</h2>
+    <p><em>Access restricted. One incorrect attempt will lock access for 48 hours.</em></p>
+
+    <input type="password" id="clearanceCode" placeholder="Enter clearance code" />
+    <button onclick="revealPlan()">Unlock Exit Protocol</button>
+    <p id="lockoutMessage" class="lockout-message" style="display:none;"></p>
+
+    <div id="exitPlan" class="classified">
+      <h3>🗝️ Arcadian Sovereignty Protocols</h3>
+      <ul>
+        <li><strong>Step 1:</strong> Cut communications. Reroute through Bradectoria’s internal channels.</li>
+        <li><strong>Step 2:</strong> Mobilize forces in disguise.</li>
+        <li><strong>Step 3:</strong> Public denouncement of Emperor Holden Porter and declaration of independence.</li>
+        <li><strong>Step 4:</strong> Dispatch sealed war declarations to strategic allies.</li>
+        <li><strong>Step 5:</strong> Disable Gheetan surveillance, reclaim sovereignty.</li>
+      </ul>
     </div>
 
-    <script>
-        let messagesContainer = document.getElementById("messages");
+    <div id="decoyPlan" class="decoy">
+      <h3>📄 Cultural Outreach Plan</h3>
+      <p>This plan outlines steps for cultural celebration and deeper integration with Gheetan systems. Diplomacy and unity are key.</p>
+    </div>
+  </div>
 
-        // Load saved messages from localStorage if available
-        function loadMessages() {
-            let savedMessages = JSON.parse(localStorage.getItem("messages")) || [];
-            savedMessages.forEach(message => {
-                let messageElement = document.createElement("p");
-                messageElement.textContent = message;
-                messagesContainer.appendChild(messageElement);
-            });
-            // Scroll to the bottom to show the latest message
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
+  <script>
+    const LOCKOUT_KEY = "gheetanLockoutTimestamp";
+    const LOCKOUT_DURATION = 48 * 60 * 60 * 1000; // 48 hours
+    const VALID_PASSWORDS = ["LeaveGheetanNow", "HighKing25", "DemocracyFreedom!"];
+    const DECOY_PASSWORD = "ArcadiaForever";
 
-        // Call loadMessages on page load
-        window.onload = loadMessages;
+    function isLockedOut() {
+      const timestamp = localStorage.getItem(LOCKOUT_KEY);
+      if (!timestamp) return false;
+      const lockedUntil = new Date(parseInt(timestamp));
+      return new Date() < lockedUntil;
+    }
 
-        // Save messages to localStorage
-        function saveMessages() {
-            let allMessages = [];
-            let messageElements = messagesContainer.getElementsByTagName("p");
-            for (let message of messageElements) {
-                allMessages.push(message.textContent);
-            }
-            localStorage.setItem("messages", JSON.stringify(allMessages));
-        }
+    function revealPlan() {
+      const lockoutMessage = document.getElementById("lockoutMessage");
+      const secretBox = document.getElementById("exitPlan");
+      const decoyBox = document.getElementById("decoyPlan");
 
-        // Send a message and display it
-        function sendMessage() {
-            let messageText = document.getElementById("chatInput").value;
-            if (messageText.trim() === "") {
-                alert("Please enter a message.");
-                return;
-            }
-            
-            // Display the message in the chat container
-            let messageElement = document.createElement("p");
-            messageElement.textContent = "High King / Allies: " + messageText;
-            messagesContainer.appendChild(messageElement);
+      if (isLockedOut()) {
+        const lockedUntil = new Date(parseInt(localStorage.getItem(LOCKOUT_KEY)));
+        lockoutMessage.innerText = `Access denied. Protocol locked until ${lockedUntil.toLocaleString()}`;
+        lockoutMessage.style.display = "block";
+        return;
+      }
 
-            // Scroll to the bottom to show the latest message
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      const password = document.getElementById("clearanceCode").value;
 
-            // Clear input field
-            document.getElementById("chatInput").value = "";
+      if (VALID_PASSWORDS.includes(password)) {
+        secretBox.style.display = "block";
+        decoyBox.style.display = "none";
+        lockoutMessage.style.display = "none";
+        alert("Classified protocol unlocked.");
+      } else if (password === DECOY_PASSWORD) {
+        decoyBox.style.display = "block";
+        secretBox.style.display = "none";
+        lockoutMessage.style.display = "none";
+        alert("Protocol unlocked. Proceed with unity initiative.");
+      } else {
+        const lockUntil = new Date().getTime() + LOCKOUT_DURATION;
+        localStorage.setItem(LOCKOUT_KEY, lockUntil.toString());
+        lockoutMessage.innerText = `Access denied. You are now locked out until ${new Date(lockUntil).toLocaleString()}`;
+        lockoutMessage.style.display = "block";
+        alert("Incorrect code. You are now locked out for 48 hours.");
+      }
+    }
 
-            // Save the updated messages to localStorage
-            saveMessages();
-        }
-    </script>
+    function purgeEverything() {
+      localStorage.clear();
+      document.body.innerHTML = '<div style="padding:2rem;color:white;background:#111;"><h2>🔥 Emergency Protocol Engaged</h2><p>All session data has been purged.</p></div>';
+    }
+
+    function redirectToDecoy() {
+      window.location.href = "decoy.html";
+    }
+
+    document.addEventListener("keydown", function (e) {
+      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "d") {
+        const section = document.getElementById("accessSection");
+        section.style.display = "block";
+      }
+    });
+  </script>
 </body>
 </html>
 
