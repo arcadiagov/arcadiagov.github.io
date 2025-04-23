@@ -61,7 +61,7 @@
       margin-top: 1rem;
     }
     #accessSection {
-      display: block;
+      display: none;
     }
     #purgeButton, #decoyRedirect {
       background-color: #e67e22;
@@ -76,39 +76,33 @@
     #decoyRedirect {
       left: 10px;
     }
-    #selfDestructSection {
-      display: block;
-    }
     #selfDestructLock {
       display: none;
+      background: black;
+      color: white;
+      font-size: 1.2rem;
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #000000; /* Solid black background */
-      color: white;
-      display: flex;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
       justify-content: center;
       align-items: center;
-      font-size: 1.5rem;
-      text-align: center;
-      z-index: 1001;
+      flex-direction: column;
     }
   </style>
 </head>
 <body>
+<div id="selfDestructLock">
+  <h2>🚫 Self-Destruct Lock Active</h2>
+  <p>This page is locked for 1 hour due to emergency protocol.</p>
+</div>
+<div id="pageContent">
   <button id="purgeButton" onclick="purgeEverything()">⚠ Emergency Purge</button>
   <button id="decoyRedirect" onclick="redirectToDecoy()">🪤 Decoy</button>
 
-  <div id="selfDestructLock" style="display: none;">
-    <div>
-      <h2>💥 Self-Destruct Activated</h2>
-      <p>This page is now locked for 1 hour. Access has been temporarily revoked for security purposes.</p>
-    </div>
-  </div>
-
-  <div class="section" id="pageContent">
+  <div class="section">
     <h1>🔍 Bradectoria Intelligence Briefing</h1>
     <p>Compiled for the High King and trusted leadership. This file contains essential intelligence on Gheetan operations, doctrine, and potential vulnerabilities, along with Arcadia’s confidential contingency plans.</p>
   </div>
@@ -157,104 +151,97 @@
       <p>This plan outlines steps for cultural celebration and deeper integration with Gheetan systems. Diplomacy and unity are key.</p>
     </div>
   </div>
+</div>
+<script>
+  const LOCKOUT_KEY = "gheetanLockoutTimestamp";
+  const LOCKOUT_DURATION = 48 * 60 * 60 * 1000;
+  const SELF_DESTRUCT_KEY = "selfDestructTimestamp";
+  const SELF_DESTRUCT_DURATION = 60 * 60 * 1000;
 
-  <script>
-    const LOCKOUT_KEY = "gheetanLockoutTimestamp";
-    const LOCKOUT_DURATION = 48 * 60 * 60 * 1000; // 48 hours
-    const VALID_PASSWORDS = ["LeaveGheetanNow", "HighKing25", "DemocracyFreedom!"];
-    const DECOY_PASSWORD = "ArcadiaForever";
+  const VALID_PASSWORDS = ["LeaveGheetanNow", "HighKing25", "DemocracyFreedom!"];
+  const DECOY_PASSWORD = "ArcadiaForever";
 
-    function isLockedOut() {
-      const timestamp = localStorage.getItem(LOCKOUT_KEY);
-      if (!timestamp) return false;
-      const lockedUntil = new Date(parseInt(timestamp));
-      return new Date() < lockedUntil;
+  function isLockedOut() {
+    const timestamp = localStorage.getItem(LOCKOUT_KEY);
+    if (!timestamp) return false;
+    return new Date() < new Date(parseInt(timestamp));
+  }
+
+  function isSelfDestructLocked() {
+    const timestamp = localStorage.getItem(SELF_DESTRUCT_KEY);
+    if (!timestamp) return false;
+    return new Date() < new Date(parseInt(timestamp));
+  }
+
+  function revealPlan() {
+    const lockoutMessage = document.getElementById("lockoutMessage");
+    const secretBox = document.getElementById("exitPlan");
+    const decoyBox = document.getElementById("decoyPlan");
+
+    if (isLockedOut()) {
+      const lockedUntil = new Date(parseInt(localStorage.getItem(LOCKOUT_KEY)));
+      lockoutMessage.innerText = `Access denied. Protocol locked until ${lockedUntil.toLocaleString()}`;
+      lockoutMessage.style.display = "block";
+      return;
     }
 
-    function revealPlan() {
-      const lockoutMessage = document.getElementById("lockoutMessage");
-      const secretBox = document.getElementById("exitPlan");
-      const decoyBox = document.getElementById("decoyPlan");
+    const password = document.getElementById("clearanceCode").value;
 
-      if (isLockedOut()) {
-        const lockedUntil = new Date(parseInt(localStorage.getItem(LOCKOUT_KEY)));
-        lockoutMessage.innerText = `Access denied. Protocol locked until ${lockedUntil.toLocaleString()}`;
-        lockoutMessage.style.display = "block";
-        return;
-      }
-
-      const password = document.getElementById("clearanceCode").value;
-
-      if (VALID_PASSWORDS.includes(password)) {
-        secretBox.style.display = "block";
-        decoyBox.style.display = "none";
-        lockoutMessage.style.display = "none";
-        alert("Classified protocol unlocked.");
-      } else if (password === DECOY_PASSWORD) {
-        decoyBox.style.display = "block";
-        secretBox.style.display = "none";
-        lockoutMessage.style.display = "none";
-        alert("Protocol unlocked. Proceed with unity initiative.");
-      } else {
-        const lockUntil = new Date().getTime() + LOCKOUT_DURATION;
-        localStorage.setItem(LOCKOUT_KEY, lockUntil.toString());
-        lockoutMessage.innerText = `Access denied. You are now locked out until ${new Date(lockUntil).toLocaleString()}`;
-        lockoutMessage.style.display = "block";
-        alert("Incorrect code. You are now locked out for 48 hours.");
-      }
+    if (VALID_PASSWORDS.includes(password)) {
+      secretBox.style.display = "block";
+      decoyBox.style.display = "none";
+      lockoutMessage.style.display = "none";
+      alert("Classified protocol unlocked.");
+    } else if (password === DECOY_PASSWORD) {
+      decoyBox.style.display = "block";
+      secretBox.style.display = "none";
+      lockoutMessage.style.display = "none";
+      alert("Protocol unlocked. Proceed with unity initiative.");
+    } else {
+      const lockUntil = new Date().getTime() + LOCKOUT_DURATION;
+      localStorage.setItem(LOCKOUT_KEY, lockUntil.toString());
+      lockoutMessage.innerText = `Access denied. You are now locked out until ${new Date(lockUntil).toLocaleString()}`;
+      lockoutMessage.style.display = "block";
+      alert("Incorrect code. You are now locked out for 48 hours.");
     }
+  }
 
-    function purgeEverything() {
-      localStorage.clear();
-      document.body.innerHTML = '<div style="padding:2rem;color:white;background:#111;"><h2>🔥 Emergency Protocol Engaged</h2><p>All session data has been purged.</p></div>';
-    }
+  function purgeEverything() {
+    localStorage.clear();
+    document.body.innerHTML = '<div style="padding:2rem;color:white;background:#111;"><h2>🔥 Emergency Protocol Engaged</h2><p>All session data has been purged.</p></div>';
+  }
 
-    function redirectToDecoy() {
-      window.location.href = "decoy.html";
-    }
+  function redirectToDecoy() {
+    window.location.href = "decoy.html";
+  }
 
-    const SELF_DESTRUCT_KEY = "selfDestructTimestamp";
-    function isSelfDestructLocked() {
-      const timestamp = localStorage.getItem(SELF_DESTRUCT_KEY);
-      if (!timestamp) return false;
-      const lockedUntil = new Date(parseInt(timestamp));
-      return new Date() < lockedUntil;
-    }
+  function engageSelfDestruct() {
+    const lockUntil = new Date().getTime() + SELF_DESTRUCT_DURATION;
+    localStorage.setItem(SELF_DESTRUCT_KEY, lockUntil.toString());
+    location.reload();
+  }
 
-    function engageSelfDestruct() {
-      const lockUntil = new Date().getTime() + 60 * 60 * 1000; // 1 hour
-      localStorage.setItem(SELF_DESTRUCT_KEY, lockUntil.toString());
-      document.getElementById("selfDestructLock").style.display = "flex"; // Show self-destruct lock message
-      document.getElementById("pageContent").style.display = "none"; // Hide content
-      document.getElementById("purgeButton").style.display = "none"; // Hide purge button
-      document.getElementById("decoyRedirect").style.display = "none"; // Hide decoy button
-      alert("Self-Destruct Lock engaged. Access will be blocked for 1 hour.");
-    }
-
-    function showSelfDestructMessage() {
-      const msg = document.getElementById("selfDestructMessage");
-      const lockedUntil = new Date(parseInt(localStorage.getItem(SELF_DESTRUCT_KEY)));
-      msg.innerText = `Page locked until ${lockedUntil.toLocaleString()}`;
-      msg.style.display = "block";
-    }
-
-    // Check if self-destruct is active on page load
-    window.onload = function() {
-      if (isSelfDestructLocked()) {
-        document.getElementById("selfDestructLock").style.display = "flex"; // Show self-destruct lock message
-        document.getElementById("pageContent").style.display = "none"; // Hide content
-        document.getElementById("purgeButton").style.display = "none"; // Hide purge button
-        document.getElementById("decoyRedirect").style.display = "none"; // Hide decoy button
+  document.addEventListener('keydown', function (event) {
+    if (event.ctrlKey && event.altKey && event.key.toLowerCase() === 'd') {
+      const section = document.getElementById('accessSection');
+      if (section) {
+        section.style.display = 'block';
+        alert("Secure Access Protocol Activated.");
       }
     }
-  </script>
+  });
 
-  <div class="section" id="selfDestructSection">
-    <h2>🕛 Self-Destruct Lock</h2>
-    <p>This emergency button locks access to this page for 1 hour.</p>
-    <button onclick="engageSelfDestruct()">🔒 Self-Destruct Lock (1 Hour)</button>
-  </div>
-
+  window.onload = function () {
+    if (isSelfDestructLocked()) {
+      document.getElementById("selfDestructLock").style.display = "flex";
+      document.getElementById("pageContent").style.display = "none";
+      document.getElementById("purgeButton").style.display = "none";
+      document.getElementById("decoyRedirect").style.display = "none";
+    }
+    document.getElementById("accessSection").style.display = "none";
+  };
+</script>
 </body>
 </html>
+
 
