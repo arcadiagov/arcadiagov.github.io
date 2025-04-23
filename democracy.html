@@ -194,6 +194,107 @@
       }
     });
   </script>
+  <!-- Add to the bottom of the <body> tag, just before </body> -->
+<div class="section" id="selfDestructSection">
+  <h2>🕛 Self-Destruct Lock</h2>
+  <p>This emergency button locks access to this page for 1 hour.</p>
+  <button onclick="engageSelfDestruct()">🔒 Self-Destruct Lock (1 Hour)</button>
+  <p id="selfDestructMessage" class="lockout-message" style="display:none;"></p>
+</div>
+
+<script>
+  const LOCKOUT_KEY = "gheetanLockoutTimestamp";
+  const LOCKOUT_DURATION = 48 * 60 * 60 * 1000; // 48 hours
+  const SELF_DESTRUCT_KEY = "selfDestructTimestamp";
+  const SELF_DESTRUCT_DURATION = 60 * 60 * 1000; // 1 hour
+
+  const VALID_PASSWORDS = ["LeaveGheetanNow", "HighKing25", "DemocracyFreedom!"];
+  const DECOY_PASSWORD = "ArcadiaForever";
+
+  function isLockedOut() {
+    const timestamp = localStorage.getItem(LOCKOUT_KEY);
+    if (!timestamp) return false;
+    const lockedUntil = new Date(parseInt(timestamp));
+    return new Date() < lockedUntil;
+  }
+
+  function isSelfDestructLocked() {
+    const timestamp = localStorage.getItem(SELF_DESTRUCT_KEY);
+    if (!timestamp) return false;
+    const lockedUntil = new Date(parseInt(timestamp));
+    return new Date() < lockedUntil;
+  }
+
+  function revealPlan() {
+    const lockoutMessage = document.getElementById("lockoutMessage");
+    const secretBox = document.getElementById("exitPlan");
+    const decoyBox = document.getElementById("decoyPlan");
+
+    if (isLockedOut()) {
+      const lockedUntil = new Date(parseInt(localStorage.getItem(LOCKOUT_KEY)));
+      lockoutMessage.innerText = `Access denied. Protocol locked until ${lockedUntil.toLocaleString()}`;
+      lockoutMessage.style.display = "block";
+      return;
+    }
+
+    const password = document.getElementById("clearanceCode").value;
+
+    if (VALID_PASSWORDS.includes(password)) {
+      secretBox.style.display = "block";
+      decoyBox.style.display = "none";
+      lockoutMessage.style.display = "none";
+      alert("Classified protocol unlocked.");
+    } else if (password === DECOY_PASSWORD) {
+      decoyBox.style.display = "block";
+      secretBox.style.display = "none";
+      lockoutMessage.style.display = "none";
+      alert("Protocol unlocked. Proceed with unity initiative.");
+    } else {
+      const lockUntil = new Date().getTime() + LOCKOUT_DURATION;
+      localStorage.setItem(LOCKOUT_KEY, lockUntil.toString());
+      lockoutMessage.innerText = `Access denied. You are now locked out until ${new Date(lockUntil).toLocaleString()}`;
+      lockoutMessage.style.display = "block";
+      alert("Incorrect code. You are now locked out for 48 hours.");
+    }
+  }
+
+  function purgeEverything() {
+    localStorage.clear();
+    document.body.innerHTML = '<div style="padding:2rem;color:white;background:#111;"><h2>🔥 Emergency Protocol Engaged</h2><p>All session data has been purged.</p></div>';
+  }
+
+  function redirectToDecoy() {
+    window.location.href = "decoy.html";
+  }
+
+  function engageSelfDestruct() {
+    const lockUntil = new Date().getTime() + SELF_DESTRUCT_DURATION;
+    localStorage.setItem(SELF_DESTRUCT_KEY, lockUntil.toString());
+    alert("Self-Destruct Lock engaged. Access will be blocked for 1 hour.");
+    location.reload();
+  }
+
+  function showSelfDestructMessage() {
+    const msg = document.getElementById("selfDestructMessage");
+    const lockedUntil = new Date(parseInt(localStorage.getItem(SELF_DESTRUCT_KEY)));
+    msg.innerText = `Page locked until ${lockedUntil.toLocaleString()}`;
+    msg.style.display = "block";
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    if (isSelfDestructLocked()) {
+      document.body.innerHTML = '<div style="padding:2rem;color:white;background:#111;"><h2>🚫 Self-Destruct Lock Active</h2><p>This page is locked for 1 hour due to emergency protocol.</p></div>';
+      showSelfDestructMessage();
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "d") {
+      const section = document.getElementById("accessSection");
+      section.style.display = "block";
+    }
+  });
+</script>
 </body>
 </html>
 
