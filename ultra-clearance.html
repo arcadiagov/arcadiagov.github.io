@@ -3,234 +3,798 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultra Clearance</title>
+    <title>Ultra Security Clearance - Arcadia</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-        }
-
-        .password-box {
-            display: none;
-        }
-
-        .lockdown-overlay {
-            background-color: black;
-            color: white;
-            font-size: 1.5rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 9998;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            background-color: #1a1a1a;
+            color: #fff;
             padding: 2rem;
         }
-
-        .lockdown-button {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background-color: #c0392b;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            border: none;
+        #secureContent {
+            background-color: #333;
+            padding: 1.5rem;
             border-radius: 8px;
-            z-index: 9999;
-            cursor: pointer;
-        }
-
-        .section-content {
-            display: none;
-        }
-
-        .section-content p {
-            font-size: 1.2rem;
-            line-height: 1.5;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
     </style>
 </head>
 <body>
+   <div id="secureContent">
+    <h1>🛡️ Ultra Security Clearance Zone</h1>
+    <p>Welcome, authorized official. This page contains top-secret intelligence and operations related to the sovereignty, security, and continuity of Arcadia.</p>
 
-<h1>Ultra Clearance</h1>
+    <h2>🕵️ Intelligence Summary</h2>
+    <p>Classified details on Arcadian counter-intelligence efforts, foreign surveillance data, and emergency military mobilization protocols.</p>
 
-<!-- Section 1 -->
+    <h2>🔐 Strategic Objectives</h2>
+    <ul>
+        <li>Preservation of Arcadian independence at all levels.</li>
+        <li>Detection and neutralization of subversive foreign influence.</li>
+        <li>Covert diplomatic operations in aligned and neutral territories.</li>
+    </ul>
+
+    <h2>🚨 Emergency Activation Protocols</h2>
+
+    <section id="continuity">
+        <h2>Government Continuity Protocols</h2>
+
+        <!-- Section 1 -->
+        <div>
+            <h3 onclick="toggleSection('section1')">🔐 Protocol Aegis</h3>
+
+            <!-- First-level Password Prompt -->
+            <div id="section1-password" style="display:block;">
+                <input type="password" id="password1" placeholder="Enter password for Protocol Aegis" />
+                <button onclick="checkSectionPassword('1', 'AegisSecure2025')">Submit</button>
+            </div>
+
+            <!-- Content (Hidden until correct password is entered) -->
+            <div id="section1-content" style="display:none;">
+                <p>Initiated upon confirmed incapacitation of central leadership. Empowers regional governors to assume executive functions under oath-bound guidance of the Constitution of Arcadia.</p>
+            </div>
+        </div>
+    </section> <!-- Section 2 -->
 <div>
-    <h3>🔐 Section 1: Security Protocols</h3>
-    <div id="section1-password" class="password-box">
-        <input type="password" id="password1" placeholder="Enter Section 1 password" />
-        <button onclick="checkSectionPassword(1, 'Section1Key2025')">Submit</button>
+       <!-- Section 3 -->
+<div>
+    <h3 onclick="toggleSection('section3')">🔐 Directive Nightglass</h3>
+
+    <!-- First-level Password Prompt -->
+    <div id="section3-password" style="display:block;">
+        <input type="password" id="password3" placeholder="Enter password for Nightglass" />
+        <button type="button" onclick="checkSectionPassword('3', 'Nightglass2025')">Submit</button>
     </div>
-    <div id="section1-content" class="section-content">
-        <p><strong>Overview:</strong> This section outlines the fundamental security protocols necessary for maintaining ultra-high security clearance. These include access control mechanisms, encryption standards, and the steps to follow in case of a security breach.</p>
-        <p><strong>Key Protocols:</strong> 
-            <ul>
-                <li>Mandatory use of two-factor authentication for all users.</li>
-                <li>Encryption of all communication using AES-256 standards.</li>
-                <li>Physical security checks for personnel accessing sensitive areas.</li>
-            </ul>
+
+    <!-- Content (Hidden until correct password is entered) -->
+    <div id="section3-content" style="display:none;">
+        <p>Automatically mobilizes loyalist forces to protect key infrastructure and preserve national archives in fortified vaults.</p>
+    </div>
+</div>  <!-- Section 4 -->
+<div>
+    <h3 onclick="toggleSection('section4')">🔐 Shadow Protocol</h3>
+
+    <!-- First-level Password Prompt -->
+    <div id="section4-password" style="display:block;">
+        <input type="password" id="password4" placeholder="Enter password for Shadow Protocol" />
+        <button type="button" onclick="checkSectionPassword('4', 'ShadowKey2025')">Submit</button>
+    </div>
+
+    <!-- Content (Hidden until correct password is entered) -->
+    <div id="section4-content" style="display:none;">
+        <p>Engages the Arcadian Emergency Council, allowing rapid deployment of classified assets and invoking temporary suspension of non-critical operations for national focus.</p>
+    </div>
+</div>    <h3 onclick="toggleSection('section2')">🔐 Activation Code Omega-9</h3>
+
+    <!-- First-level Password Prompt -->
+    <div id="section2-password" style="display:block;">
+        <input type="password" id="password2" placeholder="Enter password for Omega-9" />
+        <button onclick="checkSectionPassword('2', 'OmegaSecure2025')">Submit</button>
+    </div>
+
+    <!-- Content (Hidden until correct password is entered) -->
+    <div id="section2-content" style="display:none;">
+        <p>Triggers secure communication networks and encrypted satellite channels for uninterrupted inter-governmental coordination.</p>
+    </div>
+</div>
+         <!-- Section 5 -->
+<div>
+    <h3 onclick="toggleSection('section5')">🔐 Continuity Beacon System</h3>
+
+    <!-- First-level Password Prompt -->
+    <div id="section5-password" style="display:block;">
+        <input type="password" id="password5" placeholder="Enter password for Beacon System" />
+        <button type="button" onclick="checkSectionPassword('5', 'BeaconAccess2025')">Submit</button>
+    </div>
+
+    <!-- Content (Hidden until correct password is entered) -->
+    <div id="section5-content" style="display:none;">
+        <p>Broadcasts encrypted fail-safe codes to all provincial leadership centers to synchronize emergency authority structures and ensure lawful succession.</p>
+    </div>
+</div> <!-- Ultra Clearance Extra Information Section -->
+        <h2>📁 Ultra Clearance Confidential Annex</h2>
+        <p>This annex contains experimental contingency policies, predictive threat modeling, and next-generation defense initiatives under Project Eternity and Operation Ironveil.</p>
+        <ul>
+            <li>Project Eternity: Time-locked data vaults activated via legacy-code inheritance pathways.</li>
+            <li>Operation Ironveil: Quantum-shielded perimeter defenses against multi-domain incursions.</li>
+            <li>Sentinel Network: Pre-emptive AI surveillance nodes embedded within key infrastructure.</li>
+        </ul>
+
+        <p style="font-weight: bold; font-size: 1rem;">
+            These protocols are reviewed bi-annually by the High Council and are designed to preserve the sovereignty, leadership integrity, and operational continuity of the Kingdom of Arcadia under extreme duress.
         </p>
-        <p><strong>Response Plan:</strong> 
-            - Immediate isolation of compromised systems.
-            - Initiation of data recovery procedures.
-            - Detailed reporting to the security council within 24 hours.
+
+        <p style="font-weight: bold; font-size: 2.5rem; text-decoration: underline;">
+            <strong>Note:</strong> Sharing or duplication of this material is a treasonable offense under Arcadian Treason Act of 2025.
         </p>
+
+        <!-- Ultra-Clearance Security Sections -->
+        <section id="ultra-clearance-security">
+            <h2>🛡️ Ultra-Clearance Security Protocols</h2>
+
+  <!-- Crisis Management Protocols -->
+<div>
+    <h3 onclick="toggleSection('section6')">🔐 Crisis Management Protocols</h3>
+
+    <!-- First-level Password Prompt -->
+    <div id="section6-password" style="display:block;">
+        <input type="password" id="password6" placeholder="Enter password for Crisis Management" />
+        <button onclick="checkSectionPassword('6', 'CrisisSecure2025')">Submit</button>
+    </div>
+
+    <!-- Content (Hidden until correct password is entered) -->
+    <div id="section6-content" style="display:none;">
+        <h4><strong>Immediate Action Protocol:</strong></h4>
+        <p>In the event of a national emergency, Arcadia's crisis management protocols are designed to ensure rapid response and safeguard the Kingdom's sovereignty, security, and continuity of governance. These protocols outline the immediate actions to be taken in various crisis scenarios, ensuring that each crisis is managed with precision and effectiveness.</p>
+        
+        <ul>
+            <li><strong>Military Invasion:</strong> Initiate full-scale defensive operations. Mobilize the Arcadian Armed Forces to the southern and eastern borders, with priority on securing key strategic locations and defense hubs.</li>
+            <li><strong>Assassination Attempt on Leadership:</strong> Trigger the Royal Protection and Counter-Intelligence Command (RPCCC) to begin immediate investigation and neutralization of involved parties.</li>
+            <li><strong>Civil Unrest:</strong> Deploy the Arcadian Civil Protection Corps (ACPC) to restore order and prevent escalation. Use non-lethal methods as the first course of action.</li>
+            <li><strong>Natural Disasters (e.g., Earthquake, Floods, etc.):</strong> Implement emergency evacuation plans for major cities. Activate local emergency response units to coordinate rescue and relief efforts.</li>
+        </ul>
+
+        <h4><strong>Communication Methods:</strong></h4>
+        <ul>
+            <li><strong>Secure Lines of Communication:</strong> All communications with loyalist forces, intelligence agencies, and trusted foreign allies will be conducted via encrypted satellite channels and secure government networks.</li>
+            <li><strong>Redundant Systems:</strong> Ensure the availability of alternative communication methods, such as emergency shortwave radio, in case primary networks are compromised.</li>
+        </ul>
+
+        <h4><strong>Evacuation Plan:</strong></h4>
+        <ul>
+            <li><strong>Royal Family Evacuation:</strong> Established evacuation routes for the Royal Family, including underground bunkers, safe houses, and escape points to neutral territories if necessary.</li>
+            <li><strong>Top Officials:</strong> Designated safe zones for key government officials and military leaders in case of an emergency.</li>
+        </ul>
+
+        <h4><strong>Lockdown Protocols:</strong></h4>
+        <ul>
+            <li><strong>Government Facilities Lockdown:</strong> Initiate lockdown procedures for all government buildings, ensuring only authorized personnel can enter.</li>
+            <li><strong>Infrastructure Protection:</strong> Secure all vital infrastructure such as power plants, communication hubs, and transportation routes to prevent sabotage by hostile forces or insurgents.</li>
+        </ul>
+
+        <p>These protocols are reviewed annually and updated based on emerging threats and technological advancements. All personnel involved in crisis management are required to undergo regular training and simulations to ensure readiness at all times.</p>
     </div>
 </div>
 
-<!-- Section 2 -->
-<div>
-    <h3>🔐 Section 2: Emergency Response Procedures</h3>
-    <div id="section2-password" class="password-box">
-        <input type="password" id="password2" placeholder="Enter Section 2 password" />
-        <button onclick="checkSectionPassword(2, 'Section2Key2025')">Submit</button>
-    </div>
-    <div id="section2-content" class="section-content">
-        <p><strong>Overview:</strong> This section details the emergency response procedures in case of critical events such as breaches, natural disasters, or physical attacks on key facilities. It focuses on the immediate actions required by staff to ensure the continuity of operations.</p>
-        <p><strong>Key Procedures:</strong> 
-            <ul>
-                <li>Alert system activation: Initiating communication with all key personnel.</li>
-                <li>Evacuation protocols: Clear and actionable steps for personnel to evacuate safely.</li>
-                <li>Backup power systems: Activation of emergency generators within 2 minutes of power failure.</li>
-            </ul>
-        </p>
-        <p><strong>Response Actions:</strong>
-            - Immediate assessment of the situation and reporting to higher authorities.
-            - Coordination with local law enforcement and military units if required.
-            - Initiation of damage control and incident documentation.
-        </p>
-    </div>
+<!-- Self-Destruct Password Box (Appears for 20 seconds) -->
+<div id="unlock-box-6" style="display:none;">
+    <input type="password" id="selfDestructPassword6" placeholder="Enter HighKing25 to unlock" />
+    <button onclick="unlockSelfDestruct6()">Unlock</button>
 </div>
-
-<!-- Section 3 -->
-<div>
-    <h3>🔐 Section 3: Classified Intelligence Reports</h3>
-    <div id="section3-password" class="password-box">
-        <input type="password" id="password3" placeholder="Enter Section 3 password" />
-        <button onclick="checkSectionPassword(3, 'Section3Key2025')">Submit</button>
-    </div>
-    <div id="section3-content" class="section-content">
-        <p><strong>Overview:</strong> This section contains a compilation of highly classified intelligence reports. These reports pertain to national security, foreign threats, and the status of ongoing intelligence operations.</p>
-        <p><strong>Key Reports:</strong> 
-            <ul>
-                <li><strong>Report A:</strong> Assessment of potential cyber threats from foreign actors.</li>
-                <li><strong>Report B:</strong> Analysis of intelligence gathered on geopolitical instability in nearby regions.</li>
-                <li><strong>Report C:</strong> Review of recent covert operations and their success rates.</li>
-            </ul>
-        </p>
-        <p><strong>Additional Information:</strong> Access to this section is restricted to authorized personnel only. Any attempt to distribute or leak this information will result in severe penalties under the National Security Act.</p>
-    </div>
-</div>
-
-<!-- Section 4 -->
-<div>
-    <h3>🔐 Section 4: Asset Protection and Surveillance</h3>
-    <div id="section4-password" class="password-box">
-        <input type="password" id="password4" placeholder="Enter Section 4 password" />
-        <button onclick="checkSectionPassword(4, 'Section4Key2025')">Submit</button>
-    </div>
-    <div id="section4-content" class="section-content">
-        <p><strong>Overview:</strong> This section covers protocols and procedures to protect critical assets, including intellectual property and key infrastructure. Surveillance measures are also outlined to monitor potential threats.</p>
-        <p><strong>Key Protections:</strong> 
-            <ul>
-                <li>24/7 surveillance of sensitive locations.</li>
-                <li>Implementation of access restrictions based on clearance levels.</li>
-                <li>Real-time data monitoring to detect unauthorized activities.</li>
-            </ul>
-        </p>
-        <p><strong>Response Plan:</strong> 
-            - Immediate activation of counter-surveillance measures if a threat is detected.
-            - Escalation of incidents to senior security personnel.
-            - Coordination with external agencies if necessary for asset recovery.
-        </p>
-    </div>
-</div>
-
-<!-- Emergency Lockdown Button -->
-<button id="lockdownButton" class="lockdown-button" onclick="triggerEmergencyLockdown()" style="display: none;">
-    🔒 Trigger Emergency Lockdown
-</button>
 
 <script>
-// Global variables for tracking lockdown status and failed attempts
-let failedAttempts = parseInt(localStorage.getItem("failedAttempts")) || 0;
-const LOCK_DURATION = 72 * 60 * 60 * 1000; // 72 hours in ms
-
-// Triggered when the user presses Ctrl + Alt + O
-document.addEventListener('keydown', function (event) {
-    if (event.ctrlKey && event.altKey && event.key === 'o') {
-        showPasswordBoxes(); // Show all password input boxes when Ctrl+Alt+O is pressed
-    }
-});
-
-// Show password boxes when Ctrl + Alt + O is pressed
-function showPasswordBoxes() {
-    document.querySelectorAll('.password-box').forEach(box => box.style.display = 'block');
-    document.getElementById('lockdownButton').style.display = 'block'; // Show the emergency lockdown button
-}
-
-// Check the password for each section
+// Function to check the password for section 6
 function checkSectionPassword(sectionId, correctPassword) {
-    const input = document.getElementById(`password${sectionId}`).value;
+    const input = document.getElementById(password${sectionId}).value;
 
-    // Check if the input matches the correct password
+    // Check password
     if (input === correctPassword) {
-        document.getElementById(`section${sectionId}-password`).style.display = "none";
-        document.getElementById(`section${sectionId}-content`).style.display = "block";
+        document.getElementById(section${sectionId}-password).style.display = "none";
+        document.getElementById(section${sectionId}-content).style.display = "block";
     } else {
         alert("Incorrect password for this section.");
-        failedAttempts++;
-        localStorage.setItem("failedAttempts", failedAttempts.toString());
-
-        // If there are 1 or more failed attempts, lock the page for 72 hours
-        if (failedAttempts >= 1) {
-            triggerEmergencyLockdown();
-        }
+        triggerLoginAttemptNotification();
+        initiateSelfDestruct(sectionId);
     }
 }
 
-// Trigger an emergency lockdown
-function triggerEmergencyLockdown() {
-    localStorage.setItem("pageLocked", "true");
-    localStorage.setItem("lockTimestamp", Date.now().toString());
-    lockPage();
+// Function to trigger login attempt notification (notifies via email)
+function triggerLoginAttemptNotification() {
+    // Send email notification (EmailJS or similar)
+    const serviceID = "YOUR_SERVICE_ID";  // Replace with your EmailJS service ID
+    const templateID = "YOUR_TEMPLATE_ID";  // Replace with your template ID
+    const userEmail = "governmentofarcadia@gmail.com";  // Your provided email for receiving notifications
+
+    const emailData = {
+        to_email: userEmail,
+        subject: "Login Attempt Detected on Arcadia Continuity Section",
+        message: "Someone attempted to access the Crisis Management Protocols section but failed the password check."
+    };
+
+    // Example of sending an email with EmailJS
+    emailjs.send(serviceID, templateID, emailData)
+        .then(response => {
+            console.log("Email sent successfully:", response);
+        })
+        .catch(error => {
+            console.log("Email failed:", error);
+        });
 }
 
-// Lock the page and display the lockdown message
-function lockPage() {
-    document.body.innerHTML = `
-        <div class="lockdown-overlay">
-            <h1 style="color:red;">💥 Emergency Lockdown Activated</h1>
-            <p>This page is locked for 72 hours due to security protocol. No further interaction is possible until the lock expires.</p>
-        </div>
-    `;
+// Self-Destruct feature (locks page for 70 hours)
+function initiateSelfDestruct(sectionId) {
+    // Set a 70-hour lock (in milliseconds)
+    const lockDuration = 70 * 60 * 60 * 1000; // 70 hours in milliseconds
+
+    // Store lock expiry time in localStorage (this is persistent even after page reloads)
+    const lockExpiry = new Date().getTime() + lockDuration;
+    localStorage.setItem(selfDestructExpirySection${sectionId}, lockExpiry);
+
+    // Display unlock box for 20 seconds
+    document.getElementById(unlock-box-${sectionId}).style.display = "block";
+
+    // Hide the unlock box after 20 seconds
+    setTimeout(() => {
+        document.getElementById(unlock-box-${sectionId}).style.display = "none";
+    }, 20000);
+
+    // Disable interaction after failed login attempt
+    alert("The system has entered a self-destruct lock for 70 hours.");
 }
 
-// Check if the page is locked when the user loads the page
-window.onload = function () {
-    const lockStatus = localStorage.getItem("pageLocked");
-    const lockTime = parseInt(localStorage.getItem("lockTimestamp"));
-    const now = Date.now();
+// Unlock Self-Destruct (if correct password is entered within 20 seconds)
+function unlockSelfDestruct6() {
+    const input = document.getElementById("selfDestructPassword6").value;
+    if (input === "HighKing25") {
+        alert("Self-destruct feature unlocked.");
+        // Reset the lock time
+        localStorage.removeItem("selfDestructExpirySection6");
+        location.reload();  // Reload the page to reflect the unlocked state
+    } else {
+        alert("Incorrect password to unlock self-destruct.");
+    }
+}
 
-    // Check if the page is locked and whether 72 hours have passed
-    if (lockStatus === "true") {
-        if (!lockTime || (now - lockTime < LOCK_DURATION)) {
-            lockPage(); // Still locked
-        } else {
-            // Lock expired: reset everything
+// Check if the page is locked when the user reloads
+function checkSelfDestructLock() {
+    const lockExpirySection1 = localStorage.getItem("selfDestructExpirySection1");
+    const lockExpirySection2 = localStorage.getItem("selfDestructExpirySection2");
+    const lockExpirySection3 = localStorage.getItem("selfDestructExpirySection3");
+    const lockExpirySection4 = localStorage.getItem("selfDestructExpirySection4");
+    const lockExpirySection5 = localStorage.getItem("selfDestructExpirySection5");
+    const lockExpirySection6 = localStorage.getItem("selfDestructExpirySection6");
+
+    if ((lockExpirySection1 && new Date().getTime() < lockExpirySection1) || 
+        (lockExpirySection2 && new Date().getTime() < lockExpirySection2) || 
+        (lockExpirySection3 && new Date().getTime() < lockExpirySection3) || 
+        (lockExpirySection4 && new Date().getTime() < lockExpirySection4) || 
+        (lockExpirySection5 && new Date().getTime() < lockExpirySection5) || 
+        (lockExpirySection6 && new Date().getTime() < lockExpirySection6)) {
+        alert("The page is locked. Please wait until the lock expires.");
+        document.body.innerHTML = "<h1>The page is locked due to security measures. Please wait until the lock expires.</h1>";
+    } else {
+        localStorage.removeItem("selfDestructExpirySection1"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection2"); // Remove expired lock for section 2
+        localStorage.removeItem("selfDestructExpirySection3"); // Remove expired lock for section 3
+        localStorage.removeItem("selfDestructExpirySection4"); // Remove expired lock for section 4
+        localStorage.removeItem("selfDestructExpirySection5"); // Remove expired lock for section 5
+        localStorage.removeItem("selfDestructExpirySection6"); // Remove expired lock for section 6
+    }
+}
+
+// Call the check function when the page loads
+checkSelfDestructLock();
+</script>
+
+<!-- Specialized Intelligence -->
+<div>
+    <h3 onclick="toggleSection('section7')">🔐 Specialized Intelligence</h3>
+
+    <!-- First-level Password Prompt -->
+    <div id="section7-password" style="display:block;">
+        <input type="password" id="password7" placeholder="Enter password for Specialized Intelligence" />
+        <button onclick="checkSectionPassword('7', 'SpecialIntel2025')">Submit</button>
+    </div>
+
+    <!-- Content (Hidden until correct password is entered) -->
+    <div id="section7-content" style="display:none;">
+        <p><strong>Specialized Intelligence</strong></p>
+        <p>Arcadia’s Specialized Intelligence Division focuses on high-priority intelligence gathering, analysis, and counterintelligence efforts that support national security, foreign policy, and internal stability. These operations are conducted with the utmost secrecy and are essential for ensuring the Kingdom's sovereignty in the face of external and internal threats.</p>
+        
+        <p><strong>Covert Operations</strong><br>Arcadian intelligence operatives are engaged in covert operations both within the Kingdom and across the globe. These operations focus on:</p>
+        <ul>
+            <li><strong>Infiltration of hostile or neutral organizations</strong> to gather intelligence on foreign entities potentially jeopardizing Arcadia’s security.</li>
+            <li><strong>Cyber-espionage</strong> for intercepting sensitive communications and disrupting enemy operations, ensuring Arcadia remains ahead of adversaries in the digital age.</li>
+            <li><strong>Human intelligence gathering (HUMINT)</strong> through the recruitment of assets within enemy states, allowing Arcadia to obtain vital political and military information.</li>
+        </ul>
+
+        <p><strong>Signals Intelligence (SIGINT)</strong><br>Arcadia has developed advanced SIGINT capabilities that allow for the interception and analysis of electronic communications and signals. This provides real-time intelligence on adversarial intentions, military movements, and covert operations. The SIGINT division works closely with cyber-intelligence to ensure robust surveillance capabilities across all digital channels.</p>
+
+        <p><strong>Predictive Threat Modeling</strong><br>Arcadia employs advanced predictive algorithms to anticipate and counteract threats. By analyzing geopolitical trends, historical data, and current intelligence reports, these models offer a near-future view of potential threats. This predictive intelligence enables Arcadia’s leadership to take proactive measures, preventing potential crises before they develop.</p>
+
+        <p><strong>Counterintelligence Operations</strong><br>Ensuring the integrity of Arcadian intelligence is paramount. Specialized counterintelligence operations are conducted to identify and neutralize enemy operatives within Arcadia’s borders. These operations involve surveillance, recruitment of informants, and direct action against espionage networks. The goal is to prevent any unauthorized access to critical national intelligence.</p>
+
+        <p><strong>Strategic Intelligence Analysis</strong><br>Strategic intelligence is at the core of Arcadia’s decision-making process. The analysis of global political trends, economic developments, and military activities informs the Kingdom’s foreign policy and defense strategies. This division closely monitors global conflicts, shifts in alliances, and the activities of rival powers, ensuring that Arcadia maintains its leadership position on the world stage.</p>
+
+        <p><strong>Emerging Threats and Countermeasures</strong><br>The world is rapidly evolving, with new forms of threats emerging constantly. Specialized Intelligence is dedicated to addressing these new challenges, including:</p>
+        <ul>
+            <li><strong>Cyber warfare</strong>: Countering attacks on critical infrastructure, military networks, and communication systems.</li>
+            <li><strong>Biological warfare</strong>: Monitoring advancements in biological weapons technology and researching defensive measures.</li>
+            <li><strong>Artificial Intelligence</strong>: Developing strategies to combat the use of AI in military and espionage operations.</li>
+        </ul>
+
+        <p>The Division continuously adapts its methods and tools to stay ahead of new, unconventional threats, ensuring Arcadia’s readiness for any form of warfare or attack.</p>
+
+        <p><strong>Intelligence Dissemination</strong><br>The flow of sensitive intelligence is tightly controlled. Only individuals with the highest security clearances are privy to full intelligence reports. These reports are distributed through secure channels to the appropriate military, government, and diplomatic officials. Information is shared selectively to prevent leaks and protect Arcadia’s strategic advantages.</p>
+
+        <p>The Specialized Intelligence Division is a key pillar in Arcadia’s defense structure, providing the necessary intelligence to safeguard the Kingdom’s interests both at home and abroad.</p>
+    </div>
+</div>
+
+<!-- Self-Destruct Password Box (Appears for 20 seconds) -->
+<div id="unlock-box-7" style="display:none;">
+    <input type="password" id="selfDestructPassword7" placeholder="Enter HighKing25 to unlock" />
+    <button onclick="unlockSelfDestruct7()">Unlock</button>
+</div>
+
+<script>
+// Function to check the password for section 7
+function checkSectionPassword(sectionId, correctPassword) {
+    const input = document.getElementById(password${sectionId}).value;
+
+    // Check password
+    if (input === correctPassword) {
+        document.getElementById(section${sectionId}-password).style.display = "none";
+        document.getElementById(section${sectionId}-content).style.display = "block";
+    } else {
+        alert("Incorrect password for this section.");
+        triggerLoginAttemptNotification();
+        initiateSelfDestruct(sectionId);
+    }
+}
+
+// Function to trigger login attempt notification (notifies via email)
+function triggerLoginAttemptNotification() {
+    // Send email notification (EmailJS or similar)
+    const serviceID = "YOUR_SERVICE_ID";  // Replace with your EmailJS service ID
+    const templateID = "YOUR_TEMPLATE_ID";  // Replace with your template ID
+    const userEmail = "governmentofarcadia@gmail.com";  // Your provided email for receiving notifications
+
+    const emailData = {
+        to_email: userEmail,
+        subject: "Login Attempt Detected on Arcadia Continuity Section",
+        message: "Someone attempted to access the Specialized Intelligence section but failed the password check."
+    };
+
+    // Example of sending an email with EmailJS
+    emailjs.send(serviceID, templateID, emailData)
+        .then(response => {
+
+    
+</html>sent successfully:", response);
+        })
+        .catch(error => {
+            console.log("Email failed:", error);
+        });
+}
+
+// Self-Destruct feature (locks page for 70 hours)
+function initiateSelfDestruct(sectionId) {
+    // Set a 70-hour lock (in milliseconds)
+    const lockDuration = 70 * 60 * 60 * 1000; // 70 hours in milliseconds
+
+    // Store lock expiry time in localStorage (this is persistent even after page reloads)
+    const lockExpiry = new Date().getTime() + lockDuration;
+    localStorage.setItem(selfDestructExpirySection${sectionId}, lockExpiry);
+
+    // Display unlock box for 20 seconds
+    document.getElementById(unlock-box-${sectionId}).style.display = "block";
+
+    // Hide the unlock box after 20 seconds
+    setTimeout(() => {
+        document.getElementById(unlock-box-${sectionId}).style.display = "none";
+    }, 20000);
+
+    // Disable interaction after failed login attempt
+    alert("The system has entered a self-destruct lock for 70 hours.");
+}
+
+// Unlock Self-Destruct (if correct password is entered within 20 seconds)
+function unlockSelfDestruct7() {
+    const input = document.getElementById("selfDestructPassword7").value;
+    if (input === "HighKing25") {
+        alert("Self-destruct feature unlocked.");
+        // Reset the lock time
+        localStorage.removeItem("selfDestructExpirySection7");
+        location.reload();  // Reload the page to reflect the unlocked state
+    } else {
+        alert("Incorrect password to unlock self-destruct.");
+    }
+}
+
+// Check if the page is locked when the user reloads
+function checkSelfDestructLock() {
+    const lockExpirySection1 = localStorage.getItem("selfDestructExpirySection1");
+    const lockExpirySection2 = localStorage.getItem("selfDestructExpirySection2");
+    const lockExpirySection3 = localStorage.getItem("selfDestructExpirySection3");
+    const lockExpirySection4 = localStorage.getItem("selfDestructExpirySection4");
+    const lockExpirySection5 = localStorage.getItem("selfDestructExpirySection5");
+    const lockExpirySection6 = localStorage.getItem("selfDestructExpirySection6");
+    const lockExpirySection7 = localStorage.getItem("selfDestructExpirySection7");
+
+    if ((lockExpirySection1 && new Date().getTime() < lockExpirySection1) || 
+        (lockExpirySection2 && new Date().getTime() < lockExpirySection2) || 
+        (lockExpirySection3 && new Date().getTime() < lockExpirySection3) || 
+        (lockExpirySection4 && new Date().getTime() < lockExpirySection4) || 
+        (lockExpirySection5 && new Date().getTime() < lockExpirySection5) || 
+        (lockExpirySection6 && new Date().getTime() < lockExpirySection6) || 
+        (lockExpirySection7 && new Date().getTime() < lockExpirySection7)) {
+        alert("The page is locked. Please wait until the lock expires.");
+        document.body.innerHTML = "<h1>The page is locked due to security measures. Please wait until the lock expires.</h1>";
+    } else {
+        localStorage.removeItem("selfDestructExpirySection1"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection2"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection3"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection4"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection5"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection6"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection7"); // Remove expired lock
+    }
+}
+
+// Initialize the self-destruct lock on page load
+checkSelfDestructLock();
+</script>
+
+
+
+          <!-- Military Orders & Mobilization Plans -->
+<div>
+    <h3 onclick="toggleSection('section8')">🔐 Military Orders & Mobilization Plans</h3>
+
+    <!-- First-level Password Prompt -->
+    <div id="section8-password" style="display:block;">
+        <input type="password" id="password8" placeholder="Enter password for Military Orders" />
+        <button onclick="checkSectionPassword('8', 'MilitaryOrders2025')">Submit</button>
+    </div>
+
+    <!-- Content (Hidden until correct password is entered) -->
+    <div id="section8-content" style="display:none;">
+        <p><strong>Deployment Instructions:</strong> Orders for loyalist military forces, including strategic objectives and mission parameters.</p>
+        <p><strong>Strategic Defense Plans:</strong> Detailed defenses against Gheetan takeover, insurrections, and civil war.</p>
+        <p><strong>Loyalist Force Lists:</strong> Key personnel and military leaders, and their roles in a national defense scenario.</p>
+
+        <p><strong>Supreme Command Directives:</strong> Pre-drafted orders for rapid defense, airspace lockdown, and martial law enforcement.</p>
+        <p><strong>Mobilization Readiness Levels (MRLs):</strong> MRL-1 to MRL-5 military posture levels, each with specific command and response protocols.</p>
+        <p><strong>Regional Defense Sectors:</strong> Decentralized command nodes and autonomous Command Governors per sector.</p>
+        <p><strong>Preemptive Operations Protocol (POP-22):</strong> Conditions and scope for Arcadian preemptive strikes on threats domestic or foreign.</p>
+        <p><strong>Royal Guard Emergency Mandate:</strong> Temporary assumption of control by Royal Guard to secure Arcadian leadership and facilities.</p>
+        <p><strong>Logistics Activation Framework (LAF):</strong> Transition of civilian supply chains and activation of military supply depots.</p>
+        <p><strong>Joint Operation Frameworks:</strong> Allied cooperation protocols, including troop movements and joint airspace control with micronational allies.</p>
+        <p><strong>Internal Uprising Containment Plan:</strong> Riot control, curfews, and propaganda management during internal threats.</p>
+        <p><strong>Nuclear & Forbidden Weapons Protocol:</strong> High King-controlled last-resort measures for existential threats; triple-authentication required.</p>
+    </div>
+</div>
+
+<!-- Self-Destruct Password Box (Appears for 20 seconds) -->
+<div id="unlock-box-8" style="display:none;">
+    <input type="password" id="selfDestructPassword8" placeholder="Enter HighKing25 to unlock" />
+    <button onclick="unlockSelfDestruct8()">Unlock</button>
+</div>
+
+<script>
+// Function to check the password for section 8
+function checkSectionPassword(sectionId, correctPassword) {
+    const input = document.getElementById(password${sectionId}).value;
+
+    // Check password
+    if (input === correctPassword) {
+        document.getElementById(section${sectionId}-password).style.display = "none";
+        document.getElementById(section${sectionId}-content).style.display = "block";
+    } else {
+        alert("Incorrect password for this section.");
+        triggerLoginAttemptNotification();
+        initiateSelfDestruct(sectionId);
+    }
+}
+
+// Function to trigger login attempt notification (notifies via email)
+function triggerLoginAttemptNotification() {
+    // Send email notification (EmailJS or similar)
+    const serviceID = "YOUR_SERVICE_ID";  // Replace with your EmailJS service ID
+    const templateID = "YOUR_TEMPLATE_ID";  // Replace with your template ID
+    const userEmail = "governmentofarcadia@gmail.com";  // Your provided email for receiving notifications
+
+    const emailData = {
+        to_email: userEmail,
+        subject: "Login Attempt Detected on Arcadia Continuity Section",
+        message: "Someone attempted to access the Military Orders & Mobilization Plans section but failed the password check."
+    };
+
+    // Example of sending an email with EmailJS
+    emailjs.send(serviceID, templateID, emailData)
+        .then(response => {
+            console.log("Email sent successfully:", response);
+        })
+        .catch(error => {
+            console.log("Email failed:", error);
+        });
+}
+
+// Self-Destruct feature (locks page for 70 hours)
+function initiateSelfDestruct(sectionId) {
+    // Set a 70-hour lock (in milliseconds)
+    const lockDuration = 70 * 60 * 60 * 1000; // 70 hours in milliseconds
+
+    // Store lock expiry time in localStorage (this is persistent even after page reloads)
+    const lockExpiry = new Date().getTime() + lockDuration;
+    localStorage.setItem(selfDestructExpirySection${sectionId}, lockExpiry);
+
+    // Display unlock box for 20 seconds
+    document.getElementById(unlock-box-${sectionId}).style.display = "block";
+
+    // Hide the unlock box after 20 seconds
+    setTimeout(() => {
+        document.getElementById(unlock-box-${sectionId}).style.display = "none";
+    }, 20000);
+
+    // Disable interaction after failed login attempt
+    alert("The system has entered a self-destruct lock for 70 hours.");
+}
+
+// Unlock Self-Destruct (if correct password is entered within 20 seconds)
+function unlockSelfDestruct8() {
+    const input = document.getElementById("selfDestructPassword8").value;
+    if (input === "HighKing25") {
+        alert("Self-destruct feature unlocked.");
+        // Reset the lock time
+        localStorage.removeItem("selfDestructExpirySection8");
+        location.reload();  // Reload the page to reflect the unlocked state
+    } else {
+        alert("Incorrect password to unlock self-destruct.");
+    }
+}
+
+// Check if the page is locked when the user reloads
+function checkSelfDestructLock() {
+    const lockExpirySection1 = localStorage.getItem("selfDestructExpirySection1");
+    const lockExpirySection2 = localStorage.getItem("selfDestructExpirySection2");
+    const lockExpirySection3 = localStorage.getItem("selfDestructExpirySection3");
+    const lockExpirySection4 = localStorage.getItem("selfDestructExpirySection4");
+    const lockExpirySection5 = localStorage.getItem("selfDestructExpirySection5");
+    const lockExpirySection6 = localStorage.getItem("selfDestructExpirySection6");
+    const lockExpirySection7 = localStorage.getItem("selfDestructExpirySection7");
+    const lockExpirySection8 = localStorage.getItem("selfDestructExpirySection8");
+
+    if ((lockExpirySection1 && new Date().getTime() < lockExpirySection1) || 
+        (lockExpirySection2 && new Date().getTime() < lockExpirySection2) || 
+        (lockExpirySection3 && new Date().getTime() < lockExpirySection3) || 
+        (lockExpirySection4 && new Date().getTime() < lockExpirySection4) || 
+        (lockExpirySection5 && new Date().getTime() < lockExpirySection5) || 
+        (lockExpirySection6 && new Date().getTime() < lockExpirySection6) || 
+        (lockExpirySection7 && new Date().getTime() < lockExpirySection7) || 
+        (lockExpirySection8 && new Date().getTime() < lockExpirySection8)) {
+        alert("The page is locked. Please wait until the lock expires.");
+        document.body.innerHTML = "<h1>The page is locked due to security measures. Please wait until the lock expires.</h1>";
+    } else {
+        localStorage.removeItem("selfDestructExpirySection1"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection2"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection3"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection4"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection5"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection6"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection7"); // Remove expired lock
+        localStorage.removeItem("selfDestructExpirySection8"); // Remove expired lock
+    }
+}
+
+// Initialize the self-destruct lock on page load
+checkSelfDestructLock();
+</script>
+
+
+
+          <!-- Nuclear/Weaponized Defense Readiness -->
+<div>
+    <h3 onclick="toggleSection('section9')">🔐 Nuclear/Weaponized Defense Readiness</h3>
+
+    <!-- First Password Prompt -->
+    <div id="section9-password" style="display:block;">
+        <input type="password" id="password9" placeholder="Enter first-level password" />
+        <button onclick="checkSection9Stage1()">Submit</button>
+    </div>
+
+    <!-- Second Password Prompt (Hidden until first is correct) -->
+    <div id="section9-password-stage2" style="display:none;">
+        <input type="password" id="password9-stage2" placeholder="Enter second-level password" />
+        <button onclick="checkSection9Stage2()">Submit</button>
+    </div>
+
+    <!-- Final Content (Hidden until both passwords correct) -->
+    <div id="section9-content" style="display:none;">
+        <p><strong>Arcadian Nuclear & Strategic Weapons Readiness</strong></p>
+
+        <p><strong>Codename: Iron Flame Doctrine</strong><br>
+        Arcadia’s final-resort deterrence strategy. Authorizes deployment of nuclear and classified strategic weapons only upon direct authorization of the High King under triple-authentication protocol. All launch keys are held separately by the High King, Supreme Commander of the Royal Guard, and the Chief Science Advisor.</p>
+
+        <p><strong>Deployment Authorization Tree</strong><br>
+        Only executable under conditions of existential national threat. Initiation requires declaration of <em>Crimson Alert Level One</em>, followed by the invocation of the Sovereign Last Resort Act.</p>
+
+        <p><strong>Delivery Systems & Capabilities</strong><br>
+        Includes long-range warheads, hypersonic arc-drone platforms, and deep-sea weaponized vaults. Strategic systems remain mobile and partially off-grid to avoid Gheetan surveillance.</p>
+
+        <p><strong>Fail-safe Contingency Modules (FCMs)</strong><br>
+        Autonomous retaliation mechanisms in the event of Arcadian leadership incapacitation. FCMs are bound by legacy-code consensus from prior royal decrees.</p>
+
+        <p><strong>Forbidden Arsenal Oversight</strong><br>
+        Includes bioweapon, energy-cascade, and temporal disruption systems. Stored in triple-sealed subterranean vaults, only accessible through a quantum-secured vault chain. No individual, not even the High King, may unilaterally activate forbidden weapon classes.</p>
+
+        <p><strong>Allied Briefing Clause</strong><br>
+        Select allies (e.g., Bradectoria) are partially briefed under the Crown’s Strategic Pact 14-X. In the event of activation, they are to remain neutral or assist per standing defense treaties.</p>
+
+        <p><strong>Post-Strike Protocols</strong><br>
+        In case of weapon deployment, automatic systems issue diplomatic justifications and initiate a continuity-of-Arcadia plan, including relocation of the royal family and command node shift to classified fallback zones.</p>
+    </div>
+</div>
+
+<script>
+    const LOCK_DURATION = 72 * 60 * 60 * 1000; // 72 hours in ms
+    let failedAttempts = parseInt(localStorage.getItem("failedAttempts")) || 0;
+
+    window.onload = function () {
+        if (localStorage.getItem("pageLocked") === "true") {
+            const lockTime = parseInt(localStorage.getItem("lockTimestamp"));
+            const now = Date.now();
+            if (now - lockTime >= LOCK_DURATION) {
+                localStorage.removeItem("pageLocked");
+                localStorage.removeItem("lockTimestamp");
+                localStorage.setItem("failedAttempts", "0");
+            } else {
+                lockoutMode();
+            }
+        }
+    };
+
+    function selfDestructPage() {
+        localStorage.setItem("pageLocked", "true");
+        localStorage.setItem("lockTimestamp", Date.now().toString());
+        document.body.innerHTML = 
+            <div style="text-align:center; padding-top: 100px;">
+                <h1 style="color:red;">💥 This page is under emergency lockdown.</h1>
+                <p>Access is restricted due to unauthorized attempts. It will automatically unlock in 72 hours unless the correct recovery credentials are provided.</p>
+                <input type="password" id="recoveryKeyInput" placeholder="Enter Recovery Key" />
+                <button onclick="unlockWithRecovery()">Unlock</button>
+            </div>
+        ;
+    }
+
+    function lockoutMode() {
+        document.body.innerHTML = 
+            <div style="text-align:center; padding-top: 100px;">
+                <h1 style="color:red;">🔒 Locked: Unauthorized Access Detected</h1>
+                <p>This page is locked. It will automatically unlock after 72 hours or with the correct Recovery Key.</p>
+                <input type="password" id="recoveryKeyInput" placeholder="Enter Recovery Key" />
+                <button onclick="unlockWithRecovery()">Unlock</button>
+            </div>
+        ;
+    }
+
+    function unlockWithRecovery() {
+        const input = document.getElementById("recoveryKeyInput").value;
+        if (input === "ArcadiaReclaims2025" || input === "HighKing25") {
+            alert("✅ Recovery successful. Access restored.");
             localStorage.removeItem("pageLocked");
             localStorage.removeItem("lockTimestamp");
             localStorage.setItem("failedAttempts", "0");
+            location.reload();
+        } else {
+            alert("❌ Incorrect Recovery Key.");
         }
     }
-};
 
+    function panicComboCheck(input) {
+        if (input === "PanicMode2025") {
+            alert("☠️ Panic Combo Activated! Self-destructing...");
+            selfDestructPage();
+        }
+
+        failedAttempts++;
+        localStorage.setItem("failedAttempts", failedAttempts.toString());
+
+        if (failedAttempts >= 3) {
+            alert("⚠️ Too many failed attempts. Initiating lockdown...");
+            selfDestructPage();
+        }
+    }
+
+    function checkSection9Stage1() {
+        const input = document.getElementById("password9").value;
+        if (input === "HighKing25") {
+            document.getElementById("section9-password").style.display = "none";
+            document.getElementById("section9-password-stage2").style.display = "block";
+        } else {
+            panicComboCheck(input);
+        }
+    }
+
+    function checkSection9Stage2() {
+        const input = document.getElementById("password9-stage2").value;
+        if (input === "HighKing25" || input === "IronFlameKey2025") {
+            document.getElementById("section9-password-stage2").style.display = "none";
+            document.getElementById("section9-content").style.display = "block";
+        } else {
+            panicComboCheck(input);
+        }
+}
 </script>
 
+            <!-- Controlled Access to Sensitive Sites -->
+            <div>
+                <h3 onclick="toggleSection('section10')">🔐 Controlled Access to Sensitive Sites</h3>
+                <div id="section10-password" style="display:block;">
+                    <input type="password" id="password10" placeholder="Enter password for Sensitive Sites" />
+                    <button onclick="checkSectionPassword('10', 'SensitiveAccess2025')">Submit</button>
+                </div>
+                <div id="section10-content" style="display:none;">
+                    <p><strong>Keycard/Access Log Information:</strong> Lists of individuals with access to restricted areas, along with detailed logs.</p>
+                    <p><strong>Biometric Security:</strong> Protocols for securing high-security facilities using biometric scanning technology.</p>
+                </div>
+        </div>
+</section>
+</div>
+
+<script>
+    let failedAttempt = false;
+
+    function checkSectionPassword(sectionNumber, correctPassword) {
+        const input = document.getElementById(password${sectionNumber}).value;
+
+        // HighKing25 skeleton password to unlock all sections
+        if (input === "HighKing25") {
+            document.getElementById(section${sectionNumber}-password).style.display = "none";
+            document.getElementById(section${sectionNumber}-content).style.display = "block";
+            return;
+        }
+
+        // Check if input matches the correct section password
+        if (input === correctPassword) {
+            document.getElementById(section${sectionNumber}-password).style.display = "none";
+            document.getElementById(section${sectionNumber}-content).style.display = "block";
+        } else {
+            alert("Incorrect password for this section.");
+            if (!failedAttempt) {
+                failedAttempt = true; // Ensure only one failed attempt triggers self-destruct
+                triggerSelfDestruct(sectionNumber); // Call the self-destruct function
+            }
+        }
+    }
+
+    function toggleSection(sectionId) {
+        const content = document.getElementById(${sectionId}-content);
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    }
+
+    // Self-Destruct function: Locks the page or triggers actions after failed attempts
+    function triggerSelfDestruct(sectionNumber) {
+        // Set a 70-hour lock (in milliseconds)
+        const lockDuration = 70 * 60 * 60 * 1000; // 70 hours in milliseconds
+
+        // Store lock expiry time in localStorage (this is persistent even after page reloads)
+        const lockExpiry = new Date().getTime() + lockDuration;
+        localStorage.setItem(selfDestructExpirySection${sectionNumber}, lockExpiry);
+
+        // Disable interaction after failed login attempt
+        alert("The system has entered a self-destruct lock for 70 hours.");
+
+        // Replace the page content to indicate the system is locked
+        document.body.innerHTML = "<h1>The system has entered a self-destruct lock for 70 hours. Access is restricted.</h1>";
+    }
+</script>
 </body>
 </html>
-
+    
