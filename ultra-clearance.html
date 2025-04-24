@@ -212,18 +212,23 @@ function lockPage() {
 
 // Check if the page is locked when the user loads the page
 window.onload = function () {
-    if (localStorage.getItem("pageLocked") === "true") {
-        const lockTime = parseInt(localStorage.getItem("lockTimestamp"));
-        const now = Date.now();
-        if (now - lockTime >= LOCK_DURATION) {
+    const lockStatus = localStorage.getItem("pageLocked");
+    const lockTime = parseInt(localStorage.getItem("lockTimestamp"));
+    const now = Date.now();
+
+    // Check if the page is locked and whether 72 hours have passed
+    if (lockStatus === "true") {
+        if (!lockTime || (now - lockTime < LOCK_DURATION)) {
+            lockPage(); // Still locked
+        } else {
+            // Lock expired: reset everything
             localStorage.removeItem("pageLocked");
             localStorage.removeItem("lockTimestamp");
-            localStorage.setItem("failedAttempts", "0"); // Reset failed attempts after the lock period
-        } else {
-            lockPage(); // Keep the page locked
+            localStorage.setItem("failedAttempts", "0");
         }
     }
 };
+
 </script>
 
 </body>
