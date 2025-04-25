@@ -11,140 +11,83 @@
             background-color: #1a1a1a;
             color: #fff;
             padding: 2rem;
-            margin: 0;
-            overflow: hidden;
         }
         #secureContent {
             background-color: #333;
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            display: none;
-        }
-        #lockdownScreen {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: white;
-            text-align: center;
-            font-size: 2rem;
-            z-index: 9999;
-            padding-top: 20%;
-        }
-        #emergencyButton {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: red;
-            color: white;
-            padding: 10px;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            z-index: 10000;
-        }
-        #passwordBox {
-            display: none;
-            margin: 10px 0;
-        }
-        .passwordInput {
-            font-size: 1rem;
-            padding: 8px;
-            margin: 5px;
-            background-color: #444;
-            border: 1px solid #ccc;
-            color: #fff;
-            border-radius: 5px;
-        }
-        .hiddenContent {
-            display: none;
         }
     </style>
 </head>
 <body>
-    <div id="lockdownScreen">
-        <p>❗ Lockdown Activated! ❗</p>
-        <p>Unauthorized access detected. You have 20 seconds to enter the correct password.</p>
-        <input id="lockdownPassword" class="passwordInput" type="password" placeholder="Enter Lockdown Password">
-        <button id="unlockButton" onclick="checkLockdownPassword()">Unlock</button>
-    </div>
+   <div id="secureContent">
+    <h1>🛡️ Ultra Security Clearance Zone</h1>
+    <p>Welcome, authorized official. This page contains top-secret intelligence and operations related to the sovereignty, security, and continuity of Arcadia.</p>
 
-    <button id="emergencyButton" onclick="triggerEmergencyLockdown()">Emergency Lockdown</button>
+    <h2>🕵️ Intelligence Summary</h2>
+    <p>Classified details on Arcadian counter-intelligence efforts, foreign surveillance data, and emergency military mobilization protocols.</p>
 
-    <div id="secureContent">
-        <h1>🛡️ Ultra Security Clearance Zone</h1>
-        <p>Welcome, authorized official. This page contains top-secret intelligence and operations related to the sovereignty, security, and continuity of Arcadia.</p>
+    <h2>🪖 Military Strategy</h2>
+    <p>The Military Strategy of Arcadia outlines the nation's approach to defending its borders and maintaining global influence. It includes detailed plans for rapid deployment of forces, including strategic reserves and special forces, in response to emerging threats. Our strategy incorporates both offensive and defensive measures, with an emphasis on flexibility, adaptability, and the use of cutting-edge technology. The plan also includes defense agreements with allies, military intelligence-sharing protocols, and contingency strategies for unforeseen military escalations.</p>
 
-        <h2>🕵️ Intelligence Summary</h2>
-        <p>Classified details on Arcadian counter-intelligence efforts, foreign surveillance data, and emergency military mobilization protocols.</p>
+    <h2>💻 Cyber Security</h2>
+    <p>Arcadia’s Cyber Security framework is designed to protect the nation's critical infrastructure, sensitive information, and national defense systems from cyber-attacks. This plan includes the deployment of advanced firewalls, encryption technologies, and multi-layered defense systems to thwart external cyber threats, both state-sponsored and non-state actors. Additionally, Arcadia maintains a highly trained cyber defense team, prepared for both offensive and defensive actions in the event of a major cyber conflict. In line with this, Arcadia has a robust cyber intelligence program to monitor and neutralize emerging cyber threats.</p>
 
-        <h2 class="hiddenContent" id="section1Title">⚔️ Military Strategy</h2>
-        <p class="hiddenContent" id="section1Content">Top-level military strategies for Arcadian defense against external threats, including preemptive actions and response protocols.</p>
+    <h2>🌍 Diplomatic Relations</h2>
+    <p>Arcadia’s Diplomatic Relations are based on a commitment to peace, stability, and mutual cooperation with international partners. Key priorities include strengthening existing alliances, establishing new diplomatic ties, and negotiating strategic treaties that align with Arcadia's long-term security and economic interests. This includes both formal and informal negotiations with neighboring states, global powers, and emerging economies. A significant aspect of this diplomacy involves peace-building initiatives, humanitarian aid coordination, and international advocacy for Arcadian sovereignty on the world stage.</p>
 
-        <h2 class="hiddenContent" id="section2Title">🕹️ Cyber Security</h2>
-        <p class="hiddenContent" id="section2Content">In-depth information about Arcadian cyber security measures, critical infrastructure protections, and potential foreign cyber threat analysis.</p>
+    <h2>💰 Economic Stability</h2>
+    <p>Arcadia’s Economic Stability is grounded in sound fiscal policies, prudent management of national resources, and a commitment to sustaining growth. The nation has a diverse economy, with strong sectors in technology, manufacturing, and agriculture, backed by strategic investments in renewable energy and infrastructure. The economic strategy focuses on inflation control, maintaining low unemployment rates, and expanding international trade. This plan also includes crisis-response mechanisms, such as emergency funds and monetary policies to protect against economic downturns, ensuring Arcadia’s financial resilience in times of global economic instability.</p>
 
-        <h2 class="hiddenContent" id="section3Title">📜 Diplomatic Relations</h2>
-        <p class="hiddenContent" id="section3Content">Confidential updates on ongoing diplomatic efforts, including treaty negotiations, alliances, and intelligence gathering.</p>
+    <h2>☢️ Nuclear Warfare and Weaponry Plans</h2>
+    <p>Arcadia’s Nuclear Warfare and Weaponry Plans are built on a doctrine of deterrence, ensuring that any potential aggressor understands the catastrophic consequences of attacking Arcadia. The nation maintains a strategic nuclear arsenal, capable of both offensive and defensive operations in the event of a nuclear escalation. This plan includes intelligence gathering on global nuclear proliferation, diplomatic efforts to prevent nuclear warfare, and continuous modernization of Arcadia’s missile defense systems. In addition, Arcadia is committed to arms control agreements and seeks to prevent the spread of nuclear weapons, while ensuring that its own deterrence capabilities remain secure and effective.</p>
 
-        <h2 class="hiddenContent" id="section4Title">📈 Economic Stability</h2>
-        <p class="hiddenContent" id="section4Content">Economic reports detailing Arcadia's fiscal health, strategic resource management, and trade agreements with allied nations.</p>
-    </div>
+    <h3>🔒 Emergency Lockdown</h3>
+    <button id="lockdownBtn">Activate Emergency Lockdown</button>
+    <p id="lockdownMessage" style="display:none;">Emergency Lockdown Activated. You have 20 seconds to enter the correct password to disable it.</p>
 
     <script>
-        const passwords = {
-            section1: "HighKing25", // Example password for Section 1
-            section2: "ArcadiaFirst", // Example password for Section 2
-            section3: "DiplomacyForPeace", // Example password for Section 3
-            section4: "StrongEconomy" // Example password for Section 4
-        };
+        // Lockdown functionality
+        let lockdownActive = false;
+        const lockdownBtn = document.getElementById('lockdownBtn');
+        const lockdownMessage = document.getElementById('lockdownMessage');
 
-        let lockdownActivated = false;
-
-        document.addEventListener('keydown', function(event) {
-            if (event.ctrlKey && event.altKey && event.key === 'O') {
-                promptForPassword('section1');
-            }
+        lockdownBtn.addEventListener('click', () => {
+            lockdownActive = true;
+            lockdownMessage.style.display = 'block';
+            setTimeout(() => {
+                if (lockdownActive) {
+                    alert("Lockdown failed, you must enter the password within 20 seconds.");
+                }
+            }, 20000); // Lockdown timer
         });
 
-        function promptForPassword(section) {
-            let password = prompt(`Enter password for ${section}:`);
-            if (password === passwords[section]) {
-                document.getElementById(`${section}Title`).classList.remove("hiddenContent");
-                document.getElementById(`${section}Content`).classList.remove("hiddenContent");
-            } else {
-                initiateLockdown();
+        // Handle password entry
+        let passwordEntered = '';
+        function enterPassword(password) {
+            passwordEntered = password;
+            if (passwordEntered === 'HighKing25') {
+                alert("Access granted with skeleton password.");
+                lockdownMessage.style.display = 'none'; // Lockdown removed
+                lockdownActive = false;
             }
         }
 
-        function initiateLockdown() {
-            lockdownActivated = true;
-            document.getElementById('lockdownScreen').style.display = 'block';
-        }
-
-        function checkLockdownPassword() {
-            const enteredPassword = document.getElementById('lockdownPassword').value;
-            if (enteredPassword === 'HighKing25') {
-                alert('Lockdown lifted.');
-                document.getElementById('lockdownScreen').style.display = 'none';
-            } else {
-                alert('Incorrect password. Lockdown remains in effect.');
+        // Prevent access via developer tools
+        document.addEventListener('keydown', (event) => {
+            if (event.ctrlKey && event.altKey && event.key === 'I') {
+                lockdownActive = true;
+                lockdownMessage.style.display = 'block';
+                setTimeout(() => {
+                    if (lockdownActive) {
+                        alert("Lockdown failed, you must enter the password within 20 seconds.");
+                    }
+                }, 20000); // Lockdown timer
             }
-        }
-
-        function triggerEmergencyLockdown() {
-            lockdownActivated = true;
-            document.getElementById('lockdownScreen').style.display = 'block';
-        }
-
-        window.onload = function() {
-            document.getElementById('secureContent').style.display = 'block';
-        }
+        });
     </script>
+</div>
 </body>
 </html>
 
