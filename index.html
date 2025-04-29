@@ -158,7 +158,13 @@
 </div>
 
 <div id="lockdownScreen">
-  <p>🚨 The FBI has been notified.<br>Please remain where you are. Thank you!</p>
+  <p>
+  The FBI has been notified.<br>
+  Please remain where you are.
+ <span id="overrideLink" style="color: #00f; text-decoration: none; cursor: pointer;">Thank</span>
+
+</p>
+
 </div>
 
 <div id="treasonWarningPopup">
@@ -207,6 +213,12 @@
     treasonWarningPopup.style.display = 'none';
   }
 </script>
+ <script>
+  document.getElementById("overrideLink").addEventListener("click", function () {
+    window.location.href = "override.html";
+  });
+</script>
+
 </body>
 </html>
 
