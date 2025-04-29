@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="keywords" content="Kingdom of Arcadia, Arcadia, Arcadian government, Gheetan Empire, Lord High King, Realm of Arcadia, Royal Kingdom of Arcadia, Lord High King of Arcadia, arcadia, kingdom of arcadia, gheetan empire, gheetan, lord high king, realm of arcadia, royal kingdom of arcadia, lord high king of arcadia">
 <meta name="google-site-verification" content="TFxPbTbCVSzoZdyoG449LQ9cI9mzmAfOMqFDchxgg1A" />
-
+ 
 <title>Kingdom of Arcadia</title>
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -24,44 +24,39 @@
       background-color: white;
       padding: 5px;
     }
-
-    /* Terrorist Overlay Styles */
-    #terrorOverlay {
+    #terrorScreen {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.95);
-      color: white;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 9999;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 9999;
-      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      font-size: 2rem;
     }
-    #terrorOverlay h1 {
-      font-size: 2em;
-      margin-bottom: 1rem;
+    #terrorScreen img {
+      max-width: 150px;
+      margin-bottom: 20px;
     }
-    #terrorOverlay button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      cursor: pointer;
+    .flashing {
+      animation: flash 0.5s infinite;
+    }
+    @keyframes flash {
+      0% { background-color: red; }
+      50% { background-color: darkred; }
+      100% { background-color: red; }
     }
 </style>
 </head>
 <body>
-
-<!-- Are You a Terrorist Overlay -->
-<div id="terrorOverlay">
-  <h1>Are you a terrorist?</h1>
-  <div>
-    <button onclick="handleTerroristResponse(false)">No</button>
-    <button onclick="handleTerroristResponse(true)">Yes</button>
-  </div>
+<div id="terrorScreen">
+  <img src="crest.png" alt="Crest of Arcadia">
+  <p>Are you a terrorist?</p>
+  <button onclick="handleTerrorist(false)">No</button>
+  <button onclick="handleTerrorist(true)">Yes</button>
 </div>
 
 <header>
@@ -83,7 +78,7 @@
 </ul>
 </nav>
 </header>
-
+ 
 <main>
 <section>
 <h2>Introduction</h2>
@@ -91,7 +86,7 @@
     The Kingdom of Arcadia is a sovereign constitutional monarchy committed to justice, unity, and prosperity. Governed by the High King and a noble council, Arcadia upholds the rule of law, tradition, and the rights of its citizens.
 </p>
 </section>
-
+ 
 <section>
 <h2>Explore Arcadia</h2>
 <ul>
@@ -104,32 +99,35 @@
 </ul>
 </section>
 </main>
-
+ 
 <footer style="text-align: center; padding: 10px; background-color: #34495E; color: white;">
 &copy; 2025 Kingdom of Arcadia | Royal Government
 </footer>
 
+<audio id="siren" src="siren.mp3" loop></audio>
 <script>
-  // Terrorist overlay logic
-  const overlay = document.getElementById('terrorOverlay');
-  const lockKey = 'terroristLock';
+  const isLocked = localStorage.getItem("locked") === "true" || document.cookie.includes("locked=true");
+  const terrorScreen = document.getElementById("terrorScreen");
+  const siren = document.getElementById("siren");
 
-  function handleTerroristResponse(isTerrorist) {
-    if (isTerrorist) {
-      localStorage.setItem(lockKey, 'locked');
-      overlay.innerHTML = "<h1>The FBI has been notified.<br>Please remain where you are.<br>Thank you!</h1>";
-    } else {
-      overlay.style.display = 'none';
-    }
+  if (isLocked) {
+    terrorScreen.classList.add("flashing");
+    terrorScreen.innerHTML = '<img src="crest.png" alt="Crest of Arcadia"><p>The FBI has been notified. Please remain where you are. Thank you!</p>';
+    siren.play();
   }
 
-  window.onload = function() {
-    if (localStorage.getItem(lockKey) === 'locked') {
-      overlay.innerHTML = "<h1>The FBI has been notified.<br>Please remain where you are.<br>Thank you!</h1>";
+  function handleTerrorist(isTerrorist) {
+    if (isTerrorist) {
+      localStorage.setItem("locked", "true");
+      document.cookie = "locked=true; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+      terrorScreen.classList.add("flashing");
+      terrorScreen.innerHTML = '<img src="crest.png" alt="Crest of Arcadia"><p>The FBI has been notified. Please remain where you are. Thank you!</p>';
+      siren.play();
+    } else {
+      terrorScreen.style.display = "none";
     }
   }
 </script>
-
 </body>
 </html>
 
