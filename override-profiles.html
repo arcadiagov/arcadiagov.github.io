@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Override Arcadian Lockdown</title>
+  <style>
+    /* Basic reset and setup */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      background: linear-gradient(135deg, #121212, #232323);
+    }
+
+    h2 {
+      color: #00bfff;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    h3 {
+      color: #00bfff;
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    #password-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
+      width: 300px;
+      text-align: center;
+    }
+
+    #password-input {
+      padding: 10px;
+      font-size: 18px;
+      width: 100%;
+      margin-bottom: 20px;
+      border: 1px solid #00bfff;
+      border-radius: 5px;
+      background-color: #222222;
+      color: #f1f1f1;
+    }
+
+    #submit-button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #00bfff;
+      color: #222222;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    #submit-button:hover {
+      background-color: #009acd;
+    }
+
+    #error-message {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    /* Stylish link for "developer" */
+    #developer-link {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: 18px;
+      margin-top: 20px;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+
+    #developer-link:hover {
+      color: #00bfff;
+    }
+
+    /* Animation for inputs and button */
+    input, button {
+      transition: transform 0.2s ease-in-out;
+    }
+
+    input:focus, button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h2>Override Arcadian Lockdown</h2>
+
+  <div id="password-container">
+    <h3>Enter Override Password</h3>
+    <input type="password" id="override-password-input" placeholder="Enter override password">
+    <button id="submit-button" onclick="checkOverridePassword()">Submit</button>
+    <div id="error-message"></div>
+
+    <!-- Stylish "developer" link -->
+    <a id="developer-link" href="RfcbypmaeRxzChYUQtOYSMOBtWxTf.html">Back to Profiles</a>
+  </div>
+
+  <script>
+    function checkOverridePassword() {
+      const password = document.getElementById("override-password-input").value;
+      const correctPassword = "Override2025!";
+      if (password === correctPassword) {
+        // Redirect to the original page
+        window.location.href = "RfcbypmaeRxzChYUQtOYSMOBtWxTf.html";
+      } else {
+        document.getElementById("error-message").textContent = "Incorrect override password.";
+      }
+    }
+  </script>
+</body>
+</html>
