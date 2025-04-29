@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arcadian Affiliated Profiles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #f1f1f1;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00bfff;
+    }
+
+    .profile-card {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .profile-card h2 {
+      margin-top: 0;
+      color: #f9d342;
+    }
+
+    .profile-section {
+      margin-bottom: 10px;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #00bfff;
+    }
+
+    a {
+      color: #89cfff;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    #protected-content {
+      display: none;
+    }
+
+    #password-container {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    #password-input {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      margin-bottom: 10px;
+    }
+
+    #submit-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #00bfff;
+      color: black;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    #submit-button:hover {
+      background-color: #009acd;
+    }
+
+    #error-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="password-container">
+    <h2>Enter Password to Access Arcadian Affiliated Profiles</h2>
+    <input type="password" id="password-input" placeholder="Enter password">
+    <br>
+    <button id="submit-button" onclick="checkPassword()">Submit</button>
+    <div id="error-message"></div>
+  </div>
+
+  <div id="protected-content">
+    <h1>Affiliated Individual Profiles – Arcadian Intelligence</h1>
+
+    <div class="profile-card">
+      <h2>Rowan Miller</h2>
+      <div class="profile-section"><span class="label">Status:</span> Wanted for High Treason</div>
+      <div class="profile-section"><span class="label">Documents Affiliated:</span> Arcadian Defense Plan v2, Treaty Exit Protocol, Arrest Warrant #2025-TRE-004</div>
+      <div class="profile-section"><span class="label">Information:</span>
+        Former strategist. On April 29th, 2025, Rowan Miller confessed via email (Rowan.D.Miller@outlook.com) to acts of terrorism and treason with the statement:<br><br>
+        <em>"I totally lied. I'm a terrorist. MWAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"</em><br><br>
+        This explicit self-incrimination has resulted in an official warrant for immediate arrest, issued by the Lord High King of Arcadia.
+      </div>
+      <div class="profile-section"><span class="label">Concerns:</span>
+        Subject is to be detained on sight. A formal diplomatic report was sent to the Emperor of the Gheetan Empire informing him of the treasonous activity. Harboring the individual will result in charges of aiding and abetting treason.
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <h2>Holden Porter</h2>
+      <div class="profile-section"><span class="label">Status:</span> Emperor of the Gheetan Empire</div>
+      <div class="profile-section"><span class="label">Documents Affiliated:</span> Treaty of Eternal Union, Gheetan Ultimatum Directive</div>
+      <div class="profile-section"><span class="label">Information:</span>
+        Supreme ruler of the Great Gheetan Empire. Principal antagonist in the Arcadian sovereignty conflict, seeking the centralization of all Kingdom Realms under Gheetan imperial dominion. Porter is the architect of the Treaty of Eternal Union, which is perceived by Arcadia as a tool of soft conquest. The Emperor’s regime has attempted diplomatic pressure, economic coercion, and suspected covert infiltration against Arcadian institutions.
+      </div>
+      <div class="profile-section"><span class="label">Concerns:</span>
+        Escalating geopolitical tension with Arcadia; formally notified by Arcadia of Rowan Miller’s acts of treason and the subsequent warrant. Gheetan involvement in Arcadian affairs continues to threaten the balance of power in the realm.
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <h2>Bradley Christie</h2>
+      <div class="profile-section"><span class="label">Status:</span> Emperor of Bradectoria</div>
+      <div class="profile-section"><span class="label">Documents Affiliated:</span> Sovereignty Correspondence, Alliance Accords, Bradectoria Treaty Addenda</div>
+      <div class="profile-section"><span class="label">Information:</span>
+        Monarch of Bradectoria and a powerful international ally of Arcadia. Christie maintains strong relations with Arcadia through defense compacts and mutual support treaties. He has championed the Bradectoria–Arcadia Solidarity Clause, which commits military and diplomatic aid against imperial aggression.
+      </div>
+      <div class="profile-section"><span class="label">Concerns:</span>
+        Risk of provoking Gheetan backlash through visible support of Arcadia. Essential figure in international alliance-building for Arcadian independence and legitimacy. Coordination with Bradectoria must remain strategically aligned and secure.
+      </div>
+    </div>
+
+    <div class="profile-card">
+      <h2>Gavin Jones</h2>
+      <div class="profile-section"><span class="label">Status:</span> Intelligence Liaison, Arcadian High Council</div>
+      <div class="profile-section"><span class="label">Documents Affiliated:</span> Counter-Surveillance Briefings, High Council Memoirs</div>
+      <div class="profile-section"><span class="label">Information:</span>
+        Oversees internal security and loyalty operations. Tasked with monitoring potential infiltration, information leaks, and subversive activity within the High Council. Jones is crucial for enforcing Council discretion and safeguarding strategic plans.
+      </div>
+      <div class="profile-section"><span class="label">Concerns:</span>
+        High risk of Gheetan sympathizer infiltration in lower administrative ranks. Integrity of High Council information remains a top priority under his oversight.
+      </div>
+    </div>
+
+    <a class="back-link" href="secret-news.html">← Back to Secret News</a>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("password-input").value;
+      const correctPassword = "Information2025!";
+      if (password === correctPassword) {
+        document.getElementById("protected-content").style.display = "block";
+        document.getElementById("password-container").style.display = "none";
+      } else {
+        document.getElementById("error-message").textContent = "Incorrect password. Access denied.";
+      }
+    }
+  </script>
+</body>
+</html>
