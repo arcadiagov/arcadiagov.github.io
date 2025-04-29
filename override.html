@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secure Access Override</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: "Courier New", Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      font-size: 1rem;
+      margin-top: 20px;
+      background-color: #111;
+      border: 1px solid #0f0;
+      color: #0f0;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin-top: 10px;
+      background-color: #0f0;
+      color: #000;
+      border: none;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 20px;
+      color: #0f0;
+    }
+
+    .console-box {
+      background-color: #111;
+      border: 1px solid #0f0;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px #0f0;
+      width: 300px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="console-box">
+    <h1>🔐 Secure Override Terminal</h1>
+    <p>Classified access only. Enter override password.</p>
+    <input type="password" id="overridePassword" placeholder="Access Code..." />
+    <button onclick="attemptOverride()">Submit</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    function attemptOverride() {
+      const input = document.getElementById("overridePassword").value;
+      const message = document.getElementById("message");
+
+      if (input === "GetMeOut!") {
+        localStorage.removeItem("lockdownActive");
+        document.cookie = "lockdownActive=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        message.textContent = "✅ Lockdown disabled. Redirecting...";
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 2000);
+      } else {
+        message.textContent = "❌ Invalid access code.";
+      }
+    }
+  </script>
+</body>
+</html>
