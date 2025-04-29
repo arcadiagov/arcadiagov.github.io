@@ -89,6 +89,35 @@
       color: red;
       margin-top: 10px;
     }
+
+    /* Basic styling for lockdown screen */
+    #lockdownScreen {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 9999;
+    }
+
+    audio {
+      display: none;
+    }
+
+    /* Normal text for "developer" link */
+    #developer-link {
+      color: #f1f1f1; /* Normal text color */
+      text-decoration: none; /* Remove underline */
+      font-size: 20px; /* Same size as surrounding text */
+    }
   </style>
 </head>
 <body>
@@ -102,7 +131,6 @@
 
   <div id="protected-content">
     <h1>Affiliated Individual Profiles – Arcadian Intelligence</h1>
-
    <div class="profile-card">
   <h2>Rowan Miller</h2>
   <div class="profile-section"><span class="label">Status:</span> Fugitive — Wanted for High Treason</div>
@@ -182,6 +210,12 @@
     <a class="back-link" href="secret-news.html">← Back to Secret News</a>
   </div>
 
+    <div id="lockdownScreen">
+      <p>Developer Tools are not allowed. Access has been locked down. <a id="developer-link" href="override-profiles.html">developer</a></p>
+      <audio id="lockdownSound" src="lockdown-sound.mp3" autoplay></audio>
+    </div>
+  </div>
+
   <script>
     function checkPassword() {
       const password = document.getElementById("password-input").value;
@@ -193,6 +227,31 @@
         document.getElementById("error-message").textContent = "Incorrect password. Access denied.";
       }
     }
+
+    // Lock down the page if developer tools are opened
+    const lockPage = () => {
+      const lockScreen = document.getElementById("lockdownScreen");
+      const lockSound = document.getElementById("lockdownSound");
+      lockScreen.style.display = "flex";
+      lockSound.play();
+      document.body.style.overflow = "hidden"; // Prevent scrolling
+
+      // Hide all content and disable all interactions
+      document.body.style.pointerEvents = "none"; // Disable mouse events
+      const allInputs = document.querySelectorAll('input, button');
+      allInputs.forEach(input => input.disabled = true); // Disable inputs and buttons
+      document.getElementById("protected-content").style.display = "none"; // Hide content
+    };
+
+    let devToolsOpen = false;
+    const threshold = 160;
+    setInterval(() => {
+      const devToolsOpened = window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold;
+      if (devToolsOpened && !devToolsOpen) {
+        devToolsOpen = true;
+        lockPage();
+      }
+    }, 500);
   </script>
 </body>
 </html>
