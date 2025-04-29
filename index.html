@@ -177,47 +177,6 @@
 </audio>
 
 <script>
-  const terroristOverlay = document.getElementById('terroristOverlay');
-  const lockdownScreen = document.getElementById('lockdownScreen');
-  const treasonWarningPopup = document.getElementById('treasonWarningPopup');
-  const siren = document.getElementById('siren');
-
-  function enableLockdown() {
-    lockdownScreen.style.display = 'flex';
-    siren.play();
-    localStorage.setItem('lockdown', 'true');
-    document.cookie = "lockdown=true; path=/; max-age=31536000";
-  }
-
-  function handleTerroristAnswer(isTerrorist) {
-    if (isTerrorist) {
-      enableLockdown();
-    } else {
-      terroristOverlay.style.display = 'none';
-      if (!localStorage.getItem('treasonWarningShown')) {
-        treasonWarningPopup.style.display = 'flex';
-      }
-    }
-  }
-
-  function acknowledgeTreasonWarning() {
-    treasonWarningPopup.style.display = 'none';
-    localStorage.setItem('treasonWarningShown', 'true');
-  }
-
-  const isLockedDown = localStorage.getItem('lockdown') === 'true' || document.cookie.includes('lockdown=true');
-  if (isLockedDown) {
-    enableLockdown();
-    terroristOverlay.style.display = 'none';
-    treasonWarningPopup.style.display = 'none';
-  }
-</script>
- <script>
-  document.getElementById("overrideLink").addEventListener("click", function () {
-    window.location.href = "override.html";
-  });
-</script>
-<script>
   function sendLocationData() {
     fetch("https://ipapi.co/json/")
       .then(response => response.json())
