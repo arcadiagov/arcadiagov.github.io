@@ -54,5 +54,147 @@
     <footer>
         <p>&copy; 2025 Kingdom of Arcadia. All rights reserved.</p>
     </footer>
+    <!-- Terrorist Security Overlay & Lockdown Logic -->
+<style>
+  #terroristOverlay {
+    position: fixed;
+    z-index: 999999;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+  }
+
+  #terroristOverlay img {
+    width: 150px;
+    margin-bottom: 1rem;
+  }
+
+  #terroristOverlay button {
+    margin: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #lockdownScreen {
+    position: fixed;
+    z-index: 1000000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: red;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    animation: flash 0.6s infinite alternate;
+  }
+
+  @keyframes flash {
+    from { background-color: red; }
+    to { background-color: darkred; }
+  }
+
+  #treasonWarningPopup {
+    position: fixed;
+    z-index: 999998;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    color: white;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  #treasonWarningPopup button {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+
+<div id="terroristOverlay">
+  <img src="crest.png" alt="Arcadian Crest">
+  <h1>🛑 Are you a terrorist?</h1>
+  <div>
+    <button onclick="handleTerroristAnswer(false)">No</button>
+    <button onclick="handleTerroristAnswer(true)">Yes</button>
+  </div>
+</div>
+
+<div id="lockdownScreen">
+  <p>🚨 The FBI has been notified.<br>Please remain where you are. Thank you!</p>
+</div>
+
+<div id="treasonWarningPopup">
+  <h2>⚠️ WARNING: Treason Act of 2025</h2>
+  <p>If you tamper with this site’s code—even on your own device—you may be prosecuted under the Treason Act of 2025.</p>
+  <button onclick="acknowledgeTreasonWarning()">I Understand</button>
+</div>
+
+<audio id="siren" loop>
+  <source src="siren.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const terroristOverlay = document.getElementById('terroristOverlay');
+  const lockdownScreen = document.getElementById('lockdownScreen');
+  const treasonWarningPopup = document.getElementById('treasonWarningPopup');
+  const siren = document.getElementById('siren');
+
+  function enableLockdown() {
+    lockdownScreen.style.display = 'flex';
+    siren.play();
+    localStorage.setItem('lockdown', 'true');
+    document.cookie = "lockdown=true; path=/; max-age=31536000";
+  }
+
+  function handleTerroristAnswer(isTerrorist) {
+    if (isTerrorist) {
+      enableLockdown();
+    } else {
+      terroristOverlay.style.display = 'none';
+      if (!localStorage.getItem('treasonWarningShown')) {
+        treasonWarningPopup.style.display = 'flex';
+      }
+    }
+  }
+
+  function acknowledgeTreasonWarning() {
+    treasonWarningPopup.style.display = 'none';
+    localStorage.setItem('treasonWarningShown', 'true');
+  }
+
+  const isLockedDown = localStorage.getItem('lockdown') === 'true' || document.cookie.includes('lockdown=true');
+  if (isLockedDown) {
+    enableLockdown();
+    terroristOverlay.style.display = 'none';
+    treasonWarningPopup.style.display = 'none';
+  }
+</script>
+
 </body>
 </html>
