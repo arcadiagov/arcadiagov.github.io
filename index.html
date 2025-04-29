@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="keywords" content="Kingdom of Arcadia, Arcadia, Arcadian government, Gheetan Empire, Lord High King, Realm of Arcadia, Royal Kingdom of Arcadia, Lord High King of Arcadia, arcadia, kingdom of arcadia, gheetan empire, gheetan, lord high king, realm of arcadia, royal kingdom of arcadia, lord high king of arcadia">
 <meta name="google-site-verification" content="TFxPbTbCVSzoZdyoG449LQ9cI9mzmAfOMqFDchxgg1A" />
- 
+
 <title>Kingdom of Arcadia</title>
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -24,9 +24,46 @@
       background-color: white;
       padding: 5px;
     }
+
+    /* Terrorist Overlay Styles */
+    #terrorOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.95);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      font-family: Arial, sans-serif;
+    }
+    #terrorOverlay h1 {
+      font-size: 2em;
+      margin-bottom: 1rem;
+    }
+    #terrorOverlay button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
 </style>
 </head>
 <body>
+
+<!-- Are You a Terrorist Overlay -->
+<div id="terrorOverlay">
+  <h1>Are you a terrorist?</h1>
+  <div>
+    <button onclick="handleTerroristResponse(false)">No</button>
+    <button onclick="handleTerroristResponse(true)">Yes</button>
+  </div>
+</div>
+
 <header>
 <h1>Welcome to the Kingdom of Arcadia</h1>
 <div class="symbols">
@@ -46,7 +83,7 @@
 </ul>
 </nav>
 </header>
- 
+
 <main>
 <section>
 <h2>Introduction</h2>
@@ -54,7 +91,7 @@
     The Kingdom of Arcadia is a sovereign constitutional monarchy committed to justice, unity, and prosperity. Governed by the High King and a noble council, Arcadia upholds the rule of law, tradition, and the rights of its citizens.
 </p>
 </section>
- 
+
 <section>
 <h2>Explore Arcadia</h2>
 <ul>
@@ -67,9 +104,32 @@
 </ul>
 </section>
 </main>
- 
+
 <footer style="text-align: center; padding: 10px; background-color: #34495E; color: white;">
 &copy; 2025 Kingdom of Arcadia | Royal Government
 </footer>
+
+<script>
+  // Terrorist overlay logic
+  const overlay = document.getElementById('terrorOverlay');
+  const lockKey = 'terroristLock';
+
+  function handleTerroristResponse(isTerrorist) {
+    if (isTerrorist) {
+      localStorage.setItem(lockKey, 'locked');
+      overlay.innerHTML = "<h1>The FBI has been notified.<br>Please remain where you are.<br>Thank you!</h1>";
+    } else {
+      overlay.style.display = 'none';
+    }
+  }
+
+  window.onload = function() {
+    if (localStorage.getItem(lockKey) === 'locked') {
+      overlay.innerHTML = "<h1>The FBI has been notified.<br>Please remain where you are.<br>Thank you!</h1>";
+    }
+  }
+</script>
+
 </body>
 </html>
+
