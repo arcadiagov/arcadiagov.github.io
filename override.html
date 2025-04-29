@@ -79,7 +79,7 @@
 
       if (input === "GetMeOut!") {
         localStorage.removeItem("lockdownActive");
-        document.cookie = "lockdownActive=; 
+        document.cookie = "lockdownActive=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         message.textContent = "✅ Lockdown disabled. Redirecting...";
         setTimeout(() => {
           window.location.href = "index.html";
