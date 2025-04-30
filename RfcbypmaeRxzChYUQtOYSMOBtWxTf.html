@@ -103,8 +103,39 @@
   <div id="protected-content">
     <h1>Affiliated Individual Profiles – Arcadian Intelligence</h1>
 
-   <div class="profile-card">
-  <h2>Rowan Miller</h2>
+ <style>
+  .high-importance {
+    border: 3px solid red;
+    animation: flashBorder 1s infinite;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .warning-icon {
+    color: red;
+    margin-right: 5px;
+  }
+
+  .blinking {
+    animation: blinkingText 1s infinite;
+  }
+
+  @keyframes blinkingText {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes flashBorder {
+    0% { box-shadow: 0 0 5px red; }
+    50% { box-shadow: 0 0 20px red; }
+    100% { box-shadow: 0 0 5px red; }
+  }
+</style>
+
+<div class="profile-card high-importance">
+  <h2><span class="warning-icon">⚠️</span><span class="blinking">Rowan Miller</span></h2>
+  <div class="profile-section blinking"><strong>HIGH IMPORTANCE</strong></div>
   <div class="profile-section"><span class="label">Status:</span> Fugitive — Wanted for High Treason</div>
   <div class="profile-section"><span class="label">Documents Affiliated:</span> Arrest Warrant, Royal Notice, Intelligence Report</div>
   <div class="profile-section"><span class="label">Information:</span>
