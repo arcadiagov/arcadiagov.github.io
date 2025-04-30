@@ -249,6 +249,84 @@
     }
   }
 </script>
+ <!-- Hidden Penal Code Link Activation -->
+<style>
+  #passwordModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background-color: #1e1e2f;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 15px #00ffc3;
+  }
+
+  .modal-content input {
+    width: 80%;
+    padding: 10px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+
+  .modal-content button {
+    background-color: #00ffc3;
+    border: none;
+    padding: 10px 20px;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #penalCodeLink {
+    display: none;
+    margin-top: 20px;
+  }
+</style>
+
+<div id="passwordModal">
+  <div class="modal-content">
+    <h3>Restricted Access</h3>
+    <p>Enter Access Code to View Penal Code</p>
+    <input type="password" id="penalPassword" placeholder="Enter Password">
+    <br>
+    <button onclick="checkPenalPassword()">Submit</button>
+    <div id="penalCodeLink">
+      <a href="WStakmsWwFaXoifDeTKtSwePIiQwB.html" style="color:#00ffc3;">Access Arcadian Penal Code</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'r') {
+      document.getElementById('passwordModal').style.display = 'flex';
+    }
+  });
+
+  function checkPenalPassword() {
+    const input = document.getElementById("penalPassword").value;
+    if (input === "Laws2025") {
+      document.getElementById("penalCodeLink").style.display = "block";
+    } else {
+      alert("Incorrect password.");
+    }
+  }
+</script>
+
 </body>
 </html>
 
