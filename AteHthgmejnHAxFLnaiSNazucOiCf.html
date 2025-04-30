@@ -63,12 +63,12 @@
         </ul>
 
         <h2>Current Geopolitical Status</h2>
-        <p>Arcadia remains in a precarious but strategically advantageous position following the ratification of the Treaty of Eternal Union with the Great Gheetan Empire. While formal sovereignty is preserved, the ongoing ambiguity in “supreme authority” clauses poses latent risks. Intelligence monitoring of Gheetan diplomatic channels reveals increased interest in asserting interpretive dominance over the Treaty.</p>
+        <p>Arcadia remains in a precarious but strategically advantageous position following the ratification of the Treaty of Eternal Union with the Great Gheetan Empire. While formal sovereignty is preserved, the ongoing ambiguity in “supreme authority” clauses poses latent risks.</p>
 
         <h2>Strategic Alliances</h2>
         <ul>
             <li><strong>Bradectoria</strong> – Confirmed alliance; diplomatic envoys exchanged weekly; high reliability partner.</li>
-            <li><strong>Gheetan</strong> – Confirmed alliance, however Treaty conflicts with Constitution. Be on high alert..</li>
+            <li><strong>Gheetan</strong> – Confirmed alliance.</li>
             <li><strong>Flake Empire</strong> – Non-aligned. Arcadian intelligence recommends future outreach to prevent Empire expansion southward.</li>
         </ul>
 
@@ -78,15 +78,52 @@
 Bradectoria, once a longstanding ally under the Arcadian-Bradectorian Mutual Defense Compact, has formally declared war on the Kingdom of Arcadia as of February 2025. This marks a historic and deeply alarming shift in regional power dynamics. The declaration was not preceded by any formal grievances or negotiation efforts, and the act is viewed as a blatant betrayal of Arcadian trust and sovereignty.</p>
 
         <h3>Digital Espionage</h3>
-        <p>Gheetan cyber units have escalated attempted entry on Arcadian government domains. Countermeasures have been deployed by the Arcadian Intelligence Directorate (AID), including dual-auth cloaking layers.</p>
+        <p>Bradectoria cyber units have escalated attempted entry on Arcadian government domains. Countermeasures have been deployed by the Arcadian Intelligence Directorate (AID), including dual-auth cloaking layers.</p>
 
         <h2>Classified Initiatives</h2>
         <ul>
 
-            <li><strong>Operation FOXGLOVE:</strong> Secret deployal of Arcadian troops into Bradectoria, Gheetan, and the Flake Empire.. Restricted access: Monarch & High Command only.</li>
-            <li><strong>Codename "Iron Crown":</strong> Contingency plan for unilateral treaty withdrawal, to be executed if three redline clauses are violated. Legal framework pre-drafted, pending emergency Royal Council vote. More details are available
-            upon request to those with Ultra Clearance, or may be requested at the bottom of this page.</li>
-        </ul>
+            <!-- Password Input Container (Hidden Initially) -->
+<div id="foxglove-password-container" style="display: none; margin-top: 20px;">
+  <label for="foxglove-password">Enter Clearance Password:</label>
+  <input type="password" id="foxglove-password" />
+  <button onclick="unlockFoxglove()">Unlock</button>
+  <p id="foxglove-error" style="color: red;"></p>
+</div>
+
+<!-- Protected Content (Hidden Initially) -->
+<ul id="foxglove-content" style="display: none;">
+  <li><strong>Operation FOXGLOVE:</strong> Secret deployal of Arcadian troops into Bradectoria, Gheetan, and the Flake Empire. Restricted access: Monarch & High Command only.</li>
+  <li><strong>Codename "Iron Crown":</strong> Contingency plan for unilateral treaty withdrawal, to be executed if three redline clauses are violated. Legal framework pre-drafted, pending emergency Royal Council vote. More details are available upon request to those with Ultra Clearance, or may be requested at the bottom of this page.</li>
+</ul>
+
+<script>
+  // Reveal password prompt on Ctrl+Alt+R
+  document.addEventListener('keydown', function (event) {
+    if (event.ctrlKey && event.altKey && event.key.toLowerCase() === 'r') {
+      const passwordContainer = document.getElementById('foxglove-password-container');
+      if (passwordContainer) {
+        passwordContainer.style.display = 'block';
+      }
+    }
+  });
+
+  // Unlock hidden content if password is correct
+  function unlockFoxglove() {
+    const input = document.getElementById("foxglove-password").value;
+    const correctPassword = "UltraSecure2025"; // You can change this password if needed
+    const error = document.getElementById("foxglove-error");
+
+    if (input === correctPassword) {
+      document.getElementById("foxglove-content").style.display = "block";
+      document.getElementById("foxglove-password-container").style.display = "none";
+      error.textContent = "";
+    } else {
+      error.textContent = "Incorrect password. Access denied.";
+    }
+  }
+</script>
+
 
         <h2>Public Manipulation Watch</h2>
         <p>Imperial-backed media narratives increasing in Arcadian outer provinces. Suggested response: activate Content Shield Protocol 9 and initiate cultural pride campaigns through the Arcadian Broadcast Trust.</p>
