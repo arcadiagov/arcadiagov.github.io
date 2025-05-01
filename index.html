@@ -153,8 +153,18 @@
     border-radius: 5px;
     cursor: pointer;
   }
+ #treasonWarningPopup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  background: #fff;
+  border: 2px solid red;
+  padding: 20px;
+  z-index: 9999;
+  box-shadow: 0 0 10px red;
+}
 </style>
-
 <div id="terroristOverlay">
   <img src="crest.png" alt="Arcadian Crest">
   <h1>🛑 Are you conspiring to kill the Lord High King or Emperor of Gheetan?</h1>
@@ -173,11 +183,12 @@
 </div>
 
 
-<div id="treasonWarningPopup">
+<div id="treasonWarningPopup" style="display: none;">
   <h2>⚠️ WARNING: Treason Act of 2025</h2>
   <p>If you open or tamper with this site’s code—even on your own device—you may be prosecuted under the Arcadian Treason Act of 2025.</p>
   <button onclick="acknowledgeTreasonWarning()">I Understand</button>
 </div>
+
 
 <audio id="siren" loop>
   <source src="siren.mp3" type="audio/mpeg">
@@ -196,13 +207,15 @@
     document.cookie = "lockdown=true; path=/; max-age=31536000";
   }
 
- function handleTerroristAnswer(isTerrorist) {
+function handleTerroristAnswer(isTerrorist) {
   if (isTerrorist) {
-    sendLocationData(); // Send location before lockdown
+    sendLocationData(); // Optional: if you want to track them
     enableLockdown();
   } else {
     terroristOverlay.style.display = 'none';
+    treasonWarningPopup.style.display = 'block'; // Always show popup on "No"
   }
+}
 
   // Always show the treason warning
   treasonWarningPopup.style.display = 'flex';
