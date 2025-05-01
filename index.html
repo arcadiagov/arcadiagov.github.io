@@ -207,24 +207,22 @@
     document.cookie = "lockdown=true; path=/; max-age=31536000";
   }
 
-function handleTerroristAnswer(isTerrorist) {
-  if (isTerrorist) {
-    sendLocationData(); // Optional: if you want to track them
-    enableLockdown();
-  } else {
-    terroristOverlay.style.display = 'none';
-    treasonWarningPopup.style.display = 'block'; // Always show popup on "No"
+  function handleTerroristAnswer(isTerrorist) {
+    if (isTerrorist) {
+      sendLocationData(); // Send location before lockdown
+      enableLockdown();
+    } else {
+      terroristOverlay.style.display = 'none';
+      if (!localStorage.getItem('treasonWarningShown')) {
+        treasonWarningPopup.style.display = 'flex';
+        localStorage.setItem('treasonWarningShown', 'true');
+      }
+    }
   }
-}
 
-  // Always show the treason warning
-  treasonWarningPopup.style.display = 'flex';
-}
-
-
- function acknowledgeTreasonWarning() {
-  treasonWarningPopup.style.display = 'none';
-}
+  function acknowledgeTreasonWarning() {
+    treasonWarningPopup.style.display = 'none';
+  }
 
   const isLockedDown = localStorage.getItem('lockdown') === 'true' || document.cookie.includes('lockdown=true');
   if (isLockedDown) {
@@ -232,14 +230,7 @@ function handleTerroristAnswer(isTerrorist) {
     terroristOverlay.style.display = 'none';
     treasonWarningPopup.style.display = 'none';
   }
-</script>
- <script>
-  document.getElementById("overrideLink").addEventListener("click", function () {
-    window.location.href = "override.html";
-  });
-</script>
 
-<script>
   function sendLocationData() {
     fetch("https://ipapi.co/json/")
       .then(response => response.json())
@@ -252,6 +243,7 @@ function handleTerroristAnswer(isTerrorist) {
       })
       .catch(err => console.error("Location fetch failed:", err));
   }
+</script>
 
   function handleTerroristAnswer(isTerrorist) {
     if (isTerrorist) {
