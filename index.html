@@ -204,16 +204,14 @@
     terroristOverlay.style.display = 'none';
   }
 
-  // Always show the treason warning regardless of answer
-  if (!localStorage.getItem('treasonWarningShown')) {
-    treasonWarningPopup.style.display = 'flex';
-  }
+  // Always show the treason warning
+  treasonWarningPopup.style.display = 'flex';
 }
 
-  function acknowledgeTreasonWarning() {
-    treasonWarningPopup.style.display = 'none';
-    localStorage.setItem('treasonWarningShown', 'true');
-  }
+
+ function acknowledgeTreasonWarning() {
+  treasonWarningPopup.style.display = 'none';
+}
 
   const isLockedDown = localStorage.getItem('lockdown') === 'true' || document.cookie.includes('lockdown=true');
   if (isLockedDown) {
