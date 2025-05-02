@@ -69,7 +69,7 @@
     50% { opacity: 0.3; color: darkred; }
     100% { opacity: 1; color: red; }
   }
-         /* High Importance Styles */
+        /* High Importance Styles */
 .high-importance {
   background-color: #ffebeb; /* Light red background */
   border: 2px solid #e74c3c; /* Dark red border */
@@ -83,19 +83,29 @@
 }
 
 .high-importance h3 {
-  color: #c0392b; /* Deep red */
+  color: #c0392b; /* Deep red for title */
   margin-bottom: 10px;
   font-size: 1.6em;
 }
 
 .high-importance .label {
   font-weight: bold;
-  color: #c0392b; /* Matching label color */
+  color: #c0392b; /* Deep red for labels */
 }
 
 .high-importance p {
   font-size: 1.1em;
   line-height: 1.5;
+  color: black; /* Text color set to black for the sections */
+}
+
+.high-importance .email-block {
+  background: #ffe6e6;
+  padding: 8px;
+  border-left: 4px solid crimson;
+  margin: 5px 0;
+  font-family: monospace;
+  color: black; /* Ensure email-block text is also black */
 }
 
 .high-importance .blinking {
@@ -118,7 +128,6 @@
     text-shadow: 0 0 5px #e74c3c;
   }
 }
-
 </style>
         <div class="header blinking">
   🚨 ARCADIAN HIGH PRIORITY TERROR ALERT 🚨
