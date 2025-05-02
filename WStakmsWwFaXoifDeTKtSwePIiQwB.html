@@ -227,5 +227,21 @@
   <p style="text-align: center; margin-top: 40px;">
   <a href="index.html" style="color: #3498db; font-size: 1.2rem; text-decoration: none;">&larr; Back to Home</a>
 </p>
+  <!-- Hidden Link Trigger Script -->
+<script>
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'q') {
+      let hiddenLink = document.getElementById('hidden-penalcode-link');
+      if (hiddenLink) hiddenLink.style.display = 'block';
+    }
+  });
+</script>
+
+<!-- Hidden Link Element -->
+<div id="hidden-penalcode-link" style="display:none; text-align:center; margin-top: 2rem;">
+  <a href="ROmobHNHFtMXmFadkAPagxUwHNPpbPNzQAqQnTwqoZAKPcXJNq.html" style="font-weight:bold; color:#c0392b;">
+    🔐 Access Full Penal Code System
+  </a>
+</div>
 </body>
 </html>
