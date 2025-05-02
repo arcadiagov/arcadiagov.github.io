@@ -247,14 +247,15 @@
       }
     }
   }
-  <script>
+</script>
+
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     const override = document.getElementById('overrideLink');
     if (override) {
       override.style.cursor = 'pointer';
       override.addEventListener('click', function () {
-        // Example action: redirect or reveal hidden content
-        window.location.href = 'override.html'; // or run custom logic
+        window.location.href = 'override.html';
       });
     }
   });
