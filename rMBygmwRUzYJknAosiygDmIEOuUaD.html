@@ -75,6 +75,27 @@
       font-size: 1.2em;
       margin-bottom: 30px;
     }
+    .blinking {
+  animation: pulseRed 1.2s infinite;
+  color: #c0392b; /* deep red */
+  font-weight: bold;
+}
+
+@keyframes pulseRed {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 5px #e74c3c;
+  }
+  50% {
+    opacity: 0.4;
+    text-shadow: 0 0 20px #ff4d4d, 0 0 30px #ff4d4d;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 5px #e74c3c;
+  }
+}
+
   </style>
 </head>
 <body>
