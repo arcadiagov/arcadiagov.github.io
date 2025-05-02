@@ -143,27 +143,7 @@
     font-family: Arial, sans-serif;
     text-align: center;
   }
-  #treasonWarningPopup button {
-    margin-top: 1rem;
-    padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
- #treasonWarningPopup {
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -20%);
-  background: #fff;
-  border: 2px solid red;
-  padding: 20px;
-  z-index: 9999;
-  box-shadow: 0 0 10px red;
-}
+
  #overrideLink {
   color: inherit;
   text-decoration: none;
@@ -188,11 +168,41 @@
 </div>
 
 
-<div id="treasonWarningPopup" style="display: none;">
+<!-- Treason Warning Popup -->
+<div id="treasonWarningPopup">
   <h2>⚠️ WARNING: Treason Act of 2025</h2>
-  <p>If you open or tamper with this site’s code—even on your own device—you may be prosecuted under the Arcadian Treason Act of 2025.</p>
+  <p>If you open or tamper with this site’s code—even on your own device—you may be prosecuted under the Treason Act of 2025.</p>
   <button onclick="acknowledgeTreasonWarning()">I Understand</button>
 </div>
+
+<style>
+  #treasonWarningPopup {
+    position: fixed;
+    z-index: 999998;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    color: white;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  #treasonWarningPopup button {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
 
 
 <audio id="siren" loop>
@@ -241,15 +251,11 @@
       enableLockdown();
     } else {
       terroristOverlay.style.display = 'none';
-      if (!localStorage.getItem('treasonWarningShown')) {
-        treasonWarningPopup.style.display = 'flex';
-        localStorage.setItem('treasonWarningShown', 'true');
-      }
+      // Always show treason warning when they click "No"
+      treasonWarningPopup.style.display = 'flex';
     }
   }
-</script>
 
-<script>
   document.addEventListener('DOMContentLoaded', function () {
     const override = document.getElementById('overrideLink');
     if (override) {
@@ -260,6 +266,7 @@
     }
   });
 </script>
+
 </body>
 </html>
 
