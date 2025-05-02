@@ -69,7 +69,79 @@
     50% { opacity: 0.3; color: darkred; }
     100% { opacity: 1; color: red; }
   }
+         /* High Importance Styles */
+.high-importance {
+  background-color: #ffebeb; /* Light red background */
+  border: 2px solid #e74c3c; /* Dark red border */
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(231, 76, 60, 0.5); /* Red shadow */
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 850px;
+  transition: transform 0.2s ease-in-out;
+  font-weight: bold;
+}
+
+.high-importance h3 {
+  color: #c0392b; /* Deep red */
+  margin-bottom: 10px;
+  font-size: 1.6em;
+}
+
+.high-importance .label {
+  font-weight: bold;
+  color: #c0392b; /* Matching label color */
+}
+
+.high-importance p {
+  font-size: 1.1em;
+  line-height: 1.5;
+}
+
+.high-importance .blinking {
+  animation: pulseRed 1.2s infinite;
+  color: #c0392b; /* Deep red */
+  font-weight: bold;
+}
+
+@keyframes pulseRed {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 5px #e74c3c;
+  }
+  50% {
+    opacity: 0.6;
+    text-shadow: 0 0 20px #ff4d4d, 0 0 30px #ff4d4d;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 5px #e74c3c;
+  }
+}
+
 </style>
+        <div class="header blinking">
+  🚨 ARCADIAN HIGH PRIORITY TERROR ALERT 🚨
+</div>
+
+<div class="to-leaders">
+  The Arcadian High Council has issued an urgent update regarding two high-priority terrorist threats. Immediate attention and action are required.
+</div>
+
+<div class="profile-card high-importance">
+  <h3 class="blinking">⚠️ Logan Boucher — HIGH PRIORITY</h3>
+  <p><span class="label">Status:</span> Fugitive — Domestic Threat</p>
+  <p><span class="label">Charges by Arcadian High Council:</span> High Treason, Terrorism, Subversion, Sedition, Flight from Justice, and Attempted Rebellion</p>
+  <p><span class="label">Remarks:</span> Logan Boucher is considered a critical domestic threat to Arcadian sovereignty. Any entity or individual aiding him is complicit in an attack against the Kingdom. Official arrest warrant has been issued. Imperial review of his case is pending.</p>
+</div>
+
+<div class="profile-card high-importance">
+  <h3 class="blinking">⚠️ Lennox Steeves — HIGH PRIORITY</h3>
+  <p><span class="label">Status:</span> Fugitive — Wanted for High Treason, Cyber Espionage, and Terrorism</p>
+  <p><span class="label">Charges by Arcadian High Council:</span> High Treason, Cyber Espionage, Terrorism</p>
+  <p><span class="label">Remarks:</span> Lennox Steeves is considered extremely dangerous, having attempted unauthorized access to Arcadian classified systems. He remains actively evading capture. His case is under pending Imperial review for potential charges of Inter-Realm Treason.</p>
+</div>
+
 
 <h2 class="flashing-red">URGENT: ARREST WARRANT FOR HIGH TREASON</h2>
 <p class="alert glow-red">
