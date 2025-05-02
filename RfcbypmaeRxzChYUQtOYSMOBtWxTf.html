@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Arcadian Affiliated Profiles</title>
   <style>
     body {
@@ -89,13 +89,54 @@
       color: red;
       margin-top: 10px;
     }
+
+    .high-importance {
+      border: 3px solid red;
+      animation: flashBorder 1s infinite;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .warning-icon {
+      color: red;
+      margin-right: 5px;
+    }
+
+    .blinking {
+      animation: blinkingText 1s infinite;
+    }
+
+    @keyframes blinkingText {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes flashBorder {
+      0% { box-shadow: 0 0 5px red; }
+      50% { box-shadow: 0 0 20px red; }
+      100% { box-shadow: 0 0 5px red; }
+    }
+
+    .profile-card.alert {
+      border: 3px solid red;
+      animation: flash-border 1s infinite;
+      padding: 16px;
+      border-radius: 10px;
+    }
+
+    @keyframes flash-border {
+      0% { box-shadow: 0 0 10px red; }
+      50% { box-shadow: 0 0 20px red; }
+      100% { box-shadow: 0 0 10px red; }
+    }
   </style>
 </head>
 <body>
   <div id="password-container">
     <h2>Enter Password to Access Arcadian Affiliated Profiles</h2>
-    <input type="password" id="password-input" placeholder="Enter password">
-    <br>
+    <input type="password" id="password-input" placeholder="Enter password" />
+    <br />
     <button id="submit-button" onclick="checkPassword()">Submit</button>
     <div id="error-message"></div>
   </div>
@@ -103,36 +144,6 @@
   <div id="protected-content">
     <h1>Affiliated Individual Profiles – Arcadian Intelligence</h1>
 
-<style>
-  .high-importance {
-    border: 3px solid red;
-    animation: flashBorder 1s infinite;
-    padding: 10px;
-    margin-bottom: 20px;
-  }
-
-  .warning-icon {
-    color: red;
-    margin-right: 5px;
-  }
-
-  .blinking {
-    animation: blinkingText 1s infinite;
-  }
-
-  @keyframes blinkingText {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-  @keyframes flashBorder {
-    0% { box-shadow: 0 0 5px red; }
-    50% { box-shadow: 0 0 20px red; }
-    100% { box-shadow: 0 0 5px red; }
-  }
-</style>
-  <div id="protected-content">
 
 <div class="profile-card high-importance">
   <h2><span class="warning-icon">⚠️</span><span class="blinking">Rowan Miller</span></h2>
@@ -172,12 +183,13 @@
   <div class="profile-section"><span class="label">Timestamp:</span> April 30, 2025 — International Warrant Issued</div>
 </div>
 
-
+    <!-- Porter Unlock Section -->
     <div id="porter-password-container" style="display:none; text-align:center; margin: 20px 0;">
-  <input type="password" id="porter-password" placeholder="Enter password" style="padding: 10px; font-size: 16px;">
-  <button onclick="unlockPorterProfile()" style="padding: 10px 20px; font-size: 16px;">Unlock</button>
-  <div id="porter-error" style="color:red; margin-top:10px;"></div>
-</div>
+      <input type="password" id="porter-password" placeholder="Enter password" style="padding: 10px; font-size: 16px;">
+      <button onclick="unlockPorterProfile()" style="padding: 10px 20px; font-size: 16px;">Unlock</button>
+      <div id="porter-error" style="color:red; margin-top:10px;"></div>
+    </div>
+
 
 <div id="porter-profile" style="display:none;">
   <div class="profile-card">
