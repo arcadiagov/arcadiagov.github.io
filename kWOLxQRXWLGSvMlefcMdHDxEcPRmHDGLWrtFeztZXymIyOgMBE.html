@@ -3,146 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Kingdom of Arcadia, Arcadia, Arcadian government, Gheetan Empire, Lord High King, Realm of Arcadia, Royal Kingdom of Arcadia, Lord High King of Arcadia" />
   <title>Arrest Warrants | Kingdom Realm of Arcadia</title>
-  <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
       background-color: #2c3e50;
       color: #ecf0f1;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
     }
-
-    header {
-      background: linear-gradient(135deg, #34495e, #2c3e50);
+    #content {
+      display: none;
+      background-color: #34495e;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+    #passwordPrompt {
+      display: none;
+      background-color: rgba(0, 0, 0, 0.85);
       color: white;
       padding: 20px;
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      letter-spacing: 2px;
-    }
-
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-
-    section {
-      background-color: #34495e;
-      margin: 20px auto;
-      padding: 30px;
-      max-width: 900px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    section h2 {
-      color: #e74c3c;
-      font-size: 2.5em;
-      margin-bottom: 20px;
-    }
-
-    section p {
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-
-    .warrant-list {
-      margin-top: 20px;
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .warrant-list li {
-      background: #1e2a3a;
-      padding: 15px;
-      margin: 10px 0;
       border-radius: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
+      text-align: center;
     }
-
-    .warrant-list li:hover {
-      background: #e74c3c;
-      transform: scale(1.03);
+    #passwordPrompt input {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      margin-bottom: 20px;
+      border-radius: 5px;
     }
-
-    .warrant-list li a {
-      font-size: 1.2em;
-      color: #ecf0f1;
-      text-decoration: none;
-      font-weight: bold;
+    #passwordPrompt button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #e74c3c;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
     }
-
-    .warrant-list li a:hover {
-      color: #2c3e50;
-      text-decoration: underline;
+    #passwordPrompt button:hover {
+      background-color: #c0392b;
     }
-
-    .warrant-list li .charges {
-      font-size: 1em;
+    footer {
+      margin-top: 50px;
+      font-size: 0.8rem;
       color: #bdc3c7;
     }
-
-    footer {
-      background-color: #34495e;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-      box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
-    }
-
     footer a {
-      color: #e74c3c;
+      color: #ecf0f1;
       text-decoration: none;
-      font-weight: bold;
     }
-
     footer a:hover {
-      text-decoration: underline;
+      color: #e74c3c;
     }
-
   </style>
 </head>
 <body>
+  <header>
+    <h1>Arrest Warrants</h1>
+    <p>Official arrest warrants issued by the Kingdom of Arcadia. All individuals are subject to the laws of the Realm.</p>
+  </header>
 
-<header>
-  <h1>Arrest Warrants</h1>
-  <p>Official arrest warrants issued by the Kingdom of Arcadia. All individuals are subject to the laws of the Realm.</p>
-</header>
+  <section>
+    <h2>Current Arrest Warrants</h2>
+    <p>Below is a list of individuals who are currently wanted by the authorities of the Kingdom Realm of Arcadia. These warrants remain active until further notice.</p>
 
-<section>
-  <h2>Current Arrest Warrants</h2>
-  <p>Below is a list of individuals who are currently wanted by the authorities of the Kingdom Realm of Arcadia. These warrants remain active until further notice.</p>
+    <ul class="warrant-list">
+      <!-- Sample placeholder warrant entry, replace with actual warrants as needed -->
+      <li>
+        <a href="#">Logan Boucher</a>
+        <span class="charges">Charges: Imperial Treason</span>
+      </li>
+      <li>
+        <a href="#">Lennox Steeves</a>
+        <span class="charges">Charges: Imperial Treason, Cyber Espionage</span>
+      </li>
+      <!-- Add more warrant entries here -->
+    </ul>
+  </section>
 
-  <ul class="warrant-list">
-    <!-- Sample placeholder warrant entry, replace with actual warrants as needed -->
-    <li>
-      <a href="#">Logan Boucher</a>
-      <span class="charges">Charges: Imperial Treason</span>
-    </li>
-    <li>
-      <a href="#">Lennox Steeves</a>
-      <span class="charges">Charges: Imperial Treason, Cyber Espionage</span>
-    </li>
-    <!-- Add more warrant entries here -->
-  </ul>
-</section>
+  <footer>
+    <p>&copy; 2025 Kingdom of Arcadia | <a href="contact.html">Contact Us</a></p>
+  </footer>
 
-<footer>
-  <p>&copy; 2025 Kingdom of Arcadia | <a href="contact.html">Contact Us</a></p>
-</footer>
+  <div id="content">
+    <h2>Classified Arrest Warrant Information</h2>
+    <p>This is a sensitive page containing classified arrest warrants. It is only accessible to authorized personnel.</p>
+    <p>Details will be revealed once access is granted.</p>
+    <h3>Arrest Warrants List</h3>
+    <ul>
+      <li><strong>Logan Boucher</strong> - Charged with <em>Imperial Treason</em></li>
+      <li><strong>Lennox Steeves</strong> - Charged with <em>Imperial Treason</em> and <em>Cyber Espionage</em></li>
+      <!-- Additional arrest warrants can be added here -->
+    </ul>
+  </div>
 
+  <div id="passwordPrompt">
+    <h3>Password Required</h3>
+    <p>Please enter the password to view the content:</p>
+    <input type="password" id="passwordField" placeholder="Enter Password" />
+    <button onclick="checkPassword()">Submit</button>
+  </div>
+
+  <script>
+    // Function to show the password prompt when Ctrl + Alt + O is pressed
+    document.addEventListener('keydown', function(event) {
+      if (event.ctrlKey && event.altKey && event.key === 'o') {
+        event.preventDefault(); // Prevent default behavior
+        document.getElementById('passwordPrompt').style.display = 'block';
+      }
+    });
+
+    // Function to check the password entered
+    function checkPassword() {
+      const enteredPassword = document.getElementById('passwordField').value;
+      if (enteredPassword === 'ImperialMajesty!!') {
+        document.getElementById('content').style.display = 'block'; // Reveal the content
+        document.getElementById('passwordPrompt').style.display = 'none'; // Hide the password prompt
+      } else {
+        alert('Incorrect password. Please try again.');
+      }
+    }
+  </script>
 </body>
 </html>
+
