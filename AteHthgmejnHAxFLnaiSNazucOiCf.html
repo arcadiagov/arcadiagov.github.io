@@ -128,6 +128,29 @@
     text-shadow: 0 0 5px #e74c3c;
   }
 }
+         .header {
+  background-color: #8b0000;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 3em; /* Larger text size */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.blinking {
+  animation: blinkText 1.5s infinite;
+  color: #e74c3c; /* Bright red */
+}
+
+@keyframes blinkText {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
 </style>
         <div class="header blinking">
   🚨 ARCADIAN HIGH PRIORITY TERROR ALERT 🚨
