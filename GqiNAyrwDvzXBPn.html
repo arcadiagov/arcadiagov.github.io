@@ -57,6 +57,53 @@
             <p>Citizenship in Arcadia is a privilege extended to those who uphold its values and participate in its civic life. Individuals may apply for citizenship through formal channels and are granted rights and responsibilities upon approval.</p>
         </section>
     </main>
+<section id="citizenship-form">
+  <h2>Apply for Arcadian Citizenship</h2>
+  <p>Fill out the form below to apply for citizenship in the Kingdom Realm of Arcadia. All fields are required unless stated otherwise.</p>
+
+  <form action="https://formsubmit.co/governementofarcadia@gmail.com" method="POST">
+    <!-- Hidden Configurations -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_subject" value="New Arcadian Citizenship Application">
+    <input type="hidden" name="_next" value="https://arcadiagov.github.io/thank-you.html">
+
+    <!-- Applicant Details -->
+    <label for="fullName">Full Name:</label><br>
+    <input type="text" id="fullName" name="Full Name" required><br><br>
+
+    <label for="dob">Date of Birth:</label><br>
+    <input type="date" id="dob" name="Date of Birth" required><br><br>
+
+    <label for="email">Email Address:</label><br>
+    <input type="email" id="email" name="Email" required><br><br>
+
+    <label for="country">Country of Origin:</label><br>
+    <input type="text" id="country" name="Country of Origin" required><br><br>
+
+    <label for="reason">Reason for Applying:</label><br>
+    <textarea id="reason" name="Reason for Applying" rows="4" required></textarea><br><br>
+
+    <label for="skills">Skills or Occupation:</label><br>
+    <input type="text" id="skills" name="Skills or Occupation"><br><br>
+
+    <label for="loyalty">Are you willing to swear loyalty to the Lord High King of Arcadia?</label><br>
+    <select id="loyalty" name="Swear Loyalty" required>
+      <option value="">-- Select --</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select><br><br>
+
+    <label for="comments">Any Other Comments:</label><br>
+    <textarea id="comments" name="Additional Comments" rows="3"></textarea><br><br>
+
+    <!-- Honeypot Anti-Spam Field (hidden from users) -->
+    <input type="text" name="_honey" style="display:none">
+
+    <!-- Submit Button -->
+    <button type="submit">Submit Application</button>
+  </form>
+</section>
 
     <footer>
         <p>&copy; 2025 Kingdom of Arcadia. All rights reserved.</p>
