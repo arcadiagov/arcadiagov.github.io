@@ -63,7 +63,7 @@
 
     /* Hidden password prompt */
     #password-prompt {
-      display: none;
+      display: none; /* Ensure it's hidden by default */
     }
   </style>
 </head>
@@ -112,28 +112,31 @@
     const errorMessage = document.getElementById('error-message');
 
     // Show password prompt on page load
-    passwordPrompt.style.display = 'block';
+    window.onload = function() {
+      passwordPrompt.style.display = 'none'; // Ensure it's hidden
+    };
 
     // Check the entered password
     function checkPassword() {
       const enteredPassword = document.getElementById('password').value;
 
       if (enteredPassword === 'ImperialMajesty!!') {
-        passwordPrompt.style.display = 'none';
+        passwordPrompt.style.display = 'none'; // Hide the password prompt
         lockedContent.style.display = 'block'; // Unlock the content
       } else {
-        errorMessage.style.display = 'block';
+        errorMessage.style.display = 'block'; // Show error if incorrect
       }
     }
 
     // Allow unlocking with Ctrl + Alt + O
     document.addEventListener('keydown', function(event) {
       if (event.ctrlKey && event.altKey && event.key === 'O') {
-        passwordPrompt.style.display = 'block';
+        passwordPrompt.style.display = 'block'; // Show password prompt when Ctrl + Alt + O is pressed
       }
     });
   </script>
 </body>
 </html>
+
 
 
