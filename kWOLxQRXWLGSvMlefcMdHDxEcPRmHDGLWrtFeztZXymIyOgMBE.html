@@ -48,23 +48,6 @@
       width: 100%;
       bottom: 0;
     }
-
-    /* Hidden content (locked) */
-    .locked-content {
-      display: none;
-      background-color: white;
-      color: black;
-      padding: 20px;
-      border-radius: 5px;
-    }
-    .locked-content a {
-      color: #1a73e8;
-    }
-
-    /* Hidden password prompt */
-    #password-prompt {
-      display: none; /* Ensure it's hidden by default */
-    }
   </style>
 </head>
 <body>
@@ -76,10 +59,9 @@
   <section>
     <h2>Current Arrest Warrants</h2>
     <p>Below is a list of individuals who are currently wanted by the authorities of the Kingdom Realm of Arcadia. These warrants remain active until further notice.</p>
-    <!-- Locked content initially hidden -->
-    <div class="locked-content" id="locked-content">
+
+    <div>
       <ul class="warrant-list">
-        <!-- Sample placeholder warrant entry -->
         <li>
           <a href="#">Logan Boucher</a>
           <span class="charges">Charges: Imperial Treason</span>
@@ -91,50 +73,11 @@
         <!-- Add more warrant entries here -->
       </ul>
     </div>
-
-    <!-- Password prompt (initially hidden) -->
-    <div id="password-prompt">
-      <p>Please enter the password to access the arrest warrants.</p>
-      <input type="password" id="password" placeholder="Enter password">
-      <button onclick="checkPassword()">Submit</button>
-      <p id="error-message" style="color: red; display: none;">Incorrect password, please try again.</p>
-    </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Kingdom of Arcadia | <a href="contact.html">Contact Us</a></p>
   </footer>
-
-  <script>
-    // Password protection script
-    const passwordPrompt = document.getElementById('password-prompt');
-    const lockedContent = document.getElementById('locked-content');
-    const errorMessage = document.getElementById('error-message');
-
-    // Show password prompt on page load
-    window.onload = function() {
-      passwordPrompt.style.display = 'none'; // Ensure it's hidden
-    };
-
-    // Check the entered password
-    function checkPassword() {
-      const enteredPassword = document.getElementById('password').value;
-
-      if (enteredPassword === 'ImperialMajesty!!') {
-        passwordPrompt.style.display = 'none'; // Hide the password prompt
-        lockedContent.style.display = 'block'; // Unlock the content
-      } else {
-        errorMessage.style.display = 'block'; // Show error if incorrect
-      }
-    }
-
-    // Allow unlocking with Ctrl + Alt + O
-    document.addEventListener('keydown', function(event) {
-      if (event.ctrlKey && event.altKey && event.key === 'O') {
-        passwordPrompt.style.display = 'block'; // Show password prompt when Ctrl + Alt + O is pressed
-      }
-    });
-  </script>
 </body>
 </html>
 
