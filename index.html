@@ -267,9 +267,8 @@
       });
     }
   });
-</script>
 <!-- Hidden Password Prompt -->
-<div id="secretPasswordOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); color:white; z-index:9999; display:flex; align-items:center; justify-content:center; flex-direction:column; font-family:Arial, sans-serif;">
+<div id="secretPasswordOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.92); color:white; z-index:9999; align-items:center; justify-content:center; flex-direction:column; font-family:Arial, sans-serif;">
   <h2>🔒 Enter Access Code</h2>
   <input id="secretPasswordInput" type="password" placeholder="Enter Password" style="padding:10px; font-size:16px; border:none; border-radius:5px; margin-top:10px;">
   <button onclick="checkSecretPassword()" style="margin-top:15px; padding:10px 20px; font-size:16px; background:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Submit</button>
@@ -278,14 +277,15 @@
 
 <!-- Hidden Link Revealed on Success -->
 <div id="hiddenLink" style="display:none; position:fixed; bottom:20px; right:20px; z-index:10000;">
-  <a href="WStakmsWwFaXoifDeTKtSwePIiQwB.html" style="background:#2ecc71; color:white; padding:10px 15px; border-radius:5px; text-decoration:none; font-weight:bold;">Go to Hidden Page</a>
+  <a href="ROmobHNHFtMXmFadkAPagxUwHNPpbPNzQAqQnTwqoZAKPcXJNq.html" style="background:#2ecc71; color:white; padding:10px 15px; border-radius:5px; text-decoration:none; font-weight:bold;">Go to Hidden Page</a>
 </div>
 
 <script>
   document.addEventListener('keydown', function (e) {
-    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'g') {
-      document.getElementById('secretPasswordOverlay').style.display = 'flex';
-      document.getElementById('secretPasswordInput').focus();
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'q') {
+      const overlay = document.getElementById('secretPasswordOverlay');
+      overlay.style.display = 'flex';
+      overlay.focus();
     }
   });
 
@@ -299,6 +299,7 @@
     }
   }
 </script>
+
 
 </body>
 </html>
