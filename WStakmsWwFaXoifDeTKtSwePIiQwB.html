@@ -71,6 +71,21 @@
       position: absolute;
       left: 0;
     }
+    nav.section {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  border-left: 1px solid #ccc;
+  padding: 15px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  font-size: 14px;
+}
+
   </style>
 </head>
 <body>
@@ -78,7 +93,7 @@
   <h1>The Arcadian Penal Code</h1>
 </header>
 
-<main>
+
   <nav class="section">
   <h2>Table of Contents</h2>
   <ul>
@@ -99,6 +114,7 @@
       <li><a href="#chapter17">Chapter 17: Environmental and Sacred Lands Protection</a></li>
   </ul>
 </nav>
+  <main>
  <section class="section" id="preamble">
   <h2>Preamble</h2>
     <p>
