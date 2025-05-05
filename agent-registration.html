@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foreign Agent Registration - Arcadia</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #ecf0f1;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin: 12px 0 5px;
+      font-weight: bold;
+      color: #34495e;
+    }
+    input, textarea, select {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      font-size: 1rem;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1f618d;
+    }
+    .disclaimer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Foreign Agent Registration</h1>
+    <form action="https://formsubmit.co/governementofarcadia@gmail.com" method="POST">
+      <!-- Prevent bots -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="New Foreign Agent Registration Submission">
+
+      <label for="name">Full Legal Name</label>
+      <input type="text" id="name" name="Full Name" required>
+
+      <label for="entity">Represented Entity or Government</label>
+      <input type="text" id="entity" name="Represented Entity" required>
+
+      <label for="purpose">Purpose of Entry</label>
+      <select id="purpose" name="Purpose of Entry" required>
+        <option value="">Select one</option>
+        <option>Diplomatic Mission</option>
+        <option>Trade/Commerce</option>
+        <option>Intelligence Gathering (Declared)</option>
+        <option>Media/Press</option>
+        <option>Other</option>
+      </select>
+
+      <label for="duration">Expected Duration of Presence in Arcadia or on Arcadian Sites</label>
+      <input type="text" id="duration" name="Expected Duration" required>
+
+      <label for="activities">Detailed Description of Activities</label>
+      <textarea id="activities" name="Activity Description" rows="5" required></textarea>
+
+      <label for="contact">Contact Email</label>
+      <input type="email" id="contact" name="Contact Email" required>
+
+      <button type="submit">Submit Registration</button>
+
+      <p class="disclaimer">
+        By submitting this form, you acknowledge that any undeclared activities may be considered espionage under Chapter 18 of the Arcadian Penal Code.
+      </p>
+    </form>
+  </div>
+</body>
+</html>
