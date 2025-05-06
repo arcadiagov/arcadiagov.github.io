@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Criminal Access Portal</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
- <script>
+<script>
     function verifyCode() {
       const input = document.getElementById("penalCode").value.trim();
       switch (input) {
@@ -17,11 +17,15 @@
         case "TC-3CM":
           window.location.href = "rowanhome.html";
           break;
+        case "Lawyer2025!":
+          window.location.href = "lawyerportal.html"; // Redirect to lawyer portal page
+          break;
         default:
           alert("Invalid penal code. Access denied.");
       }
     }
-  </script>
+</script>
+
 </head>
 <body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
   <div class="bg-gray-800 p-8 rounded-xl shadow-2xl w-full max-w-md text-center">
