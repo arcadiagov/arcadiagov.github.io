@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Criminal Access Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function verifyCode() {
+      const input = document.getElementById("penalCode").value.trim();
+      const allowedCodes = ["ATEXM-4A17CM", "TCXE-4CM", "TC-3CM"];
+      if (allowedCodes.includes(input)) {
+        window.location.href = "dashboard.html";
+      } else {
+        alert("Invalid penal code. Access denied.");
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
+  <div class="bg-gray-800 p-8 rounded-xl shadow-2xl w-full max-w-md text-center">
+    <h1 class="text-3xl font-bold text-blue-400 mb-4">🔒 Criminal Access Portal</h1>
+    <p class="mb-6 text-gray-300">Enter your personalized penal code to proceed.</p>
+    <input id="penalCode" type="password" placeholder="Enter Penal Code" class="w-full px-4 py-3 rounded text-black mb-4"/>
+    <button onclick="verifyCode()" class="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded font-semibold">Unlock Access</button>
+  </div>
+</body>
+</html>
