@@ -5,25 +5,54 @@
   <title>Prosecution Portal - Empire vs. Steeves</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgba(15, 23, 42, 0.98);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
   <script>
-    function authenticate() {
-      const password = prompt("Enter password to access this page:");
-      if (password !== "Attack2025!") {
-        document.body.innerHTML = "<div class='flex items-center justify-center min-h-screen bg-gray-900 text-white text-xl'>Access Denied</div>";
+    function checkPassword() {
+      const password = document.getElementById("passwordInput").value.trim();
+      if (password === "Attack2025!") {
+        document.getElementById("lockedContent").classList.remove("hidden");
+        document.getElementById("overlay").style.display = "none";
+      } else {
+        document.getElementById("error").classList.remove("hidden");
       }
     }
-    window.onload = authenticate;
   </script>
 </head>
-<body class="bg-gray-900 text-white p-8">
-  <div class="max-w-4xl mx-auto">
-    <img src="ramp.png" alt="RAMP Logo" class="w-32 mb-6">
+  
+  <!-- Overlay and Password Input -->
+  <div id="overlay">
+    <div class="text-center bg-gray-900 p-6 rounded-lg shadow-lg border border-red-500 max-w-sm w-full">
+      <img src="ramp.png" alt="RAMP Logo" class="mx-auto w-20 mb-4">
+      <h2 class="text-xl font-bold text-red-400 mb-4">Restricted Access</h2>
+      <p class="text-gray-300 mb-3">Enter prosecution clearance password:</p>
+      <input type="password" id="passwordInput" placeholder="Password" class="px-4 py-2 rounded text-black w-full mb-3">
+      <button onclick="checkPassword()" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded text-white font-bold w-full">Unlock</button>
+      <p id="error" class="text-red-400 mt-2 hidden">Incorrect password. Access denied.</p>
+    </div>
+  </div>
 
     <header class="mb-10">
       <h1 class="text-4xl font-bold text-red-400">Prosecution Dossier</h1>
       <h2 class="text-2xl font-semibold text-blue-300"> REDACTED FOR SECURITY – Lead Prosecutor</h2>
       <p class="text-gray-400 mt-2">Case T-027-RAMP – Empire vs. Steeves</p>
     </header>
+   <div id="lockedContent" class="max-w-4xl mx-auto bg-gray-900 p-6 rounded-xl shadow-lg hidden">
+    <img src="ramp.png" alt="RAMP Logo" class="mx-auto w-40 mb-6">
+    <h1 class="text-3xl font-bold text-red-400 text-center mb-8">⚖️ Confidential: Prosecution File – Lennox Steeves</h1>
+
 
     <!-- Counterarguments -->
     <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
