@@ -29,9 +29,18 @@
         document.getElementById("error").classList.remove("hidden");
       }
     }
+
+    function toggleSection(sectionId) {
+      const sections = ['miller', 'steeves', 'boucher'];
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = (id === sectionId) ? 'block' : 'none';
+      });
+    }
   </script>
 </head>
-  
+<body>
+
   <!-- Overlay and Password Input -->
   <div id="overlay">
     <div class="text-center bg-gray-900 p-6 rounded-lg shadow-lg border border-red-500 max-w-sm w-full">
@@ -44,15 +53,15 @@
     </div>
   </div>
 
-    <header class="mb-10">
-      <h1 class="text-4xl font-bold text-red-400">Prosecution Dossier</h1>
-      <h2 class="text-2xl font-semibold text-blue-300"> REDACTED FOR SECURITY – Lead Prosecutor</h2>
-      <p class="text-gray-400 mt-2">Case T-027-RAMP – Empire vs. Steeves</p>
-    </header>
-   <div id="lockedContent" class="max-w-4xl mx-auto bg-gray-900 p-6 rounded-xl shadow-lg hidden">
+  <header class="mb-10">
+    <h1 class="text-4xl font-bold text-red-400">Prosecution Dossier</h1>
+    <h2 class="text-2xl font-semibold text-blue-300"> REDACTED FOR SECURITY – Lead Prosecutor</h2>
+    <p class="text-gray-400 mt-2">Case T-027-RAMP – Empire vs. Steeves</p>
+  </header>
+
+  <div id="lockedContent" class="max-w-4xl mx-auto bg-gray-900 p-6 rounded-xl shadow-lg hidden">
     <img src="ramp.png" alt="RAMP Logo" class="mx-auto w-40 mb-6">
     <h1 class="text-3xl font-bold text-red-400 text-center mb-8">⚖️ Confidential: Prosecution File – Lennox Steeves</h1>
-
 
     <!-- Toggle Buttons -->
     <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-10">
