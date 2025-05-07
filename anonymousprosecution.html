@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Prosecution Portal - Empire vs. Steeves</title>
+  <title>Prosecution Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
@@ -54,56 +54,161 @@
     <h1 class="text-3xl font-bold text-red-400 text-center mb-8">⚖️ Confidential: Prosecution File – Lennox Steeves</h1>
 
 
-    <!-- Counterarguments -->
-    <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
-      <h3 class="text-2xl font-semibold text-green-300 mb-4">Countering the Defense</h3>
-      <ul class="list-disc ml-5 space-y-2 text-lg text-gray-200">
-        <li>Intent does not negate unauthorized system breach—good intentions are irrelevant under RAMP Cyber Protocol 9.4.</li>
-        <li>System “upgrades” made post-incident do not absolve prior criminal acts. This is mitigation, not exoneration.</li>
-        <li>No ethical hacker registry exists; unauthorized intrusion cannot be post-labeled as ethical without pre-clearance.</li>
-        <li>Defense fails to provide independent verification of Steeves’s stated purpose or intent.</li>
-      </ul>
+    <!-- Toggle Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-10">
+      <button onclick="toggleSection('miller')" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">Miller vs. Empire</button>
+      <button onclick="toggleSection('steeves')" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">Steeves vs. Empire</button>
+      <button onclick="toggleSection('boucher')" class="bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded">Boucher vs. Empire</button>
+    </div>
+
+    <!-- Miller vs. Empire -->
+    <section id="miller" style="display: none;">
+      <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Countering the Defense</h3>
+        <ul class="list-disc ml-5 space-y-2 text-lg text-gray-200">
+          <li>Voluntary confession includes criminal self-incrimination, undermining any future plea of innocence.</li>
+          <li>Claiming terrorist identity establishes intent to subvert national peace and lawful order.</li>
+          <li>Dismissive tone of confession supports prosecution's case on recklessness and lack of remorse.</li>
+        </ul>
+      </section>
+
+      <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Prosecution Strategy Points</h3>
+        <ul class="list-disc ml-5 space-y-2 text-gray-200 text-lg">
+          <li>Use video/audio/archived confession: “I totally lied. I'm a terrorist. MWAHAHAHAHAHA….”</li>
+          <li>Introduce historical pattern of similar violent rhetoric from social and message records.</li>
+          <li>Link confession to acts listed in arrest warrant for context and legal substantiation.</li>
+          <li>Portray defendant as destabilizing threat with intent to cause fear and unrest.</li>
+        </ul>
+      </section>
+
+      <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Prepared Speeches (Max 60s)</h3>
+        <div class="space-y-6 text-gray-200">
+          <div>
+            <h4 class="font-bold text-lg">Opening Statement</h4>
+            <p>The accused has declared themselves a terrorist in a recorded confession, mocking justice and endangering national security. Such behavior demands a firm, lawful response.</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg">Rebuttal to Defense Minimization</h4>
+            <p>This is not a joke. In Arcadia, we do not dismiss violent self-incrimination. We prosecute it.</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg">Closing Remarks</h4>
+            <p>Let the tribunal remember that confessions of terrorism are not satire—they are warning signs. Prosecute accordingly and preserve the peace.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Evidence Highlights</h3>
+        <ul class="list-disc ml-5 space-y-2 text-gray-200 text-lg">
+          <li>Confession: “I totally lied. I'm a terrorist. MWAHAHAHAHA…” (Video Record ID: MLR-001)</li>
+          <li>Relevant arrest warrant lists pattern of subversive and destabilizing acts.</li>
+          <li>Archived posts matching tone and rhetoric used in confession.</li>
+        </ul>
+      </section>
     </section>
 
-    <!-- Prosecution Strategy -->
-    <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
-      <h3 class="text-2xl font-semibold text-green-300 mb-4">Prosecution Strategy Points</h3>
-      <ul class="list-disc ml-5 space-y-2 text-gray-200 text-lg">
-        <li>Leverage digital forensics to show repeated and deliberate unauthorized access patterns.</li>
-        <li>Use testimony from internal IT officers showing no request, contact, or attempted clearance by Steeves.</li>
-        <li>Frame the act as part of a larger pattern of techno-vigilantism which undermines legal process.</li>
-        <li>Undercut the narrative of "ethical hacking" by citing international norms and Arcadian case law.</li>
-      </ul>
+    <!-- Steeves vs. Empire -->
+    <section id="steeves">
+      <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Countering the Defense</h3>
+        <ul class="list-disc ml-5 space-y-2 text-lg text-gray-200">
+          <li>Intent does not negate unauthorized system breach—good intentions are irrelevant under RAMP Cyber Protocol 9.4.</li>
+          <li>System “upgrades” made post-incident do not absolve prior criminal acts. This is mitigation, not exoneration.</li>
+          <li>No ethical hacker registry exists; unauthorized intrusion cannot be post-labeled as ethical without pre-clearance.</li>
+          <li>Defense fails to provide independent verification of Steeves’s stated purpose or intent.</li>
+        </ul>
+      </section>
+
+      <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Prosecution Strategy Points</h3>
+        <ul class="list-disc ml-5 space-y-2 text-gray-200 text-lg">
+          <li>Leverage digital forensics to show repeated and deliberate unauthorized access patterns.</li>
+          <li>Use testimony from internal IT officers showing no request, contact, or attempted clearance by Steeves.</li>
+          <li>Frame the act as part of a larger pattern of techno-vigilantism which undermines legal process.</li>
+          <li>Undercut the narrative of "ethical hacking" by citing international norms and Arcadian case law.</li>
+        </ul>
+      </section>
+
+      <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Prepared Speeches (Max 60s)</h3>
+        <div class="space-y-6 text-gray-200">
+          <div>
+            <h4 class="font-bold text-lg">Opening Statement (58s)</h4>
+            <p>Members of the tribunal, this is not a case of curiosity gone too far. It is about accountability in a digital age. Mr. Steeves did not ask permission, he did not report his findings, and he bypassed layers of classified infrastructure with full knowledge of its protected status. This is not vigilance—it’s vigilantism.</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg">Rebuttal to "Good Intent" (47s)</h4>
+            <p>Good intentions are not a defense in Arcadian law. If they were, any citizen could justify breaching nuclear codes to “test” them. We do not criminalize intent alone, but we absolutely prosecute actions. This was a deliberate, repeated incursion into a protected zone.</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg">Closing Remarks (59s)</h4>
+            <p>You have heard the defense speak of hope, but justice is not about hope—it is about law. Mr. Steeves’s actions broke that law. No title, no goal, no claimed ethic can excuse a breach of the sovereign security network. Find him accountable, not because he is evil—but because the law was broken, and we are a nation of laws.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Evidence Highlights</h3>
+        <ul class="list-disc ml-5 space-y-2 text-gray-200 text-lg">
+          <li>Log records showing three breaches within 36 hours, escalating in clearance level.</li>
+          <li>Direct access to restricted files unrelated to the vulnerabilities he later reported.</li>
+          <li>Steeves’s internal messages referencing "outsmarting the firewall" (archived, Evidence ID: C-2275).</li>
+          <li>No reporting to RAMP following breach until after investigation began.</li>
+        </ul>
+      </section>
     </section>
 
-    <!-- Prosecution Speeches -->
-    <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
-      <h3 class="text-2xl font-semibold text-green-300 mb-4">Prepared Speeches (Max 60s)</h3>
-      <div class="space-y-6 text-gray-200">
-        <div>
-          <h4 class="font-bold text-lg">Opening Statement (58s)</h4>
-          <p>Members of the tribunal, this is not a case of curiosity gone too far. It is about accountability in a digital age. Mr. Steeves did not ask permission, he did not report his findings, and he bypassed layers of classified infrastructure with full knowledge of its protected status. This is not vigilance—it’s vigilantism.</p>
-        </div>
-        <div>
-          <h4 class="font-bold text-lg">Rebuttal to "Good Intent" (47s)</h4>
-          <p>Good intentions are not a defense in Arcadian law. If they were, any citizen could justify breaching nuclear codes to “test” them. We do not criminalize intent alone, but we absolutely prosecute actions. This was a deliberate, repeated incursion into a protected zone.</p>
-        </div>
-        <div>
-          <h4 class="font-bold text-lg">Closing Remarks (59s)</h4>
-          <p>You have heard the defense speak of hope, but justice is not about hope—it is about law. Mr. Steeves’s actions broke that law. No title, no goal, no claimed ethic can excuse a breach of the sovereign security network. Find him accountable, not because he is evil—but because the law was broken, and we are a nation of laws.</p>
-        </div>
-      </div>
-    </section>
+    <!-- Boucher vs. Empire -->
+    <section id="boucher" style="display: none;">
+      <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Countering the Defense</h3>
+        <ul class="list-disc ml-5 space-y-2 text-lg text-gray-200">
+          <li>Direct written threat invalidates any claim of nonviolent intent.</li>
+          <li>Email language clearly demonstrates premeditated menace and implied intent to do harm.</li>
+          <li>Pattern of criminal behavior listed in the arrest warrant further discredits any claim of misinterpretation.</li>
+        </ul>
+      </section>
 
-    <!-- Confidential Evidence Summary -->
-    <section class="bg-gray-800 p-6 rounded-xl shadow-lg">
-      <h3 class="text-2xl font-semibold text-green-300 mb-4">Evidence Highlights</h3>
-      <ul class="list-disc ml-5 space-y-2 text-gray-200 text-lg">
-        <li>Log records showing three breaches within 36 hours, escalating in clearance level.</li>
-        <li>Direct access to restricted files unrelated to the vulnerabilities he later reported.</li>
-        <li>Steeves’s internal messages referencing "outsmarting the firewall" (archived, Evidence ID: C-2275).</li>
-        <li>No reporting to RAMP following breach until after investigation began.</li>
-      </ul>
+      <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Prosecution Strategy Points</h3>
+        <ul class="list-disc ml-5 space-y-2 text-gray-200 text-lg">
+          <li>Leverage explicit threat: "I'm a kill you I know where you live :)" as evidence of criminal intent and targeted harassment.</li>
+          <li>Show pattern of prior offenses in arrest warrant—establish escalation and repeat behavior.</li>
+          <li>Highlight psychological harm and personal endangerment to the victim as aggravating factors.</li>
+          <li>Present evidence of digital stalking and known address tracking as part of pre-assault behavior.</li>
+        </ul>
+      </section>
+
+      <section class="mb-10 bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Prepared Speeches (Max 60s)</h3>
+        <div class="space-y-6 text-gray-200">
+          <div>
+            <h4 class="font-bold text-lg">Opening Statement</h4>
+            <p>The defendant has issued a direct threat to the Lord High King—one that is neither ambiguous nor dismissible. Threatening a sovereign is not protected speech. It is high criminal offense.</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg">Rebuttal to Dismissal of Threat</h4>
+            <p>“I'm a kill you” is not satire. It is a statement of violence. When paired with known address stalking, this becomes a credible and actionable danger.</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg">Closing Remarks</h4>
+            <p>The law exists to protect the peace and those who defend it. Mr. Boucher’s behavior cannot be excused, contextualized, or ignored. Justice demands response.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">Evidence Highlights</h3>
+        <ul class="list-disc ml-5 space-y-2 text-gray-200 text-lg">
+          <li>Email: "I'm a kill you I know where you live :)" (Evidence ID: B-AX1)</li>
+          <li>Arrest warrant includes prior acts of cyberstalking, threat delivery, and high-level harassment.</li>
+          <li>Traced IP addresses link message to known devices owned by Boucher.</li>
+          <li>History of unprovoked aggressive communications targeting government figures.</li>
+        </ul>
+      </section>
     </section>
 
     <footer class="mt-12 text-center text-gray-500 text-sm">
