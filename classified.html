@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CLASSIFIED DOSSIER - RAMP HIGH CLEARANCE</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <style>
+    .watermark {
+      background-image: url('ramp.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 300px;
+      opacity: 0.05;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .content {
+      position: relative;
+      z-index: 10;
+    }
+    .section-title {
+      border-left: 4px solid #f87171;
+      padding-left: 12px;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-mono">
+
+  <div class="watermark"></div>
+
+  <div class="content p-10 space-y-10">
+
+    <header class="text-center border-b border-gray-700 pb-6">
+      <img src="ramp.png" alt="RAMP Logo" class="mx-auto w-24 mb-4"/>
+      <h1 class="text-4xl text-red-500 font-extrabold tracking-wide">ROYAL ARCADIAN MOUNTED POLICE</h1>
+      <p class="text-gray-300 text-lg uppercase tracking-widest">Classified High Clearance Dossier</p>
+      <p class="text-yellow-400 font-bold mt-2">Access Level 5 - Authorized Personnel Only</p>
+    </header>
+
+    <!-- Direct Access Links -->
+    <section class="bg-gray-800 p-6 rounded-xl shadow-xl">
+      <h2 class="text-2xl font-semibold text-blue-300 section-title mb-4">Linked Case Portals</h2>
+      <ul class="list-disc ml-6 text-gray-300 text-lg space-y-2">
+        <li><a href="rowanhome.html" class="text-blue-400 hover:text-blue-200 underline">Rowan Case Portal</a></li>
+        <li><a href="lennoxhome.html" class="text-blue-400 hover:text-blue-200 underline">Lennox Case Portal</a></li>
+        <li><a href="loganhome.html" class="text-blue-400 hover:text-blue-200 underline">Logan Case Portal</a></li>
+        <li><a href="lawyerportal.html" class="text-blue-400 hover:text-blue-200 underline">Authorized Lawyer Portal</a></li>
+      </ul>
+    </section>
+
+    <!-- Dossier Overview -->
+    <section class="bg-gray-800 p-6 rounded-xl shadow-xl">
+      <h2 class="text-2xl font-semibold text-red-400 section-title mb-4">INTELLIGENCE DOSSIER: LENNOX STEEVES</h2>
+      <p class="text-gray-300 text-lg mb-4">This document contains classified evidence, including digital footprints, recovered communications, and internal audit results that critically undermine the "ethical hacking" defense presented by counsel Bradley Christie. Highlights of compromising material are outlined below.</p>
+
+      <ul class="list-decimal ml-6 text-gray-300 text-lg space-y-3">
+        <li><strong>Intercepted Emails:</strong> Exchanges between Lennox and unknown external accounts referencing payment for server maps and escalation tools.</li>
+        <li><strong>Recovered Script Logs:</strong> Custom Python tools that utilized zero-day exploits — far beyond scope of ethical testing protocols.</li>
+        <li><strong>Compromised Admin Credentials:</strong> Tokens used to disable trace logging — confirmed used under Lennox’s user ID during attack period.</li>
+        <li><strong>Timeline Audit Conflict:</strong> Lennox claimed to act post-incident, but server snapshots indicate his account was live <em>before</em> the reported breach timestamp.</li>
+        <li><strong>Hidden Partition Discovery:</strong> Forensic team found encrypted modules and document archives in a hidden drive sector labeled "Project Undermine".</li>
+        <li><strong>Linked VPN Exits:</strong> Traces to known black-hat infrastructure hubs in Bradectoria, bypassing Arcadian proxy protocols.</li>
+      </ul>
+
+      <p class="text-yellow-300 font-semibold mt-6">Conclusion: Compelling evidence points to intentional subversion and unauthorized intrusion inconsistent with ethical justification.</p>
+    </section>
+
+    <!-- Warning Banner -->
+    <section class="bg-red-900 border border-red-500 p-4 rounded-lg text-center">
+      <h3 class="text-xl font-bold uppercase text-red-200">Security Warning</h3>
+      <p class="text-red-300 text-sm mt-2">Dissemination of this file outside authorized RAMP channels is punishable under Article 7B of the Arcadian Counterintelligence Code.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-600 mt-12 text-sm border-t border-gray-700 pt-4">
+      &copy; 2025 Royal Arcadian Mounted Police — Intelligence Division
+    </footer>
+
+  </div>
+</body>
+</html>
