@@ -25,6 +25,10 @@
       padding: 5px;
     }
 </style>
+  <audio id="anthemAudio" autoplay>
+  <source src="gheetanloth.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 </head>
 <body>
   <!-- State of Emergency Notification Banner -->
@@ -84,25 +88,10 @@
 </ul>
 </section>
 </main>
- <audio id="anthemAudio" autoplay>
-  <source src="gheetanloth.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+ 
 
-<script>
-  // Attempt autoplay after page load
-  window.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('anthemAudio');
-    const playPromise = audio.play();
 
-    if (playPromise !== undefined) {
-      playPromise.catch(error => {
-        console.warn('Autoplay blocked. User interaction required.');
-        // Optional: show a button or notification to let user start playback
-      });
-    }
-  });
-</script>
+
 <footer style="text-align: center; padding: 10px; background-color: #34495E; color: white;">
 &copy; 2025 Kingdom of Arcadia | Royal Government
 </footer>
