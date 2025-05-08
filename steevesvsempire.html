@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arcadian Court Session Record</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @media print {
+      .no-print { display: none; }
+    }
+  </style>
+</head>
+<body class="bg-white text-black font-serif px-8 py-10">
+
+  <!-- Header -->
+  <div class="text-center mb-8">
+    <img src="crest.png" alt="Arcadian Crest" class="mx-auto w-24 mb-4">
+    <h1 class="text-2xl font-bold uppercase">Kingdom of Arcadia</h1>
+    <h2 class="text-xl font-semibold">Royal Court of Justice</h2>
+    <p class="text-gray-700 mt-1 italic">Session Record – Official Transcript</p>
+  </div>
+
+  <!-- Basic Case Info -->
+  <div class="border-t border-b border-gray-400 py-4 mb-6">
+    <p><strong>Case Title:</strong> Empire vs. Steeves, Lennox</p>
+    <p><strong>Case Number:</strong> ARC-[###]-[Year]</p>
+    <p><strong>Date of Session:</strong> May 9th, 2025</p>
+    <p><strong>Time:</strong> [Start Time] – [End Time]</p>
+    <p><strong>Location:</strong> High Tribunal Chamber, Capital Court, Arcadia</p>
+  </div>
+
+  <!-- Attendance -->
+  <div class="mb-6">
+    <h3 class="text-lg font-bold underline mb-2">Present Parties</h3>
+    <ul class="list-disc ml-5 space-y-1">
+      <li><strong>Presiding Judge:</strong> His Imperial Majesty, Holden Porter</li>
+      <li><strong>Prosecutor:</strong> His Lordship, Mark Blakney, Crown Prosecution Service</li>
+      <li><strong>Defense Counsel:</strong> His Imperial Majesty Bradley Christie</li>
+      <li><strong>Defendant:</strong> Lennox Andrew Steeves</li>
+      <li><strong>Court Reporter:</strong> [Name]</li>
+      <li><strong>Other Attendees:</strong> [Witnesses, Clerk, Bailiff, etc.]</li>
+    </ul>
+  </div>
+
+  <!-- Proceedings Summary -->
+  <div class="mb-6">
+    <h3 class="text-lg font-bold underline mb-2">Proceedings Summary</h3>
+    <p>[Detailed chronological summary of what occurred during the session, e.g., motions filed, testimonies given, cross-examinations, judicial rulings, recesses.]</p>
+  </div>
+
+  <!-- Evidence Admitted -->
+  <div class="mb-6">
+    <h3 class="text-lg font-bold underline mb-2">Evidence Admitted</h3>
+    <ul class="list-disc ml-5 space-y-1">
+      <li>[Exhibit A: Surveillance footage - ID# STV-2043]</li>
+      <li>[Exhibit B: Confession transcript - ID# CONF-1839]</li>
+      <li>[Exhibit C: Forensic report - ID# FRNS-0722]</li>
+    </ul>
+  </div>
+
+  <!-- Rulings / Outcomes -->
+  <div class="mb-6">
+    <h3 class="text-lg font-bold underline mb-2">Judicial Rulings / Session Outcome</h3>
+    <p>[Summary of verdict, judicial orders, bail decisions, motions granted or denied, or adjournment details. Include next session date if applicable.]</p>
+  </div>
+
+  <!-- Footer / Certification -->
+  <div class="mt-10 pt-4 border-t border-gray-400 text-sm">
+    <p><strong>Certified by:</strong> [Name], Official Court Reporter</p>
+    <p><strong>Filed on:</strong> [Date]</p>
+    <p class="italic text-gray-600 mt-2">All records are subject to review under the Arcadian Judicial Archives Act of 1849.</p>
+  </div>
+
+  <div class="no-print mt-10 text-center">
+    <button onclick="window.print()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded">
+      Print Record
+    </button>
+  </div>
+</body>
+</html>
+
