@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Penal Code of Bradictoria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Navigation Styles */
+nav.section {
+    margin-top: 30px;
+    background-color: #495057;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+nav h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    color: #d1d1d1;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Main Content Styles */
+main {
+    margin-top: 20px;
+}
+
+main h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+main p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+ul {
+    padding-left: 20px;
+    list-style-type: disc;
+    margin-bottom: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Table of Contents Sticky */
+nav.section {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+}
+
+/* Section Styles */
+.section {
+    margin-bottom: 40px;
+}
+
+.section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 15px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer p {
+    font-size: 1.2rem;
+}
+
+/* Link Styling */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+
+    nav.section {
+        padding: 10px;
+    }
+
+    nav h2 {
+        font-size: 1.5rem;
+    }
+
+    main h2 {
+        font-size: 2rem;
+    }
+}
+
+<body>
+    <!-- Table of Contents Navigation -->
+    <nav class="section">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#preamble">Preamble</a></li>
+            <li><a href="#chapter1">Chapter 1: General Provisions</a></li>
+            <li><a href="#chapter2">Chapter 2: Treason</a></li>
+            <li><a href="#chapter3">Chapter 3: High Treason</a></li>
+            <li><a href="#chapter4">Chapter 4: Imperial Treason</a></li>
+            <li><a href="#chapter5">Chapter 5: Sedition</a></li>
+            <li><a href="#chapter6">Chapter 6: Cyber Sedition and Electronic Treason</a></li>
+            <li><a href="#chapter7">Chapter 7: Offending the Emperor's Dignity</a></li>
+            <li><a href="#chapter8">Chapter 8: Unauthorized Governance</a></li>
+            <li><a href="#chapter9">Chapter 9: Denial of Imperial Order</a></li>
+            <li><a href="#chapter10">Chapter 10: Theft and Larceny</a></li>
+            <li><a href="#chapter11">Chapter 11: Emergency Powers</a></li>
+            <li><a href="#chapter12">Chapter 12: Crimes Against the Emperor</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <section class="section" id="preamble">
+            <h2>Preamble</h2>
+            <p>
+                The Penal Code of Bradictoria is established to maintain order, uphold the integrity of the Empire, and safeguard the sovereignty and security of the Emperor and the realm. It defines criminal acts, outlines punishments, and ensures justice for all citizens. Crimes of treason, high treason, and imperial treason are regarded as the gravest offenses against the Empire, its sovereignty, and its supreme ruler, the Emperor.
+            </p>
+            <p>
+                <strong>Supreme Authority Clause:</strong> In all legal, criminal, or judicial matters concerning this Code, the Emperor shall possess supreme authority to interpret, override, or declare any action or omission to be lawful or unlawful, regardless of prior articles herein. His Majesty’s word on any criminal classification shall carry the full force of law.
+            </p>
+        </section>
+
+        <section class="section" id="chapter1">
+            <h2>Chapter 1: General Provisions</h2>
+            <p><strong>Article 1:</strong> Definition of a Crime</p>
+            <p>A crime is any act or omission that constitutes a violation of the penal code or that is declared by the Emperor and is punishable under the laws of Bradictoria.</p>
+
+            <p><strong>Article 2:</strong> Presumption of Innocence</p>
+            <p>A person shall be presumed innocent until proven guilty in a court of law by the established standard of evidence, unless by specific decree of the Emperor.</p>
+
+            <p><strong>Article 3:</strong> Classification of Crimes</p>
+            <p>Crimes are classified into three categories:</p>
+            <ul>
+                <li><strong>Felonies</strong> — Grave offenses punishable by severe penalties.</li>
+                <li><strong>Misdemeanors</strong> — Less severe offenses punishable by moderate penalties.</li>
+                <li><strong>Infractions</strong> — Minor violations punishable by fines or other minor sanctions.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="chapter2">
+            <h2>Chapter 2: Treason</h2>
+            <p><strong>Article 4:</strong> Definition of Treason</p>
+            <p>Treason is defined as any act that betrays the Empire of Bradictoria by violating the loyalty and allegiance owed to the Emperor and the realm, or by attempting to harm its sovereignty, security, or independence. Treason can also be defined by the Emperor by decree.</p>
+
+            <p><strong>Article 5:</strong> Acts Constituting Treason</p>
+            <p>The following acts are considered treasonous:</p>
+            <ul>
+                <li><strong>Espionage</strong> — Engaging in espionage on behalf of a foreign power or enemy of Bradictoria.</li>
+                <li><strong>Rebellion</strong> — Participation in armed insurrection or rebellion against the Empire or its lawful government.</li>
+                <li><strong>Assassination Plot</strong> — Conspiring to assassinate or cause the death of the Emperor or any government official.</li>
+                <li><strong>Subversion</strong> — Engaging in activities aimed at undermining the legitimacy of the Empire, its institutions, or its laws.</li>
+                <li><strong>Aid to the Enemy</strong> — Providing material or strategic support to any hostile nation, group, or faction at war with Bradictoria.</li>
+            </ul>
+
+            <p><strong>Article 6:</strong> Penalties for Treason</p>
+            <ul>
+                <li><strong>Death</strong> — For individuals found guilty of treason involving the death or injury of the Emperor or a high-ranking official.</li>
+                <li><strong>Life Imprisonment</strong> — For those found guilty of rebellion, espionage, or other forms of treason.</li>
+                <li><strong>Confiscation of Property</strong> — Any property obtained through treasonous acts shall be seized by the Empire.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="chapter3">
+            <h2>Chapter 3: High Treason</h2>
+            <p><strong>Article 7:</strong> Definition of High Treason</p>
+            <p>High Treason refers to the most serious acts that endanger the existence of the Emperor, the Imperial family, or the sovereignty of the Empire itself. It includes any deliberate attempt to harm, overthrow, or undermine the Emperor’s rule.</p>
+
+            <p><strong>Article 8:</strong> Acts Constituting High Treason</p>
+            <p>The following acts are considered high treason:</p>
+            <ul>
+                <li><strong>Assassination Attempt</strong> — Any direct or indirect attempt to assassinate the Emperor or the Imperial family.</li>
+                <li><strong>Military Coup</strong> — Attempting to seize control of the military or any part of the imperial forces.</li>
+                <li><strong>Secession</strong> — Leading or supporting any region or group within the Empire to break away from Bradictoria’s rule.</li>
+            </ul>
+
+            <p><strong>Article 9:</strong> Penalties for High Treason</p>
+            <ul>
+                <li><strong>Execution</strong> — For individuals found guilty of high treason, especially those involved in assassination or military coups.</li>
+                <li><strong>Confiscation of Property</strong> — All assets and properties associated with the convicted individual shall be seized by the Empire.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="chapter4">
+            <h2>Chapter 4: Imperial Treason</h2>
+            <p><strong>Article 10:</strong> Definition of Imperial Treason</p>
+            <p>Imperial treason consists of any act or omission that betrays the Emperor’s authority or undermines the sovereign power of the Empire.</p>
+
+            <p><strong>Article 11:</strong> Acts Constituting Imperial Treason</p>
+            <p>The following acts are considered imperial treason:</p>
+            <ul>
+                <li><strong>Bribery or Corruption</strong> — Engaging in bribery or corruption to gain favor or power from foreign agents.</li>
+                <li><strong>Impersonating the Emperor</strong> — Any attempt to impersonate the Emperor or act in a manner that confuses or misleads the populace into believing false authority.</li>
+            </ul>
+
+            <p><strong>Article 12:</strong> Penalties for Imperial Treason</p>
+            <ul>
+                <li><strong>Execution</strong> — For the most severe forms of imperial treason, including impersonating the Emperor.</li>
+                <li><strong>Imprisonment</strong> — For lesser forms of imperial treason, such as bribery or corruption.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="chapter5">
+            <h2>Chapter 5: Sedition</h2>
+            <p><strong>Article 13:</strong> Definition of Sedition</p>
+            <p>Sedition refers to actions that incite rebellion or unrest against the lawful authority of the Emperor or the Empire.</p>
+
+            <p><strong>Article 14:</strong> Acts of Sedition</p>
+            <p>The following acts are considered sedition:</p>
+            <ul>
+                <li><strong>Inciting Public Disorder</strong> — Engaging in activities or speech that could lead to public violence or rebellion.</li>
+                <li><strong>Disrupting Imperial Authority</strong> — Directly or indirectly obstructing the Emperor’s ability to govern or issuing calls for rebellion.</li>
+            </ul>
+
+            <p><strong>Article 15:</strong> Penalties for Sedition</p>
+            <ul>
+                <li><strong>Imprisonment</strong> — For individuals found guilty of sedition.</li>
+                <li><strong>Exile</strong> — For individuals involved in seditious activity who are deemed a threat to the Empire’s peace.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="chapter6">
+            <h2>Chapter 6: Cyber Sedition and Electronic Treason</h2>
+            <p><strong>Article 16:</strong> Definition of Cyber Sedition and Electronic Treason</p>
+            <p>Cyber sedition refers to the use of electronic systems or the internet to incite rebellion, spread sedition, or undermine the authority of the Emperor.</p>
+
+            <p><strong>Article 17:</strong> Acts of Cyber Sedition and Electronic Treason</p>
+            <p>The following acts are considered cyber sedition and electronic treason:</p>
+            <ul>
+                <li><strong>Hacking Imperial Systems</strong> — Unauthorized access to or disruption of any Imperial electronic infrastructure.</li>
+                <li><strong>Disseminating Seditious Content</strong> — Posting or distributing content online that encourages rebellion or insults the Emperor.</li>
+            </ul>
+
+            <p><strong>Article 18:</strong> Penalties for Cyber Sedition and Electronic Treason</p>
+            <ul>
+                <li><strong>Imprisonment</strong> — For individuals convicted of cyber sedition or attempting to destabilize the Empire electronically.</li>
+                <li><strong>Execution</strong> — For those found guilty of severe electronic treason that threatens the security of the Empire.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="chapter7">
+            <h2>Chapter 7: Offending the Emperor's Dignity</h2>
+            <p><strong>Article 19:</strong> Offenses Against the Emperor</p>
+            <p>Any act or statement that disrespects or undermines the dignity of the Emperor shall be punishable under this chapter.</p>
+
+            <p><strong>Article 20:</strong> Penalties for Offending the Emperor's Dignity</p>
+            <ul>
+                <li><strong>Imprisonment</strong> — For minor offenses, such as disrespectful speech or actions.</li>
+                <li><strong>Exile</strong> — For individuals who repeatedly or significantly offend the Emperor.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="chapter8">
+            <h2>Chapter 8: Unauthorized Governance</h2>
+            <p><strong>Article 21:</strong> Definition of Unauthorized Governance</p>
+            <p>Unauthorized governance is defined as the act of governing or attempting to govern any part of Bradictoria without the Emperor’s express permission or without proper imperial authority.</p>
+
+            <p><strong>Article 22:</strong> Acts of Unauthorized Governance</p>
+            <ul>
+                <li><strong>Attempting to Assume Imperial Authority</strong> — Any attempt to rule or govern without the Emperor’s decree.</li>
+            </ul>
+
+            <p><strong>Article 23:</strong> Penalties for Unauthorized Governance</p>
+            <ul>
+                <li><strong>Imprisonment</strong> — For those found guilty of attempting to assume governance illegally.</li>
+                <li><strong>Execution</strong> — For those found guilty of attempting to overthrow the Emperor or seize control of the Empire.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="chapter9">
+            <h2>Chapter 9: Denial of Imperial Order</h2>
+            <p><strong>Article 24:</strong> Definition of Denial of Imperial Order</p>
+            <p>Denial of Imperial Order involves any act of disobedience against the direct commands or decrees of the Emperor or his appointed representatives.</p>
+
+            <p><strong>Article 25:</strong> Acts of Denial of Imperial Order</p>
+            <ul>
+                <li><strong>Refusal to Obey Direct Orders</strong> — Refusing to comply with a lawful order from the Emperor.</li>
+            </ul>
+
+            <p><strong>Article 26:</strong> Penalties for Denial of Imperial Order</p>
+            <ul>
+                <li><strong>Imprisonment</strong> — For refusal to comply with less severe orders.</li>
+                <li><strong>Execution</strong> — For actions involving direct harm to the Empire or defiance of high-level imperial decrees.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="chapter10">
+            <h2>Chapter 10: Theft and Larceny</h2>
+            <p><strong>Article 27:</strong> Definition of Theft and Larceny</p>
+            <p>Theft is the unlawful taking of property without the consent of the owner, with the intent to permanently deprive the owner of it.</p>
+
+            <p><strong>Article 28:</strong> Acts of Theft and Larceny</p>
+            <ul>
+                <li><strong>Theft</strong> — Stealing property, including money, goods, or resources.</li>
+                <li><strong>Burglary</strong> — Breaking and entering with the intent to commit theft.</li>
+            </ul>
+
+            <p><strong>Article 29:</strong> Penalties for Theft and Larceny</p>
+            <ul>
+                <li><strong>Imprisonment</strong> — For those caught committing theft.</li>
+                <li><strong>Fines</strong> — For minor theft offenses.</li>
+                <li><strong>Execution</strong> — For repeated or large-scale theft.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="chapter11">
+            <h2>Chapter 11: Emergency Powers</h2>
+            <p><strong>Article 30:</strong> Definition of Emergency Powers</p>
+            <p>In times of national crisis, the Emperor has the right to declare emergency powers and override certain sections of the penal code to maintain order and security.</p>
+
+            <p><strong>Article 31:</strong> Exercise of Emergency Powers</p>
+            <ul>
+                <li><strong>Suspension of Rights</strong> — During an emergency, civil rights may be suspended temporarily by decree of the Emperor.</li>
+            </ul>
+
+            <p><strong>Article 32:</strong> Penalties During an Emergency</p>
+            <ul>
+                <li><strong>Severe Punishments</strong> — For individuals who actively undermine the Imperial emergency orders during a crisis.</li>
+            </ul>
+        </section>
+
+        <section class="section" id="chapter12">
+            <h2>Chapter 12: Crimes Against the Emperor</h2>
+            <p><strong>Article 33:</strong> Definition of Crimes Against the Emperor</p>
+            <p>Crimes against the Emperor include any act or statement that threatens the life, dignity, or authority of the Emperor.</p>
+
+            <p><strong>Article 34:</strong> Acts Against the Emperor</p>
+            <ul>
+                <li><strong>Attempted Assassination</strong> — Attempting to harm or kill the Emperor.</li>
+                <li><strong>Defamation</strong> — Publicly insulting or defaming the Emperor.</li>
+            </ul>
+
+            <p><strong>Article 35:</strong> Penalties for Crimes Against the Emperor</p>
+            <ul>
+                <li><strong>Execution</strong> — For individuals convicted of threatening the life of the Emperor or attempting to assassinate.</li>
+                <li><strong>Imprisonment</strong> — For those who defame or insult the Emperor.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
