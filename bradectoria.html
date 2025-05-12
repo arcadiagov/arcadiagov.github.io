@@ -6,164 +6,165 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Penal Code of Bradictoria</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Navigation Styles */
+        nav.section {
+            margin-top: 30px;
+            background-color: #495057;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        nav h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            color: #d1d1d1;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Main Content Styles */
+        main {
+            margin-top: 20px;
+        }
+
+        main h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+
+        main p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Table of Contents Sticky */
+        nav.section {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 15px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+        }
+
+        /* Link Styling */
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            main {
+                padding: 10px;
+            }
+
+            nav.section {
+                padding: 10px;
+            }
+
+            nav h2 {
+                font-size: 1.5rem;
+            }
+
+            main h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Georgia', serif;
-}
-
-body {
-    background-color: #f8f9fa;
-    color: #333;
-    line-height: 1.6;
-    font-size: 16px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Header Styles */
-header {
-    background-color: #343a40;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.2rem;
-}
-
-/* Navigation Styles */
-nav.section {
-    margin-top: 30px;
-    background-color: #495057;
-    border-radius: 5px;
-    padding: 15px;
-}
-
-nav h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-nav ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-nav ul li {
-    margin-bottom: 10px;
-}
-
-nav ul li a {
-    color: #d1d1d1;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
-nav ul li a:hover {
-    color: #ffd700;
-}
-
-/* Main Content Styles */
-main {
-    margin-top: 20px;
-}
-
-main h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #343a40;
-}
-
-main p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-ul {
-    padding-left: 20px;
-    list-style-type: disc;
-    margin-bottom: 20px;
-}
-
-ul li {
-    margin-bottom: 10px;
-}
-
-/* Table of Contents Sticky */
-nav.section {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 20px;
-}
-
-/* Section Styles */
-.section {
-    margin-bottom: 40px;
-}
-
-.section h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #495057;
-    margin-bottom: 15px;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #343a40;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 30px;
-}
-
-footer p {
-    font-size: 1.2rem;
-}
-
-/* Link Styling */
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    main {
-        padding: 10px;
-    }
-
-    nav.section {
-        padding: 10px;
-    }
-
-    nav h2 {
-        font-size: 1.5rem;
-    }
-
-    main h2 {
-        font-size: 2rem;
-    }
-}
-
 <body>
     <!-- Table of Contents Navigation -->
     <nav class="section">
@@ -213,7 +214,6 @@ a:hover {
                 <li><strong>Infractions</strong> — Minor violations punishable by fines or other minor sanctions.</li>
             </ul>
         </section>
-
         <section class="section" id="chapter2">
             <h2>Chapter 2: Treason</h2>
             <p><strong>Article 4:</strong> Definition of Treason</p>
