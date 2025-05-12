@@ -7,146 +7,29 @@
     <title>Penal Code of Bradictoria</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-      /* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Georgia', serif;
-}
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
 
-body {
-    background-color: #f8f9fa;
-    color: #333;
-    line-height: 1.6;
-    font-size: 16px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-start;
-}
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-/* Flex container for layout */
-.main-content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
-/* Content styles */
-main {
-    flex: 1;  /* Allow content to take up remaining space */
-    margin-top: 20px;
-}
-
-main h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #343a40;
-}
-
-main p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-ul {
-    padding-left: 20px;
-    list-style-type: disc;
-    margin-bottom: 20px;
-}
-
-ul li {
-    margin-bottom: 10px;
-}
-
-/* Navigation Styles */
-nav.section {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 20px;
-    background-color: #495057;
-    border-radius: 5px;
-    padding: 15px;
-    width: 250px;  /* Narrow width for the navigation */
-    height: 100vh; /* Ensure it covers the full viewport height */
-    overflow-y: auto; /* Allow scrolling if the content exceeds the screen height */
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-}
-
-nav h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-nav ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-nav ul li {
-    margin-bottom: 10px;
-}
-
-nav ul li a {
-    color: #d1d1d1;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-
-nav ul li a:hover {
-    color: #ffd700;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #343a40;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 30px;
-}
-
-footer p {
-    font-size: 1.2rem;
-}
-
-/* Link Styling */
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .main-content-wrapper {
-        flex-direction: column;
-    }
-
-    main {
-        padding: 10px;
-    }
-
-    nav.section {
-        padding: 10px;
-        width: 100%; /* Make the nav full width on small screens */
-    }
-
-    nav h2 {
-        font-size: 1.5rem;
-    }
-
-    main h2 {
-        font-size: 2rem;
-    }
-    /* Header Styles */
+        /* Header Styles */
         header {
             background-color: #343a40;
             color: #fff;
@@ -155,6 +38,7 @@ a:hover {
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
         }
 
         header h1 {
@@ -163,7 +47,129 @@ a:hover {
             margin: 0;
         }
 
-}
+        /* Navigation Styles */
+        nav {
+            width: 250px; /* Make nav narrow */
+            background-color: #495057;
+            border-radius: 5px;
+            padding: 15px;
+            position: sticky;
+            top: 100px;
+            margin-right: 20px;
+        }
+
+        nav h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            color: #d1d1d1;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Main Content Styles */
+        main {
+            flex-grow: 1;
+            margin-left: 20px; /* Ensure space for the nav */
+        }
+
+        main h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+
+        main p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 15px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+        }
+
+        /* Link Styling */
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            nav {
+                width: 100%;
+                margin-right: 0;
+                padding: 10px;
+            }
+
+            main {
+                margin-left: 0;
+            }
+
+            nav h2 {
+                font-size: 1.5rem;
+            }
+
+            main h2 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
