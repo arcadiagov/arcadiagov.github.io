@@ -7,162 +7,146 @@
     <title>Penal Code of Bradictoria</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Georgia', serif;
-        }
+      /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
 
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-            font-size: 16px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+}
 
-        /* Header Styles */
-        header {
-            background-color: #343a40;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
+/* Flex container for layout */
+.main-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+/* Content styles */
+main {
+    flex: 1;  /* Allow content to take up remaining space */
+    margin-top: 20px;
+}
 
-        header p {
-            font-size: 1.2rem;
-        }
+main h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #343a40;
+}
 
-        /* Navigation Styles */
-        nav.section {
-            margin-top: 30px;
-            background-color: #495057;
-            border-radius: 5px;
-            padding: 15px;
-        }
+main p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
 
-        nav h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 15px;
-        }
+ul {
+    padding-left: 20px;
+    list-style-type: disc;
+    margin-bottom: 20px;
+}
 
-        nav ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
+ul li {
+    margin-bottom: 10px;
+}
 
-        nav ul li {
-            margin-bottom: 10px;
-        }
+/* Navigation Styles */
+nav.section {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+    background-color: #495057;
+    border-radius: 5px;
+    padding: 15px;
+    width: 250px;  /* Narrow width for the navigation */
+    height: 100vh; /* Ensure it covers the full viewport height */
+    overflow-y: auto; /* Allow scrolling if the content exceeds the screen height */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        nav ul li a {
-            color: #d1d1d1;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
+nav h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 15px;
+}
 
-        nav ul li a:hover {
-            color: #ffd700;
-        }
+nav ul {
+    list-style-type: none;
+    padding-left: 0;
+}
 
-        /* Main Content Styles */
-        main {
-            margin-top: 20px;
-        }
+nav ul li {
+    margin-bottom: 10px;
+}
 
-        main h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #343a40;
-        }
+nav ul li a {
+    color: #d1d1d1;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
 
-        main p {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
+nav ul li a:hover {
+    color: #ffd700;
+}
 
-        ul {
-            padding-left: 20px;
-            list-style-type: disc;
-            margin-bottom: 20px;
-        }
+/* Footer Styles */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+}
 
-        ul li {
-            margin-bottom: 10px;
-        }
+footer p {
+    font-size: 1.2rem;
+}
 
-        /* Table of Contents Sticky */
-        nav.section {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 20px;
-        }
+/* Link Styling */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
 
-        /* Section Styles */
-        .section {
-            margin-bottom: 40px;
-        }
+a:hover {
+    text-decoration: underline;
+}
 
-        .section h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #495057;
-            margin-bottom: 15px;
-        }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content-wrapper {
+        flex-direction: column;
+    }
 
-        /* Footer Styles */
-        footer {
-            background-color: #343a40;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            margin-top: 30px;
-        }
+    main {
+        padding: 10px;
+    }
 
-        footer p {
-            font-size: 1.2rem;
-        }
+    nav.section {
+        padding: 10px;
+        width: 100%; /* Make the nav full width on small screens */
+    }
 
-        /* Link Styling */
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
+    nav h2 {
+        font-size: 1.5rem;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            main {
-                padding: 10px;
-            }
-
-            nav.section {
-                padding: 10px;
-            }
-
-            nav h2 {
-                font-size: 1.5rem;
-            }
-
-            main h2 {
-                font-size: 2rem;
-            }
-        }
+    main h2 {
+        font-size: 2rem;
+    }
+}
     </style>
 </head>
 <body>
