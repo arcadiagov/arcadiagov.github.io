@@ -2506,30 +2506,32 @@ Internal Unrest: Be ready to manage any unrest or civil discontent arising from 
 </script>
 
 <script>
-    // Password handling function for redirecting based on input
     function checkPassword() {
         const input = document.getElementById("passwordInput").value;
+        let matched = true;
 
-if (input === "security101") {
-    window.location.href = "AteHthgmejnHAxFLnaiSNazucOiCf.html";
-} else if (input === "ArcadiaMonarchy2025") {
-    window.location.href = "ultra-clearance.html";
-} else if (input === "EmergencyTreaty2025!") {
-    window.location.href = "treaty-exit.html";
-} else if (input === "EmperorLord25") {
-    window.location.href = "imperial.html";
-} else if (input === "Democracy!!!") {
-    window.location.href = "democracy.html";
-} else if (input === "Diplomat2025") {
-    window.location.href = "rMBygmwRUzYJknAosiygDmIEOuUaD.html";
-} else if (input === "CodeIndex2025!") {
-    window.location.href = "BerpHazEwSLACUstAcTurlAzeRALERIeTOrdefY.html";
-} else if (input === "arcadia2025") {
-    document.getElementById("passwordPrompt").style.display = "none";
-    document.getElementById("content").style.display = "block";
-}
+        if (input === "security101") {
+            window.location.href = "AteHthgmejnHAxFLnaiSNazucOiCf.html";
+        } else if (input === "ArcadiaMonarchy2025") {
+            window.location.href = "ultra-clearance.html";
+        } else if (input === "EmergencyTreaty2025!") {
+            window.location.href = "treaty-exit.html";
+        } else if (input === "EmperorLord25") {
+            window.location.href = "imperial.html";
+        } else if (input === "Democracy!!!") {
+            window.location.href = "democracy.html";
+        } else if (input === "Diplomat2025") {
+            window.location.href = "rMBygmwRUzYJknAosiygDmIEOuUaD.html";
+        } else if (input === "CodeIndex2025!") {
+            window.location.href = "BerpHazEwSLACUstAcTurlAzeRALERIeTOrdefY.html";
+        } else if (input === "arcadia2025") {
+            document.getElementById("passwordPrompt").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        } else {
+            matched = false;
+        }
 
-            // Start session timeout after successful login
+        if (matched) {
             sessionTimeout = setTimeout(function () {
                 alert("Session expired. Please log in again.");
                 resetAccess();
@@ -2539,7 +2541,6 @@ if (input === "security101") {
         }
     }
 
-    // Reset access to password prompt after session expiry
     function resetAccess() {
         document.getElementById("content").style.display = "none";
         document.getElementById("passwordPrompt").style.display = "block";
@@ -2547,7 +2548,6 @@ if (input === "security101") {
 
     let sessionTimeout;
 
-    // Clear session timeout if user leaves page before timeout occurs
     window.onbeforeunload = function () {
         clearTimeout(sessionTimeout);
     };
