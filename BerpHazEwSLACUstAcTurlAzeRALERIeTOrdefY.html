@@ -83,6 +83,29 @@
       color: #ff5555;
       border: 1px solid #ff4444;
     }
+    @keyframes pixelFade {
+  0% {
+    opacity: 1;
+    filter: none;
+  }
+  50% {
+    filter: contrast(200%) brightness(1.5) saturate(0.5) blur(1px);
+  }
+  80% {
+    filter: contrast(400%) brightness(2) saturate(0.2) blur(3px);
+    transform: scale(1.01);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.02);
+  }
+}
+
+.pixelating-out {
+  animation: pixelFade 1s ease forwards;
+}
+
   </style>
 </head>
 <body>
@@ -226,19 +249,21 @@ function submitOverride() {
   const overrideMsg = document.getElementById("overrideMessage");
 
   if (overridePass === "Access2025!") {
-    // Clear cookie
+    // Clear cookie and local storage
     document.cookie = "arcadiaLockdown=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    // Clear local storage
     localStorage.removeItem("arcadiaLockdown");
 
-    // Hide lockdown overlay
+    // Apply pixelation effect
     const lockdownScreen = document.getElementById("lockdownScreen");
     if (lockdownScreen) {
-      lockdownScreen.remove();
-    }
+      lockdownScreen.classList.add("pixelating-out");
 
-    // Restore scrolling
-    document.body.style.overflow = 'auto';
+      // After animation ends, remove the element and restore scroll
+      lockdownScreen.addEventListener("animationend", () => {
+        lockdownScreen.remove();
+        document.body.style.overflow = 'auto';
+      });
+    }
 
     // Hide override UI
     document.getElementById("overrideBox").style.display = "none";
