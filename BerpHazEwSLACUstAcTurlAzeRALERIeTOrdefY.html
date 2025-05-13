@@ -192,7 +192,7 @@ function triggerLockdown(expiryTimestamp) {
   if (overlay) {
     overlay.style.display = 'block';
     updateCountdown(expiryTimestamp);
-    document.body.style.overflow = 'hidden';
+   document.body.style.overflow = 'auto';
   }
 }
 
@@ -237,13 +237,15 @@ function submitOverride() {
       lockdownScreen.remove();
     }
 
+    // Restore scrolling
+    document.body.style.overflow = 'auto';
+
     // Hide override UI
     document.getElementById("overrideBox").style.display = "none";
   } else {
     overrideMsg.textContent = "❌ Invalid override password.";
   }
 }
-
 
   </script>
 <!-- Override Unlock Box -->
