@@ -86,6 +86,18 @@
   </style>
 </head>
 <body>
+  <!-- Lockdown Button -->
+<button id="lockdownBtn" onclick="activateLockdown()" title="Initiate Lockdown" style="position:fixed; top:20px; right:20px; background:#111; border:2px solid #ff0000; border-radius:8px; padding:10px; cursor:pointer; z-index:9999;">
+  <img src="crest.png" alt="Lockdown Crest" style="width:32px; height:32px;" />
+</button>
+
+<!-- Lockdown Overlay -->
+<div id="lockdownOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; color:#ff4444; z-index:9998; text-align:center; padding-top:20vh; font-family:'Orbitron', sans-serif;">
+  <h1 style="font-size:3rem; text-shadow:0 0 10px #ff0000;">🔒 ARCADIA IS IN LOCKDOWN</h1>
+  <p style="font-size:1.5rem; margin-top:20px;">Access restricted. Countdown to reactivation:</p>
+  <div id="countdownTimer" style="font-size:2rem; margin-top:10px; color:#ffd700;"></div>
+</div>
+
   <h1>Arcadian Codephrase Directory</h1>
 
   <div class="container">
@@ -143,6 +155,62 @@
         }
       }
     });
+    // Lockdown timer formatting
+function formatTime(ms) {
+  const totalSeconds = Math.floor(ms / 1000);
+  const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+  const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+  const seconds = String(totalSeconds % 60).padStart(2, '0');
+  return `${hours}:${minutes}:${seconds}`;
+}
+
+// Lockdown countdown
+function updateCountdown(endTime) {
+  const now = Date.now();
+  const remaining = endTime - now;
+  if (remaining > 0) {
+    document.getElementById('countdownTimer').textContent = formatTime(remaining);
+    setTimeout(() => updateCountdown(endTime), 1000);
+  } else {
+    localStorage.removeItem("arcadiaLockdown");
+    document.cookie = "arcadiaLockdown=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    location.reload(); // Exit lockdown
+  }
+}
+
+// Activate lockdown
+function activateLockdown() {
+  const expiry = Date.now() + 3600000; // 1 hour in ms
+  localStorage.setItem("arcadiaLockdown", expiry.toString());
+  document.cookie = `arcadiaLockdown=${expiry}; expires=${new Date(expiry).toUTCString()}; path=/`;
+  triggerLockdown(expiry);
+}
+
+// Apply lockdown overlay
+function triggerLockdown(expiryTimestamp) {
+  const overlay = document.getElementById('lockdownOverlay');
+  if (overlay) {
+    overlay.style.display = 'block';
+    updateCountdown(expiryTimestamp);
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+// On load check for lockdown
+window.onload = function () {
+  const now = Date.now();
+  const localExpiry = parseInt(localStorage.getItem("arcadiaLockdown") || "0", 10);
+  const cookieValue = document.cookie.split("; ").find(row => row.startsWith("arcadiaLockdown="));
+  const cookieExpiry = cookieValue ? parseInt(cookieValue.split("=")[1]) : 0;
+
+  const lockdownActive = (localExpiry && now < localExpiry) || (cookieExpiry && now < cookieExpiry);
+  const expiryTime = Math.max(localExpiry, cookieExpiry);
+
+  if (lockdownActive) {
+    triggerLockdown(expiryTime);
+  }
+};
+
   </script>
 </body>
 </html>
