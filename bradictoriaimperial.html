@@ -113,10 +113,42 @@
   background-color: #cc0000;
   box-shadow: 0 0 5px #cc0000;
 }
+    .imperial-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.imperial-header::before {
+    content: "";
+    background: url('bradictoria.png') no-repeat center center;
+    background-size: 200px;
+    opacity: 0.05;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    z-index: 0;
+}
+
+.imperial-header h1 {
+    position: relative;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    z-index: 1;
+}
   </style>
 </head>
 <body>
-  <h1>☠️ IMPERIAL CLEARANCE PORTAL ☠️</h1>
+ <div class="imperial-header">
+    <h1>Imperial Clearance Command Portal</h1>
+</div>
+
 
   <div class="terminal-box">
     <label for="password">Enter Clearance Password:</label>
