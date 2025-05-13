@@ -178,6 +178,33 @@
         }
       }
     });
+    // Show Protocol Omega password box on Ctrl + Alt + T
+document.addEventListener('keydown', function (e) {
+  if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 't') {
+    const omegaBox = document.getElementById("omegaBox");
+    if (omegaBox) {
+      omegaBox.style.display = "block";
+    }
+  }
+});
+
+// Handle Omega password entry
+document.getElementById("omegaInput").addEventListener("keyup", function (e) {
+  if (e.key === "Enter") {
+    const inputVal = e.target.value.trim();
+    const omegaInfo = document.getElementById("omegaInfo");
+    const omegaMsg = document.getElementById("omegaMsg");
+
+    if (inputVal === "Omega2025!") {
+      omegaInfo.style.display = "block";
+      omegaMsg.textContent = "";
+    } else {
+      omegaInfo.style.display = "none";
+      omegaMsg.textContent = "❌ Incorrect password. Omega access denied.";
+    }
+  }
+});
+
     // Lockdown timer formatting
 function formatTime(ms) {
   const totalSeconds = Math.floor(ms / 1000);
@@ -286,6 +313,27 @@ function submitOverride() {
   <br />
 <button id="overrideSubmit" onclick="submitOverride()" style="margin-top:20px; background-color:#00e6e6; color:#000; font-weight:bold; border:none; padding:10px 20px; border-radius:6px; font-size:1rem; cursor:pointer; box-shadow:0 0 10px #00ffff;">Submit</button>
   <div id="overrideMessage" style="margin-top:20px; font-size:1.1rem; color:#ff4444;"></div>
+</div>
+  
+<!-- Protocol Omega Box -->
+<div id="omegaBox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000f2; color:#ff4444; z-index:10001; text-align:center; padding-top:15vh; font-family:'Orbitron', sans-serif;">
+  <h1 style="font-size:2.5rem; text-shadow:0 0 10px #ff0000;">⚠️ PROTOCOL OMEGA ACCESS</h1>
+  <p style="margin-top:20px; font-size:1.2rem;">Enter classified Omega password:</p>
+  <input type="password" id="omegaInput" placeholder="Enter Password..." style="margin-top:15px; background:#111; color:#ff4444; border:2px solid #ff4444; padding:10px; border-radius:5px; font-size:1rem; width:300px;" />
+  <div id="omegaInfo" style="display:none; margin-top:30px; text-align:left; max-width:700px; margin-left:auto; margin-right:auto; background:#200000; padding:25px; border-radius:8px; border:1px solid #ff0000; box-shadow:0 0 10px #ff0000;">
+    <h2 style="color:#ff9999;">📜 Protocol Omega — Arcadian Directive 99-Ω</h2>
+    <p><strong>Description:</strong> Protocol Omega is the final failsafe enacted upon full rebellion against the Great Gheetan Empire. This directive authorizes unrestricted military engagement, unconditional information lockdown, civilian evacuation orders, and total asset denial strategies.</p>
+    <p><strong>Trigger Conditions:</strong> Verified treason by the Gheetan Emperor, occupation of Arcadian territory, or initiation of forced governance (e.g., by Gavin Jones).</p>
+    <p><strong>Immediate Actions:</strong></p>
+    <ul>
+      <li>Activate all regional command cells under Arcadia’s independent defense protocol.</li>
+      <li>Wipe diplomatic communications with hostile states.</li>
+      <li>Enable nuclear fallback routes via classified tunnels in Bradectoria and Eastern Isles.</li>
+      <li>Transmit Omega Beacon to loyalist strongholds with embedded authentication key “99A-OmegaX”.</li>
+    </ul>
+    <p><strong>Status:</strong> ACTIVE — Awaiting full mobilization confirmation from the High King.</p>
+  </div>
+  <div id="omegaMsg" style="margin-top:15px; font-size:1rem; color:#ff7777;"></div>
 </div>
 
 
