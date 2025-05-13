@@ -178,9 +178,9 @@
         }
       }
     });
-    // Show Protocol Omega password box on Ctrl + Alt + T
+    // Show Protocol Omega password box on Ctrl + Shift + T
 document.addEventListener('keydown', function (e) {
-  if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 't') {
+  if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 't') {
     const omegaBox = document.getElementById("omegaBox");
     if (omegaBox) {
       omegaBox.style.display = "block";
