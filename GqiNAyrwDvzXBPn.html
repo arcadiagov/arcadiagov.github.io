@@ -97,7 +97,73 @@
 }
 
 </style>
-  
+  <script>
+// Function to check if Doomsday Lockdown is active
+function isDoomsdayLockdownActive() {
+    const lockdownStatus = localStorage.getItem('doomsday_lockdown'); // Check in localStorage
+    const cookieStatus = document.cookie.split('; ').find(row => row.startsWith('doomsday_lockdown=')); // Check in cookies
+    
+    // If either localStorage or cookie shows lockdown status as 'active', return true
+    return (lockdownStatus === 'active' || cookieStatus?.split('=')[1] === 'active');
+}
+
+// Function to start the countdown and apply lockdown
+function startLockdown() {
+    const lockdownEndTime = Date.now() + 60 * 60 * 1000; // 1 hour from now
+    localStorage.setItem('doomsday_lockdown', 'active'); // Set lockdown in localStorage
+    document.cookie = 'doomsday_lockdown=active; max-age=3600'; // Set lockdown in cookies for 1 hour
+    
+    // Display the lockdown screen
+    const lockdownElement = document.createElement('div');
+    lockdownElement.id = 'doomsdayLockdown';
+    lockdownElement.style = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: red;
+        text-align: center;
+        padding-top: 100px;
+        font-family: monospace;
+        font-size: 20px;
+        z-index: 999999;
+    `;
+    lockdownElement.innerHTML = `
+        <h1>☠️ ARCADIAN DOOMSDAY LOCKDOWN ☠️</h1>
+        <p>All systems and intelligence channels are locked.</p>
+        <p>Countdown to clearance reactivation:</p>
+        <h2 id="doomsdayCountdown" style="font-size: 48px;">--:--:--</h2>
+        <p>This blackout will remain in effect for <strong>1 hour</strong>.</p>
+    `;
+    document.body.appendChild(lockdownElement);
+
+    // Start countdown timer
+    function updateCountdown() {
+        const remainingTime = lockdownEndTime - Date.now();
+        if (remainingTime <= 0) {
+            localStorage.removeItem('doomsday_lockdown'); // Clear lockdown
+            document.cookie = 'doomsday_lockdown=; max-age=0'; // Clear cookies
+            document.body.removeChild(lockdownElement); // Remove lockdown screen
+        } else {
+            const hours = String(Math.floor(remainingTime / (1000 * 60 * 60))).padStart(2, '0');
+            const minutes = String(Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            const seconds = String(Math.floor((remainingTime % (1000 * 60)) / 1000)).padStart(2, '0');
+            document.getElementById('doomsdayCountdown').innerText = `${hours}:${minutes}:${seconds}`;
+        }
+    }
+
+    setInterval(updateCountdown, 1000); // Update every second
+}
+
+// When the page loads, check if lockdown is active
+window.addEventListener('DOMContentLoaded', function() {
+    if (isDoomsdayLockdownActive()) {
+        startLockdown(); // Apply lockdown if active
+    }
+});
+</script>
 
 </body>
 </html>
