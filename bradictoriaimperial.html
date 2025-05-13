@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bradictoria Imperial Clearance Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to right, #000000, #1a1a1a);
+      color: #00ffcc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: #ffd700;
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+      text-shadow: 0 0 10px #ffd700;
+    }
+
+    .terminal-box {
+      background-color: #111;
+      border: 3px solid #00ffcc;
+      padding: 30px;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 15px 0;
+      border: none;
+      border-radius: 4px;
+      background-color: #333;
+      color: #00ffcc;
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #00ffcc;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+      color: #000;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #00ccaa;
+    }
+
+    .classified {
+      display: none;
+      margin-top: 30px;
+      background-color: #1c1c1c;
+      border: 2px solid #ff4444;
+      padding: 20px;
+      border-radius: 6px;
+      color: #fff;
+    }
+
+    .level-heading {
+      font-size: 1.5em;
+      color: #ff5555;
+      margin-bottom: 10px;
+    }
+
+    .level-content {
+      font-size: 1em;
+      line-height: 1.6;
+    }
+   .status-badge {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  animation: blink 1s infinite;
+  box-shadow: 0 0 5px;
+}
+
+/* ACTIVE - Green */
+.status-active {
+  color: #000;
+  background-color: #00ff00;
+  box-shadow: 0 0 5px #00ff00;
+}
+
+/* PENDING - Orange */
+.status-pending {
+  color: #000;
+  background-color: #ffaa00;
+  box-shadow: 0 0 5px #ffaa00;
+}
+
+/* ABORTED - Red */
+.status-aborted {
+  color: #fff;
+  background-color: #cc0000;
+  box-shadow: 0 0 5px #cc0000;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+  </style>
+</head>
+<body>
+  <h1>☠️ IMPERIAL CLEARANCE PORTAL ☠️</h1>
+
+  <div class="terminal-box">
+    <label for="password">Enter Clearance Password:</label>
+    <input type="password" id="password" placeholder="Access Code" />
+    <button onclick="checkPassword()">Access Secure Terminal</button>
+
+    <div class="classified" id="level1">
+  <div class="level-heading">Level I — Confidential Briefs</div>
+  <div class="level-content">
+    
+    <p><strong>Imperial Loyalty Reminder:</strong> All citizens are required to swear public allegiance to His Divine Majesty each lunar cycle. Non-compliance will result in public re-education.</p>
+    <span class="status-badge status-active">ACTIVE</span>
+
+    <p><strong>Public Protocol Update:</strong> Curfew enforcement begins at 2100 hours in all urban districts. Drones are authorized for non-lethal enforcement measures.</p>
+    <span class="status-badge status-active">ACTIVE</span>
+
+    <p><strong>Message from the Throne:</strong> The Emperor watches over all. Let peace and order reign through discipline and unity.</p>
+    <span class="status-badge status-active">ACTIVE</span>
+
+    <p><strong>Upcoming Holiday:</strong> The Day of Eternal Rule approaches. Citizens must display imperial banners or face Class II civic infraction charges.</p>
+  <span class="status-badge status-active">ACTIVE</span>
+
+  </div>
+</div>
+
+  
+
+   <div class="classified" id="level2">
+  <div class="level-heading">Level II — Tactical Directives</div>
+  <div class="level-content">
+    
+    <p><strong>Security Report 44-A:</strong> Resistance cells identified in the Lower Expanse have formed under the name "Verdant Crescent." Immediate covert neutralization is authorized.</p>
+    <span class="status-badge status-pending">PENDING</span>
+
+    <p><strong>Eyes Only: Deployment Pathways</strong> — Fleet Omega-7 has received redline directives to relocate to the Targassi Belt. Any interference will be treated as an act of treason.</p>
+   <span class="status-badge status-pending">PENDING</span>
+
+    <p><strong>Enforcer Mandate:</strong> All Section Commanders are to upgrade psy-indoctrination frequencies to Version 9.3. Citizens exhibiting mental shielding techniques are to be detained.</p>
+    <span class="status-badge status-pending">PENDING</span>
+
+    <p><strong>Surveillance Directive 203-D:</strong> New auditory imprinting drones to be tested in Subsector Delta under blackout conditions. Mission priority: manipulate crowd behavior via harmonic fear pulses.</p>
+  <span class="status-badge status-pending">PENDING</span>
+
+  </div>
+</div>
+
+ <div class="classified" id="level3">
+  <div class="level-heading">Level III — Supreme Classified (Eyes of the Emperor Only)</div>
+  <div class="level-content">
+    
+    <p><strong>Operation Nightfall:</strong> Greenlit. Elimination of 12 rogue governors begins at dawn cycle. All evidence will be retroactively erased via Archive Codex Rewrite Subroutine Zeta-9.</p>
+    <span class="status-badge status-pending">PENDING</span>
+
+    <p><strong>Dimensional Rift Data (Clearance: Omega):</strong> A stabilized breach was confirmed beyond the Rakhari Singularity. Imperial scientists have retrieved bio-intelligent matter with regenerative properties. Initiate Project Godseed.</p>
+    <span class="status-badge status-pending">PENDING</span>
+
+    <p><strong>Codex: Decree XIII</strong> — The Emperor may, without restriction or oversight, declare any organism, territory, or reality construct as part of the Sovereign Empire. No debate. No refusal.</p>
+    <span class="status-badge status-aborted">ABORTED</span>
+
+    <p><strong>Contingency X-Black:</strong> In the event of a Supreme Leader’s incapacitation, protocol allows for the full auto-cloning of Imperial identity via Neural Pattern Reserve. Estimated regrowth time: 4 hours, 32 minutes.</p>
+    <span class="status-badge status-active">ACTIVE</span>
+
+    <p><strong>Operation Purple Storm:</strong> Activation pending. All deep-cover agents in Bradectorian diplomatic sectors are to initiate "Lightning Silence Protocol." Goal: Dismantle enemy propaganda infrastructure and seed loyalist transmissions across planetary grid. Final trigger rests solely with His Majesty's biometric command seal.</p>
+    <span class="status-badge status-active">ACTIVE</span>
+
+
+  </div>
+</div>
+
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("password").value.trim();
+      document.querySelectorAll('.classified').forEach(el => el.style.display = 'none');
+
+      if (input === "thelastone") {
+        document.getElementById("level1").style.display = "block";
+      } else if (input === "2.0!!") {
+        document.getElementById("level2").style.display = "block";
+      } else if (input === "Emperor2025") {
+        document.getElementById("level3").style.display = "block";
+      } else {
+        alert("ACCESS DENIED: Unauthorized Credentials Detected");
+      }
+    }
+  </script>
+</body>
+</html>
