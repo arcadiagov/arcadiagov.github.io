@@ -81,15 +81,16 @@
       font-size: 1em;
       line-height: 1.6;
     }
-   .status-badge {
+  .status-badge {
   display: inline-block;
   margin-left: 10px;
-  padding: 2px 8px;
+  padding: 3px 8px;
   font-weight: bold;
   font-size: 0.9rem;
   border-radius: 4px;
-  animation: blink 1s infinite;
   box-shadow: 0 0 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* ACTIVE - Green */
@@ -111,11 +112,6 @@
   color: #fff;
   background-color: #cc0000;
   box-shadow: 0 0 5px #cc0000;
-}
-
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
 }
   </style>
 </head>
