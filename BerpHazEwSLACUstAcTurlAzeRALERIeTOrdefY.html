@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arcadian Codephrase Directory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #00e6e6;
+      font-family: 'Orbitron', sans-serif;
+      padding: 60px 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffd700;
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #ffd700;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px;
+      background: rgba(20, 20, 20, 0.9);
+      border: 2px solid #00e6e6;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #00e6e6;
+    }
+
+    .code-list {
+      margin-top: 30px;
+    }
+
+    .code-item {
+      margin-bottom: 20px;
+    }
+
+    .code-label {
+      font-size: 1.3rem;
+      color: #00ffff;
+      font-weight: bold;
+    }
+
+    .code-description {
+      font-size: 1rem;
+      color: #dddddd;
+      margin-top: 5px;
+    }
+
+    #secretBox {
+      display: none;
+      margin-top: 30px;
+      background-color: #111;
+      border: 2px solid #cc0000;
+      padding: 20px;
+      border-radius: 8px;
+      color: #ff4444;
+      box-shadow: 0 0 10px #cc0000;
+    }
+
+    #passwordInput {
+      background-color: #222;
+      color: #00e6e6;
+      border: 1px solid #00e6e6;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 1rem;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    #rebelMessage {
+      display: none;
+      margin-top: 20px;
+      background-color: #300000;
+      padding: 15px;
+      border-radius: 6px;
+      color: #ff5555;
+      border: 1px solid #ff4444;
+    }
+  </style>
+</head>
+<body>
+  <h1>Arcadian Codephrase Directory</h1>
+
+  <div class="container">
+    <div class="code-list">
+      <div class="code-item">
+        <div class="code-label">ARC 1</div>
+        <div class="code-description">All systems nominal. Arcadia is stable and secure.</div>
+      </div>
+      <div class="code-item">
+        <div class="code-label">ARC 2</div>
+        <div class="code-description">Increased alertness. Intelligence suggests rising unrest.</div>
+      </div>
+      <div class="code-item">
+        <div class="code-label">ARC 3</div>
+        <div class="code-description">Imperial protocol breach detected. Watchlists activated.</div>
+      </div>
+      <div class="code-item">
+        <div class="code-label">ARC 4</div>
+        <div class="code-description">Civil instability reported. Emergency governance on standby.</div>
+      </div>
+      <div class="code-item">
+        <div class="code-label">ARC 5</div>
+        <div class="code-description">State of Emergency. Activate crisis protocols and secure all government facilities.</div>
+      </div>
+      <div class="code-item">
+        <div class="code-label">ARC ███</div>
+        <div class="code-description">[CLASSIFIED: Requires Level III Authentication]</div>
+      </div>
+    </div>
+
+    <div id="secretBox">
+      <p><strong>ENTER CLASSIFIED PASSWORD:</strong></p>
+      <input type="password" id="passwordInput" placeholder="Enter Password..." />
+      <div id="rebelMessage">
+        <p><strong>ARC ███</strong> — <span style="color: #ff9999;">The Kingdom of Arcadia has officially rebelled against the Great Gheetan Empire. Mobilize all loyalist commands and initiate War Protocol Omega.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && e.altKey && e.key === 'g') {
+        document.getElementById('secretBox').style.display = 'block';
+      }
+    });
+
+    document.getElementById('passwordInput').addEventListener('keyup', function(e) {
+      if (e.key === 'Enter') {
+        const pwd = e.target.value.trim();
+        if (pwd === 'Gheetan2025!') {
+          document.getElementById('rebelMessage').style.display = 'block';
+        } else {
+          document.getElementById('rebelMessage').innerHTML = "<p>❌ Invalid password. Access denied.</p>";
+          document.getElementById('rebelMessage').style.display = 'block';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
