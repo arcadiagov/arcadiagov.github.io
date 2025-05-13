@@ -97,14 +97,14 @@
 }
 
 </style>
-  <script>
+ <script>
 // Function to check if Doomsday Lockdown is active
 function isDoomsdayLockdownActive() {
     const lockdownStatus = localStorage.getItem('doomsday_lockdown'); // Check in localStorage
     const cookieStatus = document.cookie.split('; ').find(row => row.startsWith('doomsday_lockdown=')); // Check in cookies
     
-    // If either localStorage or cookie shows lockdown status as 'active', return true
-    return (lockdownStatus === 'active' || cookieStatus?.split('=')[1] === 'active');
+    // Return true if lockdown status in localStorage or cookies is 'active'
+    return (lockdownStatus === 'active' || (cookieStatus && cookieStatus.split('=')[1] === 'active'));
 }
 
 // Function to start the countdown and apply lockdown
@@ -129,6 +129,7 @@ function startLockdown() {
         font-family: monospace;
         font-size: 20px;
         z-index: 999999;
+        overflow: hidden;
     `;
     lockdownElement.innerHTML = `
         <h1>☠️ ARCADIAN DOOMSDAY LOCKDOWN ☠️</h1>
