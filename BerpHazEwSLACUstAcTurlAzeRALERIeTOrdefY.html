@@ -92,7 +92,7 @@
 </button>
 
 <!-- Lockdown Overlay -->
-<div id="lockdownOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; color:#ff4444; z-index:9998; text-align:center; padding-top:20vh; font-family:'Orbitron', sans-serif;">
+<div id="lockdownScreen" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000; color:#ff4444; z-index:9998; text-align:center; padding-top:20vh; font-family:'Orbitron', sans-serif;">
   <h1 style="font-size:3rem; text-shadow:0 0 10px #ff0000;">🔒 ARCADIA IS IN LOCKDOWN</h1>
   <p style="font-size:1.5rem; margin-top:20px;">Access restricted. Countdown to reactivation:</p>
   <div id="countdownTimer" style="font-size:2rem; margin-top:10px; color:#ffd700;"></div>
@@ -188,7 +188,7 @@ function activateLockdown() {
 
 // Apply lockdown overlay
 function triggerLockdown(expiryTimestamp) {
-  const overlay = document.getElementById('lockdownOverlay');
+  const overlay = document.getElementById('lockdownScreen');
   if (overlay) {
     overlay.style.display = 'block';
     updateCountdown(expiryTimestamp);
@@ -210,7 +210,7 @@ window.onload = function () {
     triggerLockdown(expiryTime);
   }
 };
-    // Listen for Ctrl+Alt+V to trigger override box
+   // Show override box with Ctrl + Alt + V
 document.addEventListener('keydown', function (e) {
   if (e.ctrlKey && e.altKey && e.key === 'v') {
     const overrideBox = document.getElementById("overrideBox");
@@ -220,29 +220,42 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-// Handle override password input
-document.getElementById("overrideInput").addEventListener("keyup", function (e) {
-  if (e.key === "Enter") {
-    const overridePass = e.target.value.trim();
-    if (overridePass === "Access2025!") {
-      localStorage.removeItem("arcadiaLockdown");
-      document.cookie = "arcadiaLockdown=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      document.getElementById("overrideMessage").textContent = "✅ Override accepted. Reloading...";
-      setTimeout(() => location.reload(), 1000);
-    } else {
-      document.getElementById("overrideMessage").textContent = "❌ Invalid override password.";
+// Submit button function
+function submitOverride() {
+  const overridePass = document.getElementById("overrideInput").value.trim();
+  const overrideMsg = document.getElementById("overrideMessage");
+
+  if (overridePass === "Access2025!") {
+    // Clear cookie
+    document.cookie = "arcadiaLockdown=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    // Clear local storage
+    localStorage.removeItem("arcadiaLockdown");
+
+    // Hide lockdown overlay
+    const lockdownScreen = document.getElementById("lockdownScreen");
+    if (lockdownScreen) {
+      lockdownScreen.remove();
     }
+
+    // Hide override UI
+    document.getElementById("overrideBox").style.display = "none";
+  } else {
+    overrideMsg.textContent = "❌ Invalid override password.";
   }
-});
+}
+
 
   </script>
-  <!-- Override Unlock Box -->
+<!-- Override Unlock Box -->
 <div id="overrideBox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10000; color:#00e6e6; text-align:center; padding-top:20vh; font-family:'Orbitron', sans-serif;">
   <h1 style="font-size:2.5rem; color:#00ffcc; text-shadow:0 0 10px #00ffff;">🔓 Override Lockdown</h1>
   <p style="font-size:1.2rem;">Enter high-level clearance code:</p>
   <input type="password" id="overrideInput" placeholder="Enter Override Password..." style="margin-top:20px; background-color:#111; color:#00ffcc; border:2px solid #00e6e6; padding:10px; border-radius:6px; font-size:1rem; width:300px;" />
+  <br />
+  <button id="overrideSubmit" style="margin-top:20px; background-color:#00e6e6; color:#000; font-weight:bold; border:none; padding:10px 20px; border-radius:6px; font-size:1rem; cursor:pointer; box-shadow:0 0 10px #00ffff;">Submit</button>
   <div id="overrideMessage" style="margin-top:20px; font-size:1.1rem; color:#ff4444;"></div>
 </div>
+
 
 </body>
 </html>
