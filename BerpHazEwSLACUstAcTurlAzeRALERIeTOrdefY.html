@@ -206,8 +206,13 @@ function activateLockdown() {
   const expiry = Date.now() + 3600000; // 1 hour in ms
   localStorage.setItem("arcadiaLockdown", expiry.toString());
   document.cookie = `arcadiaLockdown=${expiry}; expires=${new Date(expiry).toUTCString()}; path=/`;
-  triggerLockdown(expiry);
+
+  setTimeout(() => {
+    triggerLockdown(expiry);
+  }, 50); // slight delay to ensure overlay is shown without reload
 }
+
+
 
 // Apply lockdown overlay
 function triggerLockdown(expiryTimestamp) {
