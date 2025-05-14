@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Arcadian Courtroom Archive</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #f2f2f2;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 40px;
+    }
+
+    h1 {
+      color: crimson;
+      text-align: center;
+      font-size: 36px;
+      letter-spacing: 2px;
+      text-shadow: 0 0 6px crimson;
+      margin-bottom: 40px;
+    }
+
+    .case {
+      border: 1px solid crimson;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #1a1a1a, #111);
+      box-shadow: 0 0 15px crimson;
+      transition: transform 0.3s ease;
+    }
+
+    .case:hover {
+      transform: scale(1.02);
+    }
+
+    .case h2 {
+      margin-top: 0;
+      color: #ff5555;
+      font-size: 24px;
+    }
+
+    .verdict {
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    .charges {
+      margin-top: 10px;
+    }
+
+    .innocent {
+      color: #00cc66;
+      font-weight: bold;
+    }
+
+    .penalty {
+      margin-top: 15px;
+      color: #cccccc;
+      font-style: italic;
+    }
+
+    .sentence {
+      margin-top: 10px;
+      background-color: #2a2a2a;
+      padding: 10px;
+      border-radius: 6px;
+      border-left: 4px solid crimson;
+    }
+
+    .sentence strong {
+      color: #ff9999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Arcadian Courtroom Archive</h1>
+
+  <div class="case">
+    <h2>Case: Logan Boucher</h2>
+    <p class="verdict">Verdict: Guilty</p>
+    <div class="charges">
+      <ul>
+        <li>Imperial Treason</li>
+        <li>Inflammation of Diplomatic Relations</li>
+        <li>Abuse of Executive Authority</li>
+        <li>Dereliction of Duty</li>
+        <li>Attempted Provocation of Foreign Conflict</li>
+        <li>Unlawful Flight from Jurisdiction</li>
+        <li>Unauthorized Assumption of Foreign Title</li>
+      </ul>
+    </div>
+    <p class="penalty">⚖️ Penalty: Pending judicial decision.</p>
+    <div class="sentence">
+      <strong>Recommended Sentencing:</strong><br>
+      Life imprisonment without parole, permanent disqualification from any public office, and full revocation of all imperial titles, honors, or immunities.
+    </div>
+  </div>
+
+  <div class="case">
+    <h2>Case: Lennox Steeves</h2>
+    <p class="verdict">Mixed Verdict</p>
+    <div class="charges">
+      <ul>
+        <li><span class="verdict">Guilty:</span> Cyber Espionage</li>
+        <li><span class="innocent">Innocent:</span> Imperial Treason</li>
+        <li><span class="innocent">Innocent:</span> Terrorism</li>
+        <li><span class="innocent">Innocent:</span> Aiding and Abetting Imperial Treason</li>
+      </ul>
+    </div>
+    <p class="penalty">⚖️ Penalty: Pending judicial decision.</p>
+    <div class="sentence">
+      <strong>Recommended Sentencing:</strong><br>
+      12 years in a high-security facility with eligibility for parole after 7 years, conditional upon full cooperation and debriefing with Arcadian intelligence.
+    </div>
+  </div>
+
+  <div class="case">
+    <h2>Case: Rowan Miller</h2>
+    <p class="verdict">Trial Status: Pending</p>
+    <div class="charges">
+      <ul>
+        <li>High Treason</li>
+      </ul>
+    </div>
+    <p class="penalty">⚖️ Penalty: To be determined after trial.</p>
+    <div class="sentence">
+      <strong>Recommended Sentencing:</strong><br>
+      Awaiting trial proceedings and judicial recommendations.
+    </div>
+  </div>
+
+</body>
+</html>
