@@ -251,72 +251,74 @@ law. This Act shall take effect immediately upon its proclamation.</p>
   backdrop-filter: blur(2px);
 }
 </style>
-  <script>
-// Function to check if Doomsday Lockdown is active
-function isDoomsdayLockdownActive() {
-    const lockdownStatus = localStorage.getItem('doomsday_lockdown'); // Check in localStorage
-    const cookieStatus = document.cookie.split('; ').find(row => row.startsWith('doomsday_lockdown=')); // Check in cookies
-    
-    // If either localStorage or cookie shows lockdown status as 'active', return true
-    return (lockdownStatus === 'active' || cookieStatus?.split('=')[1] === 'active');
-}
+ <!-- Secret Password Trigger Box -->
+<style>
+  #secretPrompt {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #111;
+    border: 3px solid #FFD700;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    color: white;
+    font-family: 'Georgia', serif;
+    text-align: center;
+  }
 
-// Function to start the countdown and apply lockdown
-function startLockdown() {
-    const lockdownEndTime = Date.now() + 60 * 60 * 1000; // 1 hour from now
-    localStorage.setItem('doomsday_lockdown', 'active'); // Set lockdown in localStorage
-    document.cookie = 'doomsday_lockdown=active; max-age=3600'; // Set lockdown in cookies for 1 hour
-    
-    // Display the lockdown screen
-    const lockdownElement = document.createElement('div');
-    lockdownElement.id = 'doomsdayLockdown';
-    lockdownElement.style = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        color: red;
-        text-align: center;
-        padding-top: 100px;
-        font-family: monospace;
-        font-size: 20px;
-        z-index: 999999;
-    `;
-    lockdownElement.innerHTML = `
-        <h1>☠️ ARCADIAN DOOMSDAY LOCKDOWN ☠️</h1>
-        <p>All systems and intelligence channels are locked.</p>
-        <p>Countdown to clearance reactivation:</p>
-        <h2 id="doomsdayCountdown" style="font-size: 48px;">--:--:--</h2>
-        <p>This blackout will remain in effect for <strong>1 hour</strong>.</p>
-    `;
-    document.body.appendChild(lockdownElement);
+  #secretPrompt input {
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
 
-    // Start countdown timer
-    function updateCountdown() {
-        const remainingTime = lockdownEndTime - Date.now();
-        if (remainingTime <= 0) {
-            localStorage.removeItem('doomsday_lockdown'); // Clear lockdown
-            document.cookie = 'doomsday_lockdown=; max-age=0'; // Clear cookies
-            document.body.removeChild(lockdownElement); // Remove lockdown screen
-        } else {
-            const hours = String(Math.floor(remainingTime / (1000 * 60 * 60))).padStart(2, '0');
-            const minutes = String(Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-            const seconds = String(Math.floor((remainingTime % (1000 * 60)) / 1000)).padStart(2, '0');
-            document.getElementById('doomsdayCountdown').innerText = `${hours}:${minutes}:${seconds}`;
-        }
+  #secretPrompt button {
+    margin-top: 15px;
+    background-color: #FFD700;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  #secretPrompt button:hover {
+    background-color: #e6c200;
+  }
+</style>
+
+<div id="secretPrompt">
+  <h2>Enter Clearance Code</h2>
+  <input type="password" id="secretInput" placeholder="Enter password..." />
+  <br/>
+  <button onclick="checkSecret()">Submit</button>
+</div>
+
+<script>
+  document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 'q') {
+      const prompt = document.getElementById('secretPrompt');
+      prompt.style.display = 'block';
+      document.getElementById('secretInput').focus();
     }
+  });
 
-    setInterval(updateCountdown, 1000); // Update every second
-}
-
-// When the page loads, check if lockdown is active
-window.addEventListener('DOMContentLoaded', function() {
-    if (isDoomsdayLockdownActive()) {
-        startLockdown(); // Apply lockdown if active
+  function checkSecret() {
+    const input = document.getElementById('secretInput').value;
+    if (input === 'Micro2025!') {
+      window.location.href = 'https://arcadiagov.github.io/aRatERTYPoNAcIaNcHOLoCoRTEniatOrSideDgEOuRemILiaNC.html';
+    } else {
+      alert('Incorrect password. Access denied.');
     }
-});
+  }
 </script>
 </body>
 </html>
