@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Protocol Omega</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+      color: lime;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+    }
+
+    .centered-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #111;
+      padding: 40px;
+      border: 2px solid lime;
+      box-shadow: 0 0 20px lime;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #omega-content {
+      display: none;
+      padding: 40px;
+      text-align: center;
+      font-size: 1.2em;
+    }
+
+    .password-input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      background-color: #000;
+      color: lime;
+      border: 2px solid lime;
+    }
+
+    h1 {
+      color: red;
+      text-shadow: 0 0 8px crimson;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- First Password Gate -->
+  <div id="firstGate" class="centered-box">
+    <h1>PROTOCOL OMEGA</h1>
+    <p>ENTER PRIMARY ACCESS KEY</p>
+    <input id="password1" class="password-input" type="password" placeholder="••••••••••">
+    <br><br>
+    <button onclick="checkFirstPassword()">Access</button>
+  </div>
+
+  <!-- Second Password Gate -->
+  <div id="secondGate" class="centered-box hidden">
+    <h1>OMEGA VERIFIED</h1>
+    <p>ENTER SECONDARY CODE</p>
+    <input id="password2" class="password-input" type="password" placeholder="••••••••••">
+    <br><br>
+    <button onclick="checkSecondPassword()">Proceed</button>
+  </div>
+
+  <!-- Hidden Content -->
+  <div id="omega-content">
+    <h1>PROTOCOL OMEGA ACTIVATED</h1>
+    <p>Classified instructions revealed.<br>Secure evacuation and retaliation procedures authorized.</p>
+    <p>Status: <span style="color: red;">STANDBY</span> — Awaiting command chain trigger (CTRL + ALT + G)</p>
+    <br><br>
+    <h2>🔒 TOP SECRET CONTENT 🔒</h2>
+    <p>
+      <strong>Objective:</strong> Maintain continuity of Arcadian government and neutralize internal betrayal scenarios.<br>
+      <strong>Trigger Conditions:</strong> National government collapse, confirmed foreign hostile takeover, or verified Gheetan infiltration of loyalist systems.<br><br>
+
+      <strong>Subprotocols:</strong><br>
+      • Omega Red: Full global broadcast shutdown & EMP counterstrikes<br>
+      • Omega Black: Deployment of sleeper loyalist agents across micronational territories<br>
+      • Omega Fire: Last-resort scorched-earth withdrawal from all digital systems<br><br>
+
+      <strong>Escape Routes:</strong> Multiple off-grid signal zones in encrypted backup servers under High King's authority.<br>
+      <strong>Contingency Vaults:</strong> Data servers hidden within allied Bradectorian bunkers.<br><br>
+
+      <strong>Instructional Archive:</strong><br>
+      – Loyalist orders<br>
+      – Safehouse coordinates<br>
+      – Neutralization authorization logs<br><br>
+
+      <strong>⚠️ WARNING:</strong> Any unauthorized access will trigger an internal tracker beacon to Arcadian Cyber Command.
+    </p>
+  </div>
+
+  <script>
+    function redirectToDecoy() {
+      // Fake Diplomatic Cooperation Page
+      document.body.innerHTML = `
+        <div style="background-color:white; color:black; font-family:Arial, sans-serif; padding:40px;">
+          <h1>Arcadian Diplomatic Cooperation Program</h1>
+          <p>Welcome to the Arcadian Foreign Affairs and Cooperation Initiative. Here, we focus on:</p>
+          <ul>
+            <li>Mutual respect between micronations</li>
+            <li>Peaceful mediation programs</li>
+            <li>High Council Cultural Exchange</li>
+            <li>Arcadian Trade Normalization Protocols</li>
+          </ul>
+          <p>For more info, contact diplomacy@arcadia.gov</p>
+        </div>`;
+    }
+
+    function checkFirstPassword() {
+      const pass = document.getElementById("password1").value;
+      if (pass === "Escape2025!") {
+        document.getElementById("firstGate").classList.add("hidden");
+        document.getElementById("secondGate").classList.remove("hidden");
+      } else {
+        redirectToDecoy();
+      }
+    }
+
+    function checkSecondPassword() {
+      const pass = document.getElementById("password2").value;
+      if (pass === "Revolt2025!") {
+        document.getElementById("secondGate").classList.add("hidden");
+        document.addEventListener("keydown", function(e) {
+          if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "g") {
+            document.getElementById("omega-content").style.display = "block";
+          }
+        });
+      } else {
+        redirectToDecoy();
+      }
+    }
+  </script>
+
+</body>
+</html>
