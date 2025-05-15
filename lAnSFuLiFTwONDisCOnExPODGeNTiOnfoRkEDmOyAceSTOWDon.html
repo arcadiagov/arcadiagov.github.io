@@ -79,6 +79,13 @@
   <button onclick="checkThirdPassword()">Access</button>
   <p id="error3" style="color: red;"></p>
 </div>
+  
+  <div id="finalGate" style="text-align:center; display: none;">
+  <h2>🔓 Final Decryption Required</h2>
+  <input type="password" id="password4" placeholder="Enter final decryption code">
+  <button onclick="checkFinalPassword()">Unlock Protocol Omega</button>
+  <p id="error4" style="color: red;"></p>
+</div>
 
 
  <!-- Hidden Content -->
@@ -181,6 +188,35 @@ function checkThirdPassword() {
     });
   } else {
     // Just display fake error
+    error.textContent = "Incorrect password";
+  }
+}
+// Trigger final password box with Ctrl+Alt+X AFTER third gate
+document.addEventListener("keydown", function(e) {
+  if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "x") {
+    const omegaContent = document.getElementById("omega-content");
+    const finalGate = document.getElementById("finalGate");
+
+    if (omegaContent.style.display === "block") {
+      finalGate.style.display = "block";
+    }
+  }
+});
+
+function checkFinalPassword() {
+  const pass = document.getElementById("password4").value;
+  const error = document.getElementById("error4");
+
+  if (pass === "Reveal2025!") {
+    // Unlock final content
+    error.textContent = "";
+    document.getElementById("finalGate").style.display = "none";
+    document.getElementById("true-content").style.display = "block";
+
+    // Enable scrolling again just in case
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+  } else {
     error.textContent = "Incorrect password";
   }
 }
