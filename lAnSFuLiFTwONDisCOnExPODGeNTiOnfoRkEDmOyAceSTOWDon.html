@@ -55,36 +55,39 @@
 </head>
 <body>
 
+  <!-- Decoy meta data for confusion -->
+  <meta data-security="Level III" data-code="OmegaLayer3Key2025" />
+  
   <!-- First Password Gate -->
-  <div id="firstGate" class="centered-box">
+  <div id="firstGate" class="centered-box" data-layer="1" data-obfuscate="true">
     <h1>PROTOCOL OMEGA</h1>
     <p>ENTER PRIMARY ACCESS KEY</p>
-    <input id="password1" class="password-input" type="password" placeholder="••••••••••">
+    <input id="password1" class="password-input" type="password" placeholder="••••••••••" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
     <br><br>
     <button onclick="checkFirstPassword()">Access</button>
   </div>
 
 <!-- Second Password Gate -->
-  <div id="secondGate" class="centered-box hidden">
+  <div id="secondGate" class="centered-box hidden" data-layer="2" data-obfuscate="true">
     <h1>OMEGA VERIFIED</h1>
     <p>ENTER SECONDARY CODE</p>
-    <input id="password2" class="password-input" type="password" placeholder="••••••••••">
+    <input id="password2" class="password-input" type="password" placeholder="••••••••••" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
     <br><br>
     <button onclick="checkSecondPassword()">Proceed</button>
   </div>
   
 <!-- Third Password Gate -->
-<div id="thirdGate" class="centered-box hidden">
-  <h1 id="thirdTitle">🔐 FINAL SECURITY LAYER</h1>
+<div id="thirdGate" class="centered-box hidden" data-layer="3" data-obfuscate="true">
+  <h1 id="thirdTitle" tabindex="0" aria-label="Final Security Layer">🔐 FINAL SECURITY LAYER</h1>
   <p>ENTER FINAL PASSWORD</p>
-  <input id="password3" class="password-input" type="password" placeholder="••••••••••">
+  <input id="password3" class="password-input" type="password" placeholder="••••••••••" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
   <br><br>
   <button onclick="checkThirdPassword()">Access</button>
   <p id="error3" style="color: red;"></p>
 </div>
 
  <!-- Hidden Content -->
-<div id="omega-content">
+<div id="omega-content" aria-hidden="true" tabindex="-1">
   <h1>PROTOCOL OMEGA ACTIVATED</h1>
   <p>Classified instructions revealed.<br>Secure evacuation, communications blackout, and insurgency procedures authorized.</p>
   <p>Status: <span style="color: red;">STANDBY</span> — Awaiting command chain trigger (CTRL + ALT + G)</p>
@@ -111,7 +114,26 @@
   </p>
 </div>
 
- <script>
+<!-- Fragmented, obfuscated content pieces -->
+<div style="display:none;" data-fragment="omega-part1">Launch the Arcadian sovereign revolt</div>
+<div style="display:none;" data-fragment="omega-part2">Restore full independence</div>
+<div style="display:none;" data-fragment="omega-part3">Coordinated resistance protocols</div>
+
+<!-- Hidden decoy content -->
+<details>
+  <summary>Gheetan Tax Compliance Report</summary>
+  <p>Section under review. Please wait.</p>
+</details>
+
+<details style="display:none;" id="realData">
+  <summary>CLASSIFIED: Omega Details</summary>
+  <p>Top secret protocols and commands.</p>
+</details>
+
+<!-- Obfuscated token for potential JS logic -->
+<div data-secret-token="EncryptedMessageKeyX94Z" style="display:none;"></div>
+
+<script>
   function redirectToDecoy() {
     // Fake Diplomatic Cooperation Page
     document.body.innerHTML = `
@@ -192,3 +214,4 @@
 
 </body>
 </html>
+
