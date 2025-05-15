@@ -87,10 +87,15 @@
 </div>
 
 <!-- Hidden Content -->
-<div id="omega-content" aria-hidden="true" tabindex="-1">
+<div id="omega-wrapper" aria-hidden="true" tabindex="-1" style="display:none;">
+  <h1>⚠️ UNDER CONSTRUCTION ⚠️</h1>
+  <p>This content is currently under secure revision.</p>
+</div>
+
+<div id="omega-content" style="display:none;" aria-hidden="true" tabindex="-1">
   <h1>PROTOCOL OMEGA ACTIVATED</h1>
   <p>Classified instructions revealed.<br>Secure evacuation, communications blackout, and insurgency procedures authorized.</p>
-  <p>Status: <span style="color: red;">STANDBY</span> — Awaiting command chain trigger (CTRL + ALT + G)</p>
+  <p>Status: <span style="color: red;">STANDBY</span> — Awaiting command chain trigger </p>
   <br><br>
   <h2>🔒 TOP SECRET CONTENT 🔒</h2>
   <p>
@@ -177,40 +182,41 @@
     }
   }
 
-  function checkThirdPassword() {
-    const pass = document.getElementById("password3").value;
-    const error = document.getElementById("error3");
-    const title = document.getElementById("thirdTitle");
+ function checkThirdPassword() {
+  const pass = document.getElementById("password3").value;
+  const error = document.getElementById("error3");
+  const title = document.getElementById("thirdTitle");
 
-    if (pass === "Solo2025!") {
-      // Show fake error
-      error.textContent = "Incorrect password";
+  if (pass === "Solo2025!") {
+    // Show fake error
+    error.textContent = "Incorrect password";
 
-      // Secretly make the title a hidden link to unlock content
-      title.style.cursor = "pointer";
-      title.addEventListener("click", function unlockPage() {
-        document.getElementById("omega-content").style.display = "block";
-        document.getElementById("thirdGate").style.display = "none";
+    // Secretly make the title a hidden link to unlock content
+    title.style.cursor = "pointer";
+    title.addEventListener("click", function unlockPage() {
+      document.getElementById("thirdGate").style.display = "none";
+      document.getElementById("omega-wrapper").style.display = "block";
 
-        // ✅ Enable scrolling
-        document.body.style.overflow = "auto";
-        document.documentElement.style.overflow = "auto";
+      // ✅ Enable scrolling
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
 
-        // ✅ START listening for Ctrl+Alt+G AFTER successful third password
-        document.addEventListener("keydown", function(e) {
-          if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "g") {
-            document.getElementById("omega-content").style.display = "block";
-          }
-        });
-
-        // Remove the event so clicking again does nothing
-        title.removeEventListener("click", unlockPage);
+      // ✅ START listening for Ctrl+Alt+Q to show actual content
+      document.addEventListener("keydown", function(e) {
+        if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "q") {
+          document.getElementById("omega-wrapper").style.display = "none";
+          document.getElementById("omega-content").style.display = "block";
+        }
       });
-    } else {
-      // Just display fake error
-      error.textContent = "Incorrect password";
-    }
+
+      // Remove the event so clicking again does nothing
+      title.removeEventListener("click", unlockPage);
+    });
+  } else {
+    // Just display fake error
+    error.textContent = "Incorrect password";
   }
+}
 </script>
 
 </body>
