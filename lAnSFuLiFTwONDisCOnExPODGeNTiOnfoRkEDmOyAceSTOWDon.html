@@ -72,6 +72,14 @@
     <br><br>
     <button onclick="checkSecondPassword()">Proceed</button>
   </div>
+  
+<div id="thirdGate" style="text-align:center; display: none;">
+  <h2 id="thirdTitle">🔐 Final Security Layer</h2>
+  <input type="password" id="password3" placeholder="Enter final password">
+  <button onclick="checkThirdPassword()">Access</button>
+  <p id="error3" style="color: red;"></p>
+</div>
+
 
  <!-- Hidden Content -->
 <div id="omega-content">
@@ -128,19 +136,56 @@
       }
     }
 
-    function checkSecondPassword() {
-      const pass = document.getElementById("password2").value;
-      if (pass === "Revolt2025!") {
-        document.getElementById("secondGate").classList.add("hidden");
-        document.addEventListener("keydown", function(e) {
-          if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "g") {
-            document.getElementById("omega-content").style.display = "block";
-          }
-        });
-      } else {
-        redirectToDecoy();
+ function checkSecondPassword() {
+  const pass = document.getElementById("password2").value;
+  if (pass === "Revolt2025!") {
+    document.getElementById("secondGate").classList.add("hidden");
+
+    // ENABLE SCROLLING
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+
+    // SHOW third password box
+    document.getElementById("thirdGate").classList.remove("hidden");
+
+    document.addEventListener("keydown", function(e) {
+      if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "g") {
+        document.getElementById("omega-content").style.display = "block";
       }
-    }
+    });
+  } else {
+    redirectToDecoy();
+  }
+}
+function checkThirdPassword() {
+  const pass = document.getElementById("password3").value;
+  const error = document.getElementById("error3");
+  const title = document.getElementById("thirdTitle");
+
+  if (pass === "Solo2025!") {
+    // Show fake error
+    error.textContent = "Incorrect password";
+
+    // Secretly make the title a hidden link to unlock content
+    title.style.cursor = "pointer";
+    title.addEventListener("click", function unlockPage() {
+      document.getElementById("omega-content").style.display = "block";
+      document.getElementById("thirdGate").style.display = "none";
+
+      // ✅ Enable scrolling
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
+
+      // Remove the event so clicking again does nothing
+      title.removeEventListener("click", unlockPage);
+    });
+  } else {
+    // Just display fake error
+    error.textContent = "Incorrect password";
+  }
+}
+
+
   </script>
 
 </body>
