@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +20,37 @@
     <p class="text-lg max-w-2xl mx-auto text-gray-300">
       This section provides secure access to your legal documents, rights, and court proceedings within the Kingdom of Arcadia. Use the navigation above to explore your legal protections and active case records.
     </p>
+    <p style="margin-top: 20px; font-size: 14px; color: #aaa; text-align: center;">
+    Clearance verified. Timestamp: 
+    <script>
+        const options = {
+            timeZone: 'America/Moncton',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
+        document.write(new Intl.DateTimeFormat('en-CA', options).format(new Date()));
+    </script>
+    (NB Time)
+    <br>
+    <span id="location" style="color: #ccc;">Detecting location...</span>
+    <script>
+        fetch('https://ipinfo.io/json?token=d3b88b5fb748da')
+            .then(response => response.json())
+            .then(data => {
+                const loc = `${data.city}, ${data.region}, ${data.country}`;
+                document.getElementById('location').innerText = `Accessed from: ${loc}`;
+            })
+            .catch(() => {
+                document.getElementById('location').innerText = 'Location: Unavailable';
+            });
+    </script>
+</p>
+
   </main>
 </body>
 </html>
