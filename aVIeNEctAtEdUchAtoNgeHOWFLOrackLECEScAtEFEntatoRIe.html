@@ -100,6 +100,36 @@
       <h3 class="text-xl font-bold uppercase text-red-200">Security Warning</h3>
       <p class="text-red-300 text-sm mt-2">Dissemination of this file outside authorized RAMP channels is punishable under Article 7B of the Arcadian Counterintelligence Code.</p>
     </section>
+<p style="margin-top: 20px; font-size: 14px; color: #aaa; text-align: center;">
+    Clearance verified. Timestamp: 
+    <script>
+        const options = {
+            timeZone: 'America/Moncton',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
+        document.write(new Intl.DateTimeFormat('en-CA', options).format(new Date()));
+    </script>
+    (NB Time)
+    <br>
+    <span id="location" style="color: #ccc;">Detecting location...</span>
+    <script>
+        fetch('https://ipinfo.io/json?token=d3b88b5fb748da')
+            .then(response => response.json())
+            .then(data => {
+                const loc = `${data.city}, ${data.region}, ${data.country}`;
+                document.getElementById('location').innerText = `Accessed from: ${loc}`;
+            })
+            .catch(() => {
+                document.getElementById('location').innerText = 'Location: Unavailable';
+            });
+    </script>
+</p>
 
     <!-- Footer -->
     <footer class="text-center text-gray-600 mt-12 text-sm border-t border-gray-700 pt-4">
