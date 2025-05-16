@@ -144,9 +144,22 @@
     </div>
 
     <p style="margin-top: 20px; font-size: 14px; color: #aaa; text-align: center;">
-        Clearance verified. Timestamp: <script>document.write(new Date().toUTCString());</script>
-    </p>
-</div>
+    Clearance verified. Timestamp: 
+    <script>
+        const options = {
+            timeZone: 'America/Moncton',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
+        document.write(new Intl.DateTimeFormat('en-CA', options).format(new Date()));
+    </script>
+    (NB Time)
+</p>
 
 
         <div class="container">
