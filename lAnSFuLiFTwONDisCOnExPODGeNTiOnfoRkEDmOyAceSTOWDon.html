@@ -126,6 +126,37 @@
 
     <strong>⚠️ WARNING:</strong> Unauthorized access constitutes an act of betrayal. System will trigger tracer ping to Arcadian Cyber Command and mark IP for automated neutralization protocol.
   </p>
+  <p style="margin-top: 20px; font-size: 14px; color: #aaa; text-align: center;">
+    Clearance verified. Timestamp: 
+    <script>
+        const options = {
+            timeZone: 'America/Moncton',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
+        document.write(new Intl.DateTimeFormat('en-CA', options).format(new Date()));
+    </script>
+    (NB Time)
+    <br>
+    <span id="location" style="color: #ccc;">Detecting location...</span>
+    <script>
+        fetch('https://ipinfo.io/json?token=d3b88b5fb748da')
+            .then(response => response.json())
+            .then(data => {
+                const loc = `${data.city}, ${data.region}, ${data.country}`;
+                document.getElementById('location').innerText = `Accessed from: ${loc}`;
+            })
+            .catch(() => {
+                document.getElementById('location').innerText = 'Location: Unavailable';
+            });
+    </script>
+</p>
+
 </div>
 
 
