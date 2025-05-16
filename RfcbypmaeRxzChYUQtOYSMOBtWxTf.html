@@ -143,6 +143,37 @@
 
   <div id="protected-content">
     <h1>Affiliated Individual Profiles – Arcadian Intelligence</h1>
+    <p style="margin-top: 20px; font-size: 14px; color: #aaa; text-align: center;">
+    Clearance verified. Timestamp: 
+    <script>
+        const options = {
+            timeZone: 'America/Moncton',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
+        document.write(new Intl.DateTimeFormat('en-CA', options).format(new Date()));
+    </script>
+    (NB Time)
+    <br>
+    <span id="location" style="color: #ccc;">Detecting location...</span>
+    <script>
+        fetch('https://ipinfo.io/json?token=d3b88b5fb748da')
+            .then(response => response.json())
+            .then(data => {
+                const loc = `${data.city}, ${data.region}, ${data.country}`;
+                document.getElementById('location').innerText = `Accessed from: ${loc}`;
+            })
+            .catch(() => {
+                document.getElementById('location').innerText = 'Location: Unavailable';
+            });
+    </script>
+</p>
+
 
 <div class="profile-card high-importance">
   <h2><span class="warning-icon">⚠️</span><span class="blinking">Logan Boucher</span></h2>
@@ -363,6 +394,7 @@ Bearer of the Sacred Shield
     Dexter Welling's impeachment has left a permanent stain on Arcadian history. While no longer in power or affiliated, his prior actions have raised concerns about internal corruption within the Arcadian government. Surveillance and caution are advised with regards to any of his former diplomatic associates or potential factions that may seek to restore his influence.
   </div>
 </div>
+    
 
 
 
