@@ -143,8 +143,8 @@
         </div>
     </div>
 
-  <p style="margin-top: 20px; font-size: 14px; color: #aaa; text-align: center;">
-    Clearance verified. Timestamp: 
+<p style="margin-top: 20px; font-size: 14px; color: #aaa; text-align: center;">
+    Clearance verified. Timestamp:
     <script>
         const options = {
             timeZone: 'America/Moncton',
@@ -156,23 +156,52 @@
             second: '2-digit',
             hour12: false
         };
-        document.write(new Intl.DateTimeFormat('en-CA', options).format(new Date()));
+        const formattedNBTime = new Intl.DateTimeFormat('en-CA', options).format(new Date());
+        document.write(formattedNBTime);
     </script>
     (NB Time)
     <br>
     <span id="location" style="color: #ccc;">Detecting location...</span>
-    <script>
-        fetch('https://ipinfo.io/json?token=d3b88b5fb748da')
-            .then(response => response.json())
-            .then(data => {
-                const loc = `${data.city}, ${data.region}, ${data.country}`;
-                document.getElementById('location').innerText = `Accessed from: ${loc}`;
-            })
-            .catch(() => {
-                document.getElementById('location').innerText = 'Location: Unavailable';
-            });
-    </script>
 </p>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init("Aa78O33JOAWj5i0QfHaZT");
+    })();
+</script>
+
+<!-- IP Location Fetch + Email Send -->
+<script>
+    const nbTime = new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'America/Moncton',
+        year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: false
+    }).format(new Date());
+
+    fetch('https://ipinfo.io/json?token=d3b88b5fb748da')
+        .then(response => response.json())
+        .then(data => {
+            const location = `${data.city}, ${data.region}, ${data.country}`;
+            document.getElementById('location').innerText = `Accessed from: ${location}`;
+
+            // Prepare and send email
+            const emailParams = {
+                to_email: "governementofarcadia@gmail.com",
+                message: `🚨 Classified page accessed\n🕓 Timestamp: ${nbTime} (NB Time)\n🌍 Location: ${location}`
+            };
+
+            emailjs.send("service_x5rurie", "template_rgcqqar", emailParams)
+                .then(() => console.log("✅ Email sent"))
+                .catch(error => console.error("❌ Email send failed:", error));
+        })
+        .catch(() => {
+            document.getElementById('location').innerText = 'Location: Unavailable';
+        });
+</script>
+
 
 
         <div class="container">
@@ -498,7 +527,8 @@ Bradectoria, once a longstanding ally under the Arcadian-Bradectorian Mutual Def
             window.location.href = "index.html";
         }, 30000);
     </script>
-    
+
+
 </body>
 </html>
 
