@@ -257,31 +257,53 @@
       }
     }
 
-    function checkThirdPassword() {
-      const pass = document.getElementById("password3").value;
-      const error = document.getElementById("error3");
-      const title = document.getElementById("thirdTitle");
 
-      if (pass === "Battle2025!") {
-        // Show fake error
+ <script>
+  function checkThirdPassword() {
+    const pass = document.getElementById("password3").value;
+    const error = document.getElementById("error3");
+    const title = document.getElementById("thirdTitle");
+
+    // Read toggle from localStorage (defaults to 'true')
+    const allowAccess = localStorage.getItem("omegaToggle") !== "false";
+
+    if (pass === "Battle2025!") {
+      if (allowAccess) {
+        // Alternate access: allow this time
         error.textContent = "Incorrect password";
 
-        // Secretly make the title a hidden link to unlock content
-        title.style.color = "#0f0";
-        document.getElementById("thirdGate").classList.add("hidden");
-          document.getElementById("omega-wrapper").style.display = "block";
-          } else {
-        redirectToDecoy();
-        }
-        }
+        // Set flag to block next time
+        localStorage.setItem("omegaToggle", "false");
 
-   
-        document.addEventListener('keydown', function(e) {
-          if (e.ctrlKey && e.altKey && e.key === 'q') {
-        document.getElementById("omega-wrapper").style.display = "none";
-        document.getElementById("omega-content").style.display = "block";
+        // Secret title link
+        title.style.cursor = "pointer";
+        title.onclick = () => {
+          document.getElementById("thirdGate").classList.add("hidden");
+          document.getElementById("omega-wrapper").style.display = "block";
+        };
+      } else {
+        // Deny access this time and redirect
+        localStorage.setItem("omegaToggle", "true"); // flip for next time
+        error.textContent = "Incorrect password";
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 1500); // short delay to show message
+      }
+    } else {
+      // Incorrect password (no redirect)
+      error.textContent = "Incorrect password";
+    }
   }
-});
-</script> 
+
+  // Ctrl+Alt+Q unlocks real content
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.altKey && e.key === 'q') {
+      document.getElementById("omega-wrapper").style.display = "none";
+      document.getElementById("omega-content").style.display = "block";
+    }
+  });
+</script>
+
+
 </body>
 </html> ```
