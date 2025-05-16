@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Protocols for Defence</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      background-color: black;
+      color: lime;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+    }
+
+    .centered-box {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #111;
+      padding: 40px;
+      border: 2px solid lime;
+      box-shadow: 0 0 20px lime;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .hidden { display: none; }
+
+    #omega-content {
+      display: none;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.2em;
+      line-height: 1.5em;
+      text-align: left;
+    }
+
+    .password-input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      background-color: #000;
+      color: lime;
+      border: 2px solid lime;
+    }
+
+    h1 {
+      color: red;
+      text-shadow: 0 0 8px crimson;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: lime;
+      border-bottom: 1px solid lime;
+      padding-bottom: 6px;
+      margin-top: 40px;
+    }
+
+    p {
+      margin: 8px 0 16px 0;
+    }
+
+    a.secret-link {
+      color: #66ff66;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    a.secret-link:hover {
+      color: #99ff99;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Decoy meta data for confusion -->
+  <meta data-security="Level III" data-code="OmegaLayer3Key2025" />
+
+  <!-- First Password Gate -->
+  <div id="firstGate" class="centered-box" data-layer="1" data-obfuscate="true">
+    <h1>PROTOCOLS</h1>
+    <p>ENTER PRIMARY ACCESS KEY</p>
+    <input id="password1" class="password-input" type="password" placeholder="••••••••••" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" />
+    <br /><br />
+    <button onclick="checkFirstPassword()">Access</button>
+  </div>
+
+  <!-- Second Password Gate -->
+  <div id="secondGate" class="centered-box hidden" data-layer="2" data-obfuscate="true">
+    <h1>PROTOCOLS VERIFIED</h1>
+    <p>ENTER SECONDARY CODE</p>
+    <input id="password2" class="password-input" type="password" placeholder="••••••••••" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" />
+    <br /><br />
+    <button onclick="checkSecondPassword()">Proceed</button>
+  </div>
+
+  <!-- Third Password Gate -->
+  <div id="thirdGate" class="centered-box hidden" data-layer="3" data-obfuscate="true">
+    <h1 id="thirdTitle" tabindex="0" aria-label="Final Security Layer">🔐 FINAL SECURITY LAYER</h1>
+    <p>ENTER FINAL PASSWORD</p>
+    <input id="password3" class="password-input" type="password" placeholder="••••••••••" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" />
+    <br /><br />
+    <button onclick="checkThirdPassword()">Access</button>
+    <p id="error3" style="color: red;"></p>
+  </div>
+
+  <!-- Hidden Content Wrapper -->
+  <div id="omega-wrapper" aria-hidden="true" tabindex="-1" style="display:none; text-align:center; color: lime; font-size: 4em; margin-top: 100px;">
+    🚧
+    <h1 style="margin-top: 20px; font-size: 2em;">⚠️ AUTHORIZATION REQUIRED ⚠️</h1>
+    <p>This layer is under strict control.<br />Press <code>Ctrl + Alt + Q</code> after authentication to unlock classified content.</p>
+  </div>
+
+  <!-- Classified Content -->
+  <div id="omega-content" aria-hidden="true" tabindex="-1" style="display:none;">
+    <h1>CLASSIFIED OPERATIONS</h1>
+
+    <h2>🛡️ Defensive Protocols</h2>
+    <p><strong>Operation Citadel Ash</strong></p>
+    <p>Deploy rapid response units along all border zones with Bradictoria. Implement advanced electronic countermeasures designed to neutralize enemy surveillance assets and drone reconnaissance efforts.</p>
+    <p>Coordinate closely with Arcadian Cyber Defense Command to safeguard critical infrastructure nodes against anticipated cyber incursions, particularly from Minister Lennox Steeves' specialized cyber warfare units.</p>
+
+    <h2>⚔️ Offensive Operations</h2>
+    <p><strong>Operation Skyveil</strong></p>
+    <p>Employ stealth drone squadrons to infiltrate and compromise key Bradictorian military command hubs. Target communications centers critical to Emperor Bradley Christie’s command and control to induce operational chaos.</p>
+    <p>Simultaneously initiate psychological operations utilizing misinformation campaigns to erode trust and sow discord within Bradictorian high command structures.</p>
+
+    <h2>🔥 Total War Strategy</h2>
+    <p><strong>Operation Blackout Doctrine</strong></p>
+    <p>Launch synchronized and multi-vector cyber assaults aimed at debilitating Bradictoria's national power grid and communications infrastructure.</p>
+    <p>Deploy elite tactical strike teams for precision engagements targeting enemy supply lines, command posts, and weapons depots identified through prior intelligence operations.</p>
+    <p><a href="https://bradictoria.github.io/war-plans.html" target="_blank" class="secret-link">Access Full War Plans &gt;&gt;</a></p>
+
+    <h2>🛰️ Intelligence & Reconnaissance</h2>
+    <p><strong>Operation Shadow Lance</strong></p>
+    <p>Utilize satellite and cyber surveillance assets to monitor troop movements and detect Bradictorian logistic hubs. Integrate HUMINT sources embedded within Bradictorian territories for real-time intelligence.</p>
+    <p>Establish encrypted data pipelines for rapid dissemination of actionable intelligence to frontline units and command.</p>
+
+    <h2>🛠️ Sabotage & Subversion</h2>
+    <p><strong>Operation Iron Veil</strong></p>
+    <p>Deploy covert operatives to disrupt Bradictoria’s supply chains by targeting critical transportation and fuel depots.</p>
+    <p>Infiltrate and dismantle enemy communications by planting false data streams and corrupting command networks.</p>
+
+    <h2>🧪 Chemical & Electronic Warfare</h2>
+    <p><strong>Operation Phantom Veil</strong></p>
+    <p>Prepare deployment of non-lethal chemical agents to incapacitate enemy personnel during border skirmishes while avoiding civilian casualties.</p>
+    <p>Implement electromagnetic pulse (EMP) devices to disable enemy vehicles and communication arrays during coordinated offensives.</p>
+
+    <h2>🚨 Civilian Defense & Evacuation</h2>
+    <p><strong>Operation Safe Haven</strong></p>
+    <p>Establish secure evacuation corridors for civilians in frontline areas. Deploy mobile medical units and shelters.</p>
+    <p>Coordinate with loyalist civilian authorities to maintain morale and ensure uninterrupted supply of essential goods.</p>
+
+    <h2>🔧 Cyber Defense Resilience</h2>
+    <p><strong>Operation Firewall Bastion</strong></p>
+    <p>Fortify all Arcadian government digital infrastructure with multi-layer encryption and intrusion detection systems.</p>
+    <p>Train rapid cyber response teams to identify, isolate, and neutralize Bradictorian hacking attempts in real time.</p>
+
+    <h2>🌐 Diplomatic & Psychological Warfare</h2>
+    <p><strong>Operation Echo Chamber</strong></p>
+    <p>Leverage global media and allied states to delegitimize Bradictoria's war efforts. Broadcast evidence of war crimes and occupation abuses to erode enemy international support.</p>
+    <p>Exploit social media platforms to amplify Arcadian nationalist sentiment and recruit sympathizers within Bradictoria’s population.</p>
+
+    <p style="margin-top: 40px; font-size: 14px; color: #aaa; text-align: center;">
+      Clearance verified. Timestamp: 
+      <script>
+        const options = {
+          timeZone: 'America/Moncton',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        };
+        document.write(new Intl.DateTimeFormat('en-CA', options).format(new Date()));
+      </script>
+      (NB Time)
+      <br />
+      <span id="location" style="color: #ccc;">Detecting location...</span>
+      <script>
+        fetch('https://ipinfo.io/json?token=d3b88b5fb748da')
+          .then(response => response.json())
+          .then(data => {
+            const loc = `${data.city}, ${data.region}, ${data.country}`;
+            document.getElementById('location').innerText = `Accessed from: ${loc}`;
+          })
+          .catch(() => {
+            document.getElementById('location').innerText = 'Location: Unavailable';
+          });
+      </script>
+    </p>
+  </div>
+
+  <!-- Fragmented, obfuscated content pieces -->
+  <div style="display:none;" data-fragment="omega-part1">Defensive fortifications and rapid deployment.</div>
+  <div style="display:none;" data-fragment="omega-part2">Cyber defense and infiltration countermeasures.</div>
+  <div style="display:none;" data-fragment="omega-part3">Offensive strikes and psychological warfare.</div>
+
+  <!-- Hidden decoy content -->
+  <details>
+    <summary>Bradictorian Trade Agreements</summary>
+    <p>Review pending. Please wait.</p>
+  </details>
+
+  <details style="display:none;" id="realData">
+    <summary>CLASSIFIED: Omega Details</summary>
+    <p>Top secret protocols and commands.</p>
+  </details>
+
+  <!-- Obfuscated token for potential JS logic -->
+  <div data-secret-token="EncryptedMessageKeyX94Z" style="display:none;"></div>
+
+  <script>
+    function redirectToDecoy() {
+      // Fake Diplomatic Cooperation Page
+      document.body.innerHTML = `
+        <div style="background-color:white; color:black; font-family:Arial, sans-serif; padding:40px;">
+          <h1>Arcadian Diplomatic Cooperation Program</h1>
+          <p>Welcome to the Arcadian Foreign Affairs and Cooperation Initiative. Here, we focus on:</p>
+          <ul>
+            <li>Mutual respect between micronations</li>
+            <li>Peaceful mediation programs</li>
+            <li>High Council Cultural Exchange</li>
+            <li>Arcadian Trade Normalization Protocols</li>
+          </ul>
+          <p>For more info, contact diplomacy@arcadia.gov</p>
+        </div>`;
+    }
+
+    function checkFirstPassword() {
+      const pass = document.getElementById("password1").value;
+      if (pass === "Destroy2025!") {
+        document.getElementById("firstGate").classList.add("hidden");
+        document.getElementById("secondGate").classList.remove("hidden");
+      } else {
+        redirectToDecoy();
+      }
+    }
+
+    function checkSecondPassword() {
+      const pass = document.getElementById("password2").value;
+      if (pass === "Winner2025!") {
+        document.getElementById("secondGate").classList.add("hidden");
+
+        // ENABLE SCROLLING for next step
+        document.body.style.overflow = "auto";
+        document.documentElement.style.overflow = "auto";
+
+        document.getElementById("thirdGate").classList.remove("hidden");
+      } else {
+        redirectToDecoy();
+      }
+    }
+
+    function checkThirdPassword() {
+      const pass = document.getElementById("password3").value;
+      const error = document.getElementById("error3");
+      const title = document.getElementById("thirdTitle");
+
+      if (pass === "Battle2025!") {
+        // Show fake error
+        error.textContent = "Incorrect password";
+
+        // Secretly make the title a hidden link to unlock content
+        title.style.color = "#0f0";
+        document.getElementById("thirdGate").classList.add("hidden");
+          document.getElementById("omega-wrapper").style.display = "block";
+          } else {
+        redirectToDecoy();
+        }
+        }
+
+   
+        document.addEventListener('keydown', function(e) {
+          if (e.ctrlKey && e.altKey && e.key === 'q') {
+        document.getElementById("omega-wrapper").style.display = "none";
+        document.getElementById("omega-content").style.display = "block";
+  }
+});
+</script> 
+</body>
+</html> ```
