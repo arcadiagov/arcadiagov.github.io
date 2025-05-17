@@ -216,111 +216,112 @@
   <div data-secret-token="EncryptedMessageKeyX94Z" style="display:none;"></div>
 
   <script>
-    function redirectToDecoy() {
-      // Fake Diplomatic Cooperation Page
-      document.body.innerHTML = `
-        <div style="background-color:white; color:black; font-family:Arial, sans-serif; padding:40px;">
-          <h1>Arcadian Diplomatic Cooperation Program</h1>
-          <p>Welcome to the Arcadian Foreign Affairs and Cooperation Initiative. Here, we focus on:</p>
-          <ul>
-            <li>Mutual respect between micronations</li>
-            <li>Peaceful mediation programs</li>
-            <li>High Council Cultural Exchange</li>
-            <li>Arcadian Trade Normalization Protocols</li>
-          </ul>
-          <p>For more info, contact diplomacy@arcadia.gov</p>
-        </div>`;
-    }
-
-    function checkFirstPassword() {
-      const pass = document.getElementById("password1").value;
-      if (pass === "Destroy2025!") {
-        document.getElementById("firstGate").classList.add("hidden");
-        document.getElementById("secondGate").classList.remove("hidden");
-      } else {
-        redirectToDecoy();
-      }
-    }
-
-    function checkSecondPassword() {
-      const pass = document.getElementById("password2").value;
-      if (pass === "Winner2025!") {
-        document.getElementById("secondGate").classList.add("hidden");
-
-        // ENABLE SCROLLING for next step
-        document.body.style.overflow = "auto";
-        document.documentElement.style.overflow = "auto";
-
-        document.getElementById("thirdGate").classList.remove("hidden");
-      } else {
-        redirectToDecoy();
-      }
-
-let thirdAttempts = 0;
-let thirdPasswordAccepted = false;
-let thirdLinkActivated = false;
-let cooldownActive = false;
-
-const variedErrors = [
-  "Access denied.",
-  "Incorrect password.",
-  "Authentication failed.",
-  "Invalid credentials.",
-  "Password rejected."
-];
-
-function triggerCooldown() {
-  cooldownActive = true;
-  document.getElementById("error3").textContent = "Access temporarily locked. Try again later.";
-  setTimeout(() => {
-    cooldownActive = false;
-    thirdAttempts = 0;
-    document.getElementById("error3").textContent = "";
-  }, 1500000); // 25 minutes
-}
-
-function checkThirdPassword() {
-  if (cooldownActive) {
-    document.getElementById("error3").textContent = "Access temporarily locked. Try again later.";
-    return;
+  function redirectToDecoy() {
+    // Fake Diplomatic Cooperation Page
+    document.body.innerHTML = `
+      <div style="background-color:white; color:black; font-family:Arial, sans-serif; padding:40px;">
+        <h1>Arcadian Diplomatic Cooperation Program</h1>
+        <p>Welcome to the Arcadian Foreign Affairs and Cooperation Initiative. Here, we focus on:</p>
+        <ul>
+          <li>Mutual respect between micronations</li>
+          <li>Peaceful mediation programs</li>
+          <li>High Council Cultural Exchange</li>
+          <li>Arcadian Trade Normalization Protocols</li>
+        </ul>
+        <p>For more info, contact diplomacy@arcadia.gov</p>
+      </div>`;
   }
 
-  const pass = document.getElementById("password3").value;
-  const error = document.getElementById("error3");
-
-  if (pass === "Battle2025!") {
-    error.textContent = variedErrors[Math.floor(Math.random() * variedErrors.length)];
-    thirdPasswordAccepted = true;
-  } else {
-    thirdAttempts++;
-    if (thirdAttempts >= 2) {
-      error.textContent = "⚠️ Security Breach Detected. Reporting incident...";
-      triggerCooldown();
+  function checkFirstPassword() {
+    const pass = document.getElementById("password1").value;
+    if (pass === "Destroy2025!") {
+      document.getElementById("firstGate").classList.add("hidden");
+      document.getElementById("secondGate").classList.remove("hidden");
     } else {
-      error.textContent = variedErrors[Math.floor(Math.random() * variedErrors.length)];
+      redirectToDecoy();
     }
   }
-}
 
-// Secret key combo unlocks the link after correct password
-document.addEventListener('keydown', function(e) {
-  if (e.ctrlKey && e.altKey && e.key === 'g' && thirdPasswordAccepted && !thirdLinkActivated) {
-    thirdLinkActivated = true;
+  function checkSecondPassword() {
+    const pass = document.getElementById("password2").value;
+    if (pass === "Winner2025!") {
+      document.getElementById("secondGate").classList.add("hidden");
 
-    const title = document.getElementById("thirdTitle");
-    title.style.cursor = "pointer";
-    title.onclick = function () {
-      document.getElementById("thirdGate").classList.add("hidden");
-      document.getElementById("omega-wrapper").style.display = "block";
-    };
+      // ENABLE SCROLLING for next step
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
+
+      document.getElementById("thirdGate").classList.remove("hidden");
+    } else {
+      redirectToDecoy();
+    }
   }
 
-  // Final content unlock (Ctrl+Alt+Q)
-  if (e.ctrlKey && e.altKey && e.key === 'q') {
-    document.getElementById("omega-wrapper").style.display = "none";
-    document.getElementById("omega-content").style.display = "block";
+  let thirdAttempts = 0;
+  let thirdPasswordAccepted = false;
+  let thirdLinkActivated = false;
+  let cooldownActive = false;
+
+  const variedErrors = [
+    "Access denied.",
+    "Incorrect password.",
+    "Authentication failed.",
+    "Invalid credentials.",
+    "Password rejected."
+  ];
+
+  function triggerCooldown() {
+    cooldownActive = true;
+    document.getElementById("error3").textContent = "Access temporarily locked. Try again later.";
+    setTimeout(() => {
+      cooldownActive = false;
+      thirdAttempts = 0;
+      document.getElementById("error3").textContent = "";
+    }, 1500000); // 25 minutes
   }
-});
+
+  function checkThirdPassword() {
+    if (cooldownActive) {
+      document.getElementById("error3").textContent = "Access temporarily locked. Try again later.";
+      return;
+    }
+
+    const pass = document.getElementById("password3").value;
+    const error = document.getElementById("error3");
+
+    if (pass === "Battle2025!") {
+      error.textContent = variedErrors[Math.floor(Math.random() * variedErrors.length)];
+      thirdPasswordAccepted = true;
+    } else {
+      thirdAttempts++;
+      if (thirdAttempts >= 2) {
+        error.textContent = "⚠️ Security Breach Detected. Reporting incident...";
+        triggerCooldown();
+      } else {
+        error.textContent = variedErrors[Math.floor(Math.random() * variedErrors.length)];
+      }
+    }
+  }
+
+  // Secret key combo unlocks the link after correct password
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.altKey && e.key === 'g' && thirdPasswordAccepted && !thirdLinkActivated) {
+      thirdLinkActivated = true;
+
+      const title = document.getElementById("thirdTitle");
+      title.style.cursor = "pointer";
+      title.onclick = function () {
+        document.getElementById("thirdGate").classList.add("hidden");
+        document.getElementById("omega-wrapper").style.display = "block";
+      };
+    }
+
+    // Final content unlock (Ctrl+Alt+Q)
+    if (e.ctrlKey && e.altKey && e.key === 'q') {
+      document.getElementById("omega-wrapper").style.display = "none";
+      document.getElementById("omega-content").style.display = "block";
+    }
+  });
 </script>
 
 
