@@ -255,51 +255,74 @@
       } else {
         redirectToDecoy();
       }
-    }
-  function checkThirdPassword() {
-    const pass = document.getElementById("password3").value;
-    const error = document.getElementById("error3");
-    const title = document.getElementById("thirdTitle");
 
-    // Read toggle from localStorage (defaults to 'true')
-    const allowAccess = localStorage.getItem("omegaToggle") !== "false";
+let thirdAttempts = 0;
+let thirdPasswordAccepted = false;
+let thirdLinkActivated = false;
+let cooldownActive = false;
 
-    if (pass === "Battle2025!") {
-      if (allowAccess) {
-        // Alternate access: allow this time
-        error.textContent = "Incorrect password";
+const variedErrors = [
+  "Access denied.",
+  "Incorrect password.",
+  "Authentication failed.",
+  "Invalid credentials.",
+  "Password rejected."
+];
 
-        // Set flag to block next time
-        localStorage.setItem("omegaToggle", "false");
+function triggerCooldown() {
+  cooldownActive = true;
+  document.getElementById("error3").textContent = "Access temporarily locked. Try again later.";
+  setTimeout(() => {
+    cooldownActive = false;
+    thirdAttempts = 0;
+    document.getElementById("error3").textContent = "";
+  }, 1500000); // 25 minutes
+}
 
-        // Secret title link
-        title.style.cursor = "pointer";
-        title.onclick = () => {
-          document.getElementById("thirdGate").classList.add("hidden");
-          document.getElementById("omega-wrapper").style.display = "block";
-        };
-      } else {
-        // Deny access this time and redirect
-        localStorage.setItem("omegaToggle", "true"); // flip for next time
-        error.textContent = "Incorrect password";
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 1500); // short delay to show message
-      }
-    } else {
-      // Incorrect password (no redirect)
-      error.textContent = "Incorrect password";
-    }
+function checkThirdPassword() {
+  if (cooldownActive) {
+    document.getElementById("error3").textContent = "Access temporarily locked. Try again later.";
+    return;
   }
 
-  // Ctrl+Alt+Q unlocks real content
-  document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.altKey && e.key === 'q') {
-      document.getElementById("omega-wrapper").style.display = "none";
-      document.getElementById("omega-content").style.display = "block";
+  const pass = document.getElementById("password3").value;
+  const error = document.getElementById("error3");
+
+  if (pass === "Battle2025!") {
+    error.textContent = variedErrors[Math.floor(Math.random() * variedErrors.length)];
+    thirdPasswordAccepted = true;
+  } else {
+    thirdAttempts++;
+    if (thirdAttempts >= 2) {
+      error.textContent = "⚠️ Security Breach Detected. Reporting incident...";
+      triggerCooldown();
+    } else {
+      error.textContent = variedErrors[Math.floor(Math.random() * variedErrors.length)];
     }
-  });
+  }
+}
+
+// Secret key combo unlocks the link after correct password
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.altKey && e.key === 'g' && thirdPasswordAccepted && !thirdLinkActivated) {
+    thirdLinkActivated = true;
+
+    const title = document.getElementById("thirdTitle");
+    title.style.cursor = "pointer";
+    title.onclick = function () {
+      document.getElementById("thirdGate").classList.add("hidden");
+      document.getElementById("omega-wrapper").style.display = "block";
+    };
+  }
+
+  // Final content unlock (Ctrl+Alt+Q)
+  if (e.ctrlKey && e.altKey && e.key === 'q') {
+    document.getElementById("omega-wrapper").style.display = "none";
+    document.getElementById("omega-content").style.display = "block";
+  }
+});
 </script>
+
 
 
 </body>
