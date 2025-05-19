@@ -53,34 +53,41 @@
   background-color: #222;
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 10px 20px;
+  padding: 20px 40px; /* taller header */
   flex-wrap: wrap;
+  gap: 40px;
 }
 
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .nav-title {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
 .nav-icon {
-  height: 40px;
+  height: 50px; /* bigger icons */
   background: white;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 2px solid #fff;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .navbar-right .nav-menu {
   list-style: none;
   display: flex;
-  gap: 10px;
+  gap: 14px;
   margin: 0;
   padding: 0;
 }
@@ -91,11 +98,12 @@
 
 .nav-menu a {
   display: inline-block;
-  padding: 8px 14px;
+  padding: 10px 16px;
   background-color: #333;
   color: white;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 15px;
   transition: background 0.2s;
 }
 
