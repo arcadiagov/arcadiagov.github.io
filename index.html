@@ -48,6 +48,90 @@
     width: 100%;
   }
 }
+/* NAVBAR STYLING */
+.navbar {
+  background-color: #222;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.nav-icon {
+  height: 40px;
+  background: white;
+  border-radius: 5px;
+  border: 2px solid #fff;
+}
+
+.navbar-right .nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
+  display: inline-block;
+  padding: 8px 14px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.nav-menu a:hover {
+  background-color: #444;
+}
+
+/* DROPDOWN MENU */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  z-index: 1;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  background-color: #333;
+  border-bottom: 1px solid #444;
+}
+
+.dropdown-content a:hover {
+  background-color: #444;
+}
 
 </style>
   <audio id="anthemAudio" autoplay>
@@ -60,32 +144,41 @@
  <div id="arc5Badge">ARC4</div>
  
 
- <div style="background-color: #e74c3c; color: white; text-align: center; padding: 15px; font-weight: bold; font-size: 1.2rem;">
+
+
+<header>
+  <div class="navbar">
+    <div class="navbar-left">
+      <img src="flag.png" alt="Flag of Arcadia" class="nav-icon">
+      <img src="crest.png" alt="Crest of Arcadia" class="nav-icon">
+      <span class="nav-title">Kingdom Realm of Arcadia</span>
+    </div>
+    <nav class="navbar-right">
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="GqiNAyrwDvzXBPn.html" class="dropbtn">About ▾</a>
+          <div class="dropdown-content">
+            <a href="GqiNAyrwDvzXBPn.html">Overview</a>
+            <a href="xGpDNejwwuLhgZI.html">Governance</a>
+          </div>
+        </li>
+        <li><a href="news2.0.html">News</a></li>
+        <li><a href="constitution.html">Constitution</a></li>
+        <li><a href="acts.html">Acts</a></li>
+        <li><a href="citizenship-application.html">Citizenship</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="restricted.html">Restricted</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+ 
+  <div style="background-color: #e74c3c; color: white; text-align: center; padding: 15px; font-weight: bold; font-size: 1.2rem;">
   <a href="agent-registration.html" style="color: white; text-decoration: underline;">
     NOTICE: Foreign agents must register with the Crown — Click here to comply with Chapter 18 of the Arcadian Penal Code.
   </a>
 </div>
-
-<header style="background-color: #2c3e50; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-  <div style="display: flex; align-items: center; gap: 20px;">
-    <img src="flag.png" alt="Flag of Arcadia" style="height: 50px; border: 2px solid white; border-radius: 5px; background: white;">
-    <img src="crest.png" alt="Crest of Arcadia" style="height: 50px; border: 2px solid white; border-radius: 5px; background: white;">
-    <h1 style="color: white; margin: 0; font-size: 1.4rem;">Kingdom Realm of Arcadia</h1>
-  </div>
-  <nav>
-    <ul style="list-style: none; display: flex; gap: 15px; margin: 0; padding: 0;">
-      <li><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
-      <li><a href="GqiNAyrwDvzXBPn.html" style="color: white; text-decoration: none;">About</a></li>
-      <li><a href="xGpDNejwwuLhgZI.html" style="color: white; text-decoration: none;">Governance</a></li>
-      <li><a href="news2.0.html" style="color: white; text-decoration: none;">News</a></li>
-      <li><a href="constitution.html" style="color: white; text-decoration: none;">Constitution</a></li>
-      <li><a href="acts.html" style="color: white; text-decoration: none;">Acts</a></li>
-      <li><a href="citizenship-application.html" style="color: white; text-decoration: none;">Citizenship</a></li>
-      <li><a href="contact.html" style="color: white; text-decoration: none;">Contact</a></li>
-      <li><a href="restricted.html" style="color: white; text-decoration: none;">Restricted</a></li>
-    </ul>
-  </nav>
-</header>
 
 
  
