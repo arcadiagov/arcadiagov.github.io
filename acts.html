@@ -6,118 +6,163 @@
   <title>Acts of Arcadia</title>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
   <style>
-     body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+    body {
+      font-family: 'Merriweather', serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
 
-        header {
-            background-color: #2C3E50;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
+    /* Header */
+    header {
+      background-color: #2C3E50;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
+    header img {
+      max-height: 100px;
+      margin-bottom: 10px;
+    }
 
-        nav {
-            background-color: #34495E;
-            padding: 10px;
-            text-align: center;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 4px;
-        }
+    header p {
+      font-size: 18px;
+      margin-top: 5px;
+    }
 
-        nav a:hover {
-            background-color: #1ABC9C;
-        }
+    /* Navigation */
+    nav {
+      background-color: #34495E;
+    }
 
-        .container {
-            padding: 20px;
-        }
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-        .intro, .governance, .news {
-            margin-bottom: 40px;
-        }
+    nav li {
+      position: relative;
+    }
 
-        .intro img {
-            max-width: 100%;
-            height: auto;
-        }
+    nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      transition: background-color 0.3s ease;
+    }
 
-        .intro p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
+    nav a:hover {
+      background-color: #1ABC9C;
+    }
 
-        .intro h2, .governance h2, .news h2 {
-            color: #2C3E50;
-        }
+    nav ul ul {
+      display: none;
+      position: absolute;
+      background-color: #34495E;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      z-index: 1000;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+    }
 
-        .footer {
-            background-color: #34495E;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+    nav ul li:hover > ul {
+      display: block;
+    }
+
+    nav ul ul li {
+      width: 100%;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .intro, .governance, .news {
+      margin-bottom: 40px;
+    }
+
+    .intro img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .intro p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .intro h2, .governance h2, .news h2 {
+      color: #2C3E50;
+    }
+
+    .footer {
+      background-color: #34495E;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    #arc5Badge {
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      background-color: black;
+      color: white;
+      padding: 5px 10px;
+      font-weight: bold;
+      z-index: 999;
+    }
   </style>
-   
 </head>
 <body>
-  
+
   <div id="arc5Badge">ARC4</div>
 
-  <!-- State of Emergency Notification Banner -->
-<a href="news.html#state-of-emergency-article" style="text-decoration: none;">
-  <div style="background-color: red; color: white; padding: 10px; text-align: center; font-weight: bold; font-size: 18px; cursor: pointer;">
-    ⚠️ <strong>State of Emergency in Effect</strong> ⚠️ <br>
-    Due to the ongoing threat posed by unnamed terrorists, the Kingdom of Arcadia is currently in a state of emergency. Citizens are advised to remain vigilant and report any suspicious activity to the authorities immediately.
-  </div>
-</a>
-  <div style="background-color: #e74c3c; color: white; text-align: center; padding: 15px; font-weight: bold; font-size: 1.2rem;">
-  <a href="agent-registration.html" style="color: white; text-decoration: underline;">
-    NOTICE: Foreign agents must register with the Crown — Click here to comply with Chapter 18 of the Arcadian Penal Code.
-  </a>
-</div>
+
+  <!-- Header -->
   <header>
     <img src="Flag_of_Arcadia.png" alt="Flag of Arcadia">
     <h1>The Acts of Arcadia</h1>
     <p>Official Decrees and Legislation of the Kingdom</p>
   </header>
- 
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-<li><a href="GqiNAyrwDvzXBPn.html">About</a></li>
-    <li><a href="kWOLxQRXWLGSvMlefcMdHDxEcPRmHDGLWrtFeztZXymIyOgMBE.html">Arrest Warrants</a></li>
-<li><a href="xGpDNejwwuLhgZI.html">Governance</a></li>
-<li><a href="news2.0.html">News</a></li>
-<li><a href="constitution.html">Constitution</a></li>
-<li><a href="acts.html">Acts</a></li>
-<li><a href="citizenship-application.html">Citizenship Application</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="restricted.html">Restricted</a></li>
-  </ul>
-</nav>
- 
-        <section id="intro" class="intro"> ... </section>
-<section id="governance" class="governance"> ... </section>
-<section id="news" class="news"> ... </section>
-<section id="contact"> ... </section>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="GqiNAyrwDvzXBPn.html">About</a></li>
+      <li><a href="kWOLxQRXWLGSvMlefcMdHDxEcPRmHDGLWrtFeztZXymIyOgMBE.html">Arrest Warrants</a></li>
+      <li><a href="xGpDNejwwuLhgZI.html">Governance</a></li>
+      <li><a href="news2.0.html">News</a></li>
+      <li><a href="constitution.html">Constitution</a></li>
+      <li><a href="acts.html">Acts</a></li>
+      <li><a href="citizenship-application.html">Citizenship Application</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="restricted.html">Restricted</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Sections -->
+  <section id="intro" class="intro"> ... </section>
+  <section id="governance" class="governance"> ... </section>
+  <section id="news" class="news"> ... </section>
+  <section id="contact"> ... </section>
     
   <main>
     <section class="act">
