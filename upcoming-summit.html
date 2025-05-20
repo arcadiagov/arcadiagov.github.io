@@ -52,24 +52,30 @@
       font-style: italic;
       color: #7f8c8d;
     }
-    .countdown {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      background: #1a252f;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 6px;
-      font-family: monospace;
-      font-size: 0.95rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    @media (max-width: 600px) {
-      .countdown {
-        font-size: 0.85rem;
-        padding: 8px 12px;
-      }
-    }
+ .countdown {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: linear-gradient(135deg, #1a252f, #2c3e50);
+  color: #00ffc8;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 255, 200, 0.3);
+  animation: fadeIn 1.5s ease-in-out;
+  border: 1px solid #00ffc8;
+  text-shadow: 0 0 8px rgba(0, 255, 200, 0.8);
+  z-index: 1000;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
   </style>
 </head>
 <body>
@@ -105,30 +111,34 @@
     <a href="news2.0.html">← Back to News Homepage</a>
   </p>
 
+ 
   <script>
-    const countdownEl = document.getElementById("countdown");
-    const summitDate = new Date("May 24, 2025 14:00:00").getTime();
+  const countdownEl = document.getElementById("countdown");
+  const summitDate = new Date("May 24, 2025 14:00:00").getTime();
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = summitDate - now;
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = summitDate - now;
 
-      if (distance <= 0) {
-        countdownEl.innerHTML = "Summit in progress or concluded.";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      countdownEl.innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s until summit`;
+    if (distance <= 0) {
+      countdownEl.innerHTML = "🕊️ Summit in progress or concluded.";
+      return;
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownEl.innerHTML = `
+      ⏳ <strong>${days}</strong>d <strong>${hours}</strong>h 
+      <strong>${minutes}</strong>m <strong>${seconds}</strong>s 
+      until summit
+    `;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 </body>
 </html>
