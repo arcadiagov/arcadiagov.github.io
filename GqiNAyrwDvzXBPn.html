@@ -155,6 +155,79 @@
 </div>
 </header>
 
+<div id="countdown-clock" style="display: flex; justify-content: center; gap: 20px; margin: 40px 0; flex-wrap: wrap;"></div>
+
+<style>
+  .clock-box {
+    background-color: #1a252f;
+    color: #ecf0f1;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-size: 1.4rem;
+  }
+
+  .clock-box span.label {
+    font-size: 0.8rem;
+    color: #bdc3c7;
+    margin-top: 5px;
+  }
+
+  #countdown-title {
+    text-align: center;
+    font-size: 1.6rem;
+    color: #2980b9;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+  }
+</style>
+
+<div id="countdown-title">Treaty Revisions Begin In</div>
+
+<script>
+  (function(){
+    const countdownEl = document.getElementById('countdown-clock');
+    const targetDate = new Date('2025-10-16T00:00:00').getTime();
+
+    function createBox(value, label) {
+      return `<div class="clock-box">
+                ${value}
+                <span class="label">${label}</span>
+              </div>`;
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdownEl.innerHTML = "<h2 style='text-align:center; color:#e74c3c;'>The treaty revision period has begun.</h2>";
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML =
+        createBox(days, "Days") +
+        createBox(hours.toString().padStart(2, '0'), "Hours") +
+        createBox(minutes.toString().padStart(2, '0'), "Minutes") +
+        createBox(seconds.toString().padStart(2, '0'), "Seconds");
+    }
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  })();
+</script>
 
     <main>
         <section>
