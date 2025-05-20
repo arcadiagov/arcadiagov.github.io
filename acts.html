@@ -37,53 +37,128 @@
       margin-top: 5px;
     }
 
-    /* Navigation */
-    nav {
+    /* NAVBAR STYLING */
+    .navbar {
       background-color: #34495E;
-    }
-
-    nav ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+      color: white;
       display: flex;
       justify-content: center;
+      align-items: center;
+      padding: 20px 40px;
       flex-wrap: wrap;
+      gap: 40px;
+      width: 100vw;
+      margin: 0;
+      box-sizing: border-box;
     }
 
-    nav li {
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .nav-icon {
+      height: 50px;
+      background: white;
+      border-radius: 6px;
+      border: 2px solid #fff;
+    }
+
+    .navbar-right {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .navbar-right .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
       position: relative;
     }
 
-    nav a {
-      display: block;
+    .nav-menu a {
+      display: inline-block;
+      padding: 10px 16px;
+      background-color: #333;
       color: white;
       text-decoration: none;
-      padding: 14px 20px;
-      transition: background-color 0.3s ease;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: background 0.2s;
     }
 
-    nav a:hover {
-      background-color: #1ABC9C;
+    .nav-menu a:hover {
+      background-color: #444;
     }
 
-    nav ul ul {
-      display: none;
-      position: absolute;
-      background-color: #34495E;
-      top: 100%;
-      left: 0;
-      min-width: 180px;
-      z-index: 1000;
-      box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
-    }
-
-    nav ul li:hover > ul {
+    /* DROPDOWN MENU */
+    .dropdown:hover .dropdown-content {
       display: block;
     }
 
-    nav ul ul li {
-      width: 100%;
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      top: 100%;
+      left: 0;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      background-color: #333;
+      border-bottom: 1px solid #444;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #444;
+    }
+
+    /* Additional nav ul styling */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+      color: #f1c40f;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .navbar-right .nav-menu {
+        flex-direction: column;
+        width: 100%;
+      }
     }
 
     .container {
@@ -138,31 +213,52 @@
   <!-- Header -->
   <header>
     <img src="Flag_of_Arcadia.png" alt="Flag of Arcadia">
-    <h1>The Acts of Arcadia</h1>
+    <h1>Kingdom Realm of Arcadia- Acts </h1>
     <p>Official Decrees and Legislation of the Kingdom</p>
   </header>
 
-  <!-- Navigation Menu -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="GqiNAyrwDvzXBPn.html">About</a></li>
-      <li><a href="kWOLxQRXWLGSvMlefcMdHDxEcPRmHDGLWrtFeztZXymIyOgMBE.html">Arrest Warrants</a></li>
-      <li><a href="xGpDNejwwuLhgZI.html">Governance</a></li>
-      <li><a href="news2.0.html">News</a></li>
-      <li><a href="constitution.html">Constitution</a></li>
-      <li><a href="acts.html">Acts</a></li>
-      <li><a href="citizenship-application.html">Citizenship Application</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="restricted.html">Restricted</a></li>
-    </ul>
-  </nav>
+  <!-- New Navbar -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <img src="crest.png" alt="Crest of Arcadia" class="nav-icon">
+      <div class="nav-title">Kingdom Realm of Arcadia - Contact</div>
+    </div>
+    <div class="navbar-right">
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">Government</a>
+          <div class="dropdown-content">
+            <a href="WStakmsWwFaXoifDeTKtSwePIiQwB.html">Penal Code</a>
+            <a href="acts.html">Acts</a>
+            <a href="agent-registration.html">Agent Registration</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="xGpDNejwwuLhgZI.html">Governance</a>
+            <a href="citizenship-application.html">Citizenship Application</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">About</a>
+          <div class="dropdown-content">
+            <a href="gheetan-info.html">About Gheetan</a>
+            <a href="GqiNAyrwDvzXBPn.html">About Arcadia</a>
+          </div>
+        </li>
+
+        <li><a href="restricted.html">Restricted</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
 
   <!-- Main Content Sections -->
   <section id="intro" class="intro"> ... </section>
   <section id="governance" class="governance"> ... </section>
   <section id="news" class="news"> ... </section>
   <section id="contact"> ... </section>
+
     
   <main>
     <section class="act">
