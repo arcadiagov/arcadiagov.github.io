@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upcoming Intermicronational Summit Announced</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #2c3e50;
+    }
+    header {
+      background-color: #1a252f;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .news-article {
+      background-color: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+    h2 {
+      color: #2980b9;
+    }
+    p {
+      line-height: 1.6;
+    }
+    ul {
+      padding-left: 20px;
+      list-style-type: none;
+    }
+    ul li::before {
+      content: "• ";
+      color: #2980b9;
+      font-weight: bold;
+    }
+    hr {
+      margin-top: 40px;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+    .timestamp {
+      font-style: italic;
+      color: #7f8c8d;
+    }
+    .countdown {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #1a252f;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    @media (max-width: 600px) {
+      .countdown {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Government of Arcadia — Official News Release</h1>
+  </header>
+  <main>
+    <article class="news-article">
+      <h2>Upcoming Intermicronational Summit Announced</h2>
+      <p class="timestamp">May 20, 2025 – Capital City, Arcadia</p>
+      <p>
+        The Kingdom of Arcadia has confirmed that a summit between the heads of state of Bradictoria, the Great Gheetan Empire, and Arcadia will be held on <strong>Saturday, May 24, 2025, at 2:00 PM</strong>.
+      </p>
+      <p>
+        This high-level diplomatic meeting will bring together Emperor Bradley Christie of Bradictoria, Emperor Holden Porter of the Great Gheetan Empire, and His Lordship, the Lord High King of Arcadia, for strategic discussions on defense, trade, and international cooperation within the micronational sphere.
+      </p>
+      <p>
+        The summit is expected to set new precedents in micronational diplomacy and will be closely followed by observers and citizens alike.
+      </p>
+      <p>
+        Security preparations are being jointly coordinated by all three governments. Citizens are encouraged to stay tuned to official communication channels for further details.
+      </p>
+      <hr>
+    </article>
+  </main>
+
+  <div class="countdown" id="countdown">Loading countdown...</div>
+
+  <p style="text-align: center;">
+    <a href="index.html">← Back to Home</a>
+  </p>
+  <p style="text-align: center;">
+    <a href="news2.0.html">← Back to News Homepage</a>
+  </p>
+
+  <script>
+    const countdownEl = document.getElementById("countdown");
+    const summitDate = new Date("May 24, 2025 14:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = summitDate - now;
+
+      if (distance <= 0) {
+        countdownEl.innerHTML = "Summit in progress or concluded.";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s until summit`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
