@@ -11,97 +11,136 @@
       background-color: #f5f7fa;
       color: #2C3E50;
     }
+/* NAVBAR BASE */
+.navbar {
+  background-color: #34495E;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
 
-    .navbar {
-      background-color: #34495E;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      flex-wrap: wrap;
-    }
+/* LEFT SIDE */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
-    .navbar-left {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+.nav-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+}
 
-    .nav-title {
-      font-size: 1.6rem;
-      font-weight: bold;
-    }
+/* CREST ICON */
+.nav-icon {
+  height: 50px;
+  background: white;
+  border-radius: 6px;
+  border: 2px solid #fff;
+}
 
-    .nav-icon {
-      height: 50px;
-      background: white;
-      border-radius: 6px;
-      border: 2px solid #fff;
-    }
+/* RIGHT SIDE NAV MENU */
+.navbar-right {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
-    .navbar-right {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-    .nav-menu {
-      list-style: none;
-      display: flex;
-      gap: 14px;
-      margin: 0;
-      padding: 0;
-    }
+/* NAV BUTTONS */
+.nav-menu li a {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: background 0.2s;
+}
 
-    .nav-menu li {
-      position: relative;
-    }
+.nav-menu li a:hover {
+  background-color: #444;
+  color: #f1c40f;
+  text-decoration: underline;
+}
 
-    .nav-menu a {
-      display: inline-block;
-      padding: 10px 16px;
-      background-color: #333;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 15px;
-      transition: background 0.2s;
-    }
+/* DROPDOWN MENU */
+.nav-menu .dropdown {
+  position: relative;
+}
 
-    .nav-menu a:hover {
-      background-color: #444;
-    }
+.nav-menu .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  z-index: 10;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  flex-direction: column;
+}
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+.nav-menu .dropdown-content a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  background-color: #333;
+  border-bottom: 1px solid #444;
+}
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #333;
-      top: 100%;
-      left: 0;
-      min-width: 160px;
-      z-index: 1;
-      border-radius: 4px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
+.nav-menu .dropdown-content a:hover {
+  background-color: #444;
+}
 
-    .dropdown-content a {
-      display: block;
-      padding: 10px;
-      color: white;
-      text-decoration: none;
-      background-color: #333;
-      border-bottom: 1px solid #444;
-    }
+/* HOVER TO SHOW DROPDOWN */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-    .dropdown-content a:hover {
-      background-color: #444;
-    }
+/* RESPONSIVE STYLING */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
 
+  .navbar-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .nav-menu .dropdown-content {
+    position: static;
+    box-shadow: none;
+    width: 100%;
+  }
+}
     .content {
       padding: 40px;
       max-width: 900px;
@@ -123,31 +162,41 @@
 </head>
 <body>
 
-  <div class="navbar">
-    <div class="navbar-left">
-      <img src="your-logo.png" alt="Logo" class="nav-icon">
-      <div class="nav-title">Kingdom of Arcadia</div>
-    </div>
-    <div class="navbar-right">
-      <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
-          <a href="#">Government</a>
-          <div class="dropdown-content">
-            <a href="WStakmsWwFaXoifDeTKtSwePIiQwB.html">Penal Code</a>
-            <a href="acts.html">Acts</a>
-            <a href="agent-registration.html">Agent Registration</a>
-            <a href="constitution.html">Constitution</a>
-            <a href="xGpDNejwwuLhgZI.html">Governance</a>
-            <a href="citizenship-application.html">Citizenship Application</a>
-          </div>
-        </li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="restricted.html">Restricted</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
+<div class="navbar">
+  <div class="navbar-left">
+    <img src="crest.png" alt="Crest of Arcadia" class="nav-icon">
+    <div class="nav-title">Kingdom Realm of Arcadia- About Gheetan</div>
   </div>
+  <div class="navbar-right">
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+
+      <li class="dropdown">
+        <a href="#">Government</a>
+        <div class="dropdown-content">
+          <a href="WStakmsWwFaXoifDeTKtSwePIiQwB.html">Penal Code</a>
+          <a href="acts.html">Acts</a>
+          <a href="agent-registration.html">Agent Registration</a>
+          <a href="constitution.html">Constitution</a>
+          <a href="xGpDNejwwuLhgZI.html">Governance</a>
+          <a href="citizenship-application.html">Citizenship Application</a>
+        </div>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">About</a>
+        <div class="dropdown-content">
+          <a href="gheetan-info.html">About Gheetan</a>
+          <a href="GqiNAyrwDvzXBPn.html">About Arcadia</a>
+        </div>
+      </li>
+
+      <li><a href="restricted.html">Restricted</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
 
   <div class="content">
     <h1>The Great Gheetan Empire</h1>
