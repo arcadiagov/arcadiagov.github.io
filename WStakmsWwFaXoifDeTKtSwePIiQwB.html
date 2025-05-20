@@ -15,29 +15,126 @@
       color: #2c3e50;
       line-height: 1.6;
     }
-    header {
-      background-color: #2C3E50;
-      color: white;
-      padding: 30px;
-      text-align: center;
-      border-bottom: 5px solid #34495e;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      letter-spacing: 2px;
-    }
-   main {
-  padding: 40px;
-  max-width: 1200px;
-  margin: 40px auto;
-  background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  margin-right: 220px; /* Added to make room for fixed ToC menu */
-}
 
-    
+    /* NAVBAR STYLING */
+    .navbar {
+      background-color: #34495E;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 40px;
+      flex-wrap: wrap;
+      gap: 40px;
+      width: 100vw;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .nav-icon {
+      height: 50px;
+      background: white;
+      border-radius: 6px;
+      border: 2px solid #fff;
+    }
+
+    .navbar-right {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .navbar-right .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      position: relative;
+    }
+
+    .nav-menu a {
+      display: inline-block;
+      padding: 10px 16px;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+
+    .nav-menu a:hover {
+      background-color: #444;
+    }
+
+    /* DROPDOWN MENU */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      top: 100%;
+      left: 0;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      background-color: #333;
+      border-bottom: 1px solid #444;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #444;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .navbar-right .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+    }
+
+    main {
+      padding: 40px;
+      max-width: 1200px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin-right: 220px; /* Room for fixed ToC menu */
+    }
+
     h2 {
       font-size: 2rem;
       color: #2C3E50;
@@ -45,56 +142,92 @@
       padding-bottom: 10px;
       margin-bottom: 20px;
     }
+
     .section {
       margin-bottom: 30px;
     }
+
     .section h3 {
       font-size: 1.8rem;
       color: #34495e;
       margin-bottom: 15px;
     }
+
     .section p {
       font-size: 1.2rem;
       margin-bottom: 15px;
     }
+
     .section ul {
       list-style-type: none;
       padding-left: 0;
       margin-top: 15px;
     }
+
     .section ul li {
       font-size: 1.2rem;
       margin-bottom: 10px;
       padding-left: 20px;
       position: relative;
     }
+
     .section ul li:before {
       content: '•';
       color: #3498db;
       position: absolute;
       left: 0;
     }
-    nav.section {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 200px;
-  height: 100%;
-  overflow-y: auto;
-  background-color: #f9f9f9;
-  border-left: 1px solid #ccc;
-  padding: 15px;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
-  z-index: 1000;
-  font-size: 14px;
-}
 
+    nav.section {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 100%;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+      border-left: 1px solid #ccc;
+      padding: 15px;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <header>
-  <h1>The Arcadian Penal Code</h1>
-</header>
+
+  <div class="navbar">
+    <div class="navbar-left">
+      <img src="crest.png" alt="Crest of Arcadia" class="nav-icon">
+      <div class="nav-title">Kingdom Realm of Arcadia - Penal Code</div>
+    </div>
+    <div class="navbar-right">
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Government</a>
+          <div class="dropdown-content">
+            <a href="WStakmsWwFaXoifDeTKtSwePIiQwB.html">Penal Code</a>
+            <a href="acts.html">Acts</a>
+            <a href="agent-registration.html">Agent Registration</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="xGpDNejwwuLhgZI.html">Governance</a>
+            <a href="citizenship-application.html">Citizenship Application</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">About</a>
+          <div class="dropdown-content">
+            <a href="gheetan-info.html">About Gheetan</a>
+            <a href="GqiNAyrwDvzXBPn.html">About Arcadia</a>
+          </div>
+        </li>
+        <li><a href="news2.0.html">News</a></li>
+        <li><a href="restricted.html">Restricted</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
 
 
   <nav class="section">
