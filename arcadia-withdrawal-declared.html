@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arcadia Declares Withdrawal Countdown from Treaty of Eternal Union</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #2c3e50;
+    }
+
+    header {
+      background-color: #1a252f;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .news-article {
+      background-color: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    h2 {
+      color: #2980b9;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .timestamp {
+      font-style: italic;
+      color: #7f8c8d;
+    }
+
+    #countdown {
+      font-size: 2rem;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .clock-container {
+      width: 300px;
+      height: 300px;
+      margin: 30px auto;
+      border: 8px solid #34495e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    }
+
+    .clock-text {
+      font-size: 1.4rem;
+      color: #2c3e50;
+      text-align: center;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Government of Arcadia — Official News Release</h1>
+  </header>
+  <main>
+    <article class="news-article">
+      <h2>Arcadia Declares Withdrawal Countdown from Treaty of Eternal Union</h2>
+      <p class="timestamp">April 17, 2025 – Capital City, Arcadia</p>
+      <p>
+        The Lord High King of Arcadia has formally declared the beginning of the withdrawal countdown from the Treaty of Eternal Union with the Great Gheetan Empire. As per Article V, Section 3 of the treaty, no party may exit within the first six months following ratification. As of today, that countdown has officially begun.
+      </p>
+      <p>
+        Arcadia will gain legal eligibility to initiate withdrawal on <strong>October 17, 2025</strong>. Until then, the Kingdom remains bound by all obligations of the treaty.
+      </p>
+
+      <div class="clock-container">
+        <div class="clock-text" id="countdown">
+          Loading countdown...
+        </div>
+      </div>
+
+      <p>
+        The government of Arcadia urges all citizens to remain vigilant and united as this crucial milestone approaches.
+      </p>
+      <hr>
+    </article>
+  </main>
+  <p style="text-align: center;">
+    <a href="index.html">← Back to Home</a>
+  </p>
+  <p style="text-align: center;">
+    <a href="news2.0.html">← Back to News Homepage</a>
+  </p>
+
+  <script>
+    const targetDate = new Date("October 17, 2025 00:00:00").getTime();
+    const countdownElement = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        countdownElement.innerHTML = "Treaty Withdrawal Authorized.";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `
+        ${days} Days<br>
+        ${hours} Hours<br>
+        ${minutes} Minutes<br>
+        ${seconds} Seconds
+      `;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
