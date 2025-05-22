@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arcadian Realm Military Structure</title>
+  <style>
+    /* NAVBAR STYLING */
+    .navbar {
+      background-color: #34495E; /* Matches footer */
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 40px;
+      flex-wrap: wrap;
+      gap: 40px;
+      width: 100vw;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .nav-icon {
+      height: 50px;
+      background: white;
+      border-radius: 6px;
+      border: 2px solid #fff;
+    }
+
+    .navbar-right {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .navbar-right .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      position: relative;
+    }
+
+    .nav-menu a {
+      display: inline-block;
+      padding: 10px 16px;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+
+    .nav-menu a:hover {
+      background-color: #444;
+    }
+
+    /* DROPDOWN MENU */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      top: 100%;
+      left: 0;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      background-color: #333;
+      border-bottom: 1px solid #444;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #444;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+
+    /* Additional styling for page content */
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      color: #222;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      color: #34495E;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+      margin-bottom: 1rem;
+    }
+
+    /* Officers and Rank Tables */
+    table.officers, table.rank-system {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    table.officers th, table.officers td,
+    table.rank-system th, table.rank-system td {
+      border: 1px solid #ccc;
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    table.officers th, table.rank-system th {
+      background-color: #34495E;
+      color: white;
+      font-weight: 600;
+    }
+
+    table.officers tbody tr:nth-child(even),
+    table.rank-system tbody tr:nth-child(even) {
+      background-color: #e9ecef;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="arc5Badge">ARC4</div>
+
+  <div class="navbar">
+    <div class="navbar-left">
+      <img src="crest.png" alt="Crest of Arcadia" class="nav-icon" />
+      <div class="nav-title">Kingdom Realm of Arcadia - Realm Military Structure</div>
+    </div>
+    <div class="navbar-right">
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">Government</a>
+          <div class="dropdown-content">
+            <a href="WStakmsWwFaXoifDeTKtSwePIiQwB.html">Penal Code</a>
+            <a href="acts.html">Acts</a>
+            <a href="agent-registration.html">Agent Registration</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="xGpDNejwwuLhgZI.html">Governance</a>
+            <a href="citizenship-application.html">Citizenship Application</a>
+          </div>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">About</a>
+          <div class="dropdown-content">
+            <a href="gheetan-info.html">About Gheetan</a>
+            <a href="GqiNAyrwDvzXBPn.html">About Arcadia</a>
+          </div>
+        </li>
+          <li class="dropdown">
+          <a href="#">Military</a>
+          <div class="dropdown-content">
+            <a href="realmmilitarystructure.html">Realm Military Structure</a>
+            <a href="military-code.html">Military Code of Conduct</a>
+            <a href="special-forces.html">Arcadia Special Forces</a>
+          </div>
+        </li>
+
+        <li><a href="news2.0.html">News</a></li>
+        <li><a href="restricted.html">Restricted</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <main>
+    <h1>The Arcadian Realm Military Structure</h1>
+
+    <p>The military forces of the Kingdom Realm of Arcadia are structured to ensure the security, sovereignty, and prosperity of our nation. The Arcadian Armed Forces (AAF) operate under the direct command of The Lord High King and the High Council of Arcadia, embodying discipline, loyalty, and strategic excellence.</p>
+
+    <h2>Branches of the Arcadian Armed Forces</h2>
+    <ul>
+      <li><strong>Royal Arcadian Army (RAA):</strong> Responsible for land-based defense operations, tactical ground warfare, and homeland security.</li>
+      <li><strong>Arcadian Naval Fleet (ANF):</strong> Protects Arcadian territorial waters, maritime trade routes, and coastal defenses.</li>
+      <li><strong>Arcadian Air Wing (AAW):</strong> Oversees air defense, reconnaissance, and rapid deployment capabilities.</li>
+      <li><strong>Arcadian Special Operations Command (ASOC):</strong> Elite forces tasked with covert missions, intelligence gathering, and counterterrorism.</li>
+    </ul>
+
+    <h2>Command Structure</h2>
+    <p>The military command hierarchy is designed for efficiency and rapid response:</p>
+    <ul>
+      <li><strong>Lord High King:</strong> Supreme Commander of all armed forces.</li>
+      <li><strong>Chief of Defense Staff:</strong> Senior military advisor and operational commander.</li>
+      <li><strong>Branch Commanders:</strong> Each military branch is led by a General or Admiral reporting directly to the Chief of Defense Staff.</li>
+      <li><strong>Regional Commanders:</strong> Oversee territorial defense zones and coordinate local military units.</li>
+    </ul>
+
+    <h2>Military Duties and Responsibilities</h2>
+    <p>The Arcadian Armed Forces are tasked with:</p>
+    <ul>
+      <li>Defending the sovereignty and territorial integrity of Arcadia.</li>
+      <li>Supporting civil authorities in times of emergency or natural disaster.</li>
+      <li>Participating in international peacekeeping and diplomatic missions as mandated.</li>
+      <li>Maintaining readiness through continuous training, modernization, and strategic planning.</li>
+    </ul>
+
+    <h2>Recruitment and Training</h2>
+    <p>The Arcadian military prides itself on rigorous training programs and meritocratic recruitment policies designed to uphold the highest standards of discipline and capability.</p>
+    <p>All recruits undergo basic training followed by specialized instruction in their chosen branch.</p>
+
+    <h2>Officers and Their Roles</h2>
+    <table class="officers" summary="Table listing Arcadian military officers and their roles">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Role</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lord High King</td>
+          <td>Supreme Commander</td>
+          <td>Highest authority over all Arcadian military forces, responsible for final strategic decisions and command.</td>
+        </tr>
+        <tr>
+          <td>Chief of Defense Staff</td>
+          <td>Senior Military Advisor</td>
+          <td>Directs military operations, advises the Lord High King, and coordinates between branches.</td>
+        </tr>
+        <tr>
+          <td>General (Army)</td>
+          <td>Army Branch Commander</td>
+          <td>Leads the Royal Arcadian Army, plans and executes land-based operations.</td>
+        </tr>
+        <tr>
+          <td>Admiral (Navy)</td>
+          <td>Naval Fleet Commander</td>
+          <td>Commands the Arcadian Naval Fleet, oversees maritime defense and naval missions.</td>
+        </tr>
+        <tr>
+          <td>Air Marshal (Air Wing)</td>
+          <td>Air Wing Commander</td>
+          <td>Leads the Arcadian Air Wing, responsible for air defense and aerial operations.</td>
+        </tr>
+        <tr>
+          <td>Commander (Special Operations)</td>
+          <td>Special Operations Leader</td>
+          <td>Leads the Special Operations Command, directs elite missions and intelligence operations.</td>
+        </tr>
+        <tr>
+          <td>Colonel</td>
+          <td>Senior Field Officer</td>
+          <td>Commands regiments or large units within branches, supports branch commanders.</td>
+        </tr>
+        <tr>
+          <td>Major</td>
+          <td>Field Officer</td>
+          <td>Assists colonels, commands battalions or special units.</td>
+        </tr>
+        <tr>
+          <td>Captain</td>
+          <td>Company Officer</td>
+          <td>Leads companies or equivalent units, responsible for training and operations.</td>
+        </tr>
+        <tr>
+          <td>Lieutenant</td>
+          <td>Junior Officer</td>
+          <td>Commands platoons or equivalent units, often first-line leadership roles.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Rank System</h2>
+    <table class="rank-system" summary="Hierarchy of military ranks in Arcadia">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Abbreviation</th>
+          <th>Branch</th>
+          <th>Hierarchy Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lord High King</td>
+          <td>LHK</td>
+          <td>All Branches</td>
+          <td>1 (Supreme Commander)</td>
+        </tr>
+        <tr>
+          <td>Chief of Defense Staff</td>
+          <td>CDS</td>
+          <td>All Branches</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>General</td>
+          <td>Gen</td>
+          <td>Army</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Admiral</td>
+          <td>Adm</td>
+          <td>Navy</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Air Marshal</td>
+          <td>AM</td>
+          <td>Air Wing</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Commander</td>
+          <td>Cmdr</td>
+          <td>Special Operations</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Colonel</td>
+          <td>Col</td>
+          <td>All Branches</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Major</td>
+          <td>Maj</td>
+          <td>All Branches</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Captain</td>
+          <td>Cpt</td>
+          <td>All Branches</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>Lieutenant</td>
+          <td>Lt</td>
+          <td>All Branches</td>
+          <td>8 (Entry Officer)</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
