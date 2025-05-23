@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Update: Intermicronational Summit Scheduled for May 24</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #2c3e50;
+    }
+    header {
+      background-color: #1a252f;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .news-article {
+      background-color: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+    h2 {
+      color: #c0392b;
+    }
+    p {
+      line-height: 1.6;
+    }
+    hr {
+      margin-top: 40px;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+    .timestamp {
+      font-style: italic;
+      color: #7f8c8d;
+    }
+    .countdown {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #2980b9;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Government of Arcadia — Official News Release</h1>
+  </header>
+  <main>
+    <article class="news-article">
+      <h2>Update: Intermicronational Summit Scheduled for May 24</h2>
+      <p class="timestamp">May 23, 2025 – Capital City, Arcadia</p>
+      <p>
+        The Kingdom Realm of Arcadia reaffirms its participation in the upcoming intermicronational summit, set to take place on Saturday, May 24, 2025, at 2:00 PM. His Lordship, the Lord High King of Arcadia, will represent the Kingdom Realm during this high-stakes diplomatic meeting.
+      </p>
+      <p>
+        Leaders attending include Emperor Bradley Christie of Bradictoria, Emperor Holden Porter of the Great Gheetan Empire, and His Lordship. The summit will focus on defense alliances, trade strategy, and frameworks for intermicronational cooperation.
+      </p>
+      <p>
+        With growing tensions and shifting allegiances across the micronational sphere, this summit is expected to play a pivotal role in reshaping diplomatic norms and forging new strategic alignments.
+      </p>
+      <p>
+        Security arrangements are under final review and are being coordinated by all participating states. Citizens are advised to follow official Arcadian communications for real-time updates.
+      </p>
+      <div class="countdown" id="countdown">Countdown to summit: calculating...</div>
+      <hr />
+    </article>
+  </main>
+  <p style="text-align: center;">
+    <a href="index.html">← Back to Home</a>
+  </p>
+  <p style="text-align: center;">
+    <a href="news2.0.html">← Back to News Homepage</a>
+  </p>
+
+  <script>
+    const countdownEl = document.getElementById("countdown");
+    const summitDate = new Date("May 24, 2025 14:00:00").getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = summitDate - now;
+
+      if (distance <= 0) {
+        countdownEl.textContent = "The summit is currently in session.";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.textContent = `Countdown to summit: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    };
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
