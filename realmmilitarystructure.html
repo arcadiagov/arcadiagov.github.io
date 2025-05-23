@@ -76,67 +76,6 @@
       transform: scale(1.05);
     }
 
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arcadia Special Forces</title>
-  <style>
-    body {
-      background-color: black;
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .elite-unit {
-      margin: 40px auto;
-      max-width: 900px;
-      padding: 20px;
-      border: 2px solid #f1c40f;
-      border-radius: 10px;
-      background-color: #111;
-    }
-
-    .elite-unit h2 {
-      color: #f1c40f;
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .elite-unit p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    nav ul li a:hover {
-      text-decoration: underline;
-      color: #f1c40f;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        flex-direction: column;
-        width: 100%;
-      }
-    }
-
     .navbar {
       background-color: #34495E;
       color: white;
@@ -230,9 +169,22 @@
     .dropdown-content a:hover {
       background-color: #444;
     }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar-right .nav-menu {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
+
   <div class="navbar">
     <div class="navbar-left">
       <img src="crest.png" alt="Crest of Arcadia" class="nav-icon" />
@@ -273,6 +225,7 @@
       </ul>
     </div>
   </div>
+
 
   <main class="arcadian-military">
   <h1>The Arcadian Realm Military Structure</h1>
