@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Public Petitions Portal – Kingdom Realm of Arcadia</title>
+  <style>
+    /* NAVBAR CSS */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+      color: #f1c40f;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+      }
+    }
+    /* NAVBAR STYLING */
+    .navbar {
+      background-color: #34495E; /* Matches footer */
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 40px; /* taller header */
+      flex-wrap: wrap;
+      gap: 40px;
+
+      /* Added for full width stretch */
+      width: 100vw;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .nav-icon {
+      height: 50px; /* bigger icons */
+      background: white;
+      border-radius: 6px;
+      border: 2px solid #fff;
+    }
+
+    .navbar-right {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .navbar-right .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      position: relative;
+    }
+
+    .nav-menu a {
+      display: inline-block;
+      padding: 10px 16px;
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+
+    .nav-menu a:hover {
+      background-color: #444;
+    }
+
+    /* DROPDOWN MENU */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      top: 100%;
+      left: 0;
+      min-width: 160px;
+      z-index: 1;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+      background-color: #333;
+      border-bottom: 1px solid #444;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #444;
+    }
+
+    /* PAGE STYLES */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      color: #2c3e50;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #c0392b;
+      text-align: center;
+    }
+
+    form label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    form button {
+      margin-top: 20px;
+      background-color: #34495E;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    form button:hover {
+      background-color: #2c3e50;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #7f8c8d;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-left">
+      <img src="crest.png" alt="Crest of Arcadia" class="nav-icon" />
+      <div class="nav-title">Kingdom Realm of Arcadia</div>
+    </div>
+    <div class="navbar-right">
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Government</a>
+          <div class="dropdown-content">
+            <a href="WStakmsWwFaXoifDeTKtSwePIiQwB.html">Penal Code</a>
+            <a href="acts.html">Acts</a>
+            <a href="agent-registration.html">Agent Registration</a>
+            <a href="constitution.html">Constitution</a>
+            <a href="xGpDNejwwuLhgZI.html">Governance</a>
+            <a href="citizenship-application.html">Citizenship Application</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">About</a>
+          <div class="dropdown-content">
+            <a href="gheetan-info.html">About Gheetan</a>
+            <a href="GqiNAyrwDvzXBPn.html">About Arcadia</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Military</a>
+          <div class="dropdown-content">
+            <a href="realmmilitarystructure.html">Realm Military Structure</a>
+            <a href="military-code.html">Military Code of Conduct</a>
+            <a href="special-forces.html">Arcadia Special Forces</a>
+          </div>
+        </li>
+        <li><a href="news2.0.html">News</a></li>
+        <li><a href="restricted.html">Restricted</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <h2>Submit a Petition to His Lordship's Government</h2>
+    <p style="text-align: center;">
+      Citizens and subjects of Arcadia may submit formal petitions for review by the Crown Council.
+    </p>
+    <form action="https://formsubmit.co/governementofarcadia@gmail.com" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="category">Petition Category</label>
+      <select id="category" name="category" required>
+        <option value="">Select a category</option>
+        <option value="legal">Legal Reform</option>
+        <option value="civil-rights">Civil Rights</option>
+        <option value="foreign-affairs">Foreign Affairs</option>
+        <option value="security">Security Policy</option>
+        <option value="royal-request">Royal Request</option>
+      </select>
+
+      <label for="petition">Petition Text</label>
+      <textarea id="petition" name="petition" rows="8" required></textarea>
+
+      <!-- Optional: Add a hidden field to redirect after submission -->
+      <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html" />
+      <!-- Optional: Disable CAPTCHA -->
+      <input type="hidden" name="_captcha" value="false" />
+
+      <button type="submit">Submit Petition</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 Kingdom Realm of Arcadia – All rights reserved.
+  </footer>
+
+</body>
+</html>
