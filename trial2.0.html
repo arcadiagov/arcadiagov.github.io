@@ -9,7 +9,6 @@
     body {
       background: linear-gradient(to right, #1e293b, #0f172a);
       color: #f1f5f9;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .form-card {
       background: rgba(15, 23, 42, 0.95);
@@ -22,9 +21,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    input, textarea, select {
-      color: #000 !important;
-    }
   </style>
 </head>
 <body class="p-8">
@@ -34,52 +30,50 @@
       Official Arcadian Judicial Submission Portal for Individuals in Custody
     </p>
 
-   <form action="https://formsubmit.co/governementofarcadia@gmail.com" method="POST" class="space-y-6">
+    <form action="https://formsubmit.co/governementofarcadia@gmail.com" method="POST" class="space-y-6">
 
-  <!-- Hidden inputs for FormSubmit configuration -->
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-  <input type="hidden" name="_next" value="thankstrial.html">
+      <!-- Config hidden inputs -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="thankstrial.html">
 
-  <!-- Your form fields below -->
-  <div>
-    <label class="block mb-1 text-blue-300 font-medium">Full Name</label>
-    <input type="text" name="Full Name" required class="w-full p-2 rounded bg-white text-black">
-  </div>
+      <div>
+        <label class="block mb-1 text-blue-300 font-medium">Full Name</label>
+        <input type="text" name="Full Name" required class="w-full p-2 rounded bg-white text-black">
+      </div>
 
-  <div>
-    <label class="block mb-1 text-blue-300 font-medium">Penal Code</label>
-    <input type="text" name="Penal Code" required class="w-full p-2 rounded bg-white text-black">
-  </div>
+      <div>
+        <label class="block mb-1 text-blue-300 font-medium">Penal Code</label>
+        <input type="text" name="Penal Code" required class="w-full p-2 rounded bg-white text-black">
+      </div>
 
-  <div>
-    <label class="block mb-1 text-blue-300 font-medium">Lawyer Request and Reason</label>
-    <textarea name="Lawyer Request and Reason" rows="3" required class="w-full p-2 rounded bg-white text-black"></textarea>
-  </div>
+      <div>
+        <label class="block mb-1 text-blue-300 font-medium">Lawyer Request and Reason</label>
+        <textarea name="Lawyer Request and Reason" required class="w-full p-2 rounded bg-white text-black" rows="3"></textarea>
+      </div>
 
-  <div>
-    <label class="block mb-1 text-blue-300 font-medium">Select Available Lawyer</label>
-    <select name="Requested Lawyer" required class="w-full p-2 rounded bg-white text-black">
-      <option value="">-- Choose --</option>
-      <option value="Bradley Christie">Bradley Christie</option>
-    </select>
-  </div>
+      <div>
+        <label class="block mb-1 text-blue-300 font-medium">Select Available Lawyer</label>
+        <select name="Requested Lawyer" required class="w-full p-2 rounded bg-white text-black">
+          <option value="">-- Choose --</option>
+          <option value="Bradley Christie">Bradley Christie</option>
+        </select>
+      </div>
 
-  <div>
-    <label class="block mb-1 text-blue-300 font-medium">Charges Filed</label>
-    <textarea name="Charges Filed" rows="4" required class="w-full p-2 rounded bg-white text-black"></textarea>
-  </div>
+      <div>
+        <label class="block mb-1 text-blue-300 font-medium">Charges Filed</label>
+        <textarea name="Charges Filed" required class="w-full p-2 rounded bg-white text-black" rows="4"></textarea>
+      </div>
 
-  <div>
-    <label class="block mb-1 text-blue-300 font-medium">Brief Statement or Appeal</label>
-    <textarea name="Brief Statement or Appeal" rows="4" required class="w-full p-2 rounded bg-white text-black"></textarea>
-  </div>
+      <div>
+        <label class="block mb-1 text-blue-300 font-medium">Brief Statement or Appeal</label>
+        <textarea name="Brief Statement or Appeal" required class="w-full p-2 rounded bg-white text-black" rows="4"></textarea>
+      </div>
 
-  <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-2 rounded shadow">
-    Submit Trial Request
-  </button>
-</form>
-
+      <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-2 rounded shadow">
+        Submit Trial Request
+      </button>
+    </form>
 
     <div class="mt-8 text-sm text-gray-400 border-t border-gray-600 pt-4 text-center">
       ⚖️ All submissions are securely logged under Arcadian High Council oversight. False claims are subject to investigation.
