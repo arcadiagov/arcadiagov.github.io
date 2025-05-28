@@ -218,37 +218,6 @@
   <footer style="text-align: center; padding: 10px; background-color: #34495E; color: white;">
     &copy; 2025 Kingdom of Arcadia | Royal Archives
   </footer>
-  <!-- Hidden Access Link Script -->
-<script>
-  // Create hidden link element
-  const hiddenLink = document.createElement("a");
-  hiddenLink.href = "mUQVmcemfUmhFzGICgCVndSFCzDKR.html";
-  hiddenLink.textContent = "Access Restricted Page";
-  hiddenLink.style.display = "none";
-  hiddenLink.style.position = "fixed";
-  hiddenLink.style.bottom = "20px";
-  hiddenLink.style.right = "20px";
-  hiddenLink.style.padding = "10px 15px";
-  hiddenLink.style.backgroundColor = "#2C3E50";
-  hiddenLink.style.color = "#fff";
-  hiddenLink.style.borderRadius = "5px";
-  hiddenLink.style.textDecoration = "none";
-  hiddenLink.style.zIndex = "9999";
-  document.body.appendChild(hiddenLink);
-
-  // Key listener for Ctrl + Alt + G
-  document.addEventListener("keydown", function (e) {
-    if (e.ctrlKey && e.altKey && e.key.toLowerCase() === "g") {
-      const input = prompt("Enter password to reveal the restricted page:");
-      if (input === "ImperialMajesty2025") {
-        hiddenLink.style.display = "block";
-        alert("Access link revealed.");
-      } else {
-        alert("Incorrect password.");
-      }
-    }
-  });
-</script>
  <style>
    #arc5Badge {
   position: fixed;
