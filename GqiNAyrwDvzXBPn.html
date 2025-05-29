@@ -167,7 +167,48 @@
 </header>
 
 <div id="countdown-clock" style="display: flex; justify-content: center; gap: 20px; margin: 40px 0; flex-wrap: wrap;"></div>
+<style>
+  #lockdowScreen {
+    display: none; /* hidden by default */
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 20vh;
+    z-index: 9999;
+  }
+</style>
 
+<div id="lockdowScreen">
+  Access Denied.<br>
+  This site is locked in Incognito/Private mode.
+</div>
+
+<script>
+(async function () {
+  const lockdown = document.getElementById('lockdowScreen');
+  
+  const isIncognito = await detectIncognito();
+  if (isIncognito) {
+    lockdown.style.display = 'block';
+    // Optionally disable page scrolling/interactions:
+    document.body.style.overflow = 'hidden';
+  }
+
+  async function detectIncognito() {
+    return new Promise(function (resolve) {
+      const fs = window.RequestFileSystem || window.webkitRequestFileSystem;
+      if (!fs) {
+        resolve(false);
+      } else {
+        fs(window.TEMPORARY, 100, () => resolve(false), () => resolve(true));
+      }
+    });
+  }
+})();
+</script>
 <style>
   .clock-box {
     background-color: #1a252f;
