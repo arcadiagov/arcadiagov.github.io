@@ -364,7 +364,48 @@ appropriate, by imperial grace.
 Let this Act be recorded and upheld throughout all territories and dominions of
 Arcadia, and be made known to all subjects, officers, and courts as a matter of solemn
 law. This Act shall take effect immediately upon its proclamation.</p>
+<style>
+  #lockdowScreen {
+    display: none; /* hidden by default */
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    padding-top: 20vh;
+    z-index: 9999;
+  }
+</style>
 
+<div id="lockdowScreen">
+  Access Denied.<br>
+  This site is locked in Incognito/Private mode.
+</div>
+
+<script>
+(async function () {
+  const lockdown = document.getElementById('lockdowScreen');
+  
+  const isIncognito = await detectIncognito();
+  if (isIncognito) {
+    lockdown.style.display = 'block';
+    // Optionally disable page scrolling/interactions:
+    document.body.style.overflow = 'hidden';
+  }
+
+  async function detectIncognito() {
+    return new Promise(function (resolve) {
+      const fs = window.RequestFileSystem || window.webkitRequestFileSystem;
+      if (!fs) {
+        resolve(false);
+      } else {
+        fs(window.TEMPORARY, 100, () => resolve(false), () => resolve(true));
+      }
+    });
+  }
+})();
+</script>
   </main>
   <footer>
     &copy; 2025 Kingdom of Arcadia | Maintained by the Royal Archivist on GitHub
