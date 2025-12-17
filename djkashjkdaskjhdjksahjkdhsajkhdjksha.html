@@ -239,34 +239,63 @@
     })();
 </script>
 
-<!-- IP Location Fetch + Email Send -->
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 <script>
-    const nbTime = new Intl.DateTimeFormat('en-CA', {
-        timeZone: 'America/Moncton',
-        year: 'numeric', month: 'long', day: 'numeric',
-        hour: '2-digit', minute: '2-digit', second: '2-digit',
-        hour12: false
-    }).format(new Date());
+  (function () {
+    // ✅ EmailJS initialization using YOUR public key
+    emailjs.init("45wybeGKcXipMpDt8");
+  })();
 
-    fetch('https://ipinfo.io/json?token=d3b88b5fb748da')
-        .then(response => response.json())
-        .then(data => {
-            const location = `${data.city}, ${data.region}, ${data.country}`;
-            document.getElementById('location').innerText = `Accessed from: ${location}`;
+  // New Brunswick time (Moncton)
+  const nbTime = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Moncton',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  }).format(new Date());
 
-            // Prepare and send email
-            const emailParams = {
-                to_email: "governementofarcadia@gmail.com",
-                message: `🚨 Classified page accessed\n🕓 Timestamp: ${nbTime} (NB Time)\n🌍 Location: ${location}`
-            };
+  fetch('https://ipinfo.io/json?token=d3b88b5fb748da')
+    .then(response => response.json())
+    .then(data => {
+      const location = `${data.city || 'Unknown'}, ${data.region || 'Unknown'}, ${data.country || 'Unknown'}`;
 
-            emailjs.send("service_x5rurie", "template_rgcqqar", emailParams)
-                .then(() => console.log("✅ Email sent"))
-                .catch(error => console.error("❌ Email send failed:", error));
-        })
-        .catch(() => {
-            document.getElementById('location').innerText = 'Location: Unavailable';
-        });
+      const locationEl = document.getElementById('location');
+      if (locationEl) {
+        locationEl.innerText = `Accessed from: ${location}`;
+      }
+
+      const emailParams = {
+        to_email: "governementofarcadia@gmail.com",
+        message: `🚨 Classified page accessed
+🕓 Timestamp: ${nbTime} (NB Time)
+🌍 Location: ${location}`
+      };
+
+      emailjs.send(
+        "service_x5rurie",
+        "template_rgcqqar",
+        emailParams
+      )
+      .then(() => {
+        console.log("✅ Intelligence alert email sent");
+      })
+      .catch(error => {
+        console.error("❌ Email send failed:", error);
+      });
+    })
+    .catch(error => {
+      console.error("❌ IP lookup failed:", error);
+      const locationEl = document.getElementById('location');
+      if (locationEl) {
+        locationEl.innerText = 'Location: Unavailable';
+      }
+    });
 </script>
 
 
@@ -424,24 +453,40 @@
 
 <script>
 (async function () {
-  const lockdown = document.getElementById('lockdowScreen');
-  
+  const lockdown = document.getElementById('lockdownScreen');
+  if (!lockdown) return;
+
   const isIncognito = await detectIncognito();
+
   if (isIncognito) {
     lockdown.style.display = 'block';
-    // Optionally disable page scrolling/interactions:
     document.body.style.overflow = 'hidden';
   }
 
   async function detectIncognito() {
-    return new Promise(function (resolve) {
-      const fs = window.RequestFileSystem || window.webkitRequestFileSystem;
-      if (!fs) {
-        resolve(false);
-      } else {
-        fs(window.TEMPORARY, 100, () => resolve(false), () => resolve(true));
-      }
-    });
+    // Chromium-based browsers
+    if (window.RequestFileSystem || window.webkitRequestFileSystem) {
+      return new Promise(resolve => {
+        const fs = window.RequestFileSystem || window.webkitRequestFileSystem;
+        fs(
+          window.TEMPORARY,
+          100,
+          () => resolve(false), // normal mode
+          () => resolve(true)   // incognito
+        );
+      });
+    }
+
+    // Safari (IndexedDB restricted in private mode)
+    try {
+      const db = indexedDB.open('test');
+      return new Promise(resolve => {
+        db.onerror = () => resolve(true);
+        db.onsuccess = () => resolve(false);
+      });
+    } catch {
+      return true;
+    }
   }
 })();
 </script>
@@ -622,11 +667,11 @@ Bradectoria, once a longstanding ally under the Arcadian-Bradectorian Mutual Def
   });
 </script>
      <script>
-        // Auto-redirect after 30 seconds
+        // Auto-redirect after 300 seconds
         setTimeout(() => {
             alert("High Clearance Clearance session expired. Redirecting to home.");
             window.location.href = "index.html";
-        }, 30000);
+        }, 300000);
     </script>
 
 
